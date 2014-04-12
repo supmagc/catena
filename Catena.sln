@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Emerald", "Emerald\Emerald.vcxproj", "{60C82729-E6A9-4289-BF18-95DBB8C3EDEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9602C598-6855-4C81-B61D-75C9D1356083} = {9602C598-6855-4C81-B61D-75C9D1356083}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jade", "Jade\Jade.vcxproj", "{37926DE0-E206-4488-BBBB-C2195B8F098B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9602C598-6855-4C81-B61D-75C9D1356083} = {9602C598-6855-4C81-B61D-75C9D1356083}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rock", "Rock\Rock.vcxproj", "{9602C598-6855-4C81-B61D-75C9D1356083}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RockTester", "RockTester\RockTester.vcxproj", "{9EC04D66-0C0A-4E19-9D18-44F26B7F8BA2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9602C598-6855-4C81-B61D-75C9D1356083} = {9602C598-6855-4C81-B61D-75C9D1356083}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JadeTester", "JadeTester\JadeTester.vcxproj", "{B6528363-7768-4035-B49B-CD5562DF8214}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37926DE0-E206-4488-BBBB-C2195B8F098B} = {37926DE0-E206-4488-BBBB-C2195B8F098B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://jelle-asus:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Emerald\\Emerald.vcxproj
+		SccProjectName1 = Emerald
+		SccLocalPath1 = Emerald
+		SccProjectUniqueName2 = Jade\\Jade.vcxproj
+		SccProjectName2 = Jade
+		SccLocalPath2 = Jade
+		SccProjectUniqueName3 = Rock\\Rock.vcxproj
+		SccProjectName3 = Rock
+		SccLocalPath3 = Rock
+		SccProjectUniqueName4 = RockTester\\RockTester.vcxproj
+		SccProjectName4 = RockTester
+		SccLocalPath4 = RockTester
+		SccProjectUniqueName5 = JadeTester\\JadeTester.vcxproj
+		SccProjectName5 = JadeTester
+		SccLocalPath5 = JadeTester
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60C82729-E6A9-4289-BF18-95DBB8C3EDEB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{60C82729-E6A9-4289-BF18-95DBB8C3EDEB}.Debug|Win32.Build.0 = Debug|Win32
+		{60C82729-E6A9-4289-BF18-95DBB8C3EDEB}.Release|Win32.ActiveCfg = Release|Win32
+		{60C82729-E6A9-4289-BF18-95DBB8C3EDEB}.Release|Win32.Build.0 = Release|Win32
+		{37926DE0-E206-4488-BBBB-C2195B8F098B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{37926DE0-E206-4488-BBBB-C2195B8F098B}.Debug|Win32.Build.0 = Debug|Win32
+		{37926DE0-E206-4488-BBBB-C2195B8F098B}.Release|Win32.ActiveCfg = Release|Win32
+		{37926DE0-E206-4488-BBBB-C2195B8F098B}.Release|Win32.Build.0 = Release|Win32
+		{9602C598-6855-4C81-B61D-75C9D1356083}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9602C598-6855-4C81-B61D-75C9D1356083}.Debug|Win32.Build.0 = Debug|Win32
+		{9602C598-6855-4C81-B61D-75C9D1356083}.Release|Win32.ActiveCfg = Release|Win32
+		{9602C598-6855-4C81-B61D-75C9D1356083}.Release|Win32.Build.0 = Release|Win32
+		{9EC04D66-0C0A-4E19-9D18-44F26B7F8BA2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9EC04D66-0C0A-4E19-9D18-44F26B7F8BA2}.Debug|Win32.Build.0 = Debug|Win32
+		{9EC04D66-0C0A-4E19-9D18-44F26B7F8BA2}.Release|Win32.ActiveCfg = Release|Win32
+		{9EC04D66-0C0A-4E19-9D18-44F26B7F8BA2}.Release|Win32.Build.0 = Release|Win32
+		{B6528363-7768-4035-B49B-CD5562DF8214}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B6528363-7768-4035-B49B-CD5562DF8214}.Debug|Win32.Build.0 = Debug|Win32
+		{B6528363-7768-4035-B49B-CD5562DF8214}.Release|Win32.ActiveCfg = Release|Win32
+		{B6528363-7768-4035-B49B-CD5562DF8214}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
