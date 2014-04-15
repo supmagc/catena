@@ -1,0 +1,13 @@
+﻿Build started 15/04/2014 23:33:16.
+     1>Project "D:\code\Catena\Development\Catena\Chalk\Chalk.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Chalk.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\code\Catena\Development\Catena\Debug\Chalk.lib" /NOLOGO Debug\stdafx.obj
+         Chalk.vcxproj -> D:\code\Catena\Development\Catena\Debug\Chalk.lib
+     1>Done Building Project "D:\code\Catena\Development\Catena\Chalk\Chalk.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.37
