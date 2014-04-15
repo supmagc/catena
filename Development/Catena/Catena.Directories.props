@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)..\Build\$(Configuration)-$(PlatformName)\</OutDir>
+    <IntDir>$(SolutionDir)..\Intermediate\$(ProjectName)\$(Configuration)-$(PlatformName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <ExecutablePath>$(SolutionDir)\..\Build\$(Configuration)-$(PlatformName)\;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(ProjectDir)inc;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\Build\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <_PropertySheetDisplayName>Catena.Configuration</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
