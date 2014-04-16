@@ -7,7 +7,7 @@
     <IntDir>$(SolutionDir)..\Intermediate\$(ProjectName)\$(Configuration)-$(PlatformName)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
     <ExecutablePath>$(SolutionDir)\..\Build\$(Configuration)-$(PlatformName)\;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>$(ProjectDir)inc\;$(SolutionDir)Rock\inc\;$(SolutionDir)Chalk\inc\;$(SolutionDir)Chalk_d3d9\inc\;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)inc\;$(SolutionDir)Rock\inc\;$(SolutionDir)Chalk\inc\;$(SolutionDir)Chalk_d3d9\inc\;$(SolutionDir)Catena\inc\;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\Build\$(Configuration)-$(PlatformName)\;$(LibraryPath)</LibraryPath>
     <_PropertySheetDisplayName>Catena.Configuration</_PropertySheetDisplayName>
   </PropertyGroup>
