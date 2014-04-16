@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\ChalkStd.h">
+    <ClInclude Include="inc\Chalk_d3d9Std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Chalk.h">
+    <ClInclude Include="inc\Chalk_d3d9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ChalkStd.cpp">
+    <ClCompile Include="src\Chalk_d3d9Std.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
