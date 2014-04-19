@@ -11,37 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\RockColorB.h" />
-    <ClInclude Include="inc\RockColorBA.h" />
-    <ClInclude Include="inc\RockColorRGB.h" />
-    <ClInclude Include="inc\RockColorRGBA.h" />
-    <ClInclude Include="inc\RockDefines.h" />
-    <ClInclude Include="inc\RockDelegate.h" />
-    <ClInclude Include="inc\RockException.h" />
-    <ClInclude Include="inc\Rock.h" />
-    <ClInclude Include="inc\RockMatrix4x4.h" />
-    <ClInclude Include="inc\RockQuaternion.h" />
-    <ClInclude Include="inc\RockStd.h" />
-    <ClInclude Include="inc\RockString.h" />
-    <ClInclude Include="inc\RockTypes.h" />
-    <ClInclude Include="inc\RockVector2.h" />
-    <ClInclude Include="inc\RockVector3.h" />
-    <ClInclude Include="inc\RockVector4.h" />
+    <ClInclude Include="inc\Wood.h" />
+    <ClInclude Include="inc\WoodStd.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Delegate.cpp" />
-    <ClCompile Include="src\Exception.cpp" />
-    <ClCompile Include="src\Matrix4x4.cpp" />
-    <ClCompile Include="src\Std.cpp" />
-    <ClCompile Include="src\String.cpp">
+    <ClCompile Include="src\WoodStd.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{6BC15FBF-C62C-4FFE-AA6E-9784E28D142D}</ProjectGuid>
+    <ProjectGuid>{B790873D-D884-416C-BB1D-0FBCC5B45B98}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Rock</RootNamespace>
+    <RootNamespace>Wood</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -75,9 +56,8 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ROCK_EXPORTS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <PrecompiledHeaderFile>RockStd.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -91,9 +71,8 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>ROCK_EXPORTS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <PrecompiledHeaderFile>RockStd.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
