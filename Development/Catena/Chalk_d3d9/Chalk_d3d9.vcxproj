@@ -24,6 +24,7 @@
     <ProjectGuid>{EDA55B57-CDEC-4528-A6B7-E064B6B3A1F8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Chalk_d3d9</RootNamespace>
+    <ProjectName>Chalk_D3d9</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -7,5 +7,6 @@
 #include "RockException.h"
 #include "RockDelegate.h"
 #include "RockString.h"
+#include "RockMatrix4x4.h"
 
 #endif // _H_ROCK
