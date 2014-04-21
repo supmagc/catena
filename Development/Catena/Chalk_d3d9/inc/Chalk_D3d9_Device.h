@@ -20,10 +20,10 @@ namespace Chalk {
             Device(DeviceSettings const& oSettings);
             virtual ~Device();
 
-            virtual RBOOL CreateDevice();
+            virtual RBOOL Create();
             virtual RBOOL BackBufferClear();
             virtual RBOOL BackBufferSwitch();
-            virtual void DestroyDevice();
+            virtual void Destroy();
 
         private:
             struct DeviceImpl;

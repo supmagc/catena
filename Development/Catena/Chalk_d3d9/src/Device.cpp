@@ -21,7 +21,7 @@ Device::~Device() {
     SAFE_DELETE(m_pImpl);
 }
 
-RBOOL Device::CreateDevice() {
+RBOOL Device::Create() {
     if(!m_pImpl->pContext)
         return false;
     if(!m_oSettings.hWindow)
@@ -65,6 +65,6 @@ RBOOL Device::BackBufferSwitch() {
     return true;
 }
 
-void Device::DestroyDevice() {
+void Device::Destroy() {
     SAFE_RELEASE(m_pImpl->pDevice);
 }
