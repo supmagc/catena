@@ -12,10 +12,10 @@ namespace Chalk {
         Device();
         virtual ~Device();
 
-        virtual RBOOL CreateDevice() =0;
+        virtual RBOOL Create() =0;
         virtual RBOOL BackBufferClear() =0;
         virtual RBOOL BackBufferSwitch() =0;
-        virtual void DestroyDevice() =0;
+        virtual void Destroy() =0;
 
     private:
         Device(Device const&);

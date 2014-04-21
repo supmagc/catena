@@ -22,7 +22,7 @@ RBOOL Core::Create(HWND hWnd) {
     Chalk::D3d9::DeviceSettings oSettings;
     oSettings.hWindow = hWnd;
     m_pImpl->pDevice = new Chalk::D3d9::Device(oSettings);
-    return m_pImpl->pDevice->CreateDevice();
+    return m_pImpl->pDevice->Create();
 }
 #endif
 
