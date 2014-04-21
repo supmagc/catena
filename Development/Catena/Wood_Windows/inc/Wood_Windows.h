@@ -1,6 +1,7 @@
 #ifndef _H_WOOD_WINDOWS
 #define _H_WOOD_WINDOWS
 
-#include "Wood_WindowsStd.h"
+#include "Wood_Windows_Std.h"
+#include "Wood_Windows_WindowMain.h"
 
-#endif
+#endif // _H_WOOD_WINDOWS

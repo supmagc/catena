@@ -12,11 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Wood_Windows.h" />
-    <ClInclude Include="inc\Wood_WindowsStd.h" />
+    <ClInclude Include="inc\Wood_Windows_Std.h" />
+    <ClInclude Include="inc\Wood_Windows_WindowMain.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Wood_WindowsStd.cpp">
+    <ClCompile Include="src\WindowMain.cpp" />
+    <ClCompile Include="src\Std.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -63,6 +66,10 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -80,6 +87,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,12 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Wood.h" />
-    <ClInclude Include="inc\WoodStd.h" />
+    <ClInclude Include="inc\Wood_Std.h" />
+    <ClInclude Include="inc\Wood_WindowMain.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\WoodStd.cpp">
+    <ClCompile Include="src\Std.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\WindowMain.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B790873D-D884-416C-BB1D-0FBCC5B45B98}</ProjectGuid>
