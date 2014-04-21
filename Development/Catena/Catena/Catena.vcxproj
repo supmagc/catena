@@ -11,24 +11,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Catena.h" />
-    <ClInclude Include="inc\Resource.h" />
-    <ClInclude Include="inc\CatenaStd.h" />
-    <ClInclude Include="inc\targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\Catena.ico" />
-    <Image Include="res\small.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="res\Catena.rc" />
+    <ClInclude Include="inc\Catena_Std.h" />
+    <ClInclude Include="inc\Resources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Catena.cpp" />
-    <ClCompile Include="src\CatenaStd.cpp">
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Std.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\icon_large.ico" />
+    <Image Include="res\icon_small.ico" />
+    <Image Include="res\splash.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\cursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resources.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FEE937BA-07E2-46D2-9FE8-7AE05E7C6D79}</ProjectGuid>
@@ -78,6 +81,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Rock.lib;Wood.lib;Wood_Windows.lib;Diamond.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -95,6 +99,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Rock.lib;Wood.lib;Wood_Windows.lib;Diamond.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

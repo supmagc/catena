@@ -15,38 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\targetver.h">
+    <ClInclude Include="inc\Catena_Std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Catena.h">
+    <ClInclude Include="inc\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CatenaStd.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\small.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\Catena.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="res\Catena.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Catena.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CatenaStd.cpp">
+    <ClCompile Include="src\Std.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\splash.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon_large.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon_small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\cursor.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
