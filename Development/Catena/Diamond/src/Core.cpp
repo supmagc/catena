@@ -6,6 +6,7 @@ using namespace Diamond;
 
 struct Diamond::Core::CoreImpl {
     Device* pDevice;
+    Shader* pShader;
 };
 
 Core::Core() : m_pImpl(RNULL) {
@@ -21,14 +22,29 @@ Core::~Core() {
 RBOOL Core::Create(HWND hWnd) {
     Chalk::D3d9::DeviceSettings oSettings;
     oSettings.hWindow = hWnd;
+
     m_pImpl->pDevice = new Chalk::D3d9::Device(oSettings);
-    return m_pImpl->pDevice->Create();
+    if(!m_pImpl->pDevice->Create())
+        return false;
+
+    m_pImpl->pShader = new Chalk::D3d9::Shader(dynamic_cast<Chalk::D3d9::Device*>(m_pImpl->pDevice));
+    if(!m_pImpl->pShader->Load())
+        return false;
+
+    return true;
 }
 #endif
 
 RBOOL Core::Update() {
+    RBOOL bError = false;
+
     if(!m_pImpl->pDevice)
         return false;
+    if(!m_pImpl->pShader);
 
-    return m_pImpl->pDevice->BackBufferClear() && m_pImpl->pDevice->BackBufferSwitch();
+    bError = bError || !m_pImpl->pDevice->BackBufferClear();
+    bError = bError || !m_pImpl->pShader->Set();
+    bError = bError || !m_pImpl->pDevice->BackBufferSwitch();
+
+    return !bError;
 }

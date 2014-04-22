@@ -7,6 +7,9 @@
 
 using namespace Rock;
 
+struct IDirect3D9;
+struct IDirect3DDevice9;
+
 namespace Chalk {
 
     namespace D3d9 {
@@ -24,6 +27,9 @@ namespace Chalk {
             virtual RBOOL BackBufferClear();
             virtual RBOOL BackBufferSwitch();
             virtual void Destroy();
+
+            IDirect3D9* GetDirect3D9();
+            IDirect3DDevice9* GetDirect3DDevice9();
 
         private:
             struct DeviceImpl;

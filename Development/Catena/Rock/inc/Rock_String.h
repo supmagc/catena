@@ -17,7 +17,7 @@
 
 namespace Rock {
 
-    class DLL_EXPORT String {
+    class ROCK_API String {
     public:
         String();
         String(char const* str);
@@ -103,10 +103,10 @@ namespace Rock {
         RCHAR * m_aData;
     };
 
-    DLL_EXPORT std::ostream& operator<<(std::ostream & stream, String const& str);
-    DLL_EXPORT std::wostream& operator<<(std::wostream & stream, String const& str);
-    DLL_EXPORT std::istream& operator>>(std::istream & stream, String & str);
-    DLL_EXPORT std::wistream& operator>>(std::wistream & stream, String & str);
+    ROCK_API std::ostream& operator<<(std::ostream & stream, String const& str);
+    ROCK_API std::wostream& operator<<(std::wostream & stream, String const& str);
+    ROCK_API std::istream& operator>>(std::istream & stream, String & str);
+    ROCK_API std::wistream& operator>>(std::wistream & stream, String & str);
 
     typedef String RString;
     typedef String Str;
