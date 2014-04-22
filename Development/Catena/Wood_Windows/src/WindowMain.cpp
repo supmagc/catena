@@ -36,7 +36,7 @@ RINT WindowMain::Run() {
     oClass.cbWndExtra		= 0;
     oClass.hInstance		= g_hInstance;
     oClass.hIcon			= LoadIcon(g_hInstance, MAKEINTRESOURCE(g_oSettings.nIdIconLarge));
-    oClass.hCursor		    = LoadCursor(NULL, IDC_ARROW);
+    oClass.hCursor		    = LoadCursor(g_hInstance, MAKEINTRESOURCE(g_oSettings.nIdCursor));
     oClass.hbrBackground	= (HBRUSH)(COLOR_WINDOW+2);
     oClass.lpszMenuName	    = RNULL;
     oClass.lpszClassName	= _T("WoodWindowsWindowMain");
