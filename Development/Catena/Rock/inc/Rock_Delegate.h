@@ -7,7 +7,7 @@
 namespace Rock {
 
 	template <typename A0>
-	class DLL_EXPORT _BaseDelegate {
+	class ROCK_API _BaseDelegate {
 	public:
 		virtual ~_BaseDelegate() {}
 		virtual void operator()(void *, A0) =0;
@@ -19,7 +19,7 @@ namespace Rock {
 	};
 
 	template <typename A0>
-	class DLL_EXPORT Delegate {
+	class ROCK_API Delegate {
 	public:
 		Delegate(Delegate<A0> const& obj) : m_pDelegate(obj.m_pDelegate), m_pnCount(obj.m_pnCount) {
 			++(*m_pnCount);
@@ -74,7 +74,7 @@ namespace Rock {
 	};
 
 	template <typename T, typename A0>
-	class DLL_EXPORT _MethodDelegate : public _BaseDelegate<A0> {
+	class ROCK_API _MethodDelegate : public _BaseDelegate<A0> {
 	public:
 		typedef T* Class;
 		typedef void (T::*Method)(void*, A0);
@@ -97,7 +97,7 @@ namespace Rock {
 	};
 
 	template <typename A0>
-	class DLL_EXPORT _FunctionDelegate : public _BaseDelegate<A0> {
+	class ROCK_API _FunctionDelegate : public _BaseDelegate<A0> {
 	public:
 		typedef void (*Function)(void*, A0);
 

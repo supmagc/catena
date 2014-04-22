@@ -51,7 +51,7 @@ RBOOL Device::BackBufferClear() {
     if(!m_pImpl->pDevice)
         return false;
 
-    m_pImpl->pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(200, 40, 0), 1, 0);
+    m_pImpl->pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 100, 160), 1, 0);
     m_pImpl->pDevice->BeginScene();
     return true;
 }
@@ -67,4 +67,12 @@ RBOOL Device::BackBufferSwitch() {
 
 void Device::Destroy() {
     SAFE_RELEASE(m_pImpl->pDevice);
+}
+
+IDirect3D9* Device::GetDirect3D9() {
+    return m_pImpl->pContext;
+}
+
+IDirect3DDevice9* Device::GetDirect3DDevice9() {
+    return m_pImpl->pDevice;
 }

@@ -23,12 +23,24 @@
     <ClInclude Include="inc\Chalk_D3d9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Chalk_D3d9_Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chalk_D3d9_Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Std.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

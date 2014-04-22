@@ -34,6 +34,7 @@ namespace Rock {
 };
 
 #define RNULL 0
-#define RFLOAT_SIZE sizeof(RFLOAT)
+#define RFLOAT_SIZE sizeof(Rock::RFLOAT)
+#define RDOUBLE_SIZE sizeof(Rock::RDOUBLE)
 
 #endif // _H_ROCK_TYPES

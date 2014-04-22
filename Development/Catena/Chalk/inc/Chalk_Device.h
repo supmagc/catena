@@ -2,12 +2,13 @@
 #define _H_CHALK_DEVICE
 
 #include "Rock.h"
+#include "Chalk_Defines.h"
 
 using namespace Rock;
 
 namespace Chalk {
 
-    class DLL_EXPORT Device {
+    class CHALK_API Device {
     public:
         Device();
         virtual ~Device();

@@ -290,24 +290,24 @@ String String::Replace(String const& search, String const& replace) const {
 	return ret + SubString(nSourceOffset);
 }
 
-DLL_EXPORT std::ostream& Rock::operator<<(std::ostream & stream, String const& str) {
+ROCK_API std::ostream& Rock::operator<<(std::ostream & stream, String const& str) {
 	stream << str.GetData();
 	return stream;
 }
 
-DLL_EXPORT std::wostream& Rock::operator<<(std::wostream & stream, String const& str) {
+ROCK_API std::wostream& Rock::operator<<(std::wostream & stream, String const& str) {
 	stream << str.GetData();
 	return stream;
 }
 
-DLL_EXPORT std::istream& Rock::operator>>(std::istream & stream, String & str) {
+ROCK_API std::istream& Rock::operator>>(std::istream & stream, String & str) {
 	std::string s;
 	stream >> s;
 	str = String(s.c_str());
 	return stream;
 }
 
-DLL_EXPORT std::wistream& Rock::operator>>(std::wistream & stream, String & str) {
+ROCK_API std::wistream& Rock::operator>>(std::wistream & stream, String & str) {
 	std::wstring s;
 	stream >> s;
 	str = String(s.c_str());

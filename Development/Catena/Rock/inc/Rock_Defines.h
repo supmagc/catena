@@ -37,5 +37,6 @@
 #define FLAG_CLEAR(n, f) (n&=~(f))
 #define DLL_EXPORT __declspec(dllexport)
 #define DLL_IMPORT __declspec(dllimport)
+#define ROCK_API DLL_EXPORT
 
 #endif // _H_ROCK_DEFINES

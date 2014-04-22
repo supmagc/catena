@@ -7,7 +7,7 @@
 
 namespace Rock {
 
-    class DLL_EXPORT Exception {
+    class ROCK_API Exception {
     public:
         Exception(char const* sMessage) : m_sMessage(Str(sMessage)) {}
         Exception(RCHAR const* sMessage) : m_sMessage(Str(sMessage)) {}
@@ -20,7 +20,7 @@ namespace Rock {
     };
 };
 
-#define EXCEPTION(n) class DLL_EXPORT n##Exception : public Rock::Exception { \
+#define EXCEPTION(n) class ROCK_API n##Exception : public Rock::Exception { \
 public: \
     n##Exception(char const* sMessage) : Rock::Exception(Rock::String(sMessage)) { } \
     n##Exception(Rock::RCHAR const* sMessage) : Rock::Exception(Rock::String(sMessage)) { } \
