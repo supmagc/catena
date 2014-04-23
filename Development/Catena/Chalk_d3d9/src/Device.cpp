@@ -10,7 +10,7 @@ struct Chalk::D3d9::Device::DeviceImpl {
     IDirect3DDevice9* pDevice;
 };
 
-Device::Device(DeviceSettings const& oSettings) : m_pImpl(RNULL), m_oSettings(oSettings), Chalk::Device() {
+Device::Device(DeviceSettings const& oSettings) : m_pImpl(RNULL), m_oSettings(oSettings) {
     m_pImpl = new DeviceImpl();
     m_pImpl->pContext = Direct3DCreate9(D3D_SDK_VERSION);
 }

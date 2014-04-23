@@ -17,16 +17,16 @@
     <ClInclude Include="inc\Chalk_Std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Chalk_Device.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Chalk_Defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Chalk_Shader.h">
+    <ClInclude Include="inc\Chalk_Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Chalk_Mesh.h">
+    <ClInclude Include="inc\Chalk_IDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Chalk_IShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -34,13 +34,13 @@
     <ClCompile Include="src\Std.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Device.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Shader.cpp">
+    <ClCompile Include="src\IDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IShader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

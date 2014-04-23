@@ -3,8 +3,8 @@
 
 #include "Chalk_Std.h"
 #include "Chalk_Defines.h"
-#include "Chalk_Device.h"
-#include "Chalk_Shader.h"
+#include "Chalk_IDevice.h"
+#include "Chalk_IShader.h"
 #include "Chalk_Mesh.h"
 
 #endif // _H_CHALK

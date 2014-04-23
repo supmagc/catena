@@ -18,7 +18,7 @@ namespace Chalk {
             HWND hWindow;
         };
 
-        class CHALK_D3D9_API Device : public Chalk::Device {
+        class CHALK_D3D9_API Device : public Chalk::IDevice {
         public:
             Device(DeviceSettings const& oSettings);
             virtual ~Device();
