@@ -13,13 +13,14 @@ namespace Chalk {
 
         class Device;
 
-        class CHALK_D3D9_API Shader : public Chalk::Shader {
+        class CHALK_D3D9_API Shader : public Chalk::IShader {
         public:
             Shader(Device* pDevice);
             virtual ~Shader();
 
             virtual RBOOL Load();
             virtual RBOOL Set();
+            virtual IDevice* GetDevice();
 
         private:
             struct ShaderImpl;

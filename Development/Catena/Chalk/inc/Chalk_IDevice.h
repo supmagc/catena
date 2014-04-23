@@ -1,5 +1,5 @@
-#ifndef _H_CHALK_DEVICE
-#define _H_CHALK_DEVICE
+#ifndef _H_CHALK_IDEVICE
+#define _H_CHALK_IDEVICE
 
 #include "Rock.h"
 #include "Chalk_Defines.h"
@@ -8,10 +8,10 @@ using namespace Rock;
 
 namespace Chalk {
 
-    class CHALK_API Device {
+    class CHALK_API IDevice {
     public:
-        Device();
-        virtual ~Device();
+        IDevice() {}
+        virtual ~IDevice() {}
 
         virtual RBOOL Create() =0;
         virtual RBOOL BackBufferClear() =0;
@@ -19,9 +19,9 @@ namespace Chalk {
         virtual void Destroy() =0;
 
     private:
-        Device(Device const&);
-        Device& operator=(Device const&);
+        IDevice(IDevice const&);
+        IDevice& operator=(IDevice const&);
     };
 };
 
-#endif // _H_CHALK_DEVICE
+#endif // _H_CHALK_IDEVICE

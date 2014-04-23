@@ -5,8 +5,8 @@ using namespace Chalk;
 using namespace Diamond;
 
 struct Diamond::Core::CoreImpl {
-    Device* pDevice;
-    Shader* pShader;
+    IDevice* pDevice;
+    IShader* pShader;
 };
 
 Core::Core() : m_pImpl(RNULL) {
@@ -40,7 +40,8 @@ RBOOL Core::Update() {
 
     if(!m_pImpl->pDevice)
         return false;
-    if(!m_pImpl->pShader);
+    if(!m_pImpl->pShader)
+        return false;
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();
