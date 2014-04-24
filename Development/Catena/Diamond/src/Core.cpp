@@ -7,6 +7,7 @@ using namespace Diamond;
 struct Diamond::Core::CoreImpl {
     IDevice* pDevice;
     IShader* pShader;
+    IVertexBuffer *pVertexBuffer;
 };
 
 Core::Core() : m_pImpl(RNULL) {
@@ -31,6 +32,10 @@ RBOOL Core::Create(HWND hWnd) {
     if(!m_pImpl->pShader->Load())
         return false;
 
+    m_pImpl->pVertexBuffer = new Chalk::D3d9::VertexBuffer(dynamic_cast<Chalk::D3d9::Device*>(m_pImpl->pDevice));
+    if(!m_pImpl->pVertexBuffer->Load())
+        return false;
+
     return true;
 }
 #endif
@@ -45,6 +50,7 @@ RBOOL Core::Update() {
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();
+    bError = bError || !m_pImpl->pVertexBuffer->Set();
     bError = bError || !m_pImpl->pDevice->BackBufferSwitch();
 
     return !bError;

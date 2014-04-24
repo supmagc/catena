@@ -5,6 +5,6 @@
 #include "Chalk_Defines.h"
 #include "Chalk_IDevice.h"
 #include "Chalk_IShader.h"
-#include "Chalk_Mesh.h"
+#include "Chalk_IVertexBuffer.h"
 
 #endif // _H_CHALK
