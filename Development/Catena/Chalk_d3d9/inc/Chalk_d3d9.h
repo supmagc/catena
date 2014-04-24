@@ -5,6 +5,6 @@
 #include "Chalk_D3d9_Defines.h"
 #include "Chalk_D3d9_Device.h"
 #include "Chalk_D3d9_Shader.h"
-#include "Chalk_D3d9_Mesh.h"
+#include "Chalk_D3d9_VertexBuffer.h"
 
 #endif // _H_CHALK_D3D9
