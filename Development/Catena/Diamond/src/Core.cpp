@@ -15,6 +15,8 @@ Core::Core() : m_pImpl(RNULL) {
 }
 
 Core::~Core() {
+    SAFE_DELETE(m_pImpl->pVertexBuffer);
+    SAFE_DELETE(m_pImpl->pShader);
     SAFE_DELETE(m_pImpl->pDevice);
     SAFE_DELETE(m_pImpl);
 }
