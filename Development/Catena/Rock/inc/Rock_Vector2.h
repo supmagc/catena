@@ -8,6 +8,11 @@ namespace Rock {
     struct DLL_EXPORT Vector2 {
 
         RFLOAT x, y;
+
+        Vector2();
+        Vector2(RFLOAT x, RFLOAT y);
+        Vector2(Vector2 const& vCopy);
+        Vector2& operator=(Vector2 const& vCopy);
     };
 
     typedef Vector2 RVector2;

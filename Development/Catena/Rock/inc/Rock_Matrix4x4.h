@@ -10,7 +10,16 @@ namespace Rock {
     #pragma pack(16)
     struct DLL_EXPORT Matrix4x4 {
 
-        RFLOAT m[16];
+        union {
+            struct {
+                RFLOAT _11, _12, _13, _14;
+                RFLOAT _21, _22, _23, _24;
+                RFLOAT _31, _32, _33, _34;
+                RFLOAT _41, _42, _43, _44;
+            };
+            RFLOAT rc[4][4];
+            RFLOAT v[16];
+        };
 
         Matrix4x4();
         Matrix4x4(Matrix4x4 const& mCopy);
@@ -22,17 +31,15 @@ namespace Rock {
         void SetColumn(RINT const nColumn, Vector4 const& vColumn);
         void SetColumn(RINT const nColumn, RFLOAT n0, RFLOAT n1, RFLOAT n2, RFLOAT n3);
         void SetAxisX(Vector3 const& vAxis);
-        void SetAxisX(RFLOAT n0, RFLOAT n1, RFLOAT n2);
+        void SetAxisX(RFLOAT x, RFLOAT y, RFLOAT z);
         void SetAxisY(Vector3 const& vAxis);
-        void SetAxisY(RFLOAT n0, RFLOAT n1, RFLOAT n2);
+        void SetAxisY(RFLOAT x, RFLOAT y, RFLOAT z);
         void SetAxisZ(Vector3 const& vAxis);
-        void SetAxisZ(RFLOAT n0, RFLOAT n1, RFLOAT n2);
-        void SetPosition(Vector3 const& vValue);
-        void SetPosition(RFLOAT n0, RFLOAT n1, RFLOAT n2);
+        void SetAxisZ(RFLOAT x, RFLOAT y, RFLOAT z);
+        void SetPosition(Vector3 const& vPosition);
+        void SetPosition(RFLOAT x, RFLOAT y, RFLOAT z);
         void SetCell(RINT nRow, RINT nColumn, RFLOAT nCell);
 
-        void GetCell(RINT nRow, RINT nColumn, RFLOAT& o_nValue) const;
-        RFLOAT GetCell(RINT nRow, RINT nColumn) const;
         void GetRow(RINT nRow, Vector4& o_vRow) const;
         Vector4 GetRow(RINT nRow) const;
         void GetColumn(RINT nColumn, Vector4& o_vColumn) const;
@@ -45,11 +52,13 @@ namespace Rock {
         Vector3 GetAxisZ() const;
         void GetPosition(Vector3& o_vPosition) const;
         Vector3 GetPosition() const;
+        void GetCell(RINT nRow, RINT nColumn, RFLOAT& o_nValue) const;
+        RFLOAT GetCell(RINT nRow, RINT nColumn) const;
 
         void MakeIdentity();
         void MakeInverse();
-        void TransformVector(Vector4 const& vIn, Vector4& o_vValue) const;
-        Vector4 TransformVector(Vector4 const& vIn) const;
+        //void TransformVector(Vector4 const& vIn, Vector4& o_vValue) const;
+        //Vector4 TransformVector(Vector4 const& vIn) const;
 
         Matrix4x4 operator*(Matrix4x4 mIn) const;
         Matrix4x4 operator*(RFLOAT nIn) const;
