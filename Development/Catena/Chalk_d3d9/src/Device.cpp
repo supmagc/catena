@@ -51,7 +51,7 @@ RBOOL Device::BackBufferClear() {
     if(!m_pImpl->pDevice)
         return false;
 
-    m_pImpl->pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 100, 160), 1, 0);
+    m_pImpl->pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(10, 120, 200), 1, 0);
     m_pImpl->pDevice->BeginScene();
     return true;
 }

@@ -1,4 +1,8 @@
-float4 main() : SV_TARGET
+struct PSIN {
+    float4 vColor: COLOR0;
+};
+
+float4 main(PSIN oIn) : COLOR
 {
-	return float4(1.0f, 1.0f, 1.0f, 1.0f);
+	return oIn.vColor; // float4(1.0f, 1.0f, 1.0f, 1.0f);
 }
