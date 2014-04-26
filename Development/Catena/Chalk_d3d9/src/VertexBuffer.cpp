@@ -6,10 +6,8 @@
 
 using namespace Chalk::D3d9;
 
-struct Chalk::D3d9::VertexBuffer::VertexBufferImpl {
+PIMPL_MAKE(Chalk::D3d9, VertexBuffer) {
     Device* pDevice;
-
-    IDirect3DIndexBuffer9 *pIndexBuffer;
     IDirect3DVertexBuffer9 *pVertexBuffer;
 };
 
@@ -19,16 +17,14 @@ struct CUSTOMVERTEX {
     DWORD color;
 };
 
-VertexBuffer::VertexBuffer(Device* pDevice) : m_pImpl(RNULL) {
-    m_pImpl = new VertexBufferImpl();
-    ZeroMemory(m_pImpl, sizeof(VertexBufferImpl));
-
-    m_pImpl->pDevice = pDevice;
+VertexBuffer::VertexBuffer(Device* pDevice) {
+    PIMPL_INIT(VertexBuffer);
+    PIMPL.pDevice = pDevice;
 }
 
 VertexBuffer::~VertexBuffer() {
     SAFE_RELEASE(m_pImpl->pVertexBuffer);
-    SAFE_DELETE(m_pImpl);
+    PIMPL_DELETE();
 }
 
 RBOOL VertexBuffer::Load() {

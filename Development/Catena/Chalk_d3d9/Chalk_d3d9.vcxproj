@@ -14,12 +14,14 @@
     <ClInclude Include="inc\Chalk_D3d9.h" />
     <ClInclude Include="inc\Chalk_D3d9_Defines.h" />
     <ClInclude Include="inc\Chalk_D3d9_Device.h" />
+    <ClInclude Include="inc\Chalk_D3d9_IndexBuffer.h" />
     <ClInclude Include="inc\Chalk_D3d9_VertexBuffer.h" />
     <ClInclude Include="inc\Chalk_D3d9_Shader.h" />
     <ClInclude Include="inc\Chalk_D3d9_Std.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Device.cpp" />
+    <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Std.cpp">

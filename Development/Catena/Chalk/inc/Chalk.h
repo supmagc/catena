@@ -6,5 +6,6 @@
 #include "Chalk_IDevice.h"
 #include "Chalk_IShader.h"
 #include "Chalk_IVertexBuffer.h"
+#include "Chalk_IIndexBuffer.h"
 
 #endif // _H_CHALK
