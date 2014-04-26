@@ -177,9 +177,9 @@ RFLOAT Matrix4x4::GetCell(RINT nRow, RINT nColumn) const {
 void Matrix4x4::MakeIdentity() {
     ZeroMemory(v, sizeof(v));
     _11 = 1;
-	_22 = 1;
-	_33 = 1;
-	_44 = 1;
+    _22 = 1;
+    _33 = 1;
+    _44 = 1;
 }
 
 void Matrix4x4::MakeInverse() {
@@ -187,96 +187,96 @@ void Matrix4x4::MakeInverse() {
 }
 
 Matrix4x4 Matrix4x4::CreatePerspectiveLH(RFLOAT nFOV, RFLOAT nAspectRatio, RFLOAT nNearClipping, RFLOAT nFarClipping) {
-	Matrix4x4 m = Matrix4x4();
-	RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
+    Matrix4x4 m = Matrix4x4();
+    RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
     m._11 = nF/nAspectRatio;
-	m._21 = nF;
-	m._33 = nFarClipping / (nFarClipping - nNearClipping);
-	m._34 = 1;
-	m._43 = (-nNearClipping * nFarClipping) / (nFarClipping - nNearClipping);
+    m._21 = nF;
+    m._33 = nFarClipping / (nFarClipping - nNearClipping);
+    m._34 = 1;
+    m._43 = (-nNearClipping * nFarClipping) / (nFarClipping - nNearClipping);
     return m;
 }
 
 Matrix4x4 Matrix4x4::CreatePerspectiveRH(RFLOAT nFOV, RFLOAT nAspectRatio, RFLOAT nNearClipping, RFLOAT nFarClipping) {
-	Matrix4x4 m = Matrix4x4();
-	RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
+    Matrix4x4 m = Matrix4x4();
+    RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
     m._11 = nF/nAspectRatio;
-	m._21 = nF;
-	m._33 = nFarClipping / (nFarClipping - nNearClipping);
-	m._34 = -1;
-	m._43 = (-nNearClipping * nFarClipping) / (nFarClipping - nNearClipping);
+    m._21 = nF;
+    m._33 = nFarClipping / (nFarClipping - nNearClipping);
+    m._34 = -1;
+    m._43 = (-nNearClipping * nFarClipping) / (nFarClipping - nNearClipping);
     return m;
 }
 
 Matrix4x4 Matrix4x4::CreateIdentity() {
-	Matrix4x4 m = Matrix4x4();
+    Matrix4x4 m = Matrix4x4();
     m.MakeIdentity();
     return m;
 }
 
 Matrix4x4 Matrix4x4::CreateViewLH(Vector3 const& vPosition, Vector3 const& vLookat, Vector3 const& vUp) {
-	//Vector3 vZ = vLookat - vPosition; vZ.Normalize();
-	//Vector3 vX, vY;
-	//CrossLH(vZ, vUp, vX); vX.Normalize();
-	//CrossRH(vZ, vX, vY); vY.Normalize();
-	Matrix4x4 m = Matrix4x4();
-	//M.m[0]  = vX.x;
-	//M.m[4]  = vX.y;
-	//M.m[8]  = vX.z;
-	//Dot(vX, vPosition, M.m[12]); M.m[12] *= -1;
-	//M.m[1]  = vY.x;
-	//M.m[5]  = vY.y;
-	//M.m[9]  = vY.z;
-	//Dot(vY, vPosition, M.m[13]); M.m[13] *= -1;
-	//M.m[2]  = vZ.x;
-	//M.m[6]  = vZ.y;
-	//M.m[10] = vZ.z;
-	//Dot(vZ, vPosition, M.m[14]); M.m[14] *= -1;
-	return m;
+    //Vector3 vZ = vLookat - vPosition; vZ.Normalize();
+    //Vector3 vX, vY;
+    //CrossLH(vZ, vUp, vX); vX.Normalize();
+    //CrossRH(vZ, vX, vY); vY.Normalize();
+    Matrix4x4 m = Matrix4x4();
+    //M.m[0]  = vX.x;
+    //M.m[4]  = vX.y;
+    //M.m[8]  = vX.z;
+    //Dot(vX, vPosition, M.m[12]); M.m[12] *= -1;
+    //M.m[1]  = vY.x;
+    //M.m[5]  = vY.y;
+    //M.m[9]  = vY.z;
+    //Dot(vY, vPosition, M.m[13]); M.m[13] *= -1;
+    //M.m[2]  = vZ.x;
+    //M.m[6]  = vZ.y;
+    //M.m[10] = vZ.z;
+    //Dot(vZ, vPosition, M.m[14]); M.m[14] *= -1;
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateViewRH(Vector3 const& vPosition, Vector3 const& vLookat, Vector3 const& vUp) {
-	//Vector3 vZ = vLookat - vPosition; vZ.Normalize();
-	//Vector3 vX, vY;
-	//CrossLH(vZ, vUp, vX); vX.Normalize();
-	//CrossRH(vZ, vX, vY); vY.Normalize();
-	Matrix4x4 m = Matrix4x4();
-	//M.m[0]  = vX.x;
-	//M.m[4]  = vX.y;
-	//M.m[8]  = vX.z;
-	//M.m[12] = -vPosition.x;//Dot(vPosition, vX);
-	//M.m[1]  = vY.x;
-	//M.m[5]  = vY.y;
-	//M.m[9]  = vY.z;
-	//M.m[13] = -vPosition.y;//Dot(vPosition, vY);
-	//M.m[2]  = vZ.x;
-	//M.m[6]  = vZ.y;
-	//M.m[10] = vZ.z;
-	//M.m[14] = -vPosition.z;//Dot(vPosition, vZ);
-	return m;
+    //Vector3 vZ = vLookat - vPosition; vZ.Normalize();
+    //Vector3 vX, vY;
+    //CrossLH(vZ, vUp, vX); vX.Normalize();
+    //CrossRH(vZ, vX, vY); vY.Normalize();
+    Matrix4x4 m = Matrix4x4();
+    //M.m[0]  = vX.x;
+    //M.m[4]  = vX.y;
+    //M.m[8]  = vX.z;
+    //M.m[12] = -vPosition.x;//Dot(vPosition, vX);
+    //M.m[1]  = vY.x;
+    //M.m[5]  = vY.y;
+    //M.m[9]  = vY.z;
+    //M.m[13] = -vPosition.y;//Dot(vPosition, vY);
+    //M.m[2]  = vZ.x;
+    //M.m[6]  = vZ.y;
+    //M.m[10] = vZ.z;
+    //M.m[14] = -vPosition.z;//Dot(vPosition, vZ);
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateScale(Vector3 const& vIn) {
-	Matrix4x4 m = Matrix4x4();
-	return m;
+    Matrix4x4 m = Matrix4x4();
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateTranslate(Vector3 const& vIn) {
-	Matrix4x4 m = Matrix4x4();
-	return m;
+    Matrix4x4 m = Matrix4x4();
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateRotateX(RFLOAT nRot) {
-	Matrix4x4 m = Matrix4x4();
-	return m;
+    Matrix4x4 m = Matrix4x4();
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateRotateY(RFLOAT nRot) {
-	Matrix4x4 m = Matrix4x4();
-	return m;
+    Matrix4x4 m = Matrix4x4();
+    return m;
 }
 
 Matrix4x4 Matrix4x4::CreateRotateZ(RFLOAT nRot) {
-	Matrix4x4 m = Matrix4x4();
-	return m;
+    Matrix4x4 m = Matrix4x4();
+    return m;
 }
