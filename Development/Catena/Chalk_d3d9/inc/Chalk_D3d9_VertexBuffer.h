@@ -22,8 +22,7 @@ namespace Chalk {
             virtual RBOOL Set();
 
         private:
-            struct VertexBufferImpl;
-            VertexBufferImpl* m_pImpl;
+            PIMPL_DECL(VertexBuffer);
 
             VertexBuffer(VertexBuffer const&);
             VertexBuffer& operator=(VertexBuffer const&);

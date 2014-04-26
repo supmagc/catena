@@ -39,4 +39,10 @@
 #define DLL_IMPORT __declspec(dllimport)
 #define ROCK_API DLL_EXPORT
 
+#define PIMPL_DECL(cls) struct cls##Impl; cls##Impl* m_pImpl
+#define PIMPL_INIT(cls) m_pImpl = new cls##Impl; ZeroMemory(m_pImpl, sizeof(cls##Impl))
+#define PIMPL_MAKE(nsp, cls) struct nsp##::##cls##::##cls##Impl
+#define PIMPL_DELETE() SAFE_DELETE(m_pImpl)
+#define PIMPL (*m_pImpl)
+
 #endif // _H_ROCK_DEFINES
