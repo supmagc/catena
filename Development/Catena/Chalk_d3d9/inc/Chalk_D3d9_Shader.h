@@ -21,6 +21,8 @@ namespace Chalk {
             virtual RBOOL Load();
             virtual RBOOL Set();
             virtual IDevice* GetDevice();
+            virtual void SetData(RINT const*, RUINT nLength = 1);
+            virtual void SetData(RFLOAT const*, RUINT nLength = 1);
 
         private:
             struct ShaderImpl;

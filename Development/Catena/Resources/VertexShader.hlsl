@@ -1,12 +1,15 @@
 struct VSOUT {
     float4 vPos: POSITION;
-//    float4 vColor: COLOR;
+    float4 vCol : COLOR;
 };
 
-VSOUT main(float4 vPos: POSITION/*, float4 vColor: COLOR*/)
+row_major float4x4 mWVP : register(c0);
+
+VSOUT main(float4 vPos: POSITION, float4 vCol: COLOR)
 {
     VSOUT oOut;
-    oOut.vPos = vPos;
-//    oOut.vColor = vColor;
+    float4 vTmp = mul(mWVP, vPos);
+    oOut.vPos = vPos; //mul(mWVP, vPos);
+    oOut.vCol = vTmp * vCol;
     return oOut;
 }

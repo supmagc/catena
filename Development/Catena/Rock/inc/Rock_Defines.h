@@ -26,6 +26,12 @@
 // Debug defines
 #define BREAK __asm { int 3 }
 
+// Math defines
+#define E        2.71828182845904523536
+#define PI       3.14159265358979323846
+#define DEG2RAD  (PI / 180.0)
+#define RAD2DEG  (180.0 / PI)
+
 // Helper defines
 #define ZERO(dest, length) memset((dest), 0, (length))
 

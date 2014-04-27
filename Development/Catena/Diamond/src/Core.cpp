@@ -52,6 +52,12 @@ RBOOL Core::Update() {
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();
+
+    Matrix mWorld = Matrix();
+    Matrix mView = Matrix::CreateViewLH(Vector(0, 0, -10), Vector(0, 0, 0), Vector3(0, 1, 0));
+    Matrix mProj = Matrix::CreatePerspectiveLH(60, 1024.0f/768.0f, 0.1f, 100);
+    PIMPL.pShader->SetData((mProj * mView).v, 4);
+
     bError = bError || !m_pImpl->pVertexBuffer->Set();
     bError = bError || !m_pImpl->pDevice->BackBufferSwitch();
 
