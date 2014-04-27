@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Rock_Assert.h" />
     <ClInclude Include="inc\Rock_ColorB.h" />
     <ClInclude Include="inc\Rock_ColorBA.h" />
     <ClInclude Include="inc\Rock_ColorRGB.h" />
@@ -19,6 +20,7 @@
     <ClInclude Include="inc\Rock_Delegate.h" />
     <ClInclude Include="inc\Rock_Exception.h" />
     <ClInclude Include="inc\Rock.h" />
+    <ClInclude Include="inc\Rock_Log.h" />
     <ClInclude Include="inc\Rock_Matrix4x4.h" />
     <ClInclude Include="inc\Rock_Quaternion.h" />
     <ClInclude Include="inc\Rock_Std.h" />

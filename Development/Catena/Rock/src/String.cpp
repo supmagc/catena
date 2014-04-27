@@ -290,6 +290,56 @@ String String::Replace(String const& search, String const& replace) const {
 	return ret + SubString(nSourceOffset);
 }
 
+#define _STRING_APPEND(t) \
+    String& String::operator=(t const& obj) {return operator=(String(obj));} \
+    String& String::operator+=(t const& obj) {return operator+=(String(obj));} \
+    String String::operator+(t const& obj) const {return operator+(String(obj));} \
+    RBOOL String::operator==(t const& obj) const {return operator==(String(obj));} \
+    RBOOL String::operator!=(t const& obj) const {return operator!=(String(obj));} \
+    RBOOL String::BeginsWith(t const& obj) const {return BeginsWith(String(obj));} \
+    RBOOL String::EndsWith(t const& obj) const {return EndsWith(String(obj));} \
+    RINT32 String::IndexOf(t const& obj) const {return IndexOf(String(obj));} \
+    String String::Replace(t const& search, String const& replace) const {return Replace(String(search), replace);} \
+    String String::Replace(String const& search, t const& replace) const {return Replace(search, String(replace));} \
+    String String::Replace(t const& search, t const& replace) const {return Replace(String(search), String(replace));} \
+        
+    _STRING_APPEND(RCHAR);
+    _STRING_APPEND(char);
+    _STRING_APPEND(RCHAR const*);
+    _STRING_APPEND(char const*);
+    _STRING_APPEND(RINT8);
+    _STRING_APPEND(RUINT8);
+    _STRING_APPEND(RINT16);
+    _STRING_APPEND(RUINT16);
+    _STRING_APPEND(RINT32);
+    _STRING_APPEND(RUINT32);
+    _STRING_APPEND(RINT64);
+    _STRING_APPEND(RUINT64);
+    _STRING_APPEND(RFLOAT);
+    _STRING_APPEND(RDOUBLE);
+    _STRING_APPEND(RBOOL);
+#undef _STRING_APPEND
+
+#define _APPEND_STRING(t) \
+	ROCK_API String operator+(t const& obj, String const& str) {return String(obj) + str;} \
+
+	_APPEND_STRING(RCHAR);
+	_APPEND_STRING(char);
+	_APPEND_STRING(RCHAR const*);
+	_APPEND_STRING(char const*);
+	_APPEND_STRING(RINT8);
+	_APPEND_STRING(RUINT8);
+	_APPEND_STRING(RINT16);
+	_APPEND_STRING(RUINT16);
+	_APPEND_STRING(RINT32);
+	_APPEND_STRING(RUINT32);
+	_APPEND_STRING(RINT64);
+	_APPEND_STRING(RUINT64);
+	_APPEND_STRING(RFLOAT);
+	_APPEND_STRING(RDOUBLE);
+	_APPEND_STRING(RBOOL);
+#undef _APPEND_STRING
+
 ROCK_API std::ostream& Rock::operator<<(std::ostream & stream, String const& str) {
 	stream << str.GetData();
 	return stream;

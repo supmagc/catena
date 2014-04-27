@@ -68,19 +68,18 @@ namespace Rock {
         String Replace(String const& search, String const& replace) const;
 
 #define _STRING_APPEND(t) \
-        String& operator=(t const& obj) {return operator=(String(obj));} \
-        String& operator+=(t const& obj) {return operator+=(String(obj));} \
-        String operator+(t const& obj) const {return operator+(String(obj));} \
-        RBOOL operator==(t const& obj) const {return operator==(String(obj));} \
-        RBOOL operator!=(t const& obj) const {return operator!=(String(obj));} \
-        RBOOL BeginsWith(t const& obj) const {return BeginsWith(String(obj));} \
-        RBOOL EndsWith(t const& obj) const {return EndsWith(String(obj));} \
-        RINT32 IndexOf(t const& obj) const {return IndexOf(String(obj));} \
-        String Replace(t const& search, String const& replace) const {return Replace(String(search), replace);} \
-        String Replace(String const& search, t const& replace) const {return Replace(search, String(replace));} \
-        String Replace(t const& search, t const& replace) const {return Replace(String(search), String(replace));} \
+        String& operator=(t const& obj); \
+        String& operator+=(t const& obj); \
+        String operator+(t const& obj) const; \
+        RBOOL operator==(t const& obj) const; \
+        RBOOL operator!=(t const& obj) const; \
+        RBOOL BeginsWith(t const& obj) const; \
+        RBOOL EndsWith(t const& obj) const; \
+        RINT32 IndexOf(t const& obj) const; \
+        String Replace(t const& search, String const& replace) const; \
+        String Replace(String const& search, t const& replace) const; \
+        String Replace(t const& search, t const& replace) const; \
         
-
         _STRING_APPEND(RCHAR);
         _STRING_APPEND(char);
         _STRING_APPEND(RCHAR const*);
@@ -100,8 +99,28 @@ namespace Rock {
 
     private:
         RINT32 m_nLength;
-        RCHAR * m_aData;
+        RCHAR* m_aData;
     };
+
+#define _APPEND_STRING(t) \
+	ROCK_API String operator+(t const& obj, String const& str); \
+
+    _APPEND_STRING(RCHAR);
+    _APPEND_STRING(char);
+    _APPEND_STRING(RCHAR const*);
+    _APPEND_STRING(char const*);
+    _APPEND_STRING(RINT8);
+    _APPEND_STRING(RUINT8);
+    _APPEND_STRING(RINT16);
+    _APPEND_STRING(RUINT16);
+    _APPEND_STRING(RINT32);
+    _APPEND_STRING(RUINT32);
+    _APPEND_STRING(RINT64);
+    _APPEND_STRING(RUINT64);
+    _APPEND_STRING(RFLOAT);
+    _APPEND_STRING(RDOUBLE);
+    _APPEND_STRING(RBOOL);
+#undef _APPEND_STRING
 
     ROCK_API std::ostream& operator<<(std::ostream & stream, String const& str);
     ROCK_API std::wostream& operator<<(std::wostream & stream, String const& str);
