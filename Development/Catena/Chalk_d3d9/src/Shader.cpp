@@ -7,7 +7,7 @@
 
 using namespace Chalk::D3d9;
 
-struct Chalk::D3d9::Shader::ShaderImpl {
+PIMPL_MAKE(Chalk::D3d9, Shader) {
     Device* pDevice;
     ID3DBlob* pDataPS;
     ID3DBlob* pDataVS;
@@ -15,9 +15,8 @@ struct Chalk::D3d9::Shader::ShaderImpl {
     IDirect3DVertexShader9* pVS;
 };
 
-Shader::Shader(Device* pDevice) : m_pImpl(RNULL)/*, Chalk::Shader()*/ {
-    m_pImpl = new ShaderImpl();
-    ZeroMemory(m_pImpl, sizeof(ShaderImpl));
+Shader::Shader(Device* pDevice) {
+    PIMPL_INIT(Shader);
 
     m_pImpl->pDevice = pDevice;
 }
@@ -25,7 +24,8 @@ Shader::Shader(Device* pDevice) : m_pImpl(RNULL)/*, Chalk::Shader()*/ {
 Shader::~Shader() {
     SAFE_RELEASE(m_pImpl->pDataPS);
     SAFE_RELEASE(m_pImpl->pDataVS);
-    SAFE_DELETE(m_pImpl);
+
+    PIMPL_DELETE();
 }
 
 RBOOL Shader::Load() {
@@ -44,19 +44,19 @@ RBOOL Shader::Load() {
     if(FAILED(hResultCompilePS) || FAILED(hResultCompileVS)) {
         OutputDebugStringA((char*)pErrorPS->GetBufferPointer());
         OutputDebugStringA((char*)pErrorVS->GetBufferPointer());
-        SAFE_RELEASE(m_pImpl->pDataPS);
-        SAFE_RELEASE(m_pImpl->pDataVS);
+        SAFE_RELEASE(PIMPL.pDataPS);
+        SAFE_RELEASE(PIMPL.pDataVS);
         return false;
     }
 
-    HRESULT hResultPS = m_pImpl->pDevice->GetDirect3DDevice9()->CreatePixelShader((DWORD*)m_pImpl->pDataPS->GetBufferPointer(), &m_pImpl->pPS);
-    HRESULT hResultVS = m_pImpl->pDevice->GetDirect3DDevice9()->CreateVertexShader((DWORD*)m_pImpl->pDataVS->GetBufferPointer(), &m_pImpl->pVS);
+    HRESULT hResultPS = PIMPL.pDevice->GetDirect3DDevice9()->CreatePixelShader((DWORD*)m_pImpl->pDataPS->GetBufferPointer(), &m_pImpl->pPS);
+    HRESULT hResultVS = PIMPL.pDevice->GetDirect3DDevice9()->CreateVertexShader((DWORD*)m_pImpl->pDataVS->GetBufferPointer(), &m_pImpl->pVS);
 
     if(FAILED(hResultPS) || FAILED(hResultVS)) {
-        SAFE_RELEASE(m_pImpl->pDataPS);
-        SAFE_RELEASE(m_pImpl->pDataVS);
-        SAFE_RELEASE(m_pImpl->pPS);
-        SAFE_RELEASE(m_pImpl->pVS);
+        SAFE_RELEASE(PIMPL.pDataPS);
+        SAFE_RELEASE(PIMPL.pDataVS);
+        SAFE_RELEASE(PIMPL.pPS);
+        SAFE_RELEASE(PIMPL.pVS);
         return false;
     }
 
@@ -64,18 +64,28 @@ RBOOL Shader::Load() {
 }
 
 RBOOL Shader::Set() {
-    if(!m_pImpl->pDevice)
+    if(!PIMPL.pDevice)
         return false;
-    if(!m_pImpl->pDataPS)
+    if(!PIMPL.pDataPS)
         return false;
-    if(!m_pImpl->pDataVS)
+    if(!PIMPL.pDataVS)
         return false;
 
-    HRESULT hResultPS = m_pImpl->pDevice->GetDirect3DDevice9()->SetPixelShader(m_pImpl->pPS);
-    HRESULT hResultVS = m_pImpl->pDevice->GetDirect3DDevice9()->SetVertexShader(m_pImpl->pVS);
+    HRESULT hResultPS = PIMPL.pDevice->GetDirect3DDevice9()->SetPixelShader(PIMPL.pPS);
+    HRESULT hResultVS = PIMPL.pDevice->GetDirect3DDevice9()->SetVertexShader(PIMPL.pVS);
+
+    PIMPL.pDevice->GetDirect3DDevice9()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
     return !FAILED(hResultPS) && !FAILED(hResultVS);
 }
 
 Chalk::IDevice* Shader::GetDevice() {
-    return m_pImpl->pDevice;
+    return PIMPL.pDevice;
+}
+
+void Shader::SetData(RINT const* aData, RUINT nLength) {
+    PIMPL.pDevice->GetDirect3DDevice9()->SetVertexShaderConstantI(0, aData, nLength);
+}
+
+void Shader::SetData(RFLOAT const* aData, RUINT nLength) {
+    PIMPL.pDevice->GetDirect3DDevice9()->SetVertexShaderConstantF(0, aData, nLength);
 }

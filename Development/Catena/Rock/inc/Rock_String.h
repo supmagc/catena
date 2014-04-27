@@ -103,7 +103,7 @@ namespace Rock {
     };
 
 #define _APPEND_STRING(t) \
-	ROCK_API String operator+(t const& obj, String const& str); \
+    ROCK_API String operator+(t const& obj, String const& str); \
 
     _APPEND_STRING(RCHAR);
     _APPEND_STRING(char);
