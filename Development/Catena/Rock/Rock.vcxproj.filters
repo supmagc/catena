@@ -59,6 +59,12 @@
     <ClInclude Include="inc\Rock_Vector4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Rock_Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Rock_Assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Delegate.cpp">
