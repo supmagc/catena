@@ -12,7 +12,7 @@ Vector4::Vector4() {
 Vector4::Vector4(RFLOAT v) : x(v), y(v), z(v), w(v) {
 }
 
-Vector4::Vector4(RFLOAT x, RFLOAT y, RFLOAT z, RFLOAT w) : x(x), y(y), z(z) {
+Vector4::Vector4(RFLOAT x, RFLOAT y, RFLOAT z, RFLOAT w) : x(x), y(y), z(z), w(w) {
 }
 
 Vector4::Vector4(Vector3 const& vVector, RFLOAT w) : x(vVector.x), y(vVector.y), z(vVector.z), w(w) {

@@ -53,7 +53,11 @@ inline RFLOAT Vector3::Dot(Vector3 const& vVector) const {
     return x*vVector.x + y*vVector.y + z*vVector.z;
 }
 
-inline Vector3 Vector3::Cross(Vector3 const& vVector) const {
+inline Vector3 Vector3::CrossLH(Vector3 const& vVector) const {
+    return Vector3(z*vVector.y - y*vVector.z, x*vVector.z - z*vVector.x, y*vVector.x - x*vVector.y);
+}
+
+inline Vector3 Vector3::CrossRH(Vector3 const& vVector) const {
     return Vector3(y*vVector.z - z*vVector.y, z*vVector.x - x*vVector.z, x*vVector.y - y*vVector.x);
 }
 
@@ -87,26 +91,16 @@ inline void Vector3::Dot(Vector3 const& vVector, RFLOAT& o_nDot) const {
     o_nDot = x*vVector.x + y*vVector.y + z*vVector.z;
 }
 
-inline void Vector3::Cross(Vector3 const& vVector, Vector3& o_vCross) const {
+inline void Vector3::CrossLH(Vector3 const& vVector, Vector3& o_vCross) const {
+    o_vCross.x = z*vVector.y - y*vVector.z;
+    o_vCross.y = x*vVector.z - z*vVector.x;
+    o_vCross.z = y*vVector.x - x*vVector.y;
+}
+
+inline void Vector3::CrossRH(Vector3 const& vVector, Vector3& o_vCross) const {
     o_vCross.x = y*vVector.z - z*vVector.y;
     o_vCross.y = z*vVector.x - x*vVector.z;
     o_vCross.z = x*vVector.y - y*vVector.x;
-}
-
-inline Vector3 Vector3::operator+(Vector3 const& vVector) const {
-    return Vector3(x + vVector.x, y + vVector.y, z + vVector.z);
-}
-
-inline Vector3 Vector3::operator-(Vector3 const& vVector) const {
-    return Vector3(x - vVector.x, y - vVector.y, z - vVector.z);
-}
-
-inline Vector3 Vector3::operator*(RFLOAT nValue) const {
-    return Vector3(x * nValue, y * nValue, z * nValue);
-}
-
-inline Vector3 Vector3::operator/(RFLOAT nValue) const {
-    return Vector3(x / nValue, y / nValue, z / nValue);
 }
 
 inline RBOOL Vector3::operator<(RFLOAT nValue) const {
@@ -123,6 +117,26 @@ inline RBOOL Vector3::operator<(Vector3 const& vVector) const {
 
 inline RBOOL Vector3::operator>(Vector3 const& vVector) const {
     return LengthSq() > vVector.LengthSq();
+}
+
+inline Vector3 Vector3::operator-() const {
+    return Vector3(-x, -y, -z);
+}
+
+inline Vector3 Vector3::operator+(Vector3 const& vVector) const {
+    return Vector3(x + vVector.x, y + vVector.y, z + vVector.z);
+}
+
+inline Vector3 Vector3::operator-(Vector3 const& vVector) const {
+    return Vector3(x - vVector.x, y - vVector.y, z - vVector.z);
+}
+
+inline Vector3 Vector3::operator*(RFLOAT nValue) const {
+    return Vector3(x * nValue, y * nValue, z * nValue);
+}
+
+inline Vector3 Vector3::operator/(RFLOAT nValue) const {
+    return Vector3(x / nValue, y / nValue, z / nValue);
 }
 
 Vector3& Vector3::operator=(Vector3 const& vVector) {
@@ -180,8 +194,40 @@ inline ROCK_API RFLOAT Rock::Dot(Vector3 const& vVector0, Vector3 const& vVector
     return LengthSq(vVector0 - vVector1);
 }
 
-inline ROCK_API Vector3 Rock::Cross(Vector3 const& vVector0, Vector3 const& vVector1) {
-    return vVector0.Cross(vVector1);
+inline ROCK_API Vector3 Rock::CrossLH(Vector3 const& vVector0, Vector3 const& vVector1) {
+    return vVector0.CrossLH(vVector1);
+}
+
+inline ROCK_API Vector3 Rock::CrossRH(Vector3 const& vVector0, Vector3 const& vVector1) {
+    return vVector0.CrossRH(vVector1);
+}
+
+inline ROCK_API void Rock::Normalized(Vector3 const& vVector, Vector3& o_vNormalized) {
+    vVector.Normalized(o_vNormalized);
+}
+
+inline ROCK_API void Rock::Length(Vector3 const& vVector, RFLOAT& o_nLength) {
+    vVector.Length(o_nLength);
+}
+
+inline ROCK_API void Rock::LengthSq(Vector3 const& vVector, RFLOAT& o_nLengthSq) {
+    vVector.LengthSq(o_nLengthSq);
+}
+
+inline ROCK_API void Rock::Distance(Vector3 const& vVector0, Vector3 const& vVector1, RFLOAT& o_nDistance) {
+    vVector0.Distance(vVector1, o_nDistance);
+}
+
+inline ROCK_API void Rock::Dot(Vector3 const& vVector0, Vector3 const& vVector1, RFLOAT& o_nDot) {
+    vVector0.Dot(vVector1, o_nDot);
+}
+
+inline ROCK_API void Rock::CrossLH(Vector3 const& vVector0, Vector3 const& vVector1, Vector3& o_vCross) {
+    vVector0.CrossLH(vVector1, o_vCross);
+}
+
+inline ROCK_API void Rock::CrossRH(Vector3 const& vVector0, Vector3 const& vVector1, Vector3& o_vCross) {
+    vVector0.CrossRH(vVector1, o_vCross);
 }
 
 inline ROCK_API RBOOL operator<(RFLOAT nValue, Vector3 const& vVector) {
