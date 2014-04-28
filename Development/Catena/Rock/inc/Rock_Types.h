@@ -17,10 +17,8 @@ namespace Rock {
     typedef RUINT32 RUINT;
     typedef unsigned __int8 RBYTE;
     typedef wchar_t RCHAR;
-    typedef float RFLOAT32;
-    typedef double RFLOAT64;
-    typedef RFLOAT32 RFLOAT;
-    typedef RFLOAT64 RDOUBLE;
+    typedef float RFLOAT;
+    typedef double RDOUBLE;
     typedef bool RBOOL;
 
     #ifdef _WIN32

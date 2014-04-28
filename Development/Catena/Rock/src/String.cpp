@@ -93,7 +93,7 @@ String::String(RUINT64 const obj) : m_nLength(0), m_aData(NULL) {
     m_nLength = wcslen(m_aData) + 1;
 }
 
-String::String(RFLOAT32 const obj) : m_nLength(0), m_aData(NULL) {
+String::String(RFLOAT const obj) : m_nLength(0), m_aData(NULL) {
     char tmp[_CVTBUFSIZE];
     _gcvt_s(tmp, _CVTBUFSIZE, obj, 40);
     m_nLength = strlen(tmp) + 1;
@@ -101,7 +101,7 @@ String::String(RFLOAT32 const obj) : m_nLength(0), m_aData(NULL) {
     MultiByteToWideChar(CP_UTF8, 0, tmp, m_nLength, m_aData, m_nLength);
 }
 
-String::String(RFLOAT64 const obj) : m_nLength(0), m_aData(NULL) {
+String::String(RDOUBLE const obj) : m_nLength(0), m_aData(NULL) {
     char tmp[_CVTBUFSIZE];
     _gcvt_s(tmp, _CVTBUFSIZE, obj, 40);
     m_nLength = strlen(tmp) + 1;

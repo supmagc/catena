@@ -42,6 +42,9 @@ RBOOL Core::Create(HWND hWnd) {
 }
 #endif
 
+RFLOAT g_nDir = 1;
+RFLOAT g_nTemp = 0;
+
 RBOOL Core::Update() {
     RBOOL bError = false;
 
@@ -54,9 +57,13 @@ RBOOL Core::Update() {
     bError = bError || !m_pImpl->pShader->Set();
 
     Matrix mWorld = Matrix();
-    Matrix mView = Matrix::CreateViewLH(Vector(0, 0, -10), Vector(0, 0, 0), Vector3(0, 1, 0));
-    Matrix mProj = Matrix::CreatePerspectiveLH(60, 1024.0f/768.0f, 0.1f, 100);
-    PIMPL.pShader->SetData((mProj * mView).v, 4);
+    g_nTemp += g_nDir * 0.01;
+    if(g_nTemp > 5) {g_nTemp = 5; g_nDir =-1;}
+    if(g_nTemp <-5) {g_nTemp =-5; g_nDir = 1;}
+    Matrix mView = Matrix::CreateViewLH(Vector(g_nTemp, 0, -2), Vector(0, 0, 0), Vector3(0, 1, 0));
+    Matrix mProj = Matrix::CreatePerspectiveLH(45, 1024.0f/768.0f, 0.1f, 100);
+    Matrix mWVP = mView * mProj;
+    PIMPL.pShader->SetData(mWVP.v, 4);
 
     bError = bError || !m_pImpl->pVertexBuffer->Set();
     bError = bError || !m_pImpl->pDevice->BackBufferSwitch();

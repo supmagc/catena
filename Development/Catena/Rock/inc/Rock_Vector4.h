@@ -14,8 +14,8 @@ namespace Rock {
         Vector4();
         Vector4(RFLOAT v);
         Vector4(Vector4 const& vVector);
-        Vector4(Vector3 const& vVector, RFLOAT w);
-        Vector4(RFLOAT x, RFLOAT y, RFLOAT z, RFLOAT w);
+        Vector4(Vector3 const& vVector, RFLOAT w = 1.0f);
+        Vector4(RFLOAT x, RFLOAT y, RFLOAT z, RFLOAT w = 1.0f);
         ~Vector4();
 
         inline RFLOAT Dot(Vector4 const& vVector) const;

@@ -182,6 +182,10 @@ inline void Matrix4x4::Identity() {
 }
 
 inline void Matrix4x4::Inverse() {
+    LOG(L"Not Implemented");
+}
+
+inline void Matrix4x4::Transpose() {
     Matrix4x4 mCopy = (*this);
     _12 = mCopy._21;
     _13 = mCopy._31;
@@ -195,10 +199,6 @@ inline void Matrix4x4::Inverse() {
     _41 = mCopy._14;
     _42 = mCopy._24;
     _43 = mCopy._34;
-}
-
-inline void Matrix4x4::Transpose() {
-    LOG(L"Not Implemented");
 }
 
 inline Matrix4x4 Matrix4x4::Inversed() const {
@@ -319,18 +319,21 @@ inline Matrix4x4& Matrix4x4::operator-=(RFLOAT nValue) {
 
 inline Matrix4x4 Matrix4x4::CreatePerspectiveLH(RFLOAT nFOV, RFLOAT nAspectRatio, RFLOAT nNearClipping, RFLOAT nFarClipping) {
     Matrix4x4 m = Matrix4x4();
-    RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
-    m._11 = nF/nAspectRatio;
-    m._21 = nF;
-    m._33 = nFarClipping / (nFarClipping - nNearClipping);
+    RFLOAT nFactor = static_cast<RFLOAT>(1.0/(tan(nFOV/2.0)));
+    RFLOAT nFrustrumDepth = nFarClipping - nNearClipping;
+    RFLOAT nOneOverDepth = 1.0f / nFrustrumDepth;
+    m._11 = nFactor/nAspectRatio;
+    m._22 = nFactor;
+    m._33 = nFarClipping * nOneOverDepth;
+    m._43 = -nFarClipping * nNearClipping * nOneOverDepth;
     m._34 = 1;
-    m._43 = (-nNearClipping * nFarClipping) / (nFarClipping - nNearClipping);
+    m._44 = 0;
     return m;
 }
 
 inline Matrix4x4 Matrix4x4::CreatePerspectiveRH(RFLOAT nFOV, RFLOAT nAspectRatio, RFLOAT nNearClipping, RFLOAT nFarClipping) {
     Matrix4x4 m = Matrix4x4();
-    RFLOAT nF = static_cast<RFLOAT>(1/(tan(nFOV/2)));
+    RFLOAT nF = static_cast<RFLOAT>(1.0/(tan(nFOV/2.0)));
     m._11 = nF/nAspectRatio;
     m._21 = nF;
     m._33 = nFarClipping / (nFarClipping - nNearClipping);
@@ -345,23 +348,23 @@ inline Matrix4x4 Matrix4x4::CreateIdentity() {
 
 inline Matrix4x4 Matrix4x4::CreateViewLH(Vector3 const& vPosition, Vector3 const& vLookat, Vector3 const& vUp) {
     Vector3 vZ = Normalized(vLookat - vPosition);
-    Vector3 vX = Normalized(Cross(vZ, vUp));
-    Vector3 vY = Normalized(Cross(vX, vZ));
+    Vector3 vX = Normalized(CrossLH(vZ, vUp));
+    Vector3 vY = Normalized(CrossLH(vX, vZ));
     Matrix4x4 m = Matrix4x4();
-    m.SetColumn(0, vX.x, vX.y, vX.z, -vPosition.Dot(vX));
-    m.SetColumn(0, vY.x, vY.y, vY.z, -vPosition.Dot(vY));
-    m.SetColumn(0, vZ.x, vZ.y, vZ.z, -vPosition.Dot(vZ));
+    m.SetColumn(0, vX.x, vX.y, vX.z, (-vPosition).Dot(vX));
+    m.SetColumn(1, vY.x, vY.y, vY.z, (-vPosition).Dot(vY));
+    m.SetColumn(2, vZ.x, vZ.y, vZ.z, (-vPosition).Dot(vZ));
     return m;
 }
 
 inline Matrix4x4 Matrix4x4::CreateViewRH(Vector3 const& vPosition, Vector3 const& vLookat, Vector3 const& vUp) {
     Vector3 vZ = Normalized(vLookat - vPosition);
-    Vector3 vX = Normalized(Cross(vUp, vZ));
-    Vector3 vY = Normalized(Cross(vZ, vX));
+    Vector3 vX = Normalized(CrossRH(vZ, vUp));
+    Vector3 vY = Normalized(CrossRH(vX, vZ));
     Matrix4x4 m = Matrix4x4();
-    m.SetColumn(0, vX.x, vX.y, vX.z, -vPosition.Dot(vX));
-    m.SetColumn(0, vY.x, vY.y, vY.z, -vPosition.Dot(vY));
-    m.SetColumn(0, vZ.x, vZ.y, vZ.z, -vPosition.Dot(vZ));
+    m.SetColumn(0, vX.x, vX.y, vX.z, (-vPosition).Dot(vX));
+    m.SetColumn(1, vY.x, vY.y, vY.z, (-vPosition).Dot(vY));
+    m.SetColumn(2, vZ.x, vZ.y, vZ.z, (-vPosition).Dot(vZ));
     return m;
 }
 
