@@ -1,4 +1,4 @@
-#include "Catena_Std.h"
+#include "Launcher_Std.h"
 #include "Resources.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
