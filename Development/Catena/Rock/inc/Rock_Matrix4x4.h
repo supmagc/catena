@@ -59,6 +59,8 @@ namespace Rock {
         inline void Transpose();
         inline Matrix4x4 Inversed() const;
         inline Matrix4x4 Transposed() const;
+        inline void Inversed(Matrix4x4& o_mInversed) const;
+        inline void Transposed(Matrix4x4& o_mTransposed) const;
 
         //void TransformVector(Vector4 const& vIn, Vector4& o_vValue) const;
         //Vector4 TransformVector(Vector4 const& vIn) const;

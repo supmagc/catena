@@ -182,35 +182,63 @@ inline void Matrix4x4::Identity() {
 }
 
 inline void Matrix4x4::Inverse() {
-    LOG(L"Not Implemented");
+    auto cbCalculateMinor = [] (RFLOAT n11, RFLOAT n12, RFLOAT n13, RFLOAT n21, RFLOAT n22, RFLOAT n23, RFLOAT n31, RFLOAT n32, RFLOAT n33) {
+    	return n11*n22*n33 + n12*n23*n31 + n21*n32*n13 - n13*n22*n31 - n12*n21*n33 - n11*n23*n32;
+    };
+    Matrix4x4 mTemp;
+	for(int i=0 ; i<4 ; ++i) {
+		for(int j=0 ; j<4 ; ++j) {
+			mTemp.rc[j][i] = static_cast<float>(pow(-1.0f, i+j)) * cbCalculateMinor(
+				rc[0<i ? 0 : 1][0<j ? 0 : 1],
+				rc[0<i ? 0 : 1][1<j ? 1 : 2],
+				rc[0<i ? 0 : 1][2<j ? 2 : 3],
+				rc[1<i ? 1 : 2][0<j ? 0 : 1],
+				rc[1<i ? 1 : 2][1<j ? 1 : 2],
+				rc[1<i ? 1 : 2][2<j ? 2 : 3],
+				rc[2<i ? 2 : 3][0<j ? 0 : 1],
+				rc[2<i ? 2 : 3][1<j ? 1 : 2],
+				rc[2<i ? 2 : 3][2<j ? 2 : 3]
+            );
+		}
+	}
+    RFLOAT nOneOverDeterminant = 1.0f / (v[0] * mTemp.v[0] + v[1] * mTemp.v[4] + v[2] * mTemp.v[8] + v[3] * mTemp.v[12]);
+    memcpy_s(this, sizeof(Matrix4x4), &mTemp, sizeof(Matrix4x4));
+    for(int i=0 ; i<16 ; ++i) {
+        v[i] *= nOneOverDeterminant;
+    }
 }
 
 inline void Matrix4x4::Transpose() {
-    Matrix4x4 mCopy = (*this);
-    _12 = mCopy._21;
-    _13 = mCopy._31;
-    _14 = mCopy._41;
-    _21 = mCopy._12;
-    _23 = mCopy._32;
-    _24 = mCopy._42;
-    _31 = mCopy._31;
-    _32 = mCopy._23;
-    _34 = mCopy._43;
-    _41 = mCopy._14;
-    _42 = mCopy._24;
-    _43 = mCopy._34;
+    RFLOAT nTemp(0);
+    for(int i=0 ; i<4 ; ++i) {
+        for(int j=0 ; j<i ; ++j) {
+            nTemp = rc[j][i];
+            rc[j][i] = rc[i][j];
+            rc[i][j] = nTemp;
+        }
+    }
 }
 
 inline Matrix4x4 Matrix4x4::Inversed() const {
-    Matrix4x4 m = (*this);
+    Matrix4x4 m(*this);
     m.Inverse();
     return m;
 }
 
 inline Matrix4x4 Matrix4x4::Transposed() const {
-    Matrix4x4 m = (*this);
+    Matrix4x4 m(*this);
     m.Transpose();
     return m;
+}
+
+inline void Matrix4x4::Inversed(Matrix4x4& o_mInversed) const {
+    o_mInversed = (*this);
+    o_mInversed.Inverse();
+}
+
+inline void Matrix4x4::Transposed(Matrix4x4& o_mTransposed) const {
+    o_mTransposed = (*this);
+    o_mTransposed.Transpose();
 }
 
 inline Matrix4x4 Matrix4x4::operator*(Matrix4x4 const& mMatrix) const {

@@ -15,17 +15,14 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Catena_Std.h">
+    <ClInclude Include="inc\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Resources.h">
+    <ClInclude Include="inc\Launcher_Std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Catena.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Std.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

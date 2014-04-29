@@ -11,11 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\Catena_Std.h" />
+    <ClInclude Include="inc\Launcher_Std.h" />
     <ClInclude Include="inc\Resources.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Catena.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Std.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -36,7 +35,8 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FEE937BA-07E2-46D2-9FE8-7AE05E7C6D79}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Catena</RootNamespace>
+    <RootNamespace>Launcher</RootNamespace>
+    <ProjectName>Launcher</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
