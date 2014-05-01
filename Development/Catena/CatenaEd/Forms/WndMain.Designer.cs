@@ -1,5 +1,5 @@
-﻿namespace Iron {
-    partial class Form1 {
+﻿namespace Catena.Editor.Forms {
+    partial class WndMain {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,12 +23,19 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // WndMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "WndMain";
+            this.Text = "Catena";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

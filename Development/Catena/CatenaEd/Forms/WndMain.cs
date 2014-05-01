@@ -5,11 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Iron {
-    public partial class Form1 : Form {
-        public Form1() {
+namespace Catena.Editor.Forms {
+    public partial class WndMain : Form {
+        public WndMain() {
             InitializeComponent();
         }
     }
