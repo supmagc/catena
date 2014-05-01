@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{95d0ea52-dc60-491b-8c1f-19569f591212}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Rock.h">
@@ -88,5 +91,19 @@
     <ClCompile Include="src\Vector4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="inl\Matrix4x4.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="inl\Vector3.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="inl\Vector4.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="inl\Vector2.inl">
+      <Filter>Inline Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

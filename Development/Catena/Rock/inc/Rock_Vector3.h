@@ -70,6 +70,8 @@ namespace Rock {
     typedef Vector3 RVector3;
     typedef Vector3 Vector;
     typedef Vector RVector;
+
+    #include "../inl/Vector3.inl"
 };
 
 #endif // _H_ROCK_VECTOR3

@@ -101,6 +101,8 @@ namespace Rock {
     typedef Matrix4x4 RMatrix4x4;
     typedef Matrix4x4 Matrix;
     typedef Matrix RMatrix;
+
+    #include "../inl/Matrix4x4.inl"
 };
 
 #endif // _H_ROCK_MATRIX4X4

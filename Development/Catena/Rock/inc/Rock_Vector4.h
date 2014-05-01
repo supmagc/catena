@@ -27,6 +27,8 @@ namespace Rock {
     inline ROCK_API RFLOAT Dot(Vector4 const& vVector0, Vector4 const& vVector1);
 
     typedef Vector4 RVector4;
+
+    #include "../inl/Vector4.inl"
 };
 
 #endif // _H_ROCK_VECTOR4
