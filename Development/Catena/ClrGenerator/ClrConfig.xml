@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ClrConfig>
+    <Input>
+        <BaseDirectory>../../Catena/</BaseDirectory>
+    </Input>
+    <Output>
+        <BaseNamespace>Catena</BaseNamespace>
+        <BaseDirectory>../../Catena/CatenaClr/</BaseDirectory>
+        <HeaderDirectory>inc/</HeaderDirectory>
+        <SourceDirectory>src/</SourceDirectory>
+    </Output>
+    <Files>
+        <File Type="Value" Output="Math">Rock/inc/Rock_Vector2.h</File>
+        <File Type="Value" Output="Math">Rock/inc/Rock_Vector3.h</File>
+        <File Type="Value" Output="Math">Rock/inc/Rock_Vector4.h</File>
+        <File Type="Value" Output="Math">Rock/inc/Rock_Matrix4x4.h</File>
+    </Files>
+</ClrConfig>
