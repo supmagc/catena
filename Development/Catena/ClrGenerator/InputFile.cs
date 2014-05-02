@@ -16,12 +16,15 @@ namespace ClrGenerator {
         const int STATE_OBJECT = 3;
         const int STATE_REGION = 4;
 
+        const string REGEX_NAMESPACE = @"^namespace\s+([a-z0-9]+)\s*\{";
+        const string REGEX_OBJECT = @"^(class|struct)\s+([^\s]+\s+)?([a-z0-9]+)?(\s*:\s*[^\s]+)?\s*({|;)";
+
         public Configuration Configuration { get; private set; }
         public string Path { get; private set; }
 
         private int m_nState;
-        private Queue<int> m_lStates;
-        private Queue<string> m_lNamespaces;
+        private Stack<int> m_lStates;
+        private Stack<string> m_lNamespaces;
         private List<InputClass> m_lObjects;
         private InputClass m_oCurrentObject;
 
@@ -35,63 +38,113 @@ namespace ClrGenerator {
             if(!File.Exists(sFullPath))
                 return false;
 
-            m_lStates = new Queue<int>();
-            m_lNamespaces = new Queue<string>();
+            m_lStates = new Stack<int>();
+            m_lNamespaces = new Stack<string>();
             m_lObjects = new List<InputClass>();
             m_oCurrentObject = null;
-            m_lStates.Enqueue(STATE_DEFAULT);
+            m_lStates.Push(STATE_DEFAULT);
+            var sContent = File.ReadAllText(sFullPath).Trim();
             var aLines = File.ReadAllLines(sFullPath);
-            foreach(var sLine in aLines) {
-                if(!ParseLine(sLine.Trim()))
+            while(sContent.Length > 0) {
+                var nOffset = ParseContent(ref sContent);
+                if(nOffset < 0)
                     return false;
+                else if(nOffset > 0)
+                    sContent = sContent.Substring(nOffset).Trim();
             }
             return true;
         }
 
-        private bool ParseLine(string sLine) {
+        private int ParseContent(ref string sContent) {
+            Match oMatch = null;
             var nIndex = -1;
 
             if(m_lStates.Count == 0) {
                 Console.WriteLine("E: Invalid structured file");
-                return false;
+                return -1;
             }
 
             // Pre check for comment and early return if found
-            if((nIndex = sLine.IndexOf("/*")) >= 0) {
-                bool bReturn = ParseLine(sLine.Substring(0, nIndex).Trim());
-                m_lStates.Enqueue(STATE_COMMENT);
-                return bReturn;
+            if((nIndex = sContent.IndexOf("/*")) >= 0) {
+                m_lStates.Push(STATE_COMMENT);
+                return nIndex;
             }
-
 
             switch(m_lStates.Peek()) {
                 case STATE_DEFAULT:
                 case STATE_NAMESPACE:
-                    if(sLine.StartsWith("namespace")) {
-                        var sNamespace = sLine.Substring(sLine.LastIndexOf(" ") + 1);
-                        m_lNamespaces.Enqueue(sNamespace);
-                        m_lStates.Enqueue(STATE_NAMESPACE);
-                    }
-                    if((sLine.StartsWith("class") || sLine.StartsWith("struct")) && !sLine.EndsWith(";")) {
-                        var oMatch = Regex.Match(sLine, @"^(class|struct)\s+([^\s]+\s+)?([a-z0-9]+)(\s+:\s+[^\s]+)?(\s+{)?$", RegexOptions.IgnoreCase);
+                    if(sContent.StartsWith("namespace ")) {
+                        oMatch = DoRegex(ref sContent, REGEX_NAMESPACE);
                         if(!oMatch.Success) {
-                            Console.WriteLine("E: Invalid object declaration: "+sLine);
-                            return false;
+                            Console.WriteLine("E: Invalid namespace declaration: " + sContent.Substring(0, 20));
+                            return -1;
                         }
-                        m_oCurrentObject = new InputClass(m_lNamespaces.ToArray(), oMatch.Groups[1].Value, oMatch.Groups[3].Value);
-                        m_lStates.Enqueue(STATE_OBJECT);
+                        else {
+                            m_lNamespaces.Push(oMatch.Groups[1].Value);
+                            m_lStates.Push(STATE_NAMESPACE);
+                            Console.WriteLine("I: Namespace found: " + m_lNamespaces.Peek());
+                            return oMatch.Length;
+                        }
+                    }
+                    if(sContent.StartsWith("class ") || sContent.StartsWith("struct ")) {
+                        oMatch = DoRegex(ref sContent, REGEX_OBJECT);
+                        if(!oMatch.Success) {
+                            Console.WriteLine("E: Invalid object declaration: " + sContent.Substring(0, 20));
+                            return -1;
+                        }
+                        else if(oMatch.Groups[5].Value == "{" && oMatch.Groups[3].Value.ToString().Length > 0) {
+                            m_oCurrentObject = new InputClass(m_lNamespaces.ToArray(), oMatch.Groups[1].Value, oMatch.Groups[3].Value);
+                            Console.WriteLine("I: Object found: " + m_oCurrentObject.Name);
+                            m_lStates.Push(STATE_OBJECT);
+                            return oMatch.Length;
+                        }
+                        else {
+                            return oMatch.Length;
+                        }
+                    }
+                    if(sContent.StartsWith("};")) {
+                        Console.WriteLine("I: Namespace left");
+                        m_lNamespaces.Pop();
+                        m_lStates.Pop();
+                        return 2;
                     }
                     break;
                 case STATE_COMMENT:
-                    if((nIndex = sLine.LastIndexOf("*/")) >= 0) {
-                        m_lStates.Dequeue();
-                        return ParseLine(sLine.Substring(0, nIndex + 2).Trim());
+                    if((nIndex = sContent.IndexOf("*/")) >= 0) {
+                        m_lStates.Pop();
+                        return nIndex + 2;
                     }
                     break;
                 case STATE_OBJECT:
+                    if(sContent.StartsWith("{")) {
+                        Console.WriteLine("I: Region found");
+                        m_lStates.Push(STATE_REGION);
+                        return 1;
+                    }
+                    if(sContent.StartsWith("};")) {
+                        Console.WriteLine("I: Object left");
+                        m_lStates.Pop();
+                        return 2;
+                    }
+                    break;
+                case STATE_REGION:
+                    if(sContent.StartsWith("{")) {
+                        Console.WriteLine("I: Region found");
+                        m_lStates.Push(STATE_REGION);
+                        return 1;
+                    }
+                    if(sContent.StartsWith("}")) {
+                        Console.WriteLine("I: Region left");
+                        m_lStates.Pop();
+                        return 1;
+                    }
                     break;
             }
-            return true;
+            return 1;
+        }
+
+        private Match DoRegex(ref string sContent, string sRegex) {
+            return Regex.Match(sContent, sRegex, RegexOptions.IgnoreCase | RegexOptions.Singleline);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace ClrGenerator {
         private string m_sType;
         private string m_sName;
 
+        public string Name { get { return m_sName; } }
+
         public InputClass(string[] aNamespaces, string sType, string sName) {
             m_aNamespaces = aNamespaces;
             m_sType = sType;
