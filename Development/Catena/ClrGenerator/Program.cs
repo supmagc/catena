@@ -12,14 +12,21 @@ namespace ClrGenerator {
             var oConfig = new Configuration();
             Console.WriteLine("Input directory: " + oConfig.InputBaseDirectory);
 
+            List<InputClass> lObjects = new List<InputClass>();
             foreach(var oFile in oConfig.Files) {
                 if(oFile.Parse()) {
                     Console.WriteLine("I: Succesfully parsed " + oFile.Path);
+                    lObjects.AddRange(oFile.Objects);
                 }
                 else {
                     Console.WriteLine("E: Unable to parse " + oFile.Path);
                 }
             }
+
+            foreach(var oObject in lObjects) {
+
+            }
+
             Console.ReadKey();
             return 0;
         }

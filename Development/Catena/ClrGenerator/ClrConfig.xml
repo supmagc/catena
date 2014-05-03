@@ -6,8 +6,19 @@
     <Output>
         <BaseNamespace>Catena</BaseNamespace>
         <BaseDirectory>../../Catena/CatenaClr/</BaseDirectory>
+        <StandardHeader>CatenaClr_Std.h</StandardHeader>
+        <ForwardHeader>CatenaClr_Forward.h</ForwardHeader>
         <HeaderDirectory>inc/</HeaderDirectory>
+        <HeaderPrefix>CatenaClr_Generated_</HeaderPrefix>
+        <HeaderPrepend><![CDATA[
+            #include "Rock.h"
+            using namespace Rock;
+        ]]></HeaderPrepend>
+        <HeaderAppend></HeaderAppend>
         <SourceDirectory>src/</SourceDirectory>
+        <SourcePrefi>CLR_</SourcePrefi>
+        <SourcePrepend></SourcePrepend>
+        <SourceAppend></SourceAppend>
     </Output>
     <Files>
         <File Type="Value" Output="Math">Rock/inc/Rock_Vector2.h</File>
