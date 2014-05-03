@@ -52,6 +52,7 @@
     <Compile Include="InputFile.cs" />
     <Compile Include="InputMethod.cs" />
     <Compile Include="InputParameter.cs" />
+    <Compile Include="InputType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

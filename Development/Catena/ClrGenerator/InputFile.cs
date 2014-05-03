@@ -18,15 +18,17 @@ namespace ClrGenerator {
 
         const string REGEX_NAMESPACE = @"^namespace\s+([a-z0-9]+)\s*\{";
         const string REGEX_OBJECT = @"^(class|struct)\s+([^\s]+\s+)?([a-z0-9]+)?(\s*:\s*[^\s]+)?\s*({|;)";
+        const string REGEX_METHOD = @"^((virtual)\s+)?([-a-z0-9_*=&]*)?\s+([a-z0-9]+)\s*\(([^\)]*)\)\s*(const)?\s*(=\s*0)?\s*;";
 
         public Configuration Configuration { get; private set; }
+        public InputClass[] Objects { get { return m_lObjects.ToArray(); } }
         public string Path { get; private set; }
 
-        private int m_nState;
         private Stack<int> m_lStates;
         private Stack<string> m_lNamespaces;
         private List<InputClass> m_lObjects;
         private InputClass m_oCurrentObject;
+        private bool m_bPublic;
 
         public InputFile(Configuration oConfiguration, string sPath, string sOutput) {
             Configuration = oConfiguration;
@@ -65,9 +67,12 @@ namespace ClrGenerator {
             }
 
             // Pre check for comment and early return if found
-            if((nIndex = sContent.IndexOf("/*")) >= 0) {
+            if(sContent.StartsWith("/*")) {
                 m_lStates.Push(STATE_COMMENT);
-                return nIndex;
+                return 2;
+            }
+            if(sContent.StartsWith("//")) {
+                return Math.Max(1, sContent.IndexOf("\n") + 1);
             }
 
             switch(m_lStates.Peek()) {
@@ -95,6 +100,7 @@ namespace ClrGenerator {
                         else if(oMatch.Groups[5].Value == "{" && oMatch.Groups[3].Value.ToString().Length > 0) {
                             m_oCurrentObject = new InputClass(m_lNamespaces.ToArray(), oMatch.Groups[1].Value, oMatch.Groups[3].Value);
                             Console.WriteLine("I: Object found: " + m_oCurrentObject.Name);
+                            m_bPublic = sContent.StartsWith("struct ");
                             m_lStates.Push(STATE_OBJECT);
                             return oMatch.Length;
                         }
@@ -116,6 +122,18 @@ namespace ClrGenerator {
                     }
                     break;
                 case STATE_OBJECT:
+                    if(sContent.StartsWith("public:")) {
+                        m_bPublic = true;
+                        return 7;
+                    }
+                    if(sContent.StartsWith("private:")) {
+                        m_bPublic = false;
+                        return 8;
+                    }
+                    if(sContent.StartsWith("protected:")) {
+                        m_bPublic = false;
+                        return 10;
+                    }
                     if(sContent.StartsWith("{")) {
                         Console.WriteLine("I: Region found");
                         m_lStates.Push(STATE_REGION);
@@ -123,8 +141,26 @@ namespace ClrGenerator {
                     }
                     if(sContent.StartsWith("};")) {
                         Console.WriteLine("I: Object left");
+                        m_lObjects.Add(m_oCurrentObject);
+                        m_oCurrentObject = null;
                         m_lStates.Pop();
                         return 2;
+                    }
+                    if(m_bPublic) {
+                        oMatch = DoRegex(ref sContent, REGEX_METHOD);
+                        if(oMatch.Success) {
+                            var oMethod = new InputMethod(false,
+                                oMatch.Groups[2].Value == "virtual",
+                                oMatch.Groups[3].Value,
+                                oMatch.Groups[4].Value,
+                                new InputParameter[0],
+                                oMatch.Groups[6].Value == "const",
+                                oMatch.Groups[7].Value.Replace(" ", "") == "=0"
+                            );
+                            m_oCurrentObject.AddMethod(oMethod);
+                            Console.WriteLine("I: Method found: " + oMatch.Groups[0].Value);
+                            return oMatch.Length;
+                        }
                     }
                     break;
                 case STATE_REGION:
