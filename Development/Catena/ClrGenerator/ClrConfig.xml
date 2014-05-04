@@ -4,19 +4,22 @@
         <BaseDirectory>../../Catena/</BaseDirectory>
     </Input>
     <Output>
+        <NamespaceRemovalDepth>1</NamespaceRemovalDepth>
+        <BaseProject>CatenaClr</BaseProject>
         <BaseNamespace>Catena</BaseNamespace>
         <BaseDirectory>../../Catena/CatenaClr/</BaseDirectory>
         <StandardHeader>CatenaClr_Std.h</StandardHeader>
+        <CombinedHeader>CatenaClr_Generated.h</CombinedHeader>
+        <CombinedHeaderGuard>_H_CATENACLR_GENERATED</CombinedHeaderGuard>
         <ForwardHeader>CatenaClr_Forward.h</ForwardHeader>
+        <ForwardHeaderGuard>_H_CATENACLR_FORWARD</ForwardHeaderGuard>
+        <HeaderGuardPrefix>_H_CATENACLR_GENERATED_</HeaderGuardPrefix>
         <HeaderDirectory>inc/</HeaderDirectory>
         <HeaderPrefix>CatenaClr_Generated_</HeaderPrefix>
-        <HeaderPrepend><![CDATA[
-            #include "Rock.h"
-            using namespace Rock;
-        ]]></HeaderPrepend>
+        <HeaderPrepend></HeaderPrepend>
         <HeaderAppend></HeaderAppend>
         <SourceDirectory>src/</SourceDirectory>
-        <SourcePrefi>CLR_</SourcePrefi>
+        <SourcePrefix>CLR_</SourcePrefix>
         <SourcePrepend></SourcePrepend>
         <SourceAppend></SourceAppend>
     </Output>

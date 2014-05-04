@@ -21,13 +21,13 @@ namespace ClrGenerator {
         const string REGEX_METHOD = @"^((virtual)\s+)?([-a-z0-9_*=&]*)?\s+([a-z0-9]+)\s*\(([^\)]*)\)\s*(const)?\s*(=\s*0)?\s*;";
 
         public Configuration Configuration { get; private set; }
-        public InputClass[] Objects { get { return m_lObjects.ToArray(); } }
+        public InputObject[] Objects { get { return m_lObjects.ToArray(); } }
         public string Path { get; private set; }
 
         private Stack<int> m_lStates;
         private Stack<string> m_lNamespaces;
-        private List<InputClass> m_lObjects;
-        private InputClass m_oCurrentObject;
+        private List<InputObject> m_lObjects;
+        private InputObject m_oCurrentObject;
         private bool m_bPublic;
 
         public InputFile(Configuration oConfiguration, string sPath, string sOutput) {
@@ -42,7 +42,7 @@ namespace ClrGenerator {
 
             m_lStates = new Stack<int>();
             m_lNamespaces = new Stack<string>();
-            m_lObjects = new List<InputClass>();
+            m_lObjects = new List<InputObject>();
             m_oCurrentObject = null;
             m_lStates.Push(STATE_DEFAULT);
             var sContent = File.ReadAllText(sFullPath).Trim();
@@ -98,7 +98,7 @@ namespace ClrGenerator {
                             return -1;
                         }
                         else if(oMatch.Groups[5].Value == "{" && oMatch.Groups[3].Value.ToString().Length > 0) {
-                            m_oCurrentObject = new InputClass(m_lNamespaces.ToArray(), oMatch.Groups[1].Value, oMatch.Groups[3].Value);
+                            m_oCurrentObject = new InputObject(m_lNamespaces.ToArray(), oMatch.Groups[1].Value, oMatch.Groups[3].Value);
                             Console.WriteLine("I: Object found: " + m_oCurrentObject.Name);
                             m_bPublic = sContent.StartsWith("struct ");
                             m_lStates.Push(STATE_OBJECT);

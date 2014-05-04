@@ -9,6 +9,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Swig Files">
+      <UniqueIdentifier>{5d8e1420-6265-4302-b7a0-da08a38fec7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Diamond.h">
@@ -31,5 +34,13 @@
     <ClCompile Include="src\Core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="swig\diamond_swig_wrap.cxx">
+      <Filter>Swig Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="swig\diamond_swig.i">
+      <Filter>Swig Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
