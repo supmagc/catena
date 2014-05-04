@@ -7,5 +7,7 @@
 #include "Diamond.h"
 %}
 
-%import "inc/Diamond.h"
+%import "../Rock/inc/Rock_Defines.h"
+%import "../Rock/inc/Rock_Types.h"
+%import "inc/Diamond_Defines.h"
 %include "inc/Diamond_Core.h"
