@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="InputClass.cs" />
+    <Compile Include="InputObject.cs" />
     <Compile Include="InputFile.cs" />
     <Compile Include="InputMethod.cs" />
     <Compile Include="InputParameter.cs" />

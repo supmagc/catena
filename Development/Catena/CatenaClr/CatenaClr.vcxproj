@@ -62,7 +62,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies />
+      <AdditionalDependencies>Rock.lib;Diamond.lib;Chalk.lib;Chalk_D3d9.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -73,7 +73,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies />
+      <AdditionalDependencies>Rock.lib;Diamond.lib;Chalk.lib;Chalk_D3d9.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>ClrGenerator.exe</Command>
@@ -85,26 +85,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CatenaClr.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="CatenaClr_Std.h" />
+    <ClInclude Include="inc\CatenaClr.h" />
+    <ClInclude Include="inc\CatenaClr_Forward.h" />
+    <ClInclude Include="inc\CatenaClr_Generated.h" />
+    <ClInclude Include="inc\CatenaClr_Generated_Rock_Matrix4x4.h" />
+    <ClInclude Include="inc\CatenaClr_Generated_Rock_Vector2.h" />
+    <ClInclude Include="inc\CatenaClr_Generated_Rock_Vector3.h" />
+    <ClInclude Include="inc\CatenaClr_Generated_Rock_Vector4.h" />
+    <ClInclude Include="inc\CatenaClr_Std.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="CatenaClr.cpp" />
-    <ClCompile Include="Std.cpp">
+    <ClCompile Include="src\AssemblyInfo.cpp" />
+    <ClCompile Include="src\CatenaClr.cpp" />
+    <ClCompile Include="src\CLR_Rock_Matrix4x4.cpp" />
+    <ClCompile Include="src\CLR_Rock_Vector2.cpp" />
+    <ClCompile Include="src\CLR_Rock_Vector3.cpp" />
+    <ClCompile Include="src\CLR_Rock_Vector4.cpp" />
+    <ClCompile Include="src\Std.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="app.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

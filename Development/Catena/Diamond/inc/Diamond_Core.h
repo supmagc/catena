@@ -4,8 +4,6 @@
 #include "Rock.h"
 #include "Diamond_Defines.h"
 
-using namespace Rock;
-
 namespace Diamond {
 
     class DIAMOND_API Core {
