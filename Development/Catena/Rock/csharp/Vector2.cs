@@ -37,26 +37,22 @@ public class Vector2 : global::System.IDisposable {
     }
   }
 
-  public SWIGTYPE_p_RFLOAT x {
+  public float x {
     set {
-      RockPINVOKE.Vector2_x_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector2_x_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector2_x_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector2_x_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT y {
+  public float y {
     set {
-      RockPINVOKE.Vector2_y_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector2_y_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector2_y_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector2_y_get(swigCPtr);
       return ret;
     } 
   }
@@ -64,11 +60,13 @@ public class Vector2 : global::System.IDisposable {
   public Vector2() : this(RockPINVOKE.new_Vector2__SWIG_0(), true) {
   }
 
-  public Vector2(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y) : this(RockPINVOKE.new_Vector2__SWIG_1(SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y)), true) {
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public Vector2(float v) : this(RockPINVOKE.new_Vector2__SWIG_1(v), true) {
   }
 
-  public Vector2(Vector2 vCopy) : this(RockPINVOKE.new_Vector2__SWIG_2(Vector2.getCPtr(vCopy)), true) {
+  public Vector2(float x, float y) : this(RockPINVOKE.new_Vector2__SWIG_2(x, y), true) {
+  }
+
+  public Vector2(Vector2 vCopy) : this(RockPINVOKE.new_Vector2__SWIG_3(Vector2.getCPtr(vCopy)), true) {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 

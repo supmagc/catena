@@ -14,26 +14,26 @@ public class Rock {
     return ret;
   }
 
-  public static SWIGTYPE_p_RFLOAT Length(Vector3 vVector) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Length__SWIG_0(Vector3.getCPtr(vVector)), true);
+  public static float Length(Vector3 vVector) {
+    float ret = RockPINVOKE.Length__SWIG_0(Vector3.getCPtr(vVector));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public static SWIGTYPE_p_RFLOAT LengthSq(Vector3 vVector) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.LengthSq__SWIG_0(Vector3.getCPtr(vVector)), true);
+  public static float LengthSq(Vector3 vVector) {
+    float ret = RockPINVOKE.LengthSq__SWIG_0(Vector3.getCPtr(vVector));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public static SWIGTYPE_p_RFLOAT Distance(Vector3 vVector0, Vector3 vVector1) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Distance__SWIG_0(Vector3.getCPtr(vVector0), Vector3.getCPtr(vVector1)), true);
+  public static float Distance(Vector3 vVector0, Vector3 vVector1) {
+    float ret = RockPINVOKE.Distance__SWIG_0(Vector3.getCPtr(vVector0), Vector3.getCPtr(vVector1));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public static SWIGTYPE_p_RFLOAT Dot(Vector3 vVector0, Vector3 vVector1) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Dot__SWIG_0(Vector3.getCPtr(vVector0), Vector3.getCPtr(vVector1)), true);
+  public static float Dot(Vector3 vVector0, Vector3 vVector1) {
+    float ret = RockPINVOKE.Dot__SWIG_0(Vector3.getCPtr(vVector0), Vector3.getCPtr(vVector1));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
@@ -85,8 +85,8 @@ public class Rock {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public static SWIGTYPE_p_RFLOAT Dot(Vector4 vVector0, Vector4 vVector1) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Dot__SWIG_2(Vector4.getCPtr(vVector0), Vector4.getCPtr(vVector1)), true);
+  public static float Dot(Vector4 vVector0, Vector4 vVector1) {
+    float ret = RockPINVOKE.Dot__SWIG_2(Vector4.getCPtr(vVector0), Vector4.getCPtr(vVector1));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
