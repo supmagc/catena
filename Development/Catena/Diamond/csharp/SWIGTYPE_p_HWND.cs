@@ -7,18 +7,18 @@
  * ----------------------------------------------------------------------------- */
 
 
-public class SWIGTYPE_p_RBOOL {
+public class SWIGTYPE_p_HWND {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
 
-  internal SWIGTYPE_p_RBOOL(global::System.IntPtr cPtr, bool futureUse) {
+  internal SWIGTYPE_p_HWND(global::System.IntPtr cPtr, bool futureUse) {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
   }
 
-  protected SWIGTYPE_p_RBOOL() {
+  protected SWIGTYPE_p_HWND() {
     swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
   }
 
-  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_RBOOL obj) {
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_HWND obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }

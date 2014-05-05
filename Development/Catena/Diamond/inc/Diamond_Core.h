@@ -12,10 +12,13 @@ namespace Diamond {
         ~Core();
 
 #ifdef _WINDOWS
-        RBOOL Create(HWND hWnd);
+#ifndef SWIG
+        Rock::RBOOL Create(HWND hWnd);
+#endif
+        Rock::RBOOL Create(Rock::RINT nWnd);
 #endif
 
-        RBOOL Update();
+        Rock::RBOOL Update();
 
     private:
         struct CoreImpl;

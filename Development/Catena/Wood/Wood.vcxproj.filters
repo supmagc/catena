@@ -20,6 +20,9 @@
     <ClInclude Include="inc\Wood_Std.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Wood_Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Std.cpp">

@@ -7,7 +7,5 @@
  * ----------------------------------------------------------------------------- */
 
 
-public class Rock {
-  public static readonly int _UNICODE = RockPINVOKE._UNICODE_get();
-  public static readonly int _WIN32 = RockPINVOKE._WIN32_get();
+public class Diamond {
 }

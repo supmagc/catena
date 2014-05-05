@@ -285,31 +285,55 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_Diamond(SWIG_CSharpString
 #include "Chalk_D3d9.h"
 #include "Diamond.h"
 
+using namespace Rock;
+using namespace Chalk;
+using namespace Diamond;
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Core_set(void * jarg1) {
-  DLL_IMPORT arg1 ;
-  DLL_IMPORT *argp1 ;
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Core() {
+  void * jresult ;
+  Diamond::Core *result = 0 ;
   
-  argp1 = (DLL_IMPORT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null DLL_IMPORT", 0);
-    return ;
-  }
-  arg1 = *argp1; 
-  Diamond::Core = arg1;
+  result = (Diamond::Core *)new Diamond::Core();
+  jresult = (void *)result; 
+  return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Core_get() {
-  void * jresult ;
-  DLL_IMPORT result;
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Core(void * jarg1) {
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
   
-  result = Diamond::Core;
-  jresult = new DLL_IMPORT((const DLL_IMPORT &)result); 
+  arg1 = (Diamond::Core *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Core_Create(void * jarg1, int jarg2) {
+  unsigned int jresult ;
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RBOOL result;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  result = (Rock::RBOOL)(arg1)->Create(arg2);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Core_Update(void * jarg1) {
+  unsigned int jresult ;
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Rock::RBOOL result;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  result = (Rock::RBOOL)(arg1)->Update();
+  jresult = result; 
   return jresult;
 }
 
