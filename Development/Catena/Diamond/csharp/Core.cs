@@ -40,8 +40,13 @@ public class Core : global::System.IDisposable {
   public Core() : this(DiamondPINVOKE.new_Core(), true) {
   }
 
-  public SWIGTYPE_p_RBOOL Update() {
-    SWIGTYPE_p_RBOOL ret = new SWIGTYPE_p_RBOOL(DiamondPINVOKE.Core_Update(swigCPtr), true);
+  public bool Create(int nWnd) {
+    bool ret = DiamondPINVOKE.Core_Create(swigCPtr, nWnd);
+    return ret;
+  }
+
+  public bool Update() {
+    bool ret = DiamondPINVOKE.Core_Update(swigCPtr);
     return ret;
   }
 

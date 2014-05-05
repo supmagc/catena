@@ -3,10 +3,12 @@
 
 #include "Rock.h"
 
-#if DIAMOND_EXPORTS
+#if defined(DIAMOND_EXPORTS)
     #define DIAMOND_API DLL_EXPORT
-#else
+#elif defined(IDAMOND_IMPORTS)
     #define DIAMOND_API DLL_IMPORT
+#else
+    #define DIAMOND_API
 #endif
 
 #endif

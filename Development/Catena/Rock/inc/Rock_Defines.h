@@ -1,7 +1,7 @@
 #ifndef _H_ROCK_DEFINES
 #define _H_ROCK_DEFINES
 
-#if !defined(_UNICODE) && !defined(SWIG)
+#if !defined(_UNICODE)
     #error Rock is considered to always require unicode support.
 #endif
 
@@ -53,6 +53,7 @@
 // DLL defines
 #define DLL_EXPORT __declspec(dllexport)
 #define DLL_IMPORT __declspec(dllimport)
+#define LIB_EXPORT __declspec(dllexport)
 
 // Pimpl defines
 #define PIMPL_DECL(cls) struct cls##Impl; cls##Impl* m_pImpl
@@ -62,6 +63,12 @@
 #define PIMPL (*m_pImpl)
 
 // Rock specific defines
-#define ROCK_API DLL_EXPORT
+#if defined(ROCK_EXPORTS)
+    #define ROCK_API DLL_EXPORT
+#elif defined(ROCK_IMPORTS)
+    #define ROCK_API DLL_IMPORT
+#else
+    #define ROCK_API 
+#endif
 
 #endif // _H_ROCK_DEFINES

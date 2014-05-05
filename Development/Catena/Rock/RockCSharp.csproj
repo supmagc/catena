@@ -13,9 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <BaseIntermediateOutputPath>$(SolutionDir)..\Intermediate\CatenaEd\</BaseIntermediateOutputPath>
     <OutputPath>..\..\Build\$(Configuration)-Win32\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +24,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <DefineConstants>TRACE</DefineConstants>
@@ -44,22 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="csharp\AssemblyInfo.cs" />
-    <Compile Include="csharp\Matrix4x4.cs" />
-    <Compile Include="csharp\Rock.cs" />
-    <Compile Include="csharp\RockPINVOKE.cs" />
-    <Compile Include="csharp\SWIGTYPE_p_a_4__RFLOAT.cs" />
-    <Compile Include="csharp\SWIGTYPE_p_RFLOAT.cs" />
-    <Compile Include="csharp\SWIGTYPE_p_RINT.cs" />
-    <Compile Include="csharp\Vector2.cs" />
-    <Compile Include="csharp\Vector3.cs" />
-    <Compile Include="csharp\Vector4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

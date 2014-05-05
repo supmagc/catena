@@ -22,6 +22,7 @@ Core::~Core() {
 }
 
 #ifdef _WINDOWS
+#ifndef SWIG
 RBOOL Core::Create(HWND hWnd) {
     Chalk::D3d9::DeviceSettings oSettings;
     oSettings.hWindow = hWnd;
@@ -41,6 +42,12 @@ RBOOL Core::Create(HWND hWnd) {
     return true;
 }
 #endif
+RBOOL Core::Create(RINT nWnd) {
+    HWND hWnd = new HWND__();
+    hWnd->unused = nWnd;
+    return Create(hWnd);
+}
+#endif
 
 RFLOAT g_nDir = 1;
 RFLOAT g_nTemp = 0;
@@ -57,7 +64,7 @@ RBOOL Core::Update() {
     bError = bError || !m_pImpl->pShader->Set();
 
     Matrix mWorld = Matrix();
-    g_nTemp += g_nDir * 0.01;
+    g_nTemp += g_nDir * 0.01f;
     if(g_nTemp > 5) {g_nTemp = 5; g_nDir =-1;}
     if(g_nTemp <-5) {g_nTemp =-5; g_nDir = 1;}
     Matrix mView = Matrix::CreateViewLH(Vector(g_nTemp, 0, -2), Vector(0, 0, 0), Vector3(0, 1, 0));

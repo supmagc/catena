@@ -3,28 +3,27 @@
 
 namespace Rock {
 
-#ifdef _WINDOWS
-    typedef signed __int8 RINT8;
-    typedef signed __int8 RINT8;
-    typedef unsigned __int8 RUINT8;
-    typedef signed __int16 RINT16;
-    typedef unsigned __int16 RUINT16;
-    typedef signed __int32 RINT32;
-    typedef unsigned __int32 RUINT32;
-    typedef signed __int64 RINT64;
-    typedef unsigned __int64 RUINT64;
+#if defined(_WINDOWS)
+    typedef signed char RINT8;
+    typedef unsigned char RUINT8;
+    typedef signed short RINT16;
+    typedef unsigned short RUINT16;
+    typedef signed int RINT32;
+    typedef unsigned int RUINT32;
+    typedef signed long RINT64;
+    typedef unsigned long RUINT64;
     typedef RINT32 RINT;
     typedef RUINT32 RUINT;
-    typedef unsigned __int8 RBYTE;
+    typedef unsigned char RBYTE;
     typedef wchar_t RCHAR;
     typedef float RFLOAT;
     typedef double RDOUBLE;
     typedef bool RBOOL;
 
-    #ifdef _WIN32
-        typedef int *__ptr32 PTR;
+    #if defined(_WIN32)
+//        typedef int *__ptr32 PTR;
     #else
-        typedef int *__ptr64 PTR;
+//        typedef int *__ptr64 PTR;
     #endif
 
 #endif

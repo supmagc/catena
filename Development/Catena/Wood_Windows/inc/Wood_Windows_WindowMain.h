@@ -3,12 +3,13 @@
 
 #include "Rock.h"
 #include "Wood.h"
+#include "Wood_Windows_Defines.h"
 
 namespace Wood {
 
     namespace Windows {
 
-        struct WindowMainSettings {
+        struct WOOD_WINDOWS_API WindowMainSettings {
             Rock::RUINT nCmdShow;
             Rock::RUINT nIdSplash;
             Rock::RUINT nIdCursor;
@@ -18,7 +19,7 @@ namespace Wood {
             Rock::RUINT nIdIconSmall;
         };
 
-        class WindowMain : public Wood::WindowMain {
+        class WOOD_WINDOWS_API WindowMain : public Wood::WindowMain {
         public:
             WindowMain(HINSTANCE hInstance, WindowMainSettings const& oSettings);
             virtual ~WindowMain();

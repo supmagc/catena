@@ -1,13 +1,12 @@
 #ifndef _H_WOOD_WINDOWMAIN
 #define _H_WOOD_WINDOWMAIN
 
-#include "Wood_Std.h"
-
-using namespace Rock;
+#include "Rock.h"
+#include "Wood_Defines.h"
 
 namespace Wood {
 
-    class WindowMain {
+    class WOOD_API WindowMain {
     public:
         WindowMain();
         virtual ~WindowMain();

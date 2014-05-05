@@ -71,8 +71,20 @@
     <Compile Include="Forms\WndMain.Designer.cs">
       <DependentUpon>WndMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Panels\DiamondDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\DiamondDraw.Designer.cs">
+      <DependentUpon>DiamondDraw.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\WndMain.resx">
+      <DependentUpon>WndMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\DiamondDraw.resx">
+      <DependentUpon>DiamondDraw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,7 +95,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -112,9 +123,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CatenaClr\CatenaClr.vcxproj">
-      <Project>{3cf107f3-e038-482c-b36e-3e88a25ffa22}</Project>
-      <Name>CatenaClr</Name>
+    <ProjectReference Include="..\Diamond\DiamondCSharp.csproj">
+      <Project>{eacaf707-a2e6-4f3d-8a0b-1695edf153cd}</Project>
+      <Name>DiamondCSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rock\RockCSharp.csproj">
+      <Project>{62a88991-7d89-4f1f-a7d5-f79432541d65}</Project>
+      <Name>RockCSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
