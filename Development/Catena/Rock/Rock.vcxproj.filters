@@ -97,6 +97,9 @@
     <ClCompile Include="swig\rock_swig_wrap.cxx">
       <Filter>Swig Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Vector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="inl\Matrix4x4.inl">

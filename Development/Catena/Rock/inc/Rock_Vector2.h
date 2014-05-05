@@ -5,13 +5,16 @@
 
 namespace Rock {
 
-    struct DLL_EXPORT Vector2 {
+    struct ROCK_API Vector2 {
 
         RFLOAT x, y;
 
         Vector2();
+        Vector2(RFLOAT v);
         Vector2(RFLOAT x, RFLOAT y);
         Vector2(Vector2 const& vCopy);
+        ~Vector2();
+
         Vector2& operator=(Vector2 const& vCopy);
     };
 

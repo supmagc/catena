@@ -37,50 +37,42 @@ public class Vector4 : global::System.IDisposable {
     }
   }
 
-  public SWIGTYPE_p_RFLOAT x {
+  public float x {
     set {
-      RockPINVOKE.Vector4_x_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector4_x_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector4_x_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector4_x_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT y {
+  public float y {
     set {
-      RockPINVOKE.Vector4_y_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector4_y_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector4_y_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector4_y_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT z {
+  public float z {
     set {
-      RockPINVOKE.Vector4_z_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector4_z_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector4_z_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector4_z_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT w {
+  public float w {
     set {
-      RockPINVOKE.Vector4_w_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Vector4_w_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector4_w_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Vector4_w_get(swigCPtr);
       return ret;
     } 
   }
@@ -88,15 +80,14 @@ public class Vector4 : global::System.IDisposable {
   public Vector4() : this(RockPINVOKE.new_Vector4__SWIG_0(), true) {
   }
 
-  public Vector4(SWIGTYPE_p_RFLOAT v) : this(RockPINVOKE.new_Vector4__SWIG_1(SWIGTYPE_p_RFLOAT.getCPtr(v)), true) {
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public Vector4(float v) : this(RockPINVOKE.new_Vector4__SWIG_1(v), true) {
   }
 
   public Vector4(Vector4 vVector) : this(RockPINVOKE.new_Vector4__SWIG_2(Vector4.getCPtr(vVector)), true) {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public Vector4(Vector3 vVector, SWIGTYPE_p_RFLOAT w) : this(RockPINVOKE.new_Vector4__SWIG_3(Vector3.getCPtr(vVector), SWIGTYPE_p_RFLOAT.getCPtr(w)), true) {
+  public Vector4(Vector3 vVector, float w) : this(RockPINVOKE.new_Vector4__SWIG_3(Vector3.getCPtr(vVector), w), true) {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -104,16 +95,14 @@ public class Vector4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public Vector4(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z, SWIGTYPE_p_RFLOAT w) : this(RockPINVOKE.new_Vector4__SWIG_5(SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z), SWIGTYPE_p_RFLOAT.getCPtr(w)), true) {
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public Vector4(float x, float y, float z, float w) : this(RockPINVOKE.new_Vector4__SWIG_5(x, y, z, w), true) {
   }
 
-  public Vector4(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z) : this(RockPINVOKE.new_Vector4__SWIG_6(SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z)), true) {
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public Vector4(float x, float y, float z) : this(RockPINVOKE.new_Vector4__SWIG_6(x, y, z), true) {
   }
 
-  public SWIGTYPE_p_RFLOAT Dot(Vector4 vVector) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Vector4_Dot__SWIG_0(swigCPtr, Vector4.getCPtr(vVector)), true);
+  public float Dot(Vector4 vVector) {
+    float ret = RockPINVOKE.Vector4_Dot__SWIG_0(swigCPtr, Vector4.getCPtr(vVector));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }

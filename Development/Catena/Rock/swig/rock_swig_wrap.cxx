@@ -288,58 +288,46 @@ using namespace Rock;
 extern "C" {
 #endif
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector2_x_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector2_x_set(void * jarg1, float jarg2) {
   Rock::Vector2 *arg1 = (Rock::Vector2 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector2 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->x = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector2_x_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector2_x_get(void * jarg1) {
+  float jresult ;
   Rock::Vector2 *arg1 = (Rock::Vector2 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector2 *)jarg1; 
   result =  ((arg1)->x);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector2_y_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector2_y_set(void * jarg1, float jarg2) {
   Rock::Vector2 *arg1 = (Rock::Vector2 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector2 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->y = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector2_y_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector2_y_get(void * jarg1) {
+  float jresult ;
   Rock::Vector2 *arg1 = (Rock::Vector2 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector2 *)jarg1; 
   result =  ((arg1)->y);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -354,33 +342,33 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_0() {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_1(void * jarg1, void * jarg2) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_1(float jarg1) {
+  void * jresult ;
+  RFLOAT arg1 ;
+  Rock::Vector2 *result = 0 ;
+  
+  arg1 = (RFLOAT)jarg1; 
+  result = (Rock::Vector2 *)new Rock::Vector2(arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_2(float jarg1, float jarg2) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
   Rock::Vector2 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
   result = (Rock::Vector2 *)new Rock::Vector2(arg1,arg2);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_2(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector2__SWIG_3(void * jarg1) {
   void * jresult ;
   Rock::Vector2 *arg1 = 0 ;
   Rock::Vector2 *result = 0 ;
@@ -404,86 +392,68 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Vector2(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_x_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_x_set(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector3 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->x = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_x_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_x_get(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector3 *)jarg1; 
   result =  ((arg1)->x);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_y_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_y_set(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector3 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->y = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_y_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_y_get(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector3 *)jarg1; 
   result =  ((arg1)->y);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_z_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_z_set(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector3 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->z = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_z_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_z_get(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector3 *)jarg1; 
   result =  ((arg1)->z);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -498,52 +468,28 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector3__SWIG_0() {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector3__SWIG_1(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector3__SWIG_1(float jarg1) {
   void * jresult ;
   RFLOAT arg1 ;
-  RFLOAT *argp1 ;
   Rock::Vector3 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
+  arg1 = (RFLOAT)jarg1; 
   result = (Rock::Vector3 *)new Rock::Vector3(arg1);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector3__SWIG_2(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector3__SWIG_2(float jarg1, float jarg2, float jarg3) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
   Rock::Vector3 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg3 = *argp3; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
   result = (Rock::Vector3 *)new Rock::Vector3(arg1,arg2,arg3);
   jresult = (void *)result; 
   return jresult;
@@ -594,32 +540,32 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Normalized__SWIG_0(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Length__SWIG_0(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_Length__SWIG_0(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector3 *)jarg1; 
   result = ((Rock::Vector3 const *)arg1)->Length();
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_LengthSq__SWIG_0(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_LengthSq__SWIG_0(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector3 *)jarg1; 
   result = ((Rock::Vector3 const *)arg1)->LengthSq();
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Distance__SWIG_0(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_Distance__SWIG_0(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT result;
@@ -631,13 +577,13 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Distance__SWIG_0(void * jarg1, void
     return 0;
   } 
   result = ((Rock::Vector3 const *)arg1)->Distance((Rock::Vector3 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Dot__SWIG_0(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector3_Dot__SWIG_0(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT result;
@@ -649,7 +595,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Vector3_Dot__SWIG_0(void * jarg1, void * ja
     return 0;
   } 
   result = ((Rock::Vector3 const *)arg1)->Dot((Rock::Vector3 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -704,7 +650,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Normalized__SWIG_1(void * jarg1, void
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Length__SWIG_1(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Length__SWIG_1(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT *arg2 = 0 ;
   
@@ -718,7 +664,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Length__SWIG_1(void * jarg1, void * j
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_LengthSq__SWIG_1(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_LengthSq__SWIG_1(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   RFLOAT *arg2 = 0 ;
   
@@ -732,7 +678,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_LengthSq__SWIG_1(void * jarg1, void *
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Distance__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Distance__SWIG_1(void * jarg1, void * jarg2, float jarg3) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT *arg3 = 0 ;
@@ -752,7 +698,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Distance__SWIG_1(void * jarg1, void *
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Dot__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector3_Dot__SWIG_1(void * jarg1, void * jarg2, float jarg3) {
   Rock::Vector3 *arg1 = (Rock::Vector3 *) 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT *arg3 = 0 ;
@@ -828,8 +774,8 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Normalized__SWIG_0(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Length__SWIG_0(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Length__SWIG_0(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = 0 ;
   RFLOAT result;
   
@@ -839,13 +785,13 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Length__SWIG_0(void * jarg1) {
     return 0;
   } 
   result = Rock::Length((Rock::Vector3 const &)*arg1);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_LengthSq__SWIG_0(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_LengthSq__SWIG_0(void * jarg1) {
+  float jresult ;
   Rock::Vector3 *arg1 = 0 ;
   RFLOAT result;
   
@@ -855,13 +801,13 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_LengthSq__SWIG_0(void * jarg1) {
     return 0;
   } 
   result = Rock::LengthSq((Rock::Vector3 const &)*arg1);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Distance__SWIG_0(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Distance__SWIG_0(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector3 *arg1 = 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT result;
@@ -877,13 +823,13 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Distance__SWIG_0(void * jarg1, void * jarg2
     return 0;
   } 
   result = Rock::Distance((Rock::Vector3 const &)*arg1,(Rock::Vector3 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Dot__SWIG_0(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Dot__SWIG_0(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector3 *arg1 = 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT result;
@@ -899,7 +845,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Dot__SWIG_0(void * jarg1, void * jarg2) {
     return 0;
   } 
   result = Rock::Dot((Rock::Vector3 const &)*arg1,(Rock::Vector3 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -966,7 +912,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Normalized__SWIG_1(void * jarg1, void * jarg2
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Length__SWIG_1(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Length__SWIG_1(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = 0 ;
   RFLOAT *arg2 = 0 ;
   
@@ -984,7 +930,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Length__SWIG_1(void * jarg1, void * jarg2) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_LengthSq__SWIG_1(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_LengthSq__SWIG_1(void * jarg1, float jarg2) {
   Rock::Vector3 *arg1 = 0 ;
   RFLOAT *arg2 = 0 ;
   
@@ -1002,7 +948,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_LengthSq__SWIG_1(void * jarg1, void * jarg2) 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Distance__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Distance__SWIG_1(void * jarg1, void * jarg2, float jarg3) {
   Rock::Vector3 *arg1 = 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT *arg3 = 0 ;
@@ -1026,7 +972,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Distance__SWIG_1(void * jarg1, void * jarg2, 
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Dot__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Dot__SWIG_1(void * jarg1, void * jarg2, float jarg3) {
   Rock::Vector3 *arg1 = 0 ;
   Rock::Vector3 *arg2 = 0 ;
   RFLOAT *arg3 = 0 ;
@@ -1098,114 +1044,90 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CrossRH__SWIG_1(void * jarg1, void * jarg2, v
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_x_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_x_set(void * jarg1, float jarg2) {
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->x = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_x_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector4_x_get(void * jarg1) {
+  float jresult ;
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector4 *)jarg1; 
   result =  ((arg1)->x);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_y_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_y_set(void * jarg1, float jarg2) {
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->y = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_y_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector4_y_get(void * jarg1) {
+  float jresult ;
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector4 *)jarg1; 
   result =  ((arg1)->y);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_z_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_z_set(void * jarg1, float jarg2) {
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->z = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_z_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector4_z_get(void * jarg1) {
+  float jresult ;
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector4 *)jarg1; 
   result =  ((arg1)->z);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_w_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_w_set(void * jarg1, float jarg2) {
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Vector4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->w = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_w_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector4_w_get(void * jarg1) {
+  float jresult ;
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Vector4 *)jarg1; 
   result =  ((arg1)->w);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -1220,18 +1142,12 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_0() {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_1(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_1(float jarg1) {
   void * jresult ;
   RFLOAT arg1 ;
-  RFLOAT *argp1 ;
   Rock::Vector4 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
+  arg1 = (RFLOAT)jarg1; 
   result = (Rock::Vector4 *)new Rock::Vector4(arg1);
   jresult = (void *)result; 
   return jresult;
@@ -1254,11 +1170,10 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_2(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_3(void * jarg1, void * jarg2) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_3(void * jarg1, float jarg2) {
   void * jresult ;
   Rock::Vector3 *arg1 = 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   Rock::Vector4 *result = 0 ;
   
   arg1 = (Rock::Vector3 *)jarg1;
@@ -1266,12 +1181,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_3(void * jarg1, void * ja
     SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Rock::Vector3 const & type is null", 0);
     return 0;
   } 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   result = (Rock::Vector4 *)new Rock::Vector4((Rock::Vector3 const &)*arg1,arg2);
   jresult = (void *)result; 
   return jresult;
@@ -1294,76 +1204,34 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_4(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_5(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_5(float jarg1, float jarg2, float jarg3, float jarg4) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   Rock::Vector4 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg4 = *argp4; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   result = (Rock::Vector4 *)new Rock::Vector4(arg1,arg2,arg3,arg4);
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_6(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Vector4__SWIG_6(float jarg1, float jarg2, float jarg3) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
   Rock::Vector4 *result = 0 ;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg3 = *argp3; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
   result = (Rock::Vector4 *)new Rock::Vector4(arg1,arg2,arg3);
   jresult = (void *)result; 
   return jresult;
@@ -1378,8 +1246,8 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Vector4(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_Dot__SWIG_0(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Vector4_Dot__SWIG_0(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   Rock::Vector4 *arg2 = 0 ;
   RFLOAT result;
@@ -1391,12 +1259,12 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Vector4_Dot__SWIG_0(void * jarg1, void * ja
     return 0;
   } 
   result = ((Rock::Vector4 const *)arg1)->Dot((Rock::Vector4 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_Dot__SWIG_1(void * jarg1, void * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_Dot__SWIG_1(void * jarg1, void * jarg2, float jarg3) {
   Rock::Vector4 *arg1 = (Rock::Vector4 *) 0 ;
   Rock::Vector4 *arg2 = 0 ;
   RFLOAT *arg3 = 0 ;
@@ -1416,8 +1284,8 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Vector4_Dot__SWIG_1(void * jarg1, void * jarg
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Dot__SWIG_2(void * jarg1, void * jarg2) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Dot__SWIG_2(void * jarg1, void * jarg2) {
+  float jresult ;
   Rock::Vector4 *arg1 = 0 ;
   Rock::Vector4 *arg2 = 0 ;
   RFLOAT result;
@@ -1433,455 +1301,359 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Dot__SWIG_2(void * jarg1, void * jarg2) {
     return 0;
   } 
   result = Rock::Dot((Rock::Vector4 const &)*arg1,(Rock::Vector4 const &)*arg2);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__11_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__11_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_11 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__11_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__11_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_11);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__12_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__12_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_12 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__12_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__12_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_12);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__13_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__13_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_13 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__13_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__13_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_13);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__14_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__14_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_14 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__14_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__14_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_14);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__21_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__21_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_21 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__21_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__21_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_21);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__22_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__22_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_22 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__22_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__22_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_22);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__23_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__23_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_23 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__23_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__23_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_23);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__24_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__24_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_24 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__24_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__24_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_24);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__31_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__31_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_31 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__31_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__31_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_31);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__32_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__32_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_32 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__32_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__32_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_32);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__33_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__33_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_33 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__33_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__33_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_33);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__34_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__34_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_34 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__34_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__34_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_34);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__41_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__41_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_41 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__41_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__41_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_41);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__42_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__42_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_42 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__42_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__42_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_42);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__43_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__43_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_43 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__43_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__43_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_43);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__44_set(void * jarg1, void * jarg2) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__44_set(void * jarg1, float jarg2) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
-  RFLOAT *argp2 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
+  arg2 = (RFLOAT)jarg2; 
   if (arg1) (arg1)->_44 = arg2;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4__44_get(void * jarg1) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__44_get(void * jarg1) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT result;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   result =  ((arg1)->_44);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -2000,7 +1772,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_0(void * jarg1, void *
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_1(void * jarg1, void * jarg2, float jarg3, float jarg4, float jarg5, float jarg6) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RINT arg2 ;
   RFLOAT arg3 ;
@@ -2008,10 +1780,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_1(void * jarg1, void *
   RFLOAT arg5 ;
   RFLOAT arg6 ;
   RINT const *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
-  RFLOAT *argp5 ;
-  RFLOAT *argp6 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   argp2 = (RINT *)jarg2; 
@@ -2020,30 +1788,10 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_1(void * jarg1, void *
     return ;
   }
   arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
-  argp5 = (RFLOAT *)jarg5; 
-  if (!argp5) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg5 = *argp5; 
-  argp6 = (RFLOAT *)jarg6; 
-  if (!argp6) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg6 = *argp6; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
+  arg5 = (RFLOAT)jarg5; 
+  arg6 = (RFLOAT)jarg6; 
   (arg1)->SetRow(arg2,arg3,arg4,arg5,arg6);
 }
 
@@ -2070,7 +1818,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_0(void * jarg1, voi
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_1(void * jarg1, void * jarg2, float jarg3, float jarg4, float jarg5, float jarg6) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RINT arg2 ;
   RFLOAT arg3 ;
@@ -2078,10 +1826,6 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_1(void * jarg1, voi
   RFLOAT arg5 ;
   RFLOAT arg6 ;
   RINT const *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
-  RFLOAT *argp5 ;
-  RFLOAT *argp6 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   argp2 = (RINT *)jarg2; 
@@ -2090,30 +1834,10 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_1(void * jarg1, voi
     return ;
   }
   arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
-  argp5 = (RFLOAT *)jarg5; 
-  if (!argp5) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg5 = *argp5; 
-  argp6 = (RFLOAT *)jarg6; 
-  if (!argp6) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg6 = *argp6; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
+  arg5 = (RFLOAT)jarg5; 
+  arg6 = (RFLOAT)jarg6; 
   (arg1)->SetColumn(arg2,arg3,arg4,arg5,arg6);
 }
 
@@ -2132,34 +1856,16 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisX__SWIG_0(void * jarg1, void
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisX__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisX__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   (arg1)->SetAxisX(arg2,arg3,arg4);
 }
 
@@ -2178,34 +1884,16 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisY__SWIG_0(void * jarg1, void
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisY__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisY__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   (arg1)->SetAxisY(arg2,arg3,arg4);
 }
 
@@ -2224,34 +1912,16 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisZ__SWIG_0(void * jarg1, void
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisZ__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisZ__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   (arg1)->SetAxisZ(arg2,arg3,arg4);
 }
 
@@ -2270,46 +1940,27 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetPosition__SWIG_0(void * jarg1, v
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetPosition__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetPosition__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   (arg1)->SetPosition(arg2,arg3,arg4);
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetCell(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetCell(void * jarg1, void * jarg2, void * jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RINT arg2 ;
   RINT arg3 ;
   RFLOAT arg4 ;
   RINT *argp2 ;
   RINT *argp3 ;
-  RFLOAT *argp4 ;
   
   arg1 = (Rock::Matrix4x4 *)jarg1; 
   argp2 = (RINT *)jarg2; 
@@ -2324,12 +1975,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetCell(void * jarg1, void * jarg2,
     return ;
   }
   arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return ;
-  }
-  arg4 = *argp4; 
+  arg4 = (RFLOAT)jarg4; 
   (arg1)->SetCell(arg2,arg3,arg4);
 }
 
@@ -2422,8 +2068,8 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetPosition__SWIG_0(void * jarg1)
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_0(void * jarg1, void * jarg2, void * jarg3) {
-  void * jresult ;
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_0(void * jarg1, void * jarg2, void * jarg3) {
+  float jresult ;
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RINT arg2 ;
   RINT arg3 ;
@@ -2445,7 +2091,7 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_0(void * jarg1, voi
   }
   arg3 = *argp3; 
   result = ((Rock::Matrix4x4 const *)arg1)->GetCell(arg2,arg3);
-  jresult = new RFLOAT((const RFLOAT &)result); 
+  jresult = result; 
   return jresult;
 }
 
@@ -2550,7 +2196,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetPosition__SWIG_1(void * jarg1, v
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_1(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_1(void * jarg1, void * jarg2, void * jarg3, float jarg4) {
   Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
   RINT arg2 ;
   RINT arg3 ;
@@ -2656,84 +2302,36 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Transposed__SWIG_1(void * jarg1, vo
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveLH(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveLH(float jarg1, float jarg2, float jarg3, float jarg4) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   Rock::Matrix4x4 result;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg4 = *argp4; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   result = Rock::Matrix4x4::CreatePerspectiveLH(arg1,arg2,arg3,arg4);
   jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveRH(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveRH(float jarg1, float jarg2, float jarg3, float jarg4) {
   void * jresult ;
   RFLOAT arg1 ;
   RFLOAT arg2 ;
   RFLOAT arg3 ;
   RFLOAT arg4 ;
-  RFLOAT *argp1 ;
-  RFLOAT *argp2 ;
-  RFLOAT *argp3 ;
-  RFLOAT *argp4 ;
   Rock::Matrix4x4 result;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
-  argp2 = (RFLOAT *)jarg2; 
-  if (!argp2) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (RFLOAT *)jarg3; 
-  if (!argp3) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg3 = *argp3; 
-  argp4 = (RFLOAT *)jarg4; 
-  if (!argp4) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg4 = *argp4; 
+  arg1 = (RFLOAT)jarg1; 
+  arg2 = (RFLOAT)jarg2; 
+  arg3 = (RFLOAT)jarg3; 
+  arg4 = (RFLOAT)jarg4; 
   result = Rock::Matrix4x4::CreatePerspectiveRH(arg1,arg2,arg3,arg4);
   jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;
@@ -2838,54 +2436,36 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateTranslate(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateX(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateX(float jarg1) {
   void * jresult ;
   RFLOAT arg1 ;
-  RFLOAT *argp1 ;
   Rock::Matrix4x4 result;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
+  arg1 = (RFLOAT)jarg1; 
   result = Rock::Matrix4x4::CreateRotateX(arg1);
   jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateY(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateY(float jarg1) {
   void * jresult ;
   RFLOAT arg1 ;
-  RFLOAT *argp1 ;
   Rock::Matrix4x4 result;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
+  arg1 = (RFLOAT)jarg1; 
   result = Rock::Matrix4x4::CreateRotateY(arg1);
   jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateZ(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateZ(float jarg1) {
   void * jresult ;
   RFLOAT arg1 ;
-  RFLOAT *argp1 ;
   Rock::Matrix4x4 result;
   
-  argp1 = (RFLOAT *)jarg1; 
-  if (!argp1) {
-    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null RFLOAT", 0);
-    return 0;
-  }
-  arg1 = *argp1; 
+  arg1 = (RFLOAT)jarg1; 
   result = Rock::Matrix4x4::CreateRotateZ(arg1);
   jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;

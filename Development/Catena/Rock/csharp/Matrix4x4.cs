@@ -37,194 +37,162 @@ public class Matrix4x4 : global::System.IDisposable {
     }
   }
 
-  public SWIGTYPE_p_RFLOAT _11 {
+  public float _11 {
     set {
-      RockPINVOKE.Matrix4x4__11_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__11_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__11_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__11_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _12 {
+  public float _12 {
     set {
-      RockPINVOKE.Matrix4x4__12_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__12_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__12_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__12_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _13 {
+  public float _13 {
     set {
-      RockPINVOKE.Matrix4x4__13_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__13_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__13_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__13_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _14 {
+  public float _14 {
     set {
-      RockPINVOKE.Matrix4x4__14_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__14_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__14_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__14_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _21 {
+  public float _21 {
     set {
-      RockPINVOKE.Matrix4x4__21_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__21_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__21_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__21_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _22 {
+  public float _22 {
     set {
-      RockPINVOKE.Matrix4x4__22_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__22_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__22_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__22_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _23 {
+  public float _23 {
     set {
-      RockPINVOKE.Matrix4x4__23_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__23_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__23_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__23_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _24 {
+  public float _24 {
     set {
-      RockPINVOKE.Matrix4x4__24_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__24_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__24_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__24_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _31 {
+  public float _31 {
     set {
-      RockPINVOKE.Matrix4x4__31_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__31_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__31_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__31_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _32 {
+  public float _32 {
     set {
-      RockPINVOKE.Matrix4x4__32_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__32_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__32_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__32_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _33 {
+  public float _33 {
     set {
-      RockPINVOKE.Matrix4x4__33_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__33_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__33_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__33_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _34 {
+  public float _34 {
     set {
-      RockPINVOKE.Matrix4x4__34_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__34_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__34_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__34_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _41 {
+  public float _41 {
     set {
-      RockPINVOKE.Matrix4x4__41_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__41_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__41_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__41_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _42 {
+  public float _42 {
     set {
-      RockPINVOKE.Matrix4x4__42_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__42_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__42_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__42_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _43 {
+  public float _43 {
     set {
-      RockPINVOKE.Matrix4x4__43_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__43_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__43_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__43_get(swigCPtr);
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_RFLOAT _44 {
+  public float _44 {
     set {
-      RockPINVOKE.Matrix4x4__44_set(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(value));
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      RockPINVOKE.Matrix4x4__44_set(swigCPtr, value);
     } 
     get {
-      SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4__44_get(swigCPtr), true);
-      if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+      float ret = RockPINVOKE.Matrix4x4__44_get(swigCPtr);
       return ret;
     } 
   }
@@ -263,8 +231,8 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetRow(SWIGTYPE_p_RINT nRow, SWIGTYPE_p_RFLOAT n0, SWIGTYPE_p_RFLOAT n1, SWIGTYPE_p_RFLOAT n2, SWIGTYPE_p_RFLOAT n3) {
-    RockPINVOKE.Matrix4x4_SetRow__SWIG_1(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), SWIGTYPE_p_RFLOAT.getCPtr(n0), SWIGTYPE_p_RFLOAT.getCPtr(n1), SWIGTYPE_p_RFLOAT.getCPtr(n2), SWIGTYPE_p_RFLOAT.getCPtr(n3));
+  public void SetRow(SWIGTYPE_p_RINT nRow, float n0, float n1, float n2, float n3) {
+    RockPINVOKE.Matrix4x4_SetRow__SWIG_1(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), n0, n1, n2, n3);
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -273,8 +241,8 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetColumn(SWIGTYPE_p_RINT nColumn, SWIGTYPE_p_RFLOAT n0, SWIGTYPE_p_RFLOAT n1, SWIGTYPE_p_RFLOAT n2, SWIGTYPE_p_RFLOAT n3) {
-    RockPINVOKE.Matrix4x4_SetColumn__SWIG_1(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nColumn), SWIGTYPE_p_RFLOAT.getCPtr(n0), SWIGTYPE_p_RFLOAT.getCPtr(n1), SWIGTYPE_p_RFLOAT.getCPtr(n2), SWIGTYPE_p_RFLOAT.getCPtr(n3));
+  public void SetColumn(SWIGTYPE_p_RINT nColumn, float n0, float n1, float n2, float n3) {
+    RockPINVOKE.Matrix4x4_SetColumn__SWIG_1(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nColumn), n0, n1, n2, n3);
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -283,9 +251,8 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetAxisX(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z) {
-    RockPINVOKE.Matrix4x4_SetAxisX__SWIG_1(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z));
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public void SetAxisX(float x, float y, float z) {
+    RockPINVOKE.Matrix4x4_SetAxisX__SWIG_1(swigCPtr, x, y, z);
   }
 
   public void SetAxisY(Vector3 vAxis) {
@@ -293,9 +260,8 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetAxisY(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z) {
-    RockPINVOKE.Matrix4x4_SetAxisY__SWIG_1(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z));
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public void SetAxisY(float x, float y, float z) {
+    RockPINVOKE.Matrix4x4_SetAxisY__SWIG_1(swigCPtr, x, y, z);
   }
 
   public void SetAxisZ(Vector3 vAxis) {
@@ -303,9 +269,8 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetAxisZ(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z) {
-    RockPINVOKE.Matrix4x4_SetAxisZ__SWIG_1(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z));
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public void SetAxisZ(float x, float y, float z) {
+    RockPINVOKE.Matrix4x4_SetAxisZ__SWIG_1(swigCPtr, x, y, z);
   }
 
   public void SetPosition(Vector3 vPosition) {
@@ -313,13 +278,12 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void SetPosition(SWIGTYPE_p_RFLOAT x, SWIGTYPE_p_RFLOAT y, SWIGTYPE_p_RFLOAT z) {
-    RockPINVOKE.Matrix4x4_SetPosition__SWIG_1(swigCPtr, SWIGTYPE_p_RFLOAT.getCPtr(x), SWIGTYPE_p_RFLOAT.getCPtr(y), SWIGTYPE_p_RFLOAT.getCPtr(z));
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public void SetPosition(float x, float y, float z) {
+    RockPINVOKE.Matrix4x4_SetPosition__SWIG_1(swigCPtr, x, y, z);
   }
 
-  public void SetCell(SWIGTYPE_p_RINT nRow, SWIGTYPE_p_RINT nColumn, SWIGTYPE_p_RFLOAT nCell) {
-    RockPINVOKE.Matrix4x4_SetCell(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), SWIGTYPE_p_RINT.getCPtr(nColumn), SWIGTYPE_p_RFLOAT.getCPtr(nCell));
+  public void SetCell(SWIGTYPE_p_RINT nRow, SWIGTYPE_p_RINT nColumn, float nCell) {
+    RockPINVOKE.Matrix4x4_SetCell(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), SWIGTYPE_p_RINT.getCPtr(nColumn), nCell);
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -355,8 +319,8 @@ public class Matrix4x4 : global::System.IDisposable {
     return ret;
   }
 
-  public SWIGTYPE_p_RFLOAT GetCell(SWIGTYPE_p_RINT nRow, SWIGTYPE_p_RINT nColumn) {
-    SWIGTYPE_p_RFLOAT ret = new SWIGTYPE_p_RFLOAT(RockPINVOKE.Matrix4x4_GetCell__SWIG_0(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), SWIGTYPE_p_RINT.getCPtr(nColumn)), true);
+  public float GetCell(SWIGTYPE_p_RINT nRow, SWIGTYPE_p_RINT nColumn) {
+    float ret = RockPINVOKE.Matrix4x4_GetCell__SWIG_0(swigCPtr, SWIGTYPE_p_RINT.getCPtr(nRow), SWIGTYPE_p_RINT.getCPtr(nColumn));
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
@@ -428,15 +392,13 @@ public class Matrix4x4 : global::System.IDisposable {
     if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public static Matrix4x4 CreatePerspectiveLH(SWIGTYPE_p_RFLOAT nFOV, SWIGTYPE_p_RFLOAT nAspectRatio, SWIGTYPE_p_RFLOAT nNearClipping, SWIGTYPE_p_RFLOAT nFarClipping) {
-    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreatePerspectiveLH(SWIGTYPE_p_RFLOAT.getCPtr(nFOV), SWIGTYPE_p_RFLOAT.getCPtr(nAspectRatio), SWIGTYPE_p_RFLOAT.getCPtr(nNearClipping), SWIGTYPE_p_RFLOAT.getCPtr(nFarClipping)), true);
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public static Matrix4x4 CreatePerspectiveLH(float nFOV, float nAspectRatio, float nNearClipping, float nFarClipping) {
+    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreatePerspectiveLH(nFOV, nAspectRatio, nNearClipping, nFarClipping), true);
     return ret;
   }
 
-  public static Matrix4x4 CreatePerspectiveRH(SWIGTYPE_p_RFLOAT nFOV, SWIGTYPE_p_RFLOAT nAspectRatio, SWIGTYPE_p_RFLOAT nNearClipping, SWIGTYPE_p_RFLOAT nFarClipping) {
-    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreatePerspectiveRH(SWIGTYPE_p_RFLOAT.getCPtr(nFOV), SWIGTYPE_p_RFLOAT.getCPtr(nAspectRatio), SWIGTYPE_p_RFLOAT.getCPtr(nNearClipping), SWIGTYPE_p_RFLOAT.getCPtr(nFarClipping)), true);
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public static Matrix4x4 CreatePerspectiveRH(float nFOV, float nAspectRatio, float nNearClipping, float nFarClipping) {
+    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreatePerspectiveRH(nFOV, nAspectRatio, nNearClipping, nFarClipping), true);
     return ret;
   }
 
@@ -469,21 +431,18 @@ public class Matrix4x4 : global::System.IDisposable {
     return ret;
   }
 
-  public static Matrix4x4 CreateRotateX(SWIGTYPE_p_RFLOAT nRot) {
-    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateX(SWIGTYPE_p_RFLOAT.getCPtr(nRot)), true);
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public static Matrix4x4 CreateRotateX(float nRot) {
+    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateX(nRot), true);
     return ret;
   }
 
-  public static Matrix4x4 CreateRotateY(SWIGTYPE_p_RFLOAT nRot) {
-    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateY(SWIGTYPE_p_RFLOAT.getCPtr(nRot)), true);
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public static Matrix4x4 CreateRotateY(float nRot) {
+    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateY(nRot), true);
     return ret;
   }
 
-  public static Matrix4x4 CreateRotateZ(SWIGTYPE_p_RFLOAT nRot) {
-    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateZ(SWIGTYPE_p_RFLOAT.getCPtr(nRot)), true);
-    if (RockPINVOKE.SWIGPendingException.Pending) throw RockPINVOKE.SWIGPendingException.Retrieve();
+  public static Matrix4x4 CreateRotateZ(float nRot) {
+    Matrix4x4 ret = new Matrix4x4(RockPINVOKE.Matrix4x4_CreateRotateZ(nRot), true);
     return ret;
   }
 

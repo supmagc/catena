@@ -186,55 +186,58 @@ class RockPINVOKE {
 
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector2_x_set")]
-  public static extern void Vector2_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector2_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector2_x_get")]
-  public static extern global::System.IntPtr Vector2_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector2_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector2_y_set")]
-  public static extern void Vector2_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector2_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector2_y_get")]
-  public static extern global::System.IntPtr Vector2_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector2_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector2__SWIG_0")]
   public static extern global::System.IntPtr new_Vector2__SWIG_0();
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector2__SWIG_1")]
-  public static extern global::System.IntPtr new_Vector2__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern global::System.IntPtr new_Vector2__SWIG_1(float jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector2__SWIG_2")]
-  public static extern global::System.IntPtr new_Vector2__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr new_Vector2__SWIG_2(float jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector2__SWIG_3")]
+  public static extern global::System.IntPtr new_Vector2__SWIG_3(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_delete_Vector2")]
   public static extern void delete_Vector2(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_x_set")]
-  public static extern void Vector3_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector3_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_x_get")]
-  public static extern global::System.IntPtr Vector3_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector3_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_y_set")]
-  public static extern void Vector3_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector3_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_y_get")]
-  public static extern global::System.IntPtr Vector3_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector3_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_z_set")]
-  public static extern void Vector3_z_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector3_z_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_z_get")]
-  public static extern global::System.IntPtr Vector3_z_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector3_z_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector3__SWIG_0")]
   public static extern global::System.IntPtr new_Vector3__SWIG_0();
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector3__SWIG_1")]
-  public static extern global::System.IntPtr new_Vector3__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr new_Vector3__SWIG_1(float jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector3__SWIG_2")]
-  public static extern global::System.IntPtr new_Vector3__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  public static extern global::System.IntPtr new_Vector3__SWIG_2(float jarg1, float jarg2, float jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector3__SWIG_3")]
   public static extern global::System.IntPtr new_Vector3__SWIG_3(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -249,16 +252,16 @@ class RockPINVOKE {
   public static extern global::System.IntPtr Vector3_Normalized__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_Length__SWIG_0")]
-  public static extern global::System.IntPtr Vector3_Length__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector3_Length__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_LengthSq__SWIG_0")]
-  public static extern global::System.IntPtr Vector3_LengthSq__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector3_LengthSq__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_Distance__SWIG_0")]
-  public static extern global::System.IntPtr Vector3_Distance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Vector3_Distance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_Dot__SWIG_0")]
-  public static extern global::System.IntPtr Vector3_Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Vector3_Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector3_CrossLH__SWIG_0")]
   public static extern global::System.IntPtr Vector3_CrossLH__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -291,16 +294,16 @@ class RockPINVOKE {
   public static extern global::System.IntPtr Normalized__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Length__SWIG_0")]
-  public static extern global::System.IntPtr Length__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Length__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_LengthSq__SWIG_0")]
-  public static extern global::System.IntPtr LengthSq__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float LengthSq__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Distance__SWIG_0")]
-  public static extern global::System.IntPtr Distance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Distance__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Dot__SWIG_0")]
-  public static extern global::System.IntPtr Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_CrossLH__SWIG_0")]
   public static extern global::System.IntPtr CrossLH__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -330,157 +333,157 @@ class RockPINVOKE {
   public static extern void CrossRH__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_x_set")]
-  public static extern void Vector4_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector4_x_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_x_get")]
-  public static extern global::System.IntPtr Vector4_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector4_x_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_y_set")]
-  public static extern void Vector4_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector4_y_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_y_get")]
-  public static extern global::System.IntPtr Vector4_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector4_y_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_z_set")]
-  public static extern void Vector4_z_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector4_z_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_z_get")]
-  public static extern global::System.IntPtr Vector4_z_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector4_z_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_w_set")]
-  public static extern void Vector4_w_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Vector4_w_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_w_get")]
-  public static extern global::System.IntPtr Vector4_w_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Vector4_w_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_0")]
   public static extern global::System.IntPtr new_Vector4__SWIG_0();
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_1")]
-  public static extern global::System.IntPtr new_Vector4__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr new_Vector4__SWIG_1(float jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_2")]
   public static extern global::System.IntPtr new_Vector4__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_3")]
-  public static extern global::System.IntPtr new_Vector4__SWIG_3(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern global::System.IntPtr new_Vector4__SWIG_3(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_4")]
   public static extern global::System.IntPtr new_Vector4__SWIG_4(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_5")]
-  public static extern global::System.IntPtr new_Vector4__SWIG_5(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern global::System.IntPtr new_Vector4__SWIG_5(float jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_new_Vector4__SWIG_6")]
-  public static extern global::System.IntPtr new_Vector4__SWIG_6(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  public static extern global::System.IntPtr new_Vector4__SWIG_6(float jarg1, float jarg2, float jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_delete_Vector4")]
   public static extern void delete_Vector4(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_Dot__SWIG_0")]
-  public static extern global::System.IntPtr Vector4_Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Vector4_Dot__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Vector4_Dot__SWIG_1")]
   public static extern void Vector4_Dot__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Dot__SWIG_2")]
-  public static extern global::System.IntPtr Dot__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern float Dot__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__11_set")]
-  public static extern void Matrix4x4__11_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__11_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__11_get")]
-  public static extern global::System.IntPtr Matrix4x4__11_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__11_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__12_set")]
-  public static extern void Matrix4x4__12_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__12_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__12_get")]
-  public static extern global::System.IntPtr Matrix4x4__12_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__12_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__13_set")]
-  public static extern void Matrix4x4__13_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__13_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__13_get")]
-  public static extern global::System.IntPtr Matrix4x4__13_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__13_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__14_set")]
-  public static extern void Matrix4x4__14_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__14_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__14_get")]
-  public static extern global::System.IntPtr Matrix4x4__14_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__14_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__21_set")]
-  public static extern void Matrix4x4__21_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__21_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__21_get")]
-  public static extern global::System.IntPtr Matrix4x4__21_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__21_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__22_set")]
-  public static extern void Matrix4x4__22_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__22_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__22_get")]
-  public static extern global::System.IntPtr Matrix4x4__22_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__22_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__23_set")]
-  public static extern void Matrix4x4__23_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__23_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__23_get")]
-  public static extern global::System.IntPtr Matrix4x4__23_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__23_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__24_set")]
-  public static extern void Matrix4x4__24_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__24_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__24_get")]
-  public static extern global::System.IntPtr Matrix4x4__24_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__24_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__31_set")]
-  public static extern void Matrix4x4__31_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__31_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__31_get")]
-  public static extern global::System.IntPtr Matrix4x4__31_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__31_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__32_set")]
-  public static extern void Matrix4x4__32_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__32_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__32_get")]
-  public static extern global::System.IntPtr Matrix4x4__32_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__32_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__33_set")]
-  public static extern void Matrix4x4__33_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__33_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__33_get")]
-  public static extern global::System.IntPtr Matrix4x4__33_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__33_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__34_set")]
-  public static extern void Matrix4x4__34_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__34_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__34_get")]
-  public static extern global::System.IntPtr Matrix4x4__34_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__34_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__41_set")]
-  public static extern void Matrix4x4__41_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__41_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__41_get")]
-  public static extern global::System.IntPtr Matrix4x4__41_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__41_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__42_set")]
-  public static extern void Matrix4x4__42_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__42_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__42_get")]
-  public static extern global::System.IntPtr Matrix4x4__42_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__42_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__43_set")]
-  public static extern void Matrix4x4__43_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__43_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__43_get")]
-  public static extern global::System.IntPtr Matrix4x4__43_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__43_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__44_set")]
-  public static extern void Matrix4x4__44_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+  public static extern void Matrix4x4__44_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4__44_get")]
-  public static extern global::System.IntPtr Matrix4x4__44_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern float Matrix4x4__44_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_rc_set")]
   public static extern void Matrix4x4_rc_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -507,40 +510,40 @@ class RockPINVOKE {
   public static extern void Matrix4x4_SetRow__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetRow__SWIG_1")]
-  public static extern void Matrix4x4_SetRow__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6);
+  public static extern void Matrix4x4_SetRow__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3, float jarg4, float jarg5, float jarg6);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetColumn__SWIG_0")]
   public static extern void Matrix4x4_SetColumn__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetColumn__SWIG_1")]
-  public static extern void Matrix4x4_SetColumn__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6);
+  public static extern void Matrix4x4_SetColumn__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, float jarg3, float jarg4, float jarg5, float jarg6);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisX__SWIG_0")]
   public static extern void Matrix4x4_SetAxisX__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisX__SWIG_1")]
-  public static extern void Matrix4x4_SetAxisX__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern void Matrix4x4_SetAxisX__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisY__SWIG_0")]
   public static extern void Matrix4x4_SetAxisY__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisY__SWIG_1")]
-  public static extern void Matrix4x4_SetAxisY__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern void Matrix4x4_SetAxisY__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisZ__SWIG_0")]
   public static extern void Matrix4x4_SetAxisZ__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetAxisZ__SWIG_1")]
-  public static extern void Matrix4x4_SetAxisZ__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern void Matrix4x4_SetAxisZ__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetPosition__SWIG_0")]
   public static extern void Matrix4x4_SetPosition__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetPosition__SWIG_1")]
-  public static extern void Matrix4x4_SetPosition__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern void Matrix4x4_SetPosition__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_SetCell")]
-  public static extern void Matrix4x4_SetCell(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern void Matrix4x4_SetCell(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_GetRow__SWIG_0")]
   public static extern global::System.IntPtr Matrix4x4_GetRow__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
@@ -561,7 +564,7 @@ class RockPINVOKE {
   public static extern global::System.IntPtr Matrix4x4_GetPosition__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_GetCell__SWIG_0")]
-  public static extern global::System.IntPtr Matrix4x4_GetCell__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+  public static extern float Matrix4x4_GetCell__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_GetRow__SWIG_1")]
   public static extern void Matrix4x4_GetRow__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
@@ -606,10 +609,10 @@ class RockPINVOKE {
   public static extern void Matrix4x4_Transposed__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreatePerspectiveLH")]
-  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveLH(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveLH(float jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreatePerspectiveRH")]
-  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveRH(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveRH(float jarg1, float jarg2, float jarg3, float jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreateIdentity")]
   public static extern global::System.IntPtr Matrix4x4_CreateIdentity();
@@ -627,11 +630,11 @@ class RockPINVOKE {
   public static extern global::System.IntPtr Matrix4x4_CreateTranslate(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreateRotateX")]
-  public static extern global::System.IntPtr Matrix4x4_CreateRotateX(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateX(float jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreateRotateY")]
-  public static extern global::System.IntPtr Matrix4x4_CreateRotateY(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateY(float jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp_Matrix4x4_CreateRotateZ")]
-  public static extern global::System.IntPtr Matrix4x4_CreateRotateZ(global::System.Runtime.InteropServices.HandleRef jarg1);
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateZ(float jarg1);
 }
