@@ -1,7 +1,7 @@
 #ifndef _H_ROCK_DEFINES
 #define _H_ROCK_DEFINES
 
-#if !defined(_UNICODE)
+#if !defined(_UNICODE) && !defined(SWIG)
     #error Rock is considered to always require unicode support.
 #endif
 
