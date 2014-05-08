@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Publish|Win32">
+      <Configuration>Publish</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{37B1D6A0-1604-4826-A091-9445E7C8478B}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Chalk_d3d9Lib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Chalk_d3d9Lib.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Chalk_d3d9Lib</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Chalk_d3d9Lib.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Chalk_d3d9Lib</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\Publish\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">Chalk_d3d9Lib.dir\Publish\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">Chalk_d3d9Lib</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">.lib</TargetExt>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_UNICODE;_WIN32;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_UNICODE;_WIN32;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_UNICODE;_WIN32;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_UNICODE;_WIN32;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Publish/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_UNICODE;_WIN32;CMAKE_INTDIR="Publish";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_UNICODE;_WIN32;CMAKE_INTDIR=\"Publish\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\code\Catena\Development\CatenaTest\Rock\inc;D:\code\Catena\Development\CatenaTest\Chalk\inc;D:\code\Catena\Development\CatenaTest\Chalk_D3d9\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\Chalk_d3d9\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\code\Catena\Development\Dependencies\cmake-2.8.12.2-win32-x86\bin\cmake.exe -HD:/code/Catena/Development/CatenaTest -BD:/code/Catena/Development/CatenaTest/Build --check-stamp-file D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\code\Catena\Development\Dependencies\cmake-2.8.12.2-win32-x86\bin\cmake.exe -HD:/code/Catena/Development/CatenaTest -BD:/code/Catena/Development/CatenaTest/Build --check-stamp-file D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">Building Custom Rule D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">setlocal
+D:\code\Catena\Development\Dependencies\cmake-2.8.12.2-win32-x86\bin\cmake.exe -HD:/code/Catena/Development/CatenaTest -BD:/code/Catena/Development/CatenaTest/Build --check-stamp-file D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">D:/code/Catena/Development/CatenaTest/Chalk_d3d9/CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;D:\code\Catena\Development\CatenaTest\Chalk_d3d9\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">D:\code\Catena\Development\CatenaTest\Build\Chalk_d3d9\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Publish|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_Std.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_Defines.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_Device.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_Shader.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_VertexBuffer.h" />
+    <ClInclude Include="..\..\Chalk_D3d9\inc\Chalk_D3d9_IndexBuffer.h" />
+    <ClCompile Include="..\..\Chalk_D3d9\src\Std.cpp"  />
+    <ClCompile Include="..\..\Chalk_D3d9\src\Device.cpp"  />
+    <ClCompile Include="..\..\Chalk_D3d9\src\Shader.cpp"  />
+    <ClCompile Include="..\..\Chalk_D3d9\src\VertexBuffer.cpp"  />
+    <ClCompile Include="..\..\Chalk_D3d9\src\IndexBuffer.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/code/Catena/Development/CatenaTest/Build/Chalk/ChalkLib.vcxproj">
+      <Project>37796B5D-F26C-4259-91F3-D7B65D7ABE17</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/code/Catena/Development/CatenaTest/Build/Rock/RockLib.vcxproj">
+      <Project>060E79E0-A4AD-4013-A061-3E7CFC963E71</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/code/Catena/Development/CatenaTest/Build/ZERO_CHECK.vcxproj">
+      <Project>185A62BF-07D2-4DDB-8A81-C217C8F798F2</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
