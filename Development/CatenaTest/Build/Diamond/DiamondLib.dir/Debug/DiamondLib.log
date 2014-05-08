@@ -1,0 +1,5 @@
+﻿  Std.cpp
+  Core.cpp
+  Generating Code...
+Std.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  DiamondLib.vcxproj -> D:\code\Catena\Development\CatenaTest\Build\Diamond\Debug\DiamondLib.lib
