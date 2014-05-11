@@ -13,7 +13,7 @@ if(CMAKE_CONFIGURATION_TYPES)
 	unset(CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO CACHE)
 	
 	set(CMAKE_CONFIGURATION_TYPES Debug;Release;Publish
-		CACHE STRING "Available configurations")
+		CACHE STRING "Available configurations" FORCE)
 		
 	set(CMAKE_CXX_FLAGS_PUBLISH "/MD /O2 /Ob2 /D NDEBUG"
 		CACHE STRING "Flags used by the compiler during publish builds.")
