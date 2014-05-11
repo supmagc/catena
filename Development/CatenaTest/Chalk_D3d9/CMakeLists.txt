@@ -18,13 +18,6 @@ set(CHALK_D3D9_FILES_SOURCE
 )
 
 component_init()
-
-include_directories("${ROCK_INCLUDE_DIR}")
-include_directories("${CHALK_INCLUDE_DIR}")
-include_directories("${CHALK_D3D9_INCLUDE_DIR}")
-
-add_library(Chalk_d3d9Lib STATIC ${CHALK_D3D9_FILES_HEADER} ${CHALK_D3D9_FILES_SOURCE})
-add_dependencies(Chalk_d3d9Lib RockLib ChalkLib)
-
-add_library(Chalk_d3d9 SHARED ${CHALK_D3D9_FILES_HEADER} ${CHALK_D3D9_FILES_SOURCE})
-add_dependencies(Chalk_d3d9 RockLib ChalkLib)
+add_component("Chalk_D3d9" "Rock;Chalk" ${CHALK_D3D9_FILES_HEADER} ${CHALK_D3D9_FILES_SOURCE})
+add_component_dependency_extern("Chalk_D3d9" "" "d3d9")
+add_component_dependency_extern("Chalk_D3d9" "" "d3dcompiler")

@@ -3,10 +3,12 @@
 
 #include "Rock.h"
 
-#if CHALK_D3D9_EXPORTS
+#if defined(CHALK_D3D9_EXPORTS)
     #define CHALK_D3D9_API DLL_EXPORT
-#else
+#elif defined(CHALK_D3D9_IMPORTS)
     #define CHALK_D3D9_API DLL_IMPORT
+#else
+    #define CHALK_D3D9_API
 #endif
 
 #endif // _H_CHALK_D3D9_DEFINES
