@@ -1,9 +1,0 @@
-﻿  Std.cpp
-  Matrix4x4.cpp
-  Vector4.cpp
-  Vector3.cpp
-  Vector2.cpp
-  String.cpp
-  Generating Code...
-Std.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  RockLib.vcxproj -> D:\code\Catena\Development\CatenaTest\Build\Rock\Debug\RockLib.lib
