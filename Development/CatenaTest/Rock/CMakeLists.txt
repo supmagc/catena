@@ -28,7 +28,4 @@ set(ROCK_FILES_SOURCE
 )
 
 component_init()
-
-include_directories("${ROCK_INCLUDE_DIR}")
-add_library(RockLib STATIC ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE})
-add_library(Rock SHARED ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE})
+add_component("Rock" "" ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE})

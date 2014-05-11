@@ -14,9 +14,4 @@ set(CHALK_FILES_SOURCE
 )
 
 component_init()
-
-include_directories("${ROCK_INCLUDE_DIR}")
-include_directories("${CHALK_INCLUDE_DIR}")
-
-add_library(ChalkLib STATIC ${CHALK_FILES_HEADER} ${CHALK_FILES_SOURCE})
-add_dependencies(ChalkLib RockLib)
+add_component("Chalk" "Rock" ${CHALK_FILES_HEADER} ${CHALK_FILES_SOURCE})
