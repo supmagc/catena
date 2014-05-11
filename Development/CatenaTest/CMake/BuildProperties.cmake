@@ -5,6 +5,8 @@ set(CATENA_VERSION_MINOR 0
 	CACHE STRING "Minor version number of this build.")
 set(CATENA_DEPENDENCIES "../Dependencies/"
 	CACHE PATH "Path to the dependencies (required to build Catena).")
+set(CATENA_OUTPUT "../Build/"
+	CACHE PATH "Path to the intermediate files produced during compilation and linking.")
 set(CATENA_LAUNCHER_NAME "Launcher"
 	CACHE STRING "Name of the final launcher.")
 set(CATENA_LAUNCHER_ALLINONE 1
@@ -15,6 +17,10 @@ set(CATENA_LAUNCHER_SUPPORT_D3D11 1
 	CACHE BOOL "Enable support for d3d11.")
 set(CATENA_LAUNCHER_SUPPORT_OPENGL 1
 	CACHE BOOL "Enable support for opengl.")
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_OUTPUT})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_OUTPUT})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_OUTPUT})
 
 if(WIN32 AND CATENA_LAUNCHER_SUPPORT_D3D9)
 	set(WITH_D3D9 1)

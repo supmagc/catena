@@ -15,6 +15,6 @@ component_init()
 add_component("Diamond" "Rock;Chalk" ${DIAMOND_FILES_HEADER} ${DIAMOND_FILES_SOURCE})
 
 if(WITH_D3D9)
-	message("Compiling with D3D9 support.")
+	message(STATUS "Compiling Diamond with D3D9 support.")
 	add_component_dependencies(Diamond Chalk_D3d9)
 endif()
