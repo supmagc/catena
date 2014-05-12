@@ -33,8 +33,8 @@ RBOOL Shader::Load() {
         return false;
 
     RUINT nFlags = D3DCOMPILE_DEBUG;
-    auto sFilePS = String(L"..\\..\\Catena\\Resources\\PixelShader.hlsl");
-    auto sFileVS = String(L"..\\..\\Catena\\Resources\\VertexShader.hlsl");
+    auto sFilePS = String(L"PixelShader.hlsl");
+    auto sFileVS = String(L"VertexShader.hlsl");
     ID3DBlob* pErrorPS = RNULL;
     ID3DBlob* pErrorVS = RNULL;
 
