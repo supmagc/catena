@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 2.8)
 
 project("Catena")
 
-list(APPEND CMAKE_MODULE_PATH "${Catena_SOURCE_DIR}/CMake")
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
-include("Configuration")
-include("BuildProperties")
+include("CMakeConfig")
+include("CatenaConfig")
 include("Functions")
 include("Macros")
 
