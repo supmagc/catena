@@ -5,8 +5,6 @@ set(CATENA_VERSION_MINOR 0
 	CACHE STRING "Minor version number of this build.")
 set(CATENA_DEPENDENCIES "../Dependencies/"
 	CACHE PATH "Path to the dependencies (required to build Catena).")
-set(CATENA_INTERMEDIATE "../Intermediate/"
-	CACHE PATH "Path to the intermediate build files.")
 set(CATENA_OUTPUT "../Build/"
 	CACHE PATH "Path to the intermediate files produced during compilation and linking.")
 set(CATENA_LAUNCHER_NAME "Launcher"
