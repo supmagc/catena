@@ -38,7 +38,13 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	if(${COMP_NAME_UPPER}_BUILD_EXE)
 		message(STATUS "Building ${COMP_NAME} as executable.")
 		add_executable(${COMP_NAME} WIN32 ${COMP_FILES})
-		message(${CMAKE_CFG_INTDIR})
+		if(MSVC AND MSVC_VERSION GREATER 1600)
+			set(CATENA_VCXPROJ_USER_CWDDIR $(OutDir))
+			configure_file(
+				${CMAKE_PROJECT_SOURCE_DIR}/CMake/Project.vcxproj.user.in
+				${CMAKE_CURRENT_BINARY_DIR}/${COMP_NAME}.vcxproj.user
+			)
+		endif()
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp)
 	endif()
