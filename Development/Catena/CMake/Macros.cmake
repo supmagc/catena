@@ -2,10 +2,12 @@
 macro(component_init)
 	source_group("CMake Files" FILES CMakeLists.txt)
 	source_group("Inline Files" REGULAR_EXPRESSION ".*\\.inl$")
+	source_group("Swig Files" REGULAR_EXPRESSION ".*_swig(_wrap)?\\.(i|cxx)$")
 endmacro()
 
 macro(component_verify)
 	string(TOUPPER ${${ARGV0}} ${ARGV1})
+	string(TOLOWER ${${ARGV0}} ${ARGV2})
 	if(NOT ${${ARGV1}}_NAME)
 		message("Component ${ARGV0} is not defined.")
 		return()

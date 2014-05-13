@@ -32,7 +32,7 @@ function(define_component_library COMP_NAME COMP_SHARED)
 endfunction()
 
 function(add_component COMP_NAME COMP_DEPS COMP_FILES)
-	component_verify(COMP_NAME COMP_NAME_UPPER)
+	component_verify(COMP_NAME COMP_NAME_UPPER COMP_NAME_LOWER)
 	list(APPEND COMP_FILES ${ARGN})
 
 	if(${COMP_NAME_UPPER}_BUILD_EXE)
@@ -56,7 +56,10 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	endif()
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
 		message(STATUS "Building ${COMP_NAME} as shared library.")
-		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES})
+		#find_file(COMP_SWIG_INTERFACE "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+		#find_file(COMP_SWIG_SOURCE "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+		#message("${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES} ${COMP_SWIG})
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp)
 		target_compile_definitions(${COMP_NAME}_Shared 
@@ -71,10 +74,10 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 endfunction()
 
 function(add_component_dependencies COMP_NAME COMP_DEPS)
-	component_verify(COMP_NAME COMP_NAME_UPPER)
+	component_verify(COMP_NAME COMP_NAME_UPPER COMP_NAME_LOWER)
 
 	foreach(COMP_DEP_NAME ${COMP_DEPS})
-		component_verify(COMP_DEP_NAME COMP_DEP_NAME_UPPER)
+		component_verify(COMP_DEP_NAME COMP_DEP_NAME_UPPER COMP_DEP_NAME_LOWER)
 
 		if(${COMP_NAME_UPPER}_BUILD_EXE)
 			if(${COMP_NAME_UPPER}_BUILD_ALLINONE)
@@ -109,7 +112,7 @@ function(add_component_dependencies COMP_NAME COMP_DEPS)
 endfunction()
 
 function(add_component_dependency_extern COMP_NAME DEP_INCLUDE DEP_LIBRARY)
-	component_verify(COMP_NAME COMP_NAME_UPPER)
+	component_verify(COMP_NAME COMP_NAME_UPPER COMP_NAME_LOWER)
 
 	if(DEP_INCLUDE)
 		if(${COMP_NAME_UPPER}_BUILD_EXE)
