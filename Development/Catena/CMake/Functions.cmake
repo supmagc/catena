@@ -56,16 +56,26 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	endif()
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
 		message(STATUS "Building ${COMP_NAME} as shared library.")
-		#find_file(COMP_SWIG_INTERFACE "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
-		#find_file(COMP_SWIG_SOURCE "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
-		#message("${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
-		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES} ${COMP_SWIG})
+		if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+			list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig.i")
+			if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+				list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+			endif()
+		endif()
+		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES})
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp)
+		if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+			add_custom_command("swig/${COMP_NAME_LOWER}_swig.i"
+				COMMAND 
+			)
+		endif()
 		target_compile_definitions(${COMP_NAME}_Shared 
 			INTERFACE -D${COMP_NAME_UPPER}_IMPORTS
 			PRIVATE -D${COMP_NAME_UPPER}_EXPORTS
 		)
+		unset(COMP_SWIG_INTERFACE CACHE)
+		unset(COMP_SWIG_WRAPPER CACHE)
 	endif()
 
 	if(COMP_DEPS)
