@@ -66,8 +66,9 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp)
 		if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
-			add_custom_command("swig/${COMP_NAME_LOWER}_swig.i"
-				COMMAND 
+			add_custom_command(
+				OUTPUT "swig/${COMP_NAME_LOWER}_swig.i"
+				COMMAND ${SWIG_BIN} -c++ -csharp -namespace ${COMP_NAME} -o swig/${COMP_NAME_LOWER}_swig_wrap.cxx -outdir dotnet swig/${COMP_NAME_LOWER}_swig.i
 			)
 		endif()
 		target_compile_definitions(${COMP_NAME}_Shared 
