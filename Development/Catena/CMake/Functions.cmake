@@ -9,7 +9,7 @@ function(target_precompiled_header COMP_NAME HEADER_FILE SOURCE_FILE)
 		add_definitions(/Yu"${HEADER}")
 		set_source_files_properties(${SOURCE_FILE}
 			PPROPERTIES COMPILE_FLAGS /Yc"${HEADER}"
-	)
+		)
 	endif ()
 endfunction()
 
@@ -56,19 +56,26 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	endif()
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
 		message(STATUS "Building ${COMP_NAME} as shared library.")
-		if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+		set(SWIG_INTERFACE "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+		set(SWIG_WRAPPER "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+		set(SWIG_OUTPUT "${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_EDITOR}/swig-csharp/${COMP_NAME}")
+		if(EXISTS "${SWIG_INTERFACE}")
+			if(NOT EXISTS "${SWIG_OUTPUT}")
+				file(MAKE_DIRECTORY "${SWIG_OUTPUT}")
+			endif()
 			list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig.i")
-			if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+			if(EXISTS ${SWIG_WRAPPER})
 				list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
 			endif()
 		endif()
 		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES})
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp)
-		if(EXISTS "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
+		if(EXISTS ${SWIG_INTERFACE})
 			add_custom_command(
-				OUTPUT "swig/${COMP_NAME_LOWER}_swig.i"
-				COMMAND ${SWIG_BIN} -c++ -csharp -namespace ${COMP_NAME} -o swig/${COMP_NAME_LOWER}_swig_wrap.cxx -outdir dotnet swig/${COMP_NAME_LOWER}_swig.i
+				OUTPUT "${SWIG_INTERFACE}"
+				COMMAND "${SWIG_BIN}" -c++ -csharp -namespace ${COMP_NAME} -o "${SWIG_WRAPPER}" -outdir "${SWIG_OUTPUT}" "${SWIG_INTERFACE}"
+				WORKING_DIRECTORY "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}"
 			)
 		endif()
 		target_compile_definitions(${COMP_NAME}_Shared 

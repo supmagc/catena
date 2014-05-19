@@ -3,7 +3,9 @@ set(CATENA_VERSION_MAJOR 1
 	CACHE STRING "Major version number of this build.")
 set(CATENA_VERSION_MINOR 0
 	CACHE STRING "Minor version number of this build.")
-	
+
+set(CATENA_EDITOR "../CatenaEd/"
+	CACHE PATH "Path to the editor/tools directory.")
 set(CATENA_OUTPUT "../Build/"
 	CACHE PATH "Path to the intermediate files produced during compilation and linking.")
 set(CATENA_DEPENDENCIES "../Dependencies/"
@@ -11,7 +13,7 @@ set(CATENA_DEPENDENCIES "../Dependencies/"
 	
 set(CATENA_DEPNAME_SWIG "swigwin-3.0.0"
 	CACHE STRING "Name of the used swig dependency folder.")
-	
+		
 set(CATENA_LAUNCHER_NAME "Launcher"
 	CACHE STRING "Name of the final launcher.")
 set(CATENA_LAUNCHER_ALLINONE 1
