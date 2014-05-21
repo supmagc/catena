@@ -6,6 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+namespace Diamond {
 
 public class Core : global::System.IDisposable {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
@@ -29,7 +30,7 @@ public class Core : global::System.IDisposable {
       if (swigCPtr.Handle != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          DiamondPINVOKE.delete_Core(swigCPtr);
+          Diamond_SharedPINVOKE.delete_Core(swigCPtr);
         }
         swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
       }
@@ -37,17 +38,19 @@ public class Core : global::System.IDisposable {
     }
   }
 
-  public Core() : this(DiamondPINVOKE.new_Core(), true) {
+  public Core() : this(Diamond_SharedPINVOKE.new_Core(), true) {
   }
 
   public bool Create(int nWnd) {
-    bool ret = DiamondPINVOKE.Core_Create(swigCPtr, nWnd);
+    bool ret = Diamond_SharedPINVOKE.Core_Create(swigCPtr, nWnd);
     return ret;
   }
 
   public bool Update() {
-    bool ret = DiamondPINVOKE.Core_Update(swigCPtr);
+    bool ret = Diamond_SharedPINVOKE.Core_Update(swigCPtr);
     return ret;
   }
+
+}
 
 }

@@ -1,4 +1,4 @@
-%module Diamond
+%module Diamond_Shared
 
 %import "../../Rock/swig/rock_swig.i"
 %import "../inc/Diamond_Defines.h"

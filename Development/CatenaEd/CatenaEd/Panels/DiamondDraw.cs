@@ -12,12 +12,17 @@ namespace Catena.Editor.Panels {
 
     public partial class DiamondDraw : UserControl {
 
-        private Core m_oCore;
+        private Diamond.Core m_oCore;
 
         public DiamondDraw() {
             InitializeComponent();
 
-            m_oCore = new Core();
+            m_oCore = new Diamond.Core();
+            m_oCore.Create(this.Handle.ToInt32());
+        }
+
+        private void OnTick(object sender, EventArgs e) {
+            m_oCore.Update();
         }
     }
 }

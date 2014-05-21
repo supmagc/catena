@@ -3,13 +3,19 @@ function(add_component COMP_NAME COMP_INC_STATIC, COMP_INC_SHARED)
 	include_directories(${CATENA_SOURCE_DIR}/${COMP_NAME}/inc/)
 endfunction()
 
-function(target_precompiled_header COMP_NAME HEADER_FILE SOURCE_FILE)
+function(target_precompiled_header COMP_NAME HEADER_FILE SOURCE_FILE IGNORE_FILES)
+	list(APPEND IGNORE_FILES ${ARGN})
 	get_filename_component(HEADER ${HEADER_FILE} NAME)
 	if(MSVC AND NOT NMAKE)
 		add_definitions(/Yu"${HEADER}")
 		set_source_files_properties(${SOURCE_FILE}
 			PPROPERTIES COMPILE_FLAGS /Yc"${HEADER}"
 		)
+		foreach(IGNORE_FILE ${IGNORE_FILES})
+			set_source_files_properties(${IGNORE_FILE}
+				PROPERTIES COMPILE_FLAGS /Y-
+			)
+		endforeach()
 	endif ()
 endfunction()
 
@@ -46,36 +52,34 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 			)
 		endif()
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
-		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp)
+		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp "")
 	endif()
 	if(${COMP_NAME_UPPER}_BUILD_STATIC)
 		message(STATUS "Building ${COMP_NAME} as static library.")
 		add_library(${COMP_NAME}_Lib STATIC ${COMP_FILES})
 		target_include_directories(${COMP_NAME}_Lib PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
-		target_precompiled_header(${COMP_NAME}_Lib inc/${COMP_NAME}_Std.h src/Std.cpp)
+		target_precompiled_header(${COMP_NAME}_Lib inc/${COMP_NAME}_Std.h src/Std.cpp "")
 	endif()
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
 		message(STATUS "Building ${COMP_NAME} as shared library.")
-		set(SWIG_INTERFACE "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig.i")
-		set(SWIG_WRAPPER "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}/swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
-		set(SWIG_OUTPUT "${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_EDITOR}/swig-csharp/${COMP_NAME}")
+		set(SWIG_INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/swig/${COMP_NAME_LOWER}_swig.i")
+		set(SWIG_WRAPPER "${CMAKE_CURRENT_SOURCE_DIR}/swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+		set(SWIG_OUTPUT "${CMAKE_PROJECT_SOURCE_DIR}/${CATENA_EDITOR}/CatenaCSharp/${COMP_NAME}")
 		if(EXISTS "${SWIG_INTERFACE}")
 			if(NOT EXISTS "${SWIG_OUTPUT}")
 				file(MAKE_DIRECTORY "${SWIG_OUTPUT}")
 			endif()
 			list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig.i")
-			if(EXISTS ${SWIG_WRAPPER})
-				list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
-			endif()
+			list(APPEND COMP_FILES "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
 		endif()
 		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES})
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
-		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp)
-		if(EXISTS ${SWIG_INTERFACE})
+		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
+		if(EXISTS "${SWIG_INTERFACE}")
 			add_custom_command(
-				OUTPUT "${SWIG_INTERFACE}"
-				COMMAND "${SWIG_BIN}" -c++ -csharp -namespace ${COMP_NAME} -o "${SWIG_WRAPPER}" -outdir "${SWIG_OUTPUT}" "${SWIG_INTERFACE}"
-				WORKING_DIRECTORY "${CMAKE_PROJECT_SOURCE_DIR}/${COMP_NAME}"
+				OUTPUT "${SWIG_WRAPPER}"
+				COMMAND "${SWIG_BIN}" -c++ -csharp -namespace ${COMP_NAME} -outdir "${SWIG_OUTPUT}" "${SWIG_INTERFACE}"
+				WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
 			)
 		endif()
 		target_compile_definitions(${COMP_NAME}_Shared 

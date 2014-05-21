@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DiamondCSharp")]
+[assembly: AssemblyTitle("CatenaCSharp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DiamondCSharp")]
+[assembly: AssemblyProduct("CatenaCSharp")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0de1f8c3-f7a6-4619-aa42-a03f115544af")]
+[assembly: Guid("0e9a3eb2-26f7-4b16-843d-1e4ab372a0b9")]
 
 // Version information for an assembly consists of the following four values:
 //
