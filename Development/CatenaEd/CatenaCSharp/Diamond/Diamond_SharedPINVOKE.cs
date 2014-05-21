@@ -6,8 +6,9 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+namespace Diamond {
 
-class DiamondPINVOKE {
+class Diamond_SharedPINVOKE {
 
   protected class SWIGExceptionHelper {
 
@@ -30,8 +31,8 @@ class DiamondPINVOKE {
     static ExceptionArgumentDelegate argumentNullDelegate = new ExceptionArgumentDelegate(SetPendingArgumentNullException);
     static ExceptionArgumentDelegate argumentOutOfRangeDelegate = new ExceptionArgumentDelegate(SetPendingArgumentOutOfRangeException);
 
-    [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="SWIGRegisterExceptionCallbacks_Diamond")]
-    public static extern void SWIGRegisterExceptionCallbacks_Diamond(
+    [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="SWIGRegisterExceptionCallbacks_Diamond_Shared")]
+    public static extern void SWIGRegisterExceptionCallbacks_Diamond_Shared(
                                 ExceptionDelegate applicationDelegate,
                                 ExceptionDelegate arithmeticDelegate,
                                 ExceptionDelegate divideByZeroDelegate, 
@@ -44,8 +45,8 @@ class DiamondPINVOKE {
                                 ExceptionDelegate overflowDelegate, 
                                 ExceptionDelegate systemExceptionDelegate);
 
-    [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_Diamond")]
-    public static extern void SWIGRegisterExceptionCallbacksArgument_Diamond(
+    [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_Diamond_Shared")]
+    public static extern void SWIGRegisterExceptionCallbacksArgument_Diamond_Shared(
                                 ExceptionArgumentDelegate argumentDelegate,
                                 ExceptionArgumentDelegate argumentNullDelegate,
                                 ExceptionArgumentDelegate argumentOutOfRangeDelegate);
@@ -99,7 +100,7 @@ class DiamondPINVOKE {
     }
 
     static SWIGExceptionHelper() {
-      SWIGRegisterExceptionCallbacks_Diamond(
+      SWIGRegisterExceptionCallbacks_Diamond_Shared(
                                 applicationDelegate,
                                 arithmeticDelegate,
                                 divideByZeroDelegate,
@@ -112,7 +113,7 @@ class DiamondPINVOKE {
                                 overflowDelegate,
                                 systemDelegate);
 
-      SWIGRegisterExceptionCallbacksArgument_Diamond(
+      SWIGRegisterExceptionCallbacksArgument_Diamond_Shared(
                                 argumentDelegate,
                                 argumentNullDelegate,
                                 argumentOutOfRangeDelegate);
@@ -140,7 +141,7 @@ class DiamondPINVOKE {
       if (pendingException != null)
         throw new global::System.ApplicationException("FATAL: An earlier pending exception from unmanaged code was missed and thus not thrown (" + pendingException.ToString() + ")", e);
       pendingException = e;
-      lock(typeof(DiamondPINVOKE)) {
+      lock(typeof(Diamond_SharedPINVOKE)) {
         numExceptionsPending++;
       }
     }
@@ -151,7 +152,7 @@ class DiamondPINVOKE {
         if (pendingException != null) {
           e = pendingException;
           pendingException = null;
-          lock(typeof(DiamondPINVOKE)) {
+          lock(typeof(Diamond_SharedPINVOKE)) {
             numExceptionsPending--;
           }
         }
@@ -166,34 +167,36 @@ class DiamondPINVOKE {
     public delegate string SWIGStringDelegate(string message);
     static SWIGStringDelegate stringDelegate = new SWIGStringDelegate(CreateString);
 
-    [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="SWIGRegisterStringCallback_Diamond")]
-    public static extern void SWIGRegisterStringCallback_Diamond(SWIGStringDelegate stringDelegate);
+    [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="SWIGRegisterStringCallback_Diamond_Shared")]
+    public static extern void SWIGRegisterStringCallback_Diamond_Shared(SWIGStringDelegate stringDelegate);
 
     static string CreateString(string cString) {
       return cString;
     }
 
     static SWIGStringHelper() {
-      SWIGRegisterStringCallback_Diamond(stringDelegate);
+      SWIGRegisterStringCallback_Diamond_Shared(stringDelegate);
     }
   }
 
   static protected SWIGStringHelper swigStringHelper = new SWIGStringHelper();
 
 
-  static DiamondPINVOKE() {
+  static Diamond_SharedPINVOKE() {
   }
 
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="CSharp_new_Core")]
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_new_Core")]
   public static extern global::System.IntPtr new_Core();
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="CSharp_delete_Core")]
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_delete_Core")]
   public static extern void delete_Core(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="CSharp_Core_Create")]
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Create")]
   public static extern bool Core_Create(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond", EntryPoint="CSharp_Core_Update")]
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Update")]
   public static extern bool Core_Update(global::System.Runtime.InteropServices.HandleRef jarg1);
+}
+
 }

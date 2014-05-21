@@ -1,4 +1,4 @@
-%module Rock
+%module Rock_Shared
 
 #define _UNICODE 1
 #define _WIN32 1

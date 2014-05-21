@@ -5,10 +5,6 @@
     #error Rock is considered to always require unicode support.
 #endif
 
-#if defined(DEBUG) && !defined(_DEBUG)
-    #define _DEBUG
-#endif
-
 #if defined(_ASSERT) && defined(NASSERT)
     #error You shoulnd't run this code when both _ASSERT and NASSERT are defined.
 #endif
@@ -18,7 +14,7 @@
 #endif
 
 #if !defined(_WINDOWS) && (defined(_WIN32) || defined(_WIN64))
-    #define _WINDOWS
+    #define _WINDOWS 1
 #endif
 
 #define _ERROR_WINDOWS_ONLY This code is only implemented to compile under windows.

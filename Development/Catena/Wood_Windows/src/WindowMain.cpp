@@ -48,7 +48,7 @@ RINT WindowMain::Run() {
 
     ShowWindow(g_hWindow, g_oSettings.nCmdShow);
     UpdateWindow(g_hWindow);
-    g_pCore->Create(g_hWindow);
+    g_pCore->Create((RINT)g_hWindow);
 
     while(true) {
         while(PeekMessage(&oMsg, RNULL, 0, 0, PM_REMOVE)) {

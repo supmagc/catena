@@ -6,8 +6,9 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
+namespace Rock {
 
-class RockPINVOKE {
+class Rock_SharedPINVOKE {
 
   protected class SWIGExceptionHelper {
 
@@ -30,8 +31,8 @@ class RockPINVOKE {
     static ExceptionArgumentDelegate argumentNullDelegate = new ExceptionArgumentDelegate(SetPendingArgumentNullException);
     static ExceptionArgumentDelegate argumentOutOfRangeDelegate = new ExceptionArgumentDelegate(SetPendingArgumentOutOfRangeException);
 
-    [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="SWIGRegisterExceptionCallbacks_Rock")]
-    public static extern void SWIGRegisterExceptionCallbacks_Rock(
+    [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="SWIGRegisterExceptionCallbacks_Rock_Shared")]
+    public static extern void SWIGRegisterExceptionCallbacks_Rock_Shared(
                                 ExceptionDelegate applicationDelegate,
                                 ExceptionDelegate arithmeticDelegate,
                                 ExceptionDelegate divideByZeroDelegate, 
@@ -44,8 +45,8 @@ class RockPINVOKE {
                                 ExceptionDelegate overflowDelegate, 
                                 ExceptionDelegate systemExceptionDelegate);
 
-    [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_Rock")]
-    public static extern void SWIGRegisterExceptionCallbacksArgument_Rock(
+    [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="SWIGRegisterExceptionArgumentCallbacks_Rock_Shared")]
+    public static extern void SWIGRegisterExceptionCallbacksArgument_Rock_Shared(
                                 ExceptionArgumentDelegate argumentDelegate,
                                 ExceptionArgumentDelegate argumentNullDelegate,
                                 ExceptionArgumentDelegate argumentOutOfRangeDelegate);
@@ -99,7 +100,7 @@ class RockPINVOKE {
     }
 
     static SWIGExceptionHelper() {
-      SWIGRegisterExceptionCallbacks_Rock(
+      SWIGRegisterExceptionCallbacks_Rock_Shared(
                                 applicationDelegate,
                                 arithmeticDelegate,
                                 divideByZeroDelegate,
@@ -112,7 +113,7 @@ class RockPINVOKE {
                                 overflowDelegate,
                                 systemDelegate);
 
-      SWIGRegisterExceptionCallbacksArgument_Rock(
+      SWIGRegisterExceptionCallbacksArgument_Rock_Shared(
                                 argumentDelegate,
                                 argumentNullDelegate,
                                 argumentOutOfRangeDelegate);
@@ -140,7 +141,7 @@ class RockPINVOKE {
       if (pendingException != null)
         throw new global::System.ApplicationException("FATAL: An earlier pending exception from unmanaged code was missed and thus not thrown (" + pendingException.ToString() + ")", e);
       pendingException = e;
-      lock(typeof(RockPINVOKE)) {
+      lock(typeof(Rock_SharedPINVOKE)) {
         numExceptionsPending++;
       }
     }
@@ -151,7 +152,7 @@ class RockPINVOKE {
         if (pendingException != null) {
           e = pendingException;
           pendingException = null;
-          lock(typeof(RockPINVOKE)) {
+          lock(typeof(Rock_SharedPINVOKE)) {
             numExceptionsPending--;
           }
         }
@@ -166,28 +167,30 @@ class RockPINVOKE {
     public delegate string SWIGStringDelegate(string message);
     static SWIGStringDelegate stringDelegate = new SWIGStringDelegate(CreateString);
 
-    [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="SWIGRegisterStringCallback_Rock")]
-    public static extern void SWIGRegisterStringCallback_Rock(SWIGStringDelegate stringDelegate);
+    [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="SWIGRegisterStringCallback_Rock_Shared")]
+    public static extern void SWIGRegisterStringCallback_Rock_Shared(SWIGStringDelegate stringDelegate);
 
     static string CreateString(string cString) {
       return cString;
     }
 
     static SWIGStringHelper() {
-      SWIGRegisterStringCallback_Rock(stringDelegate);
+      SWIGRegisterStringCallback_Rock_Shared(stringDelegate);
     }
   }
 
   static protected SWIGStringHelper swigStringHelper = new SWIGStringHelper();
 
 
-  static RockPINVOKE() {
+  static Rock_SharedPINVOKE() {
   }
 
 
-  [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp__UNICODE_get")]
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__UNICODE_get")]
   public static extern int _UNICODE_get();
 
-  [global::System.Runtime.InteropServices.DllImport("Rock", EntryPoint="CSharp__WIN32_get")]
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__WIN32_get")]
   public static extern int _WIN32_get();
+}
+
 }

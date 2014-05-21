@@ -41,13 +41,14 @@ RBOOL Core::Create(HWND hWnd) {
 
     return true;
 }
-#endif
+#endif // SWIG
+
 RBOOL Core::Create(RINT nWnd) {
-    HWND hWnd = new HWND__();
-    hWnd->unused = nWnd;
-    return Create(hWnd);
+    //MessageBox((HWND)nWnd, L"BLA BLA", L"TEST", MB_OK);
+    //return true;
+    return Create((HWND)nWnd);
 }
-#endif
+#endif // _WINDOWS
 
 RFLOAT g_nDir = 1;
 RFLOAT g_nTemp = 0;

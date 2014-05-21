@@ -1,11 +1,11 @@
-﻿namespace Catena.Editor.Panels {
-    partial class DiamondDraw {
-        /// <summary> 
+﻿namespace Catena.Editor.Forms {
+    partial class WndMain {
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -16,25 +16,29 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
             this.SuspendLayout();
             // 
-            // DiamondDraw
+            // WndMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "DiamondDraw";
-            this.Size = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1008, 730);
+            this.Name = "WndMain";
+            this.Text = "Catena";
+            this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+
     }
 }
