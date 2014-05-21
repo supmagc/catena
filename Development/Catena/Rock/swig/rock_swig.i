@@ -16,7 +16,7 @@
 using namespace Rock;
 %}
 
-%include "../inc/Rock_Vector2.h"
-%include "../inc/Rock_Vector3.h"
-%include "../inc/Rock_Vector4.h"
-%include "../inc/Rock_Matrix4x4.h"
+// %include "../inc/Rock_Vector2.h"
+// %include "../inc/Rock_Vector3.h"
+// %include "../inc/Rock_Vector4.h"
+// %include "../inc/Rock_Matrix4x4.h"
