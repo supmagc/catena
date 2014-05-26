@@ -21,10 +21,13 @@ namespace Rock {
     typedef bool RBOOL;
 
     #if defined(_WIN32)
-//        typedef int *__ptr32 PTR;
+        typedef int *__ptr32 RPTR;
     #else
-//        typedef int *__ptr64 PTR;
+        typedef int *__ptr64 RPTR;
     #endif
+
+    typedef void* RBOX;
+    typedef void const* RCBOX;
 
 #endif
 

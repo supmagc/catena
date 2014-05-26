@@ -290,6 +290,10 @@ String String::Replace(String const& search, String const& replace) const {
     return ret + SubString(nSourceOffset);
 }
 
+RCHAR const* String::operator*() const {
+    return m_aData;
+}
+
 #define _STRING_APPEND(t) \
     String& String::operator=(t const& obj) {return operator=(String(obj));} \
     String& String::operator+=(t const& obj) {return operator+=(String(obj));} \
@@ -339,6 +343,50 @@ String String::Replace(String const& search, String const& replace) const {
     _APPEND_STRING(RDOUBLE);
     _APPEND_STRING(RBOOL);
 #undef _APPEND_STRING
+
+String String::vFormat(String const& str, va_list args) {
+    return String::vFormat(str.m_aData, args);
+}
+
+String String::vFormat(RCHAR const* str, va_list args) {
+    RINT nLength = _scwprintf(str, args) + 100;
+    RCHAR* aBuffer = (RCHAR*)malloc(sizeof(RCHAR) * nLength);
+    vswprintf_s(aBuffer, nLength, str, args);
+    String sReturn(aBuffer);
+    return sReturn;
+}
+
+String String::vFormat(char const* str, va_list args) {
+    RINT nLength = _scprintf(str, args) + 100;
+    char* aBuffer = (char*)malloc(sizeof(char) * nLength);
+    vsprintf_s(aBuffer, nLength, str, args);
+    String sReturn(aBuffer);
+    return sReturn;
+}
+
+String String::Format(String const& str, ...) {
+    va_list args;
+    va_start(args, str);
+    String sReturn = String::vFormat(str.m_aData, args);
+    va_end(args);
+    return sReturn;
+}
+
+String String::Format(RCHAR const* str, ...) {
+    va_list args;
+    va_start(args, str);
+    String sReturn = String::vFormat(str, args);
+    va_end(args);
+    return sReturn;
+}
+
+String String::Format(char const* str, ...) {
+    va_list args;
+    va_start(args, str);
+    String sReturn = String::vFormat(str, args);
+    va_end(args);
+    return sReturn;
+}
 
 ROCK_API std::ostream& Rock::operator<<(std::ostream & stream, String const& str) {
     stream << str.GetData();

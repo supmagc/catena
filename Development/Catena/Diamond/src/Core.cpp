@@ -23,12 +23,12 @@ Core::~Core() {
 
 #ifdef _WINDOWS
 #ifndef SWIG
-RBOOL Core::Create(HWND hWnd) {
-    Chalk::D3d9::DeviceSettings oSettings;
+RBOOL Core::Create(HWND hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
+    Chalk::D3d9::DeviceCreateSettings oSettings;
     oSettings.hWindow = hWnd;
 
-    m_pImpl->pDevice = new Chalk::D3d9::Device(oSettings);
-    if(!m_pImpl->pDevice->Create())
+    m_pImpl->pDevice = new Chalk::D3d9::Device();
+    if(!m_pImpl->pDevice->Create(&oSettings, nWidth, nHeight, bFullscreen))
         return false;
 
     m_pImpl->pShader = new Chalk::D3d9::Shader(dynamic_cast<Chalk::D3d9::Device*>(m_pImpl->pDevice));
@@ -43,10 +43,8 @@ RBOOL Core::Create(HWND hWnd) {
 }
 #endif // SWIG
 
-RBOOL Core::Create(RINT nWnd) {
-    //MessageBox((HWND)nWnd, L"BLA BLA", L"TEST", MB_OK);
-    //return true;
-    return Create((HWND)nWnd);
+RBOOL Core::Create(RINT nWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
+    return Create((HWND)nWnd, nWidth, nHeight, bFullscreen);
 }
 #endif // _WINDOWS
 
@@ -60,6 +58,8 @@ RBOOL Core::Update() {
         return false;
     if(!m_pImpl->pShader)
         return false;
+
+    LOGf_CatMes(RTXT("Test"), RTXT("message number %d"), 1259.235f);
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();

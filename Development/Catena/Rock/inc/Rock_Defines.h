@@ -49,7 +49,6 @@
 // DLL defines
 #define DLL_EXPORT __declspec(dllexport)
 #define DLL_IMPORT __declspec(dllimport)
-#define LIB_EXPORT __declspec(dllexport)
 
 // Pimpl defines
 #define PIMPL_DECL(cls) struct cls##Impl; cls##Impl* m_pImpl
@@ -57,6 +56,13 @@
 #define PIMPL_MAKE(nsp, cls) struct nsp##::##cls##::##cls##Impl
 #define PIMPL_DELETE() SAFE_DELETE(m_pImpl)
 #define PIMPL (*m_pImpl)
+
+// Class defines
+#define CLASS_NOCOPY(cls) cls##(##cls const&); cls##& operator=(##cls const&)
+
+// Text defines
+#define RTXT(txt) L##txt
+#define RTXT_FORMAT(buffer, format, ...) RINT nLength = _scwprintf(format, __VA_ARGS__); RCHAR* buffer = malloc(sizeof(RCHAR) * (nLength + 1)); swprintf_s(buffer, nLength, format, __VA_ARGS)
 
 // Rock specific defines
 #if defined(ROCK_EXPORTS)

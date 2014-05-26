@@ -4,11 +4,13 @@ set(ROCK_FILES_HEADER
 	inc/Rock_Std.h
 	inc/Rock_Defines.h
 	inc/Rock_Types.h
+	inc/Rock_String.h
+	inc/Rock_Log.h
+	inc/Rock_Assert.h
 	inc/Rock_Matrix4x4.h
 	inc/Rock_Vector4.h
 	inc/Rock_Vector3.h
 	inc/Rock_Vector2.h
-	inc/Rock_String.h
 )
 
 set(ROCK_FILES_INLINE

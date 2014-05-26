@@ -10,7 +10,7 @@
 **/
 
 #ifndef _H_ROCK_STRING
-#define _H_ROCK_STRING
+#define _H_ROCK_STRING 1
 
 #include "Rock_Types.h"
 #include "Rock_Defines.h"
@@ -66,6 +66,7 @@ namespace Rock {
         RBOOL EndsWith(String const& str) const;
         RINT32 IndexOf(String const& str) const;
         String Replace(String const& search, String const& replace) const;
+        RCHAR const* operator*() const;
 
 #define _STRING_APPEND(t) \
         String& operator=(t const& obj); \
@@ -96,6 +97,13 @@ namespace Rock {
         _STRING_APPEND(RDOUBLE);
         _STRING_APPEND(RBOOL);
 #undef _STRING_APPEND
+
+        static String vFormat(String const& str, va_list args);
+        static String vFormat(RCHAR const* str, va_list args);
+        static String vFormat(char const* str, va_list args);
+        static String Format(String const& str, ...);
+        static String Format(RCHAR const* str, ...);
+        static String Format(char const* str, ...);
 
     private:
         RINT32 m_nLength;
