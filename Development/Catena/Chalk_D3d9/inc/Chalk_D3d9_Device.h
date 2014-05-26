@@ -14,16 +14,16 @@ namespace Chalk {
 
     namespace D3d9 {
 
-        struct CHALK_D3D9_API DeviceSettings {
+        struct CHALK_D3D9_API DeviceCreateSettings {
             HWND hWindow;
         };
 
         class CHALK_D3D9_API Device : public Chalk::IDevice {
         public:
-            Device(DeviceSettings const& oSettings);
+            Device();
             virtual ~Device();
 
-            virtual RBOOL Create();
+            virtual RBOOL Create(RCBOX pSettings, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen);
             virtual RBOOL BackBufferClear();
             virtual RBOOL BackBufferSwitch();
             virtual void Destroy();
@@ -34,7 +34,6 @@ namespace Chalk {
         private:
             struct DeviceImpl;
             DeviceImpl* m_pImpl;
-            DeviceSettings m_oSettings;
 
             Device(Device const&);
             Device& operator=(Device const&);

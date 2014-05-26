@@ -22,38 +22,38 @@ WindowMain::~WindowMain() {
 }
 
 RINT WindowMain::Run() {
-    WNDCLASSEX oClass;
-    TCHAR sNameLong[100];
+    WNDCLASSEXW oClass;
+    WCHAR sNameLong[100];
     ATOM nRegisterReturn;
     MSG oMsg;
 
-    LoadString(g_hInstance, g_oSettings.nIdNameLong, sNameLong, 100);
+    LoadStringW(g_hInstance, g_oSettings.nIdNameLong, sNameLong, 100);
 
-    oClass.cbSize           = sizeof(WNDCLASSEX);
+    oClass.cbSize           = sizeof(WNDCLASSEXW);
     oClass.style			= CS_HREDRAW | CS_VREDRAW;
     oClass.lpfnWndProc	    = Window;
     oClass.cbClsExtra		= 0;
     oClass.cbWndExtra		= 0;
     oClass.hInstance		= g_hInstance;
-    oClass.hIcon			= LoadIcon(g_hInstance, MAKEINTRESOURCE(g_oSettings.nIdIconLarge));
-    oClass.hCursor		    = LoadCursor(g_hInstance, MAKEINTRESOURCE(g_oSettings.nIdCursor));
+    oClass.hIcon			= LoadIconW(g_hInstance, MAKEINTRESOURCEW(g_oSettings.nIdIconLarge));
+    oClass.hCursor		    = LoadCursorW(g_hInstance, MAKEINTRESOURCEW(g_oSettings.nIdCursor));
     oClass.hbrBackground	= (HBRUSH)(COLOR_WINDOW+2);
     oClass.lpszMenuName	    = RNULL;
-    oClass.lpszClassName	= _T("WoodWindowsWindowMain");
-    oClass.hIconSm		    = LoadIcon(g_hInstance, MAKEINTRESOURCE(g_oSettings.nIdIconSmall));
+    oClass.lpszClassName	= RTXT("WoodWindowsWindowMain");
+    oClass.hIconSm		    = LoadIconW(g_hInstance, MAKEINTRESOURCEW(g_oSettings.nIdIconSmall));
 
-    nRegisterReturn = RegisterClassEx(&oClass);
+    nRegisterReturn = RegisterClassExW(&oClass);
 
-    g_hWindow = CreateWindow(_T("WoodWindowsWindowMain"), sNameLong, WS_OVERLAPPEDWINDOW, 100, 100, 1024, 768, RNULL, RNULL, g_hInstance, RNULL); 
+    g_hWindow = CreateWindowW(RTXT("WoodWindowsWindowMain"), sNameLong, WS_OVERLAPPEDWINDOW, 100, 100, 1024, 768, RNULL, RNULL, g_hInstance, RNULL); 
 
     ShowWindow(g_hWindow, g_oSettings.nCmdShow);
     UpdateWindow(g_hWindow);
-    g_pCore->Create((RINT)g_hWindow);
+    g_pCore->Create((RINT)g_hWindow, 1024, 768, false);
 
     while(true) {
-        while(PeekMessage(&oMsg, RNULL, 0, 0, PM_REMOVE)) {
+        while(PeekMessageW(&oMsg, RNULL, 0, 0, PM_REMOVE)) {
             TranslateMessage(&oMsg);
-            DispatchMessage(&oMsg);
+            DispatchMessageW(&oMsg);
         }
 
         if(oMsg.message == WM_QUIT)
@@ -103,7 +103,7 @@ LRESULT CALLBACK Window(HWND hWnd, UINT eMessage, WPARAM wParam, LPARAM lParam) 
         break;
 
     default:
-        return DefWindowProc(hWnd, eMessage, wParam, lParam);
+        return DefWindowProcW(hWnd, eMessage, wParam, lParam);
     }
 
     return 0;

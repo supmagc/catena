@@ -4,11 +4,15 @@ set(DIAMOND_FILES_HEADER
 	inc/Diamond_Std.h
 	inc/Diamond_Defines.h
 	inc/Diamond_Core.h
+	inc/Diamond_Scene.h
+	inc/Diamond_SceneView.h
 )
 
 set(DIAMOND_FILES_SOURCE
 	src/Std.cpp
 	src/Core.cpp
+	src/Scene.cpp
+	src/SceneView.cpp
 )
 
 component_init()

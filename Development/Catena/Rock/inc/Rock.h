@@ -11,6 +11,7 @@
 #include "Rock_Vector3.h"
 #include "Rock_Vector4.h"
 #include "Rock_Matrix4x4.h"
+#include "Rock_Log.h"
 
 
 

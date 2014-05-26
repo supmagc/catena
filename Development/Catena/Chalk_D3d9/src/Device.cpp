@@ -10,7 +10,7 @@ struct Chalk::D3d9::Device::DeviceImpl {
     IDirect3DDevice9* pDevice;
 };
 
-Device::Device(DeviceSettings const& oSettings) : m_pImpl(RNULL), m_oSettings(oSettings) {
+Device::Device() : m_pImpl(RNULL) {
     m_pImpl = new DeviceImpl();
     m_pImpl->pContext = Direct3DCreate9(D3D_SDK_VERSION);
 }
@@ -21,10 +21,11 @@ Device::~Device() {
     SAFE_DELETE(m_pImpl);
 }
 
-RBOOL Device::Create() {
+RBOOL Device::Create(RCBOX pSettings, RUINT nWidth, RUINT nHeight, bool bFullscreen) {
+    DeviceCreateSettings const* pSettingsUnboxed = (DeviceCreateSettings const*)(pSettings);
     if(!m_pImpl->pContext)
         return false;
-    if(!m_oSettings.hWindow)
+    if(!pSettingsUnboxed->hWindow)
         return false;
     if(m_pImpl->pDevice)
         return false;
@@ -33,12 +34,12 @@ RBOOL Device::Create() {
     ZeroMemory(&oParameters, sizeof(D3DPRESENT_PARAMETERS));
     oParameters.BackBufferCount = 1;
     oParameters.BackBufferFormat = D3DFMT_A8R8G8B8;
-    oParameters.BackBufferWidth = 1024;
-    oParameters.BackBufferHeight = 768;
+    oParameters.BackBufferWidth = nWidth;
+    oParameters.BackBufferHeight = nHeight;
     oParameters.SwapEffect = D3DSWAPEFFECT_DISCARD;
-    oParameters.Windowed = true;
+    oParameters.Windowed = !bFullscreen;
 
-    if(D3D_OK == m_pImpl->pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, m_oSettings.hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oParameters, &m_pImpl->pDevice)) {
+    if(D3D_OK == m_pImpl->pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pSettingsUnboxed->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oParameters, &m_pImpl->pDevice)) {
         return true;
     }
     else {

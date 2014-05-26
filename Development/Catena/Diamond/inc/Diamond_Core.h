@@ -6,16 +6,20 @@
 
 namespace Diamond {
 
+    class Scene;
+
     class DIAMOND_API Core {
     public:
         Core();
         ~Core();
 
+        Scene* GetScene();
+
 #ifdef _WINDOWS
 #ifndef SWIG
-        Rock::RBOOL Create(HWND hWnd);
+        Rock::RBOOL Create(HWND hWnd, Rock::RUINT nWidth, Rock::RUINT nHeight, Rock::RBOOL bFullscreen);
 #endif
-        Rock::RBOOL Create(Rock::RINT nWnd);
+        Rock::RBOOL Create(Rock::RINT nWnd, Rock::RUINT nWidth, Rock::RUINT nHeight, Rock::RBOOL bFullscreen);
 #endif
 
         Rock::RBOOL Update();
