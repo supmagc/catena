@@ -18,7 +18,7 @@ namespace Rock {
             String sMessageTemp = Rock::String::vFormat(sMessage, args);
             va_end(args);
             if(sCategory.GetLength() > 0)
-                sCombined = Rock::String::Format(RTXT("[%s] %s (line: %d) %s\n"), *sCategory, *sFile, nLine, *sMessage);
+                sCombined = Rock::String::Format(RTXT("[%s] %s (line: %n) %s\n"), *sCategory, *sFile, nLine, *sMessage);
             else
                 sCombined = Rock::String::Format(RTXT("%s (line: %d) %s\n"), sFile, nLine, sMessage);
             OutputDebugStringW(*sCombined);

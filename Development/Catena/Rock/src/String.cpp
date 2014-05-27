@@ -33,14 +33,13 @@ String::String(char const obj) : m_nLength(2), m_aData(NULL) {
     m_aData[1] = 0;
 }
 
-String::String(RCHAR const obj) : m_nLength(2), m_aData(NULL) {
+String::String(RCHAR const obj) : m_nLength(2), m_aData(RNULL) {
     m_aData = new RCHAR[m_nLength];
     m_aData[0] = obj;
     m_aData[1] = 0;
 }
 
-String::String(String const& obj) : m_nLength(0), m_aData(NULL) {
-    m_nLength = obj.m_nLength;
+String::String(String const& obj) : m_nLength(obj.m_nLength), m_aData(RNULL) {
     m_aData = new RCHAR[m_nLength];
     wcscpy_s(m_aData, m_nLength, obj.m_aData);
 }
@@ -107,7 +106,6 @@ String::String(RDOUBLE const obj) : m_nLength(0), m_aData(NULL) {
     m_nLength = strlen(tmp) + 1;
     m_aData = new RCHAR[m_nLength];
     MultiByteToWideChar(CP_UTF8, 0, tmp, m_nLength, m_aData, m_nLength);
-
 }
 
 String::String(RBOOL const obj) : m_nLength(obj ? 2 : 1), m_aData(NULL) {
@@ -349,18 +347,19 @@ String String::vFormat(String const& str, va_list args) {
 }
 
 String String::vFormat(RCHAR const* str, va_list args) {
-    RINT nLength = _scwprintf(str, args) + 100;
-    RCHAR* aBuffer = (RCHAR*)malloc(sizeof(RCHAR) * nLength);
-    vswprintf_s(aBuffer, nLength, str, args);
-    String sReturn(aBuffer);
+    String sReturn;
+    sReturn.m_nLength = _scwprintf(str, args) + 1;
+    sReturn.m_aData = (RCHAR*)malloc(sizeof(RCHAR) * sReturn.m_nLength);
+    vswprintf_s(sReturn.m_aData, sReturn.m_nLength, str, args);
     return sReturn;
 }
 
 String String::vFormat(char const* str, va_list args) {
-    RINT nLength = _scprintf(str, args) + 100;
-    char* aBuffer = (char*)malloc(sizeof(char) * nLength);
+    RINT nLength = _scprintf(str, args) + 1;
+    char* aBuffer = (char*)malloc(nLength);
     vsprintf_s(aBuffer, nLength, str, args);
-    String sReturn(aBuffer);
+    String sReturn = String(aBuffer);
+    SAFE_DELETE_ARRAY(aBuffer);
     return sReturn;
 }
 
