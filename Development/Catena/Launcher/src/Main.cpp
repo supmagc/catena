@@ -10,8 +10,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
 
 #ifdef _WINDOWS
 #ifdef _DEBUG
-    _CrtCheckMemory();
-    _CrtDumpMemoryLeaks();
+    //_CrtCheckMemory();
+    //_CrtDumpMemoryLeaks();
     //_CrtSetBreakAlloc();
 #endif
 

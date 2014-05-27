@@ -51,6 +51,10 @@ RBOOL Core::Create(RINT nWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
 RFLOAT g_nDir = 1;
 RFLOAT g_nTemp = 0;
 
+String Test() {
+    return String("Test");
+}
+
 RBOOL Core::Update() {
     RBOOL bError = false;
 
@@ -59,7 +63,12 @@ RBOOL Core::Update() {
     if(!m_pImpl->pShader)
         return false;
 
-    LOGf_CatMes(RTXT("Test"), RTXT("message number %d"), 1259.235f);
+    String s0 = String("message number %f");
+    String s1 = String(RTXT("message number %f"));
+    String s2 = String(s0 + s1);
+    String s3 = String(s1);
+    String s4 = Test();
+    LOGf_CatMes(RTXT("Test"), *s1, 1259.235f);
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();
