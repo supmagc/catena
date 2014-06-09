@@ -342,20 +342,20 @@ RCHAR const* String::operator*() const {
     _APPEND_STRING(RBOOL);
 #undef _APPEND_STRING
 
-String String::vFormat(String const& str, va_list args) {
-    return String::vFormat(str.m_aData, args);
+String String::Format(String const& str, va_list args) {
+    return String::Format(str.m_aData, args);
 }
 
-String String::vFormat(RCHAR const* str, va_list args) {
+String String::Format(RCHAR const* str, va_list args) {
     String sReturn;
-    sReturn.m_nLength = _scwprintf(str, args) + 1;
+    sReturn.m_nLength = _vscwprintf(str, args) + 1;
     sReturn.m_aData = (RCHAR*)malloc(sizeof(RCHAR) * sReturn.m_nLength);
     vswprintf_s(sReturn.m_aData, sReturn.m_nLength, str, args);
     return sReturn;
 }
 
-String String::vFormat(char const* str, va_list args) {
-    RINT nLength = _scprintf(str, args) + 1;
+String String::Format(char const* str, va_list args) {
+    RINT nLength = _vscprintf(str, args) + 1;
     char* aBuffer = (char*)malloc(nLength);
     vsprintf_s(aBuffer, nLength, str, args);
     String sReturn = String(aBuffer);
@@ -366,7 +366,7 @@ String String::vFormat(char const* str, va_list args) {
 String String::Format(String const& str, ...) {
     va_list args;
     va_start(args, str);
-    String sReturn = String::vFormat(str.m_aData, args);
+    String sReturn = String::Format(str.m_aData, args);
     va_end(args);
     return sReturn;
 }
@@ -374,7 +374,7 @@ String String::Format(String const& str, ...) {
 String String::Format(RCHAR const* str, ...) {
     va_list args;
     va_start(args, str);
-    String sReturn = String::vFormat(str, args);
+    String sReturn = String::Format(str, args);
     va_end(args);
     return sReturn;
 }
@@ -382,7 +382,7 @@ String String::Format(RCHAR const* str, ...) {
 String String::Format(char const* str, ...) {
     va_list args;
     va_start(args, str);
-    String sReturn = String::vFormat(str, args);
+    String sReturn = String::Format(str, args);
     va_end(args);
     return sReturn;
 }

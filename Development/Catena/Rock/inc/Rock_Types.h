@@ -20,11 +20,13 @@ namespace Rock {
     typedef double RDOUBLE;
     typedef bool RBOOL;
 
+#ifndef SWIG
     #if defined(_WIN32)
         typedef int *__ptr32 RPTR;
     #else
         typedef int *__ptr64 RPTR;
     #endif
+#endif
 
     typedef void* RBOX;
     typedef void const* RCBOX;

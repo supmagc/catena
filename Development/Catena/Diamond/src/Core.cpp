@@ -58,17 +58,8 @@ String Test() {
 RBOOL Core::Update() {
     RBOOL bError = false;
 
-    if(!m_pImpl->pDevice)
-        return false;
-    if(!m_pImpl->pShader)
-        return false;
-
-    String s0 = String("message number %f");
-    String s1 = String(RTXT("message number %f"));
-    String s2 = String(s0 + s1);
-    String s3 = String(s1);
-    String s4 = Test();
-    LOGf_CatMes(RTXT("Test"), *s1, 1259.235f);
+    ASSERT(m_pImpl->pDevice != RNULL);
+    ASSERT(m_pImpl->pShader != RNULL);
 
     bError = bError || !m_pImpl->pDevice->BackBufferClear();
     bError = bError || !m_pImpl->pShader->Set();

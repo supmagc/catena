@@ -6,35 +6,44 @@
 #include "Rock_Defines.h"
 #include "Rock_Types.h"
 
-using namespace Rock;
+namespace Rock {
+
+    enum class LogType {
+        LT_DEBUG = 0,
+        LT_ASSERT,
+        LT_INFO,
+        LT_WARNING,
+        LT_ERROR,
+        LT_SYSTEM
+    };
+
+    ROCK_API void rLogInit(String const& sFile, LogType const eLimit = LogType::LT_DEBUG);
+    ROCK_API void rLog(LogType const eType, String const& sCategory, String const& sMessage, String const& sFile, RUINT const nLine, ...);
+};
 
 #ifdef _DEBUG
-namespace Rock {
-    struct ROCK_API __Logger {
-        __Logger(String const& sCategory, String const& sMessage, String const& sFile, RUINT const nLine, ...) {
-            String sCombined;
-            va_list args;
-            va_start(args, nLine);
-            String sMessageTemp = Rock::String::vFormat(sMessage, args);
-            va_end(args);
-            if(sCategory.GetLength() > 0)
-                sCombined = Rock::String::Format(RTXT("[%s] %s (line: %n) %s\n"), *sCategory, *sFile, nLine, *sMessage);
-            else
-                sCombined = Rock::String::Format(RTXT("%s (line: %d) %s\n"), sFile, nLine, sMessage);
-            OutputDebugStringW(*sCombined);
-        }
-    };
-};
-#define LOG(m) __Logger(RTXT(""), m, __FILE__, __LINE__)
-#define LOG_Mes(m) __Logger(RTXT(L""), m, __FILE__, __LINE__)
-#define LOG_CatMes(c, m) __Logger(c, m, __FILE__, __LINE__)
-#define LOGf(m, ...) __Logger(RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
-#define LOGf_Mes(m, ...) __Logger(RTXT(L""), m, __FILE__, __LINE__, __VA_ARGS__)
-#define LOGf_CatMes(c, m, ...) __Logger(c, m, __FILE__, __LINE__, __VA_ARGS__)
+    #define LOG_DEBUG(m, ...) Rock::rLog(Rock::LogType::LT_DEBUG, RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
+    #define LOGCAT_DEBUG(c, m, ...) Rock::rLog(Rock::LogType::LT_DEBUG, c, m, __FILE__, __LINE__, __VA_ARGS__)
 #else
-#define LOG(m)
-#define LOG_Mes(m)
-#define LOG_CatMes(c, m)
-#endif // _LOG
+    #define LOG_DEBUG(m, ...) 
+    #define LOGCAT_DEBUG(c, m, ...) 
+#endif
+
+#ifndef _PUBLISH
+    #define LOG_INFO(m, ...) Rock::rLog(Rock::LogType::LT_INFO, RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
+    #define LOGCAT_INFO(c, m, ...) Rock::rLog(Rock::LogType::LT_INFO, c, m, __FILE__, __LINE__, __VA_ARGS__)
+    #define LOG_WARNING(m, ...) Rock::rLog(Rock::LogType::LT_WARNING, RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
+    #define LOGCAT_WARNING(c, m, ...) Rock::rLog(Rock::LogType::LT_WARNING, c, m, __FILE__, __LINE__, __VA_ARGS__)
+#else
+    #define LOG_INFO(m, ...) 
+    #define LOGCAT_INFO(c, m, ...) 
+    #define LOG_WARNING(m, ...) 
+    #define LOGCAT_WARNING(c, m, ...) 
+#endif
+
+#define LOG_ERROR(m, ...) Rock::rLog(Rock::LogType::LT_ERROR, RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
+#define LOGCAT_ERROR(c, m, ...) Rock::rLog(Rock::LogType::LT_ERROR, c, m, __FILE__, __LINE__, __VA_ARGS__)
+#define LOG_SYSTEM(m, ...) Rock::rLog(Rock::LogType::LT_SYSTEM, RTXT(""), m, __FILE__, __LINE__, __VA_ARGS__)
+#define LOGCAT_SYSTEM(c, m, ...) Rock::rLog(Rock::LogType::LT_SYSTEM, c, m, __FILE__, __LINE__, __VA_ARGS__)
 
 #endif // _H_ROCK_LOG
