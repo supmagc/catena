@@ -98,9 +98,9 @@ namespace Rock {
         _STRING_APPEND(RBOOL);
 #undef _STRING_APPEND
 
-        static String vFormat(String const& str, va_list args);
-        static String vFormat(RCHAR const* str, va_list args);
-        static String vFormat(char const* str, va_list args);
+        static String Format(String const& str, va_list args);
+        static String Format(RCHAR const* str, va_list args);
+        static String Format(char const* str, va_list args);
         static String Format(String const& str, ...);
         static String Format(RCHAR const* str, ...);
         static String Format(char const* str, ...);

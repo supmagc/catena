@@ -312,15 +312,33 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Core(void * jarg1) {
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Core_Create(void * jarg1, int jarg2) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Core_GetScene(void * jarg1) {
+  void * jresult ;
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Diamond::Scene *result = 0 ;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  result = (Diamond::Scene *)(arg1)->GetScene();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Core_Create(void * jarg1, int jarg2, unsigned int jarg3, unsigned int jarg4, unsigned int jarg5) {
   unsigned int jresult ;
   Diamond::Core *arg1 = (Diamond::Core *) 0 ;
   Rock::RINT arg2 ;
+  Rock::RUINT arg3 ;
+  Rock::RUINT arg4 ;
+  Rock::RBOOL arg5 ;
   Rock::RBOOL result;
   
   arg1 = (Diamond::Core *)jarg1; 
   arg2 = (Rock::RINT)jarg2; 
-  result = (Rock::RBOOL)(arg1)->Create(arg2);
+  arg3 = (Rock::RUINT)jarg3; 
+  arg4 = (Rock::RUINT)jarg4; 
+  arg5 = jarg5 ? true : false; 
+  result = (Rock::RBOOL)(arg1)->Create(arg2,arg3,arg4,arg5);
   jresult = result; 
   return jresult;
 }

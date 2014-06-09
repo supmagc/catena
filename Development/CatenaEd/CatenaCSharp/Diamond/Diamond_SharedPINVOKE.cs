@@ -192,8 +192,11 @@ class Diamond_SharedPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_delete_Core")]
   public static extern void delete_Core(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_GetScene")]
+  public static extern global::System.IntPtr Core_GetScene(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Create")]
-  public static extern bool Core_Create(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+  public static extern bool Core_Create(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, uint jarg3, uint jarg4, bool jarg5);
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Update")]
   public static extern bool Core_Update(global::System.Runtime.InteropServices.HandleRef jarg1);
