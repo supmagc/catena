@@ -7,6 +7,7 @@
 namespace Diamond {
 
     class Scene;
+    class SceneView;
 
     class DIAMOND_API Core {
     public:
@@ -14,6 +15,8 @@ namespace Diamond {
         ~Core();
 
         Scene* GetScene();
+        SceneView* CreateSceneView(Rock::RUINT nWidth, Rock::RUINT nHeight);
+        void ReleaseSceneView(SceneView* pView);
 
 #ifdef _WINDOWS
 #ifndef SWIG
@@ -25,8 +28,7 @@ namespace Diamond {
         Rock::RBOOL Update();
 
     private:
-        struct CoreImpl;
-        CoreImpl* m_pImpl;
+        PIMPL_DECL(Core);
 
         Core(Core const&);
         Core& operator=(Core const&);
