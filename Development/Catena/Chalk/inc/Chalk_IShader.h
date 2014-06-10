@@ -20,8 +20,7 @@ namespace Chalk {
         virtual void SetData(RFLOAT const*, RUINT nLength = 1) =0;
 
     private:
-        IShader(IShader const&);
-        IShader& operator=(IShader const&);
+        CLASS_NOCOPY(IShader);
     };
 };
 
