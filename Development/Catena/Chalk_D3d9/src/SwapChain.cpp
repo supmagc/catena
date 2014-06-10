@@ -11,6 +11,7 @@ using namespace Chalk::D3d9;
 PIMPL_MAKE(Chalk::D3d9, SwapChain) {
     Device* pDevice;
     IDirect3DSwapChain9* pSwapChain;
+    D3DPRESENT_PARAMETERS oParameters;
 };
 
 SwapChain::SwapChain(Device* pDevice, IDirect3DSwapChain9* pSwapChain) {
@@ -23,13 +24,14 @@ SwapChain::SwapChain(Device* pDevice, IDirect3DSwapChain9* pSwapChain) {
 
 SwapChain::~SwapChain() {
     PIMPL_DELETE();
+    SAFE_RELEASE(PIMPL.pSwapChain);
 }
 
 RBOOL SwapChain::IsActive() const {
     return RNULL != PIMPL.pSwapChain;
 }
 
-RBOOL SwapChain::Create(HWND hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
+RBOOL SwapChain::Create(HWND hWnd, Chalk::RenderSettings const& oRenderSettings) {
     ASSERT_NULL(PIMPL.pSwapChain);
 
     D3DPRESENT_PARAMETERS oParameters;
@@ -37,10 +39,12 @@ RBOOL SwapChain::Create(HWND hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscree
     oParameters.hDeviceWindow = hWnd;
     oParameters.BackBufferCount = 1;
     oParameters.BackBufferFormat = D3DFMT_A8R8G8B8;
-    oParameters.BackBufferWidth = nWidth;
-    oParameters.BackBufferHeight = nHeight;
+    oParameters.BackBufferWidth = oRenderSettings.nWidth;
+    oParameters.BackBufferHeight = oRenderSettings.nHeight;
     oParameters.SwapEffect = D3DSWAPEFFECT_DISCARD;
-    oParameters.Windowed = !bFullscreen;
+    oParameters.Windowed = !oRenderSettings.bFullscreen;
 
     PIMPL.pDevice->GetDirect3DDevice9()->CreateAdditionalSwapChain(&oParameters, &PIMPL.pSwapChain);
+
+    return true;
 }

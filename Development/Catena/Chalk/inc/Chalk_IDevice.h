@@ -13,7 +13,7 @@ namespace Chalk {
         IDevice() {}
         virtual ~IDevice() {}
 
-        virtual RBOOL Create(RCBOX pSettings, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) =0;
+        virtual RBOOL Create(RCBOX pSettings, Chalk::RenderSettings const& oRenderSettings) =0;
         virtual RBOOL BackBufferClear() =0;
         virtual RBOOL BackBufferSwitch() =0;
         virtual void Destroy() =0;
