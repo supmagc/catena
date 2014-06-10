@@ -51,10 +51,6 @@ RBOOL Core::Create(RINT nWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
 RFLOAT g_nDir = 1;
 RFLOAT g_nTemp = 0;
 
-String Test() {
-    return String("Test");
-}
-
 RBOOL Core::Update() {
     RBOOL bError = false;
 

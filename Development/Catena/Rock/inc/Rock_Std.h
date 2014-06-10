@@ -3,15 +3,22 @@
 
 #include "Rock_Defines.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
+// C includes
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <cwchar>
+
+// Memory utilities
 #include <malloc.h>
 #include <memory.h>
-#include <wchar.h>
 
+// stl includes
 #include <iostream>
 
+using namespace std;
+
+// System specific includes
 #ifdef _WINDOWS
     #define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
     #include <Windows.h>
