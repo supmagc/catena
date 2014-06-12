@@ -30,6 +30,7 @@
 
 // Helper defines
 #define ZERO(dest, length) memset((dest), 0, (length))
+#define COPY(src, dst, length) memcpy_s(dst, length, src, length)
 
 // Delete/release defines
 #define SAFE_RELEASE(p) if(p != NULL) {p->Release(); p=NULL;}
@@ -62,7 +63,9 @@
 
 // Text defines
 #define RTXT(txt) L##txt
-#define RTXT_FORMAT(buffer, format, ...) RINT nLength = _scwprintf(format, __VA_ARGS__); RCHAR* buffer = malloc(sizeof(RCHAR) * (nLength + 1)); swprintf_s(buffer, nLength, format, __VA_ARGS)
+
+// Boxing defines
+#define UNBOX(type, name) type const* name = reinterpret_cast<type const*>(p##type); ASSERT_NOTNULL(name)
 
 // Rock specific defines
 #if defined(ROCK_EXPORTS)

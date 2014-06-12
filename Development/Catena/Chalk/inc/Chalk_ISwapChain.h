@@ -5,10 +5,16 @@
 
 namespace Chalk {
 
+    struct RenderSettings;
+
     class CHALK_API ISwapChain {
     public:
         ISwapChain() {}
         virtual ~ISwapChain() {}
+
+        virtual RBOOL IsActive() const =0;
+        virtual RenderSettings const* GetRenderSettings() const =0;
+        virtual void SetRenderSettings(RenderSettings const* pRenderSettings) =0;
 
     private:
         CLASS_NOCOPY(ISwapChain);

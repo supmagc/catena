@@ -1,51 +1,55 @@
 #include "Chalk_d3d9_Std.h"
 #include "Chalk_D3d9_Device.h"
+#include "Chalk_D3d9_SwapChain.h"
 
-#include <d3d9.h>
 
+using namespace Chalk;
 using namespace Chalk::D3d9;
 
-struct Chalk::D3d9::Device::DeviceImpl {
+PIMPL_MAKE(Chalk::D3d9, Device) {
     IDirect3D9* pContext;
     IDirect3DDevice9* pDevice;
 };
 
-Device::Device() : m_pImpl(RNULL) {
-    m_pImpl = new DeviceImpl();
-    m_pImpl->pContext = Direct3DCreate9(D3D_SDK_VERSION);
+Device::Device() {
+    PIMPL_INIT(Device);
+    PIMPL.pContext = Direct3DCreate9(D3D_SDK_VERSION);
 }
 
 Device::~Device() {
-    SAFE_RELEASE(m_pImpl->pDevice);
-    SAFE_RELEASE(m_pImpl->pContext);
-    SAFE_DELETE(m_pImpl);
+    SAFE_RELEASE(PIMPL.pDevice);
+    SAFE_RELEASE(PIMPL.pContext);
+    PIMPL_DELETE();
 }
 
-RBOOL Device::Create(RCBOX pSettings, RUINT nWidth, RUINT nHeight, bool bFullscreen) {
-    DeviceCreateSettings const* pSettingsUnboxed = (DeviceCreateSettings const*)(pSettings);
-    if(!m_pImpl->pContext)
-        return false;
-    if(!pSettingsUnboxed->hWindow)
-        return false;
-    if(m_pImpl->pDevice)
-        return false;
+ISwapChain* Device::CreateSwapChain(RCBOX pSettings, RenderSettings const* pRenderSettings) {
+    CreateSwapChainSettings const* pSettingsUnboxed = reinterpret_cast<CreateSwapChainSettings const*>(pSettings);
+    ASSERT_NOTNULL(pSettingsUnboxed);
+    ASSERT_NOTNULL(PIMPL.pContext);
+    ASSERT_NOTNULL(pSettingsUnboxed->hWindow);
 
-    D3DPRESENT_PARAMETERS oParameters;
-    ZeroMemory(&oParameters, sizeof(D3DPRESENT_PARAMETERS));
-    oParameters.BackBufferCount = 1;
-    oParameters.BackBufferFormat = D3DFMT_A8R8G8B8;
-    oParameters.BackBufferWidth = nWidth;
-    oParameters.BackBufferHeight = nHeight;
-    oParameters.SwapEffect = D3DSWAPEFFECT_DISCARD;
-    oParameters.Windowed = !bFullscreen;
+    SwapChain* pSwapChain = new SwapChain(this);
+    SwapChain::CreateSettings oCreateSettings;
+    ZERO(&oCreateSettings, sizeof(SwapChain::CreateSettings));
+    oCreateSettings.hWindow = pSettingsUnboxed->hWindow;
 
-    if(D3D_OK == m_pImpl->pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pSettingsUnboxed->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oParameters, &m_pImpl->pDevice)) {
-        return true;
+    if(!PIMPL.pDevice) {
+        D3DPRESENT_PARAMETERS oPresentParameters;
+        SwapChain::Convert(pRenderSettings, &oPresentParameters);
+
+        CHECK_HRESULT(PIMPL.pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pSettingsUnboxed->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oPresentParameters, &PIMPL.pDevice));
+        CHECK_HRESULT(PIMPL.pDevice->GetSwapChain(0, &oCreateSettings.pSwapChain));
+        pSwapChain->Create(&oCreateSettings, pRenderSettings);
     }
     else {
-        m_pImpl->pDevice = RNULL;
-        return false;
+        pSwapChain->Create(&oCreateSettings, pRenderSettings);
     }
+
+    return pSwapChain;
+}
+
+void Device::ReleaseSwapChain(ISwapChain* oSwapChain) {
+    ASSERT_NOTNULL(oSwapChain);
 }
 
 RBOOL Device::BackBufferClear() {

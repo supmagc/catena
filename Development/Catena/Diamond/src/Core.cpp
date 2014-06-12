@@ -1,36 +1,47 @@
 #include "Diamond_Std.h"
 #include "Diamond_Core.h"
+#include "Diamond_Scene.h"
+#include "Diamond_SceneView.h"
 
-using namespace Chalk;
 using namespace Diamond;
 
-struct Diamond::Core::CoreImpl {
+PIMPL_MAKE(Diamond, Core) {
     IDevice* pDevice;
     IShader* pShader;
     IVertexBuffer *pVertexBuffer;
 };
 
-Core::Core() : m_pImpl(RNULL) {
-    m_pImpl = new CoreImpl();
+Core::Core() {
+    PIMPL_INIT(Core);
 }
 
 Core::~Core() {
-    SAFE_DELETE(m_pImpl->pVertexBuffer);
-    SAFE_DELETE(m_pImpl->pShader);
-    SAFE_DELETE(m_pImpl->pDevice);
-    SAFE_DELETE(m_pImpl);
+    SAFE_DELETE(PIMPL.pVertexBuffer);
+    SAFE_DELETE(PIMPL.pShader);
+    SAFE_DELETE(PIMPL.pDevice);
+    PIMPL_DELETE();
 }
 
-#ifdef _WINDOWS
-#ifndef SWIG
-RBOOL Core::Create(HWND hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
-    Chalk::D3d9::DeviceCreateSettings oSettings;
-    oSettings.hWindow = hWnd;
+Scene* Core::GetScene() {
+    return RNULL;
+}
 
-    m_pImpl->pDevice = new Chalk::D3d9::Device();
-    if(!m_pImpl->pDevice->Create(&oSettings, nWidth, nHeight, bFullscreen))
-        return false;
+SceneView* Core::Create(RINT hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
+    Chalk::D3d9::Device::CreateSwapChainSettings oSettings;
+    oSettings.hWindow = (HWND)hWnd;
 
+    Chalk::RenderSettings oRenderSettings;
+    oRenderSettings.nWidth = nWidth;
+    oRenderSettings.nHeight = nHeight;
+    oRenderSettings.bFullscreen = bFullscreen;
+
+    PIMPL.pDevice = new Chalk::D3d9::Device();
+    ISwapChain* pSwapChain = PIMPL.pDevice->CreateSwapChain(&oSettings, &oRenderSettings);
+    ASSERT_NOTNULL(pSwapChain);
+
+    SceneView* pSceneView = new SceneView(pSwapChain);
+
+    // TEMP TESTING STUFF
     m_pImpl->pShader = new Chalk::D3d9::Shader(dynamic_cast<Chalk::D3d9::Device*>(m_pImpl->pDevice));
     if(!m_pImpl->pShader->Load())
         return false;
@@ -39,14 +50,8 @@ RBOOL Core::Create(HWND hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
     if(!m_pImpl->pVertexBuffer->Load())
         return false;
 
-    return true;
+    return pSceneView;
 }
-#endif // SWIG
-
-RBOOL Core::Create(RINT nWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
-    return Create((HWND)nWnd, nWidth, nHeight, bFullscreen);
-}
-#endif // _WINDOWS
 
 RFLOAT g_nDir = 1;
 RFLOAT g_nTemp = 0;

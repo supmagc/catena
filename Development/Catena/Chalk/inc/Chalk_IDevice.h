@@ -4,16 +4,19 @@
 #include "Rock.h"
 #include "Chalk_Defines.h"
 
-using namespace Rock;
-
 namespace Chalk {
+
+    class ISwapChain;
+    struct RenderSettings;
 
     class CHALK_API IDevice {
     public:
         IDevice() {}
         virtual ~IDevice() {}
 
-        virtual RBOOL Create(RCBOX pSettings, Chalk::RenderSettings const& oRenderSettings) =0;
+        virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings) =0;
+        virtual void ReleaseSwapChain(ISwapChain* oSwapChain) =0;
+
         virtual RBOOL BackBufferClear() =0;
         virtual RBOOL BackBufferSwitch() =0;
         virtual void Destroy() =0;

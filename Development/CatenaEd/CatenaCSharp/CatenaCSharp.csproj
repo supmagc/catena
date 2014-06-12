@@ -42,6 +42,8 @@
     <Compile Include="Diamond\Core.cs" />
     <Compile Include="Diamond\Diamond_Shared.cs" />
     <Compile Include="Diamond\Diamond_SharedPINVOKE.cs" />
+    <Compile Include="Diamond\Scene.cs" />
+    <Compile Include="Diamond\SceneView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rock\Rock_Shared.cs" />
     <Compile Include="Rock\Rock_SharedPINVOKE.cs" />

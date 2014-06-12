@@ -38,6 +38,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "DiamondDraw";
             this.Size = new System.Drawing.Size(1024, 768);
+            this.Resize += new System.EventHandler(this.OnResize);
             this.ResumeLayout(false);
 
         }

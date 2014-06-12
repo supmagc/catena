@@ -10,4 +10,6 @@
 #include "Chalk_IIndexBuffer.h"
 #include "Chalk_ISwapChain.h"
 
+using namespace Chalk;
+
 #endif // _H_CHALK

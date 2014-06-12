@@ -10,6 +10,8 @@ namespace Rock {
 
 public class Rock_Shared {
   public static readonly int _UNICODE = Rock_SharedPINVOKE._UNICODE_get();
+  public static readonly int _SWIG = Rock_SharedPINVOKE._SWIG_get();
+  public static readonly int _WINDOWS = Rock_SharedPINVOKE._WINDOWS_get();
   public static readonly int _WIN32 = Rock_SharedPINVOKE._WIN32_get();
 }
 
