@@ -5,25 +5,22 @@
 #include "Chalk.h"
 #include "Chalk_D3d9_Defines.h"
 
-using namespace Rock;
-
-struct IDirect3D9;
-struct IDirect3DDevice9;
-
 namespace Chalk {
 
     namespace D3d9 {
 
-        struct CHALK_D3D9_API DeviceCreateSettings {
-            HWND hWindow;
-        };
-
         class CHALK_D3D9_API Device : public Chalk::IDevice {
         public:
+            struct CHALK_D3D9_API CreateSwapChainSettings {
+                HWND hWindow;
+            };
+
             Device();
             virtual ~Device();
 
-            virtual RBOOL Create(RCBOX pSettings, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen);
+            virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings);
+            virtual void ReleaseSwapChain(ISwapChain* oSwapChain);
+
             virtual RBOOL BackBufferClear();
             virtual RBOOL BackBufferSwitch();
             virtual void Destroy();

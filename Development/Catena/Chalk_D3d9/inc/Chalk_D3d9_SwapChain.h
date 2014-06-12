@@ -4,21 +4,31 @@
 #include "Rock.h"
 #include "Chalk_D3d9_Defines.h"
 
-struct IDirect3DSwapChain9;
-
 namespace Chalk {
+
+    struct RenderSettings;
 
     namespace D3d9 {
 
         class Device;
 
-        class CHALK_D3D9_API SwapChain : Chalk::ISwapChain {
+        class CHALK_D3D9_API SwapChain : public ISwapChain {
         public:
-            SwapChain(Device* pDevice, IDirect3DSwapChain9* pSwapChain);
+            struct CHALK_D3D9_API CreateSettings {
+                HWND hWindow;
+                IDirect3DSwapChain9* pSwapChain;
+            };
+
+            SwapChain(Device* pDevice);
             virtual ~SwapChain();
 
-            Rock::RBOOL IsActive() const;
-            Rock::RBOOL Create(HWND hWnd, Chalk::RenderSettings const& oRenderSettings);
+            virtual RBOOL IsActive() const;
+            virtual RenderSettings const* GetRenderSettings() const;
+            virtual void SetRenderSettings(RenderSettings const* pRenderSettings);
+
+            void Create(CreateSettings const* pCreateSettings, RenderSettings const* pRenderSettings);
+
+            static void Convert(RenderSettings const* pRenderSettings, D3DPRESENT_PARAMETERS* pPresentParameters);
 
         private:
             PIMPL_DECL(SwapChain);

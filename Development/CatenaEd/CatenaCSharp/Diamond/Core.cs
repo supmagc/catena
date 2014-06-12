@@ -41,14 +41,25 @@ public class Core : global::System.IDisposable {
   public Core() : this(Diamond_SharedPINVOKE.new_Core(), true) {
   }
 
-  public SWIGTYPE_p_Diamond__Scene GetScene() {
+  public Scene GetScene() {
     global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_GetScene(swigCPtr);
-    SWIGTYPE_p_Diamond__Scene ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_Diamond__Scene(cPtr, false);
+    Scene ret = (cPtr == global::System.IntPtr.Zero) ? null : new Scene(cPtr, false);
     return ret;
   }
 
-  public bool Create(int nWnd, uint nWidth, uint nHeight, bool bFullscreen) {
-    bool ret = Diamond_SharedPINVOKE.Core_Create(swigCPtr, nWnd, nWidth, nHeight, bFullscreen);
+  public SceneView CreateSceneView(uint nWidth, uint nHeight) {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_CreateSceneView(swigCPtr, nWidth, nHeight);
+    SceneView ret = (cPtr == global::System.IntPtr.Zero) ? null : new SceneView(cPtr, false);
+    return ret;
+  }
+
+  public void ReleaseSceneView(SceneView pView) {
+    Diamond_SharedPINVOKE.Core_ReleaseSceneView(swigCPtr, SceneView.getCPtr(pView));
+  }
+
+  public SceneView Create(int nWnd, uint nWidth, uint nHeight, bool bFullscreen) {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_Create(swigCPtr, nWnd, nWidth, nHeight, bFullscreen);
+    SceneView ret = (cPtr == global::System.IntPtr.Zero) ? null : new SceneView(cPtr, false);
     return ret;
   }
 

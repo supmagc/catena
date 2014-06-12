@@ -11,4 +11,6 @@
     #define CHALK_D3D9_API
 #endif
 
+#define CHECK_HRESULT(expr) if(FAILED(expr)) LOG_ERROR(RTXT("DX9 expression failed: %s"), RTXT(#expr))
+
 #endif // _H_CHALK_D3D9_DEFINES

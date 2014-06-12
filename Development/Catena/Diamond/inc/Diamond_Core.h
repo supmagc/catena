@@ -15,17 +15,12 @@ namespace Diamond {
         ~Core();
 
         Scene* GetScene();
-        SceneView* CreateSceneView(Rock::RUINT nWidth, Rock::RUINT nHeight);
+        SceneView* CreateSceneView(RUINT nWidth, RUINT nHeight);
         void ReleaseSceneView(SceneView* pView);
 
-#ifdef _WINDOWS
-#ifndef SWIG
-        Rock::RBOOL Create(HWND hWnd, Rock::RUINT nWidth, Rock::RUINT nHeight, Rock::RBOOL bFullscreen);
-#endif
-        Rock::RBOOL Create(Rock::RINT nWnd, Rock::RUINT nWidth, Rock::RUINT nHeight, Rock::RBOOL bFullscreen);
-#endif
+        SceneView* Create(RINT nWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen);
 
-        Rock::RBOOL Update();
+        RBOOL Update();
 
     private:
         PIMPL_DECL(Core);

@@ -14,4 +14,6 @@
 #include "Rock_Log.h"
 #include "Rock_Assert.h"
 
+using namespace Rock;
+
 #endif // _H_ROCK

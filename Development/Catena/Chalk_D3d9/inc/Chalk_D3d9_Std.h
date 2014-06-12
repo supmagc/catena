@@ -4,4 +4,6 @@
 #include "Rock.h"
 #include "Chalk.h"
 
+#include <d3d9.h>
+
 #endif // _H_CHALK_D3D9_STD

@@ -301,12 +301,1114 @@ SWIGEXPORT int SWIGSTDCALL CSharp__UNICODE_get() {
 }
 
 
+SWIGEXPORT int SWIGSTDCALL CSharp__SWIG_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)(1);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp__WINDOWS_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)(1);
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT int SWIGSTDCALL CSharp__WIN32_get() {
   int jresult ;
   int result;
   
   result = (int)(1);
   jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__11_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_11 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__11_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_11);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__12_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_12 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__12_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_12);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__13_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_13 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__13_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_13);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__14_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_14 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__14_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_14);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__21_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_21 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__21_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_21);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__22_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_22 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__22_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_22);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__23_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_23 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__23_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_23);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__24_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_24 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__24_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_24);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__31_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_31 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__31_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_31);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__32_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_32 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__32_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_32);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__33_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_33 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__33_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_33);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__34_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_34 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__34_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_34);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__41_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_41 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__41_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_41);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__42_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_42 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__42_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_42);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__43_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_43 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__43_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_43);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4__44_set(void * jarg1, float jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  if (arg1) (arg1)->_44 = arg2;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4__44_get(void * jarg1) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT) ((arg1)->_44);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_rc_set(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT (*arg2)[4] ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT (*)[4])jarg2; 
+  {
+    Rock::RFLOAT (*inp)[4] = (Rock::RFLOAT (*)[4])(arg2);
+    Rock::RFLOAT (*dest)[4] = (Rock::RFLOAT (*)[4])(arg1->rc);
+    size_t ii = 0;
+    for (; ii < 4; ++ii) {
+      Rock::RFLOAT *ip = inp[ii];
+      Rock::RFLOAT *dp = dest[ii];
+      size_t jj = 0;
+      for (; jj < 4; ++jj) dp[jj] = ip[jj];
+    }
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_rc_get(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT (*result)[4] = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT (*)[4])(Rock::RFLOAT (*)[4]) ((arg1)->rc);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_v_set(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT *arg2 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT *)jarg2; 
+  {
+    size_t ii;
+    Rock::RFLOAT *b = (Rock::RFLOAT *) arg1->v;
+    for (ii = 0; ii < (size_t)16; ii++) b[ii] = *((Rock::RFLOAT *) arg2 + ii);
+  }
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_v_get(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT *result = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = (Rock::RFLOAT *)(Rock::RFLOAT *) ((arg1)->v);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Matrix4x4__SWIG_0() {
+  void * jresult ;
+  Rock::Matrix4x4 *result = 0 ;
+  
+  result = (Rock::Matrix4x4 *)new Rock::Matrix4x4();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Matrix4x4__SWIG_1(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = 0 ;
+  Rock::Matrix4x4 *result = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Rock::Matrix4x4 const & type is null", 0);
+    return 0;
+  } 
+  result = (Rock::Matrix4x4 *)new Rock::Matrix4x4((Rock::Matrix4x4 const &)*arg1);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Matrix4x4(void * jarg1) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_0(void * jarg1, int jarg2, void * jarg3) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 *arg3 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Vector4 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector4 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetRow(arg2,(Vector4 const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetRow__SWIG_1(void * jarg1, int jarg2, float jarg3, float jarg4, float jarg5, float jarg6) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  Rock::RFLOAT arg5 ;
+  Rock::RFLOAT arg6 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  arg5 = (Rock::RFLOAT)jarg5; 
+  arg6 = (Rock::RFLOAT)jarg6; 
+  (arg1)->SetRow(arg2,arg3,arg4,arg5,arg6);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_0(void * jarg1, int jarg2, void * jarg3) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 *arg3 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Vector4 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector4 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetColumn(arg2,(Vector4 const &)*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetColumn__SWIG_1(void * jarg1, int jarg2, float jarg3, float jarg4, float jarg5, float jarg6) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  Rock::RFLOAT arg5 ;
+  Rock::RFLOAT arg6 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  arg5 = (Rock::RFLOAT)jarg5; 
+  arg6 = (Rock::RFLOAT)jarg6; 
+  (arg1)->SetColumn(arg2,arg3,arg4,arg5,arg6);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisX__SWIG_0(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetAxisX((Vector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisX__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  (arg1)->SetAxisX(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisY__SWIG_0(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetAxisY((Vector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisY__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  (arg1)->SetAxisY(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisZ__SWIG_0(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetAxisZ((Vector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetAxisZ__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  (arg1)->SetAxisZ(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetPosition__SWIG_0(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return ;
+  } 
+  (arg1)->SetPosition((Vector3 const &)*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetPosition__SWIG_1(void * jarg1, float jarg2, float jarg3, float jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  (arg1)->SetPosition(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_SetCell(void * jarg1, int jarg2, int jarg3, float jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RINT arg3 ;
+  Rock::RFLOAT arg4 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Rock::RINT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  (arg1)->SetCell(arg2,arg3,arg4);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetRow__SWIG_0(void * jarg1, int jarg2) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetRow(arg2);
+  jresult = new Vector4((const Vector4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetColumn__SWIG_0(void * jarg1, int jarg2) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetColumn(arg2);
+  jresult = new Vector4((const Vector4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetAxisX__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetAxisX();
+  jresult = new Vector3((const Vector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetAxisY__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetAxisY();
+  jresult = new Vector3((const Vector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetAxisZ__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetAxisZ();
+  jresult = new Vector3((const Vector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_GetPosition__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->GetPosition();
+  jresult = new Vector3((const Vector3 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT float SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_0(void * jarg1, int jarg2, int jarg3) {
+  float jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RINT arg3 ;
+  Rock::RFLOAT result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Rock::RINT)jarg3; 
+  result = (Rock::RFLOAT)((Rock::Matrix4x4 const *)arg1)->GetCell(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetRow__SWIG_1(void * jarg1, int jarg2, void * jarg3) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 *arg3 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Vector4 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector4 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetRow(arg2,*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetColumn__SWIG_1(void * jarg1, int jarg2, void * jarg3) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Vector4 *arg3 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Vector4 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector4 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetColumn(arg2,*arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetAxisX__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetAxisX(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetAxisY__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetAxisY(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetAxisZ__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetAxisZ(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetPosition__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Vector3 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetPosition(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_GetCell__SWIG_1(void * jarg1, int jarg2, int jarg3, void * jarg4) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::RINT arg2 ;
+  Rock::RINT arg3 ;
+  Rock::RFLOAT *arg4 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::RINT)jarg2; 
+  arg3 = (Rock::RINT)jarg3; 
+  arg4 = (Rock::RFLOAT *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Rock::RFLOAT & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->GetCell(arg2,arg3,*arg4);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Identity(void * jarg1) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  (arg1)->Identity();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Inverse(void * jarg1) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  (arg1)->Inverse();
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Transpose(void * jarg1) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  (arg1)->Transpose();
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_Inversed__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->Inversed();
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_Transposed__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  result = ((Rock::Matrix4x4 const *)arg1)->Transposed();
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Inversed__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::Matrix4x4 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::Matrix4x4 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Rock::Matrix4x4 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->Inversed(*arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Matrix4x4_Transposed__SWIG_1(void * jarg1, void * jarg2) {
+  Rock::Matrix4x4 *arg1 = (Rock::Matrix4x4 *) 0 ;
+  Rock::Matrix4x4 *arg2 = 0 ;
+  
+  arg1 = (Rock::Matrix4x4 *)jarg1; 
+  arg2 = (Rock::Matrix4x4 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Rock::Matrix4x4 & type is null", 0);
+    return ;
+  } 
+  ((Rock::Matrix4x4 const *)arg1)->Transposed(*arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveLH(float jarg1, float jarg2, float jarg3, float jarg4) {
+  void * jresult ;
+  Rock::RFLOAT arg1 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::RFLOAT)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  result = Rock::Matrix4x4::CreatePerspectiveLH(arg1,arg2,arg3,arg4);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreatePerspectiveRH(float jarg1, float jarg2, float jarg3, float jarg4) {
+  void * jresult ;
+  Rock::RFLOAT arg1 ;
+  Rock::RFLOAT arg2 ;
+  Rock::RFLOAT arg3 ;
+  Rock::RFLOAT arg4 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::RFLOAT)jarg1; 
+  arg2 = (Rock::RFLOAT)jarg2; 
+  arg3 = (Rock::RFLOAT)jarg3; 
+  arg4 = (Rock::RFLOAT)jarg4; 
+  result = Rock::Matrix4x4::CreatePerspectiveRH(arg1,arg2,arg3,arg4);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateIdentity() {
+  void * jresult ;
+  Rock::Matrix4x4 result;
+  
+  result = Rock::Matrix4x4::CreateIdentity();
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateViewLH(void * jarg1, void * jarg2, void * jarg3) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  Vector3 *arg3 = 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (Vector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  result = Rock::Matrix4x4::CreateViewLH((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateViewRH(void * jarg1, void * jarg2, void * jarg3) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  Vector3 *arg3 = 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg2 = (Vector3 *)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  arg3 = (Vector3 *)jarg3;
+  if (!arg3) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  result = Rock::Matrix4x4::CreateViewRH((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateScale(void * jarg1) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  result = Rock::Matrix4x4::CreateScale((Vector3 const &)*arg1);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateTranslate(void * jarg1) {
+  void * jresult ;
+  Vector3 *arg1 = 0 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Vector3 *)jarg1;
+  if (!arg1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Vector3 const & type is null", 0);
+    return 0;
+  } 
+  result = Rock::Matrix4x4::CreateTranslate((Vector3 const &)*arg1);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateX(float jarg1) {
+  void * jresult ;
+  Rock::RFLOAT arg1 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::RFLOAT)jarg1; 
+  result = Rock::Matrix4x4::CreateRotateX(arg1);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateY(float jarg1) {
+  void * jresult ;
+  Rock::RFLOAT arg1 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::RFLOAT)jarg1; 
+  result = Rock::Matrix4x4::CreateRotateY(arg1);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Matrix4x4_CreateRotateZ(float jarg1) {
+  void * jresult ;
+  Rock::RFLOAT arg1 ;
+  Rock::Matrix4x4 result;
+  
+  arg1 = (Rock::RFLOAT)jarg1; 
+  result = Rock::Matrix4x4::CreateRotateZ(arg1);
+  jresult = new Rock::Matrix4x4((const Rock::Matrix4x4 &)result); 
   return jresult;
 }
 

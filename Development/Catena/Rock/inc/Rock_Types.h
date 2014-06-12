@@ -1,9 +1,9 @@
 #ifndef _H_ROCK_TYPEDEFS
-#define _H_ROCK_TYPEDEFS
+#define _H_ROCK_TYPEDEFS 1
 
 namespace Rock {
 
-#if defined(_WINDOWS)
+#ifdef _WINDOWS
     typedef signed char RINT8;
     typedef unsigned char RUINT8;
     typedef signed short RINT16;
@@ -20,22 +20,22 @@ namespace Rock {
     typedef double RDOUBLE;
     typedef bool RBOOL;
 
-#ifndef SWIG
-    #if defined(_WIN32)
+#ifndef _SWIG
+    #ifdef _WIN32
         typedef int *__ptr32 RPTR;
     #else
         typedef int *__ptr64 RPTR;
     #endif
-#endif
+#endif // _SWIG
+#endif // _WINDOWS
 
     typedef void* RBOX;
     typedef void const* RCBOX;
-
-#endif
-
 };
 
 #define RNULL 0
+#define RINT_SIZE sizeof(Rock::RINT)
+#define RUINT_SIZE sizeof(Rock::RUINT)
 #define RFLOAT_SIZE sizeof(Rock::RFLOAT)
 #define RDOUBLE_SIZE sizeof(Rock::RDOUBLE)
 

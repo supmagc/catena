@@ -189,8 +189,263 @@ class Rock_SharedPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__UNICODE_get")]
   public static extern int _UNICODE_get();
 
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__SWIG_get")]
+  public static extern int _SWIG_get();
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__WINDOWS_get")]
+  public static extern int _WINDOWS_get();
+
   [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp__WIN32_get")]
   public static extern int _WIN32_get();
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__11_set")]
+  public static extern void Matrix4x4__11_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__11_get")]
+  public static extern float Matrix4x4__11_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__12_set")]
+  public static extern void Matrix4x4__12_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__12_get")]
+  public static extern float Matrix4x4__12_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__13_set")]
+  public static extern void Matrix4x4__13_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__13_get")]
+  public static extern float Matrix4x4__13_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__14_set")]
+  public static extern void Matrix4x4__14_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__14_get")]
+  public static extern float Matrix4x4__14_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__21_set")]
+  public static extern void Matrix4x4__21_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__21_get")]
+  public static extern float Matrix4x4__21_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__22_set")]
+  public static extern void Matrix4x4__22_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__22_get")]
+  public static extern float Matrix4x4__22_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__23_set")]
+  public static extern void Matrix4x4__23_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__23_get")]
+  public static extern float Matrix4x4__23_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__24_set")]
+  public static extern void Matrix4x4__24_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__24_get")]
+  public static extern float Matrix4x4__24_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__31_set")]
+  public static extern void Matrix4x4__31_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__31_get")]
+  public static extern float Matrix4x4__31_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__32_set")]
+  public static extern void Matrix4x4__32_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__32_get")]
+  public static extern float Matrix4x4__32_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__33_set")]
+  public static extern void Matrix4x4__33_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__33_get")]
+  public static extern float Matrix4x4__33_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__34_set")]
+  public static extern void Matrix4x4__34_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__34_get")]
+  public static extern float Matrix4x4__34_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__41_set")]
+  public static extern void Matrix4x4__41_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__41_get")]
+  public static extern float Matrix4x4__41_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__42_set")]
+  public static extern void Matrix4x4__42_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__42_get")]
+  public static extern float Matrix4x4__42_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__43_set")]
+  public static extern void Matrix4x4__43_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__43_get")]
+  public static extern float Matrix4x4__43_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__44_set")]
+  public static extern void Matrix4x4__44_set(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4__44_get")]
+  public static extern float Matrix4x4__44_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_rc_set")]
+  public static extern void Matrix4x4_rc_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_rc_get")]
+  public static extern global::System.IntPtr Matrix4x4_rc_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_v_set")]
+  public static extern void Matrix4x4_v_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_v_get")]
+  public static extern global::System.IntPtr Matrix4x4_v_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_new_Matrix4x4__SWIG_0")]
+  public static extern global::System.IntPtr new_Matrix4x4__SWIG_0();
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_new_Matrix4x4__SWIG_1")]
+  public static extern global::System.IntPtr new_Matrix4x4__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_delete_Matrix4x4")]
+  public static extern void delete_Matrix4x4(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetRow__SWIG_0")]
+  public static extern void Matrix4x4_SetRow__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetRow__SWIG_1")]
+  public static extern void Matrix4x4_SetRow__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, float jarg3, float jarg4, float jarg5, float jarg6);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetColumn__SWIG_0")]
+  public static extern void Matrix4x4_SetColumn__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetColumn__SWIG_1")]
+  public static extern void Matrix4x4_SetColumn__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, float jarg3, float jarg4, float jarg5, float jarg6);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisX__SWIG_0")]
+  public static extern void Matrix4x4_SetAxisX__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisX__SWIG_1")]
+  public static extern void Matrix4x4_SetAxisX__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisY__SWIG_0")]
+  public static extern void Matrix4x4_SetAxisY__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisY__SWIG_1")]
+  public static extern void Matrix4x4_SetAxisY__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisZ__SWIG_0")]
+  public static extern void Matrix4x4_SetAxisZ__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetAxisZ__SWIG_1")]
+  public static extern void Matrix4x4_SetAxisZ__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetPosition__SWIG_0")]
+  public static extern void Matrix4x4_SetPosition__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetPosition__SWIG_1")]
+  public static extern void Matrix4x4_SetPosition__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_SetCell")]
+  public static extern void Matrix4x4_SetCell(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetRow__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetRow__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetColumn__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetColumn__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisX__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetAxisX__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisY__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetAxisY__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisZ__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetAxisZ__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetPosition__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_GetPosition__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetCell__SWIG_0")]
+  public static extern float Matrix4x4_GetCell__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetRow__SWIG_1")]
+  public static extern void Matrix4x4_GetRow__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetColumn__SWIG_1")]
+  public static extern void Matrix4x4_GetColumn__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisX__SWIG_1")]
+  public static extern void Matrix4x4_GetAxisX__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisY__SWIG_1")]
+  public static extern void Matrix4x4_GetAxisY__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetAxisZ__SWIG_1")]
+  public static extern void Matrix4x4_GetAxisZ__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetPosition__SWIG_1")]
+  public static extern void Matrix4x4_GetPosition__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_GetCell__SWIG_1")]
+  public static extern void Matrix4x4_GetCell__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Identity")]
+  public static extern void Matrix4x4_Identity(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Inverse")]
+  public static extern void Matrix4x4_Inverse(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Transpose")]
+  public static extern void Matrix4x4_Transpose(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Inversed__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_Inversed__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Transposed__SWIG_0")]
+  public static extern global::System.IntPtr Matrix4x4_Transposed__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Inversed__SWIG_1")]
+  public static extern void Matrix4x4_Inversed__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_Transposed__SWIG_1")]
+  public static extern void Matrix4x4_Transposed__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreatePerspectiveLH")]
+  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveLH(float jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreatePerspectiveRH")]
+  public static extern global::System.IntPtr Matrix4x4_CreatePerspectiveRH(float jarg1, float jarg2, float jarg3, float jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateIdentity")]
+  public static extern global::System.IntPtr Matrix4x4_CreateIdentity();
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateViewLH")]
+  public static extern global::System.IntPtr Matrix4x4_CreateViewLH(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateViewRH")]
+  public static extern global::System.IntPtr Matrix4x4_CreateViewRH(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateScale")]
+  public static extern global::System.IntPtr Matrix4x4_CreateScale(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateTranslate")]
+  public static extern global::System.IntPtr Matrix4x4_CreateTranslate(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateRotateX")]
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateX(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateRotateY")]
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateY(float jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Rock_Shared", EntryPoint="CSharp_Matrix4x4_CreateRotateZ")]
+  public static extern global::System.IntPtr Matrix4x4_CreateRotateZ(float jarg1);
 }
 
 }

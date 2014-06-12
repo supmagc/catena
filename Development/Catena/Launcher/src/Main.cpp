@@ -5,8 +5,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(pCmdLine);
 
-    Wood::WindowMain* pWindowMain = RNULL;
-    Rock::RINT nReturn = 0;
+    IMainLoop* pMainLoop = RNULL;
+    RINT nReturn = 0;
 
 #ifdef _WINDOWS
 #ifdef _DEBUG
@@ -15,7 +15,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
     //_CrtSetBreakAlloc();
 #endif
 
-    Wood::Windows::WindowMainSettings oSettings;
+    Wood::Windows::MainLoop::InitSettings oSettings;
+    oSettings.hInstance = hInstance;
     oSettings.nCmdShow = nCmdShow;
     oSettings.nIdCursor = IDC_CURSOR;
     oSettings.nIdSplash = IDB_SPLASH;
@@ -23,10 +24,11 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
     oSettings.nIdIconSmall = IDI_ICON_SMALL;
     oSettings.nIdNameShort = IDS_NAME_SHORT;
     oSettings.nIdNameLong = IDS_NAME_LONG;
-    pWindowMain = new Wood::Windows::WindowMain(hInstance, oSettings);
+    pMainLoop = new MainLoop();
+    pMainLoop->Init(&oSettings);
 #endif
 
-    nReturn = pWindowMain->Run();
-    SAFE_DELETE(pWindowMain);
+    nReturn = pMainLoop->Run(RNULL);
+    SAFE_DELETE(pMainLoop);
     return nReturn;
 }
