@@ -11,19 +11,22 @@ namespace Chalk {
 
         class CHALK_D3D9_API Device : public Chalk::IDevice {
         public:
-            struct CHALK_D3D9_API CreateSwapChainSettings {
+            SETTINGS_DECL(CreateSwapChain, CHALK_D3D9_API) {
                 HWND hWindow;
             };
 
             Device();
             virtual ~Device();
 
-            virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings);
-            virtual void ReleaseSwapChain(ISwapChain* oSwapChain);
+            virtual ISwapChain* CreateSwapChain(SETTINGS_PARAM(CreateSwapChain), Chalk::RenderSettings const* oRenderSettings);
+            virtual void ActivateSwapChain(ISwapChain* oSwapChain);
+            virtual ISwapChain* GetActiveSwapChain();
 
-            virtual RBOOL BackBufferClear();
-            virtual RBOOL BackBufferSwitch();
-            virtual void Destroy();
+            virtual void ReleaseResource(IResource* pResource);
+
+            virtual RBOOL Verify();
+            virtual RBOOL Clear();
+            virtual RBOOL Switch();
 
             IDirect3D9* GetDirect3D9();
             IDirect3DDevice9* GetDirect3DDevice9();

@@ -1,7 +1,7 @@
 #include "Chalk_d3d9_Std.h"
 #include "Chalk_D3d9_Device.h"
 #include "Chalk_D3d9_SwapChain.h"
-
+#include "Chalk_D3d9_Resource.h"
 
 using namespace Chalk;
 using namespace Chalk::D3d9;
@@ -9,6 +9,9 @@ using namespace Chalk::D3d9;
 PIMPL_MAKE(Chalk::D3d9, Device) {
     IDirect3D9* pContext;
     IDirect3DDevice9* pDevice;
+    SwapChain* pActiveSwapChain;
+
+    vector<Resource*> lResources;
 };
 
 Device::Device() {
@@ -22,56 +25,98 @@ Device::~Device() {
     PIMPL_DELETE();
 }
 
-ISwapChain* Device::CreateSwapChain(RCBOX pSettings, RenderSettings const* pRenderSettings) {
-    CreateSwapChainSettings const* pSettingsUnboxed = reinterpret_cast<CreateSwapChainSettings const*>(pSettings);
-    ASSERT_NOTNULL(pSettingsUnboxed);
+ISwapChain* Device::CreateSwapChain(SETTINGS_PARAM(CreateSwapChain), RenderSettings const* pRenderSettings) {
+    SETTINGS_UNBOX(CreateSwapChain);
     ASSERT_NOTNULL(PIMPL.pContext);
-    ASSERT_NOTNULL(pSettingsUnboxed->hWindow);
+    ASSERT_NOTNULL(pCreateSwapChainSettings->hWindow);
 
     SwapChain* pSwapChain = new SwapChain(this);
-    SwapChain::CreateSettings oCreateSettings;
-    ZERO(&oCreateSettings, sizeof(SwapChain::CreateSettings));
-    oCreateSettings.hWindow = pSettingsUnboxed->hWindow;
+    PIMPL.lResources.pu
+    SETTINGS_INIT(Chalk::D3d9::SwapChain, Init);
+    SETTINGS(Init).hWindow = pCreateSwapChainSettings->hWindow;
 
     if(!PIMPL.pDevice) {
         D3DPRESENT_PARAMETERS oPresentParameters;
         SwapChain::Convert(pRenderSettings, &oPresentParameters);
 
-        CHECK_HRESULT(PIMPL.pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pSettingsUnboxed->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oPresentParameters, &PIMPL.pDevice));
-        CHECK_HRESULT(PIMPL.pDevice->GetSwapChain(0, &oCreateSettings.pSwapChain));
-        pSwapChain->Create(&oCreateSettings, pRenderSettings);
+        CHECK_HRESULT(PIMPL.pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pCreateSwapChainSettings->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oPresentParameters, &PIMPL.pDevice));
+        CHECK_HRESULT(PIMPL.pDevice->GetSwapChain(0, &SETTINGS(Init).pSwapChain));
+        pSwapChain->Init(&SETTINGS(Init), pRenderSettings);
+        PIMPL.pActiveSwapChain = pSwapChain;
     }
     else {
-        pSwapChain->Create(&oCreateSettings, pRenderSettings);
+        pSwapChain->Init(&SETTINGS(Init), pRenderSettings);
     }
 
     return pSwapChain;
 }
 
-void Device::ReleaseSwapChain(ISwapChain* oSwapChain) {
-    ASSERT_NOTNULL(oSwapChain);
+void Device::ActivateSwapChain(ISwapChain* pSwapChain) {
+    PIMPL.pActiveSwapChain = dynamic_cast<SwapChain*>(pSwapChain);
 }
 
-RBOOL Device::BackBufferClear() {
+ISwapChain* Device::GetActiveSwapChain() {
+    return PIMPL.pActiveSwapChain;
+}
+
+void Device::ReleaseResource(IResource* pResource) {
+    ASSERT_NOTNULL(pResource);
+}
+
+RBOOL Device::Verify() {
+    ASSERT_NOTNULL(PIMPL.pDevice);
+
+    HRESULT nCooperativeLevel = PIMPL.pDevice->TestCooperativeLevel();
+
+    if(SUCCEEDED(nCooperativeLevel)) {
+        return true;
+    }
+    else {
+        if(nCooperativeLevel == D3DERR_DEVICEHUNG) {
+
+        }
+        if(nCooperativeLevel == D3DERR_DEVICELOST) {
+            catSleep(1);
+        }
+        if(nCooperativeLevel == D3DERR_DEVICENOTRESET) {
+            // OnLostDevice
+            PIMPL.pDevice->Reset(PIMPL.pActiveSwapChain->GetDirect3DSurface
+            CHECK_HRESULT
+            // OnDeviceReset
+        }
+        if(nCooperativeLevel == D3DERR_DEVICEREMOVED) {
+
+        }
+        if(nCooperativeLevel == D3DERR_DRIVERINTERNALERROR) {
+
+        }
+        if(nCooperativeLevel == D3DERR_DRIVERINVALIDCALL) {
+
+        }
+        switch(nCooperativeLevel) {
+
+        }
+        return false;
+    }
+}
+
+RBOOL Device::Clear() {
     if(!m_pImpl->pDevice)
         return false;
 
-    m_pImpl->pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(10, 120, 200), 1, 0);
-    m_pImpl->pDevice->BeginScene();
+    CHECK_HRESULT(PIMPL.pDevice->SetRenderTarget(0, PIMPL.pActiveSwapChain->GetDirect3DSurface()));
+    CHECK_HRESULT(PIMPL.pDevice->Clear(0, RNULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(10, 120, 200), 1, 0));
+    CHECK_HRESULT(PIMPL.pDevice->BeginScene());
     return true;
 }
 
-RBOOL Device::BackBufferSwitch() {
+RBOOL Device::Switch() {
     if(!m_pImpl->pDevice)
         return false;
 
-    m_pImpl->pDevice->EndScene();
-    m_pImpl->pDevice->Present(RNULL, RNULL, RNULL, RNULL);
+    CHECK_HRESULT(PIMPL.pDevice->EndScene());
+    CHECK_HRESULT(PIMPL.pActiveSwapChain->GetDirect3DSwapChain()->Present(RNULL, RNULL, RNULL, RNULL, 0));
     return true;
-}
-
-void Device::Destroy() {
-    SAFE_RELEASE(m_pImpl->pDevice);
 }
 
 IDirect3D9* Device::GetDirect3D9() {

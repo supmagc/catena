@@ -4,6 +4,7 @@
 #include "Chalk_Std.h"
 #include "Chalk_Types.h"
 #include "Chalk_Defines.h"
+#include "Chalk_IResource.h"
 #include "Chalk_IDevice.h"
 #include "Chalk_IShader.h"
 #include "Chalk_IVertexBuffer.h"

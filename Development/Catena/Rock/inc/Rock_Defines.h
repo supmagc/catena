@@ -20,7 +20,17 @@
 #define _ERROR_WINDOWS_ONLY This code is only implemented to compile under windows.
 
 // Debug defines
-#define BREAK __asm { int 3 }
+#ifdef _WINDOWS
+    #define BREAK_ALWAYS _CrtDbgBreak();
+    #ifdef _DEBUG
+        #define BREAK_DEBUG _CrtDbgBreak()
+    #else
+        #define BREAK_DEBUG
+    #endif
+#else
+    #define BREAK_ALWAYS
+    #define BREAK_DEBUG
+#endif
 
 // Math defines
 #define E        2.71828182845904523536
@@ -54,7 +64,7 @@
 // Pimpl defines
 #define PIMPL_DECL(cls) struct cls##Impl; cls##Impl* m_pImpl
 #define PIMPL_INIT(cls) m_pImpl = new cls##Impl; ZERO(m_pImpl, sizeof(cls##Impl))
-#define PIMPL_MAKE(nsp, cls) struct nsp##::##cls##::##cls##Impl
+#define PIMPL_MAKE(ns, cls) struct ns##::##cls##::##cls##Impl
 #define PIMPL_DELETE() SAFE_DELETE(m_pImpl)
 #define PIMPL (*m_pImpl)
 
@@ -64,8 +74,13 @@
 // Text defines
 #define RTXT(txt) L##txt
 
-// Boxing defines
-#define UNBOX(type, name) type const* name = reinterpret_cast<type const*>(p##type); ASSERT_NOTNULL(name)
+// Settings paradigm
+#define SETTINGS(func) o##func##Settings
+#define SETTINGS_DECL(func, call) struct call func##Settings
+#define SETTINGS_INIT(ns, func) ns::func##Settings o##func##Settings = ns::func##Settings(); ZERO(&o##func##Settings, sizeof(ns::func##Settings))
+#define SETTINGS_BOX(func) (RCBOX) &o##func##Settings
+#define SETTINGS_PARAM(func) RCBOX p##func##SettingsBoxed
+#define SETTINGS_UNBOX(func) func##Settings const* p##func##Settings = reinterpret_cast<func##Settings const*>(p##func##SettingsBoxed); ASSERT_NOTNULL(p##func##Settings)
 
 // Rock specific defines
 #if defined(ROCK_EXPORTS)

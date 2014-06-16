@@ -7,10 +7,12 @@ set(ROCK_FILES_HEADER
     inc/Rock_String.h
     inc/Rock_Log.h
     inc/Rock_Assert.h
+    inc/Rock_Functions.h
     inc/Rock_Matrix4x4.h
     inc/Rock_Vector4.h
     inc/Rock_Vector3.h
     inc/Rock_Vector2.h
+    inc/Rock_Array.h
 )
 
 set(ROCK_FILES_INLINE
@@ -18,6 +20,7 @@ set(ROCK_FILES_INLINE
     inl/Vector4.inl
     inl/Vector3.inl
     inl/Vector2.inl
+    inl/Array.inl
 )
 
 set(ROCK_FILES_SOURCE
@@ -29,6 +32,8 @@ set(ROCK_FILES_SOURCE
     src/String.cpp
     src/Log.cpp
     src/Assert.cpp
+    src/Functions.cpp
+    src/Array.cpp
 )
 
 component_init()
