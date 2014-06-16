@@ -38,5 +38,6 @@ namespace Rock {
 #define RUINT_SIZE sizeof(Rock::RUINT)
 #define RFLOAT_SIZE sizeof(Rock::RFLOAT)
 #define RDOUBLE_SIZE sizeof(Rock::RDOUBLE)
+#define RCHAR_SIZE sizeof(RCHAR)
 
 #endif // _H_ROCK_TYPES

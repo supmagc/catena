@@ -17,6 +17,7 @@ PIMPL_MAKE(Chalk::D3d9, SwapChain) {
 
 SwapChain::SwapChain(Device* pDevice) {
     ASSERT_NOTNULL(pDevice);
+    ASSERT_NOTNULL(pDevice->GetDirect3DDevice9());
 
     PIMPL_INIT(SwapChain);
     PIMPL.pDevice = pDevice;
@@ -27,7 +28,33 @@ SwapChain::~SwapChain() {
     SAFE_RELEASE(PIMPL.pSwapChain);
 }
 
+void SwapChain::Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings) {
+    ASSERT_NOTNULL(pInitSettings);
+    ASSERT_NOTNULL(pRenderSettings);
+    ASSERT_TRUE(pInitSettings->hWindow || pInitSettings->pSwapChain);
+    ASSERT_NULL(PIMPL.pSwapChain);
+
+    SetRenderSettings(pRenderSettings);
+    if(pInitSettings->pSwapChain) {
+        PIMPL.pSwapChain = pInitSettings->pSwapChain;
+        CHECK_HRESULT(pInitSettings->pSwapChain->GetPresentParameters(&PIMPL.oPresentParameters));
+    }
+    else {
+        Convert(pRenderSettings, &PIMPL.oPresentParameters);
+        PIMPL.oPresentParameters.hDeviceWindow = pInitSettings->hWindow;
+        CHECK_HRESULT(PIMPL.pDevice->GetDirect3DDevice9()->CreateAdditionalSwapChain(&PIMPL.oPresentParameters, &PIMPL.pSwapChain));
+    }
+}
+
+void SwapChain::Activate() {
+    return PIMPL.pDevice->ActivateSwapChain(this);
+}
+
 RBOOL SwapChain::IsActive() const {
+    return PIMPL.pDevice->GetActiveSwapChain() == this;
+}
+
+RBOOL SwapChain::HasResource() const {
     return RNULL != PIMPL.pSwapChain;
 }
 
@@ -40,22 +67,19 @@ void SwapChain::SetRenderSettings(RenderSettings const* pRenderSettings) {
     COPY(pRenderSettings, &PIMPL.oRenderSettings, sizeof(RenderSettings));
 }
 
-void SwapChain::Create(CreateSettings const* pCreateSettings, RenderSettings const* pRenderSettings) {
-    ASSERT_NOTNULL(pCreateSettings);
-    ASSERT_NOTNULL(pRenderSettings);
-    ASSERT_TRUE(pCreateSettings->hWindow || pCreateSettings->pSwapChain);
-    ASSERT_NULL(PIMPL.pSwapChain);
+IDirect3DSwapChain9* SwapChain::GetDirect3DSwapChain() {
+    return PIMPL.pSwapChain;
+}
 
-    SetRenderSettings(pRenderSettings);
-    if(pCreateSettings->pSwapChain) {
-        PIMPL.pSwapChain = pCreateSettings->pSwapChain;
-        CHECK_HRESULT(pCreateSettings->pSwapChain->GetPresentParameters(&PIMPL.oPresentParameters));
-    }
-    else {
-        Convert(pRenderSettings, &PIMPL.oPresentParameters);
-        PIMPL.oPresentParameters.hDeviceWindow = pCreateSettings->hWindow;
-        CHECK_HRESULT(PIMPL.pDevice->GetDirect3DDevice9()->CreateAdditionalSwapChain(&PIMPL.oPresentParameters, &PIMPL.pSwapChain));
-    }
+IDirect3DSurface9* SwapChain::GetDirect3DSurface() {
+    ASSERT_NOTNULL(PIMPL.pSwapChain);
+    IDirect3DSurface9* pSurface;
+    CHECK_HRESULT(PIMPL.pSwapChain->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &pSurface));
+    return pSurface;
+}
+
+D3DPRESENT_PARAMETERS const* SwapChain::GetDirect3DPresentParameters() {
+    return &PIMPL.oPresentParameters;
 }
 
 void SwapChain::Convert(RenderSettings const* pRenderSettings, D3DPRESENT_PARAMETERS* pPresentParameters) {

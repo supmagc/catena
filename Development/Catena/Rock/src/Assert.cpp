@@ -5,12 +5,13 @@
 #include "Rock_Defines.h"
 #include "Rock_String.h"
 #include "Rock_Log.h"
+#include "Rock_Functions.h"
 
 namespace Rock {
 
-    ROCK_API void rAssert(String const& sExpression, String const& sFile, int nLine) {
-        rLog(LogType::LT_ASSERT, String(RTXT("Assert")), Rock::String("Assertion failed:\n") + sExpression, sFile, nLine);
-        if(MessageBoxW(RNULL, *sExpression, RTXT("Assertion failed:"), MB_OKCANCEL) == MB_OK)
-            BREAK;
+    ROCK_API void catAssert(String const& sExpression, String const& sFile, int nLine) {
+        catLog(LogType::LT_ASSERT, String(RTXT("Assert")), sExpression, sFile, nLine);
+        if(catMessageBoxConfirm(RTXT("Assertion failed:"), sExpression))
+            BREAK_ALWAYS;
     }
 };

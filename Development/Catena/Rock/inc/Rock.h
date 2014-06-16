@@ -13,6 +13,7 @@
 #include "Rock_Matrix4x4.h"
 #include "Rock_Log.h"
 #include "Rock_Assert.h"
+#include "Rock_Functions.h"
 
 using namespace Rock;
 

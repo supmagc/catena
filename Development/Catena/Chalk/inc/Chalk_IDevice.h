@@ -6,6 +6,7 @@
 
 namespace Chalk {
 
+    class IResource;
     class ISwapChain;
     struct RenderSettings;
 
@@ -15,11 +16,14 @@ namespace Chalk {
         virtual ~IDevice() {}
 
         virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings) =0;
-        virtual void ReleaseSwapChain(ISwapChain* oSwapChain) =0;
+        virtual void ActivateSwapChain(ISwapChain* oSwapChain) =0;
+        virtual ISwapChain* GetActiveSwapChain() =0;
 
-        virtual RBOOL BackBufferClear() =0;
-        virtual RBOOL BackBufferSwitch() =0;
-        virtual void Destroy() =0;
+        virtual void ReleaseResource(IResource* pResource) =0;
+
+        virtual RBOOL Verify() =0;
+        virtual RBOOL Clear() =0;
+        virtual RBOOL Switch() =0;
 
     private:
         IDevice(IDevice const&);
