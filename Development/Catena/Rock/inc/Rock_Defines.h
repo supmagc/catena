@@ -32,6 +32,13 @@
     #define BREAK_DEBUG
 #endif
 
+// Inline defines
+#ifdef _WINDOWS
+	#define INLINE __forceinline
+#else
+	#define INLINE always_inline
+#endif
+
 // Math defines
 #define E        2.71828182845904523536
 #define PI       3.14159265358979323846
