@@ -7,47 +7,54 @@
 
 namespace Rock {
 
-    template<typename T>
+    template<typename T, typename S = RUINT, S S_MAX = RUINT_MAX>
     class ROCK_API Array {
     public:
-        Array(RUINT nCapacity, RUINT nBlockSize) : m_nLength(0), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
+
+        static const T DefaultValue = (T)0;
+        typedef Array<T, S, S_MAX> Type;
+
+        Array(S nCapacity = 2, S nBlockSize = 0) : m_nLength(0), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
             m_aData = new T[m_nCapacity];
         }
 
-        Array(Array<T> const& oArray) : m_nLength(oArray.m_nLength), m_nCapacity(oArray.m_nCapacity), m_nBlockSize(oArray.m_nBlockSize) {
+        Array(Type const& lOther) : m_nLength(lOther.m_nLength), m_nCapacity(lOther.m_nCapacity), m_nBlockSize(lOther.m_nBlockSize) {
             m_aData = new T[m_nCapacity];
-            COPY(oArray.m_aData, m_aData, m_nLength * sizeof(T));
+            COPY(lOther.m_aData, m_aData, m_nLength * sizeof(T));
         }
 
-        Array(T* aArray, RUINT nLength, RUINT nBlockSize) : m_nLength(nLength), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
+        Array(T* aOther, S nLength, S nBlockSize = 0) : m_nLength(nLength), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
             m_aData = new T[m_nCapacity];
-            COPY(oArray.m_aData, aArray, m_nLength * sizeof(T));
+            COPY(aOther, m_aData, m_nLength * sizeof(T));
         }
 
         ~Array() {
             SAFE_DELETE_ARRAY(m_aData);
         }
 
-        FORCEINLINE void Push(T mElement) {
-            if(m_nLength >= m_nCapacity) {
-                Increase(m_nBlockSize);
+        FORCEINLINE RBOOL Push(T mElement) {
+            if(m_nLength < m_nCapacity || Increase(m_nBlockSize)) {
+                m_aData[m_nLength++] = mElement;
+                return true;
             }
-            m_aData[m_nLength++] = mElement;
+            return false;
         }
 
-        FORCEINLINE void Push(Array<T> lElements) {
-            // TODO
-        }
-
-        FORCEINLINE void Push(T* aElements, RUINT nLength) {
-            // TODO
+        FORCEINLINE RBOOL Push(Array<T> const& lElements) {
+            RUINT nLengthTotal = m_nLength + lElements.Length;
+            if(nLengthTotal <= m_nCapacity || Resize(nLengthTotal)) {
+                COPY(lElements.m_aData, &m_aData[m_nLength], lElements.m_nLength * sizeof(T));
+                m_nLength = nLengthTotal;
+                return true;
+            }
+            return false;
         }
 
         FORCEINLINE T Peek() {
             return m_nLength > 0 ? m_aData[m_nLength-1] : (T)0;
         }
 
-        FORCEINLINE Array<T> Peek(RUINT nLength) {
+        FORCEINLINE Array<T> Peek(S nLength) {
             nLength = min(m_nLength, nLength);
             Array<T> lReturn = Array<T>(nLength, m_nBlockSize);
             COPY(&m_aData[m_nLength - nLength], lReturn.m_aData, nLength * sizeof(T));
@@ -59,7 +66,7 @@ namespace Rock {
             return m_nLength > 0 ? m_aData[--m_nLength] : (T)0;
         }
 
-        FORCEINLINE Array<T> Pop(RUINT nLength) {
+        FORCEINLINE Array<T> Pop(S nLength) {
             nLength = min(m_nLength, nLength);
             Array<T> lReturn = Array<T>(nLength, m_nBlockSize);
             COPY(&m_aData[m_nLength - nLength], lReturn.m_aData, nLength * sizeof(T));
@@ -72,22 +79,22 @@ namespace Rock {
             m_nLength = 0;
         }
 
-        FORCEINLINE void Insert(T mElement, RUINT nIndex) {
+        FORCEINLINE void Insert(T mElement, S nIndex) {
             // TODO
         }
 
-        FORCEINLINE RINT FirstIndexOf(T mElement) const {
-            for(int i=0 ; i<m_nLength ; ++i) {
-                if(m_aData[i] == mElement) return i;
+        FORCEINLINE RBOOL FirstIndexOf(T mElement, S& o_nIndex) const {
+            for(o_nIndex=0 ; o_nIndex<m_nLength ; ++o_nIndex) {
+                if(m_aData[o_nIndex] == mElement) return true;
             }
-            return -1;
+            return false;
         }
 
-        FORCEINLINE RINT LastIndexOf(T mElement) const {
-            for(int i=m_nLength-1 ; i>-1 ; --i) {
-                if(m_aData[i] == mElement) return i;
+        FORCEINLINE RINT LastIndexOf(T mElement, S& o_nIndex) const {
+            for(o_nIndex=m_nLength-1 ; o_nIndex>-1 ; --o_nIndex) {
+                if(m_aData[o_nIndex] == mElement) return true;
             }
-            return -1;
+            return false;
         }
 
         FORCEINLINE RBOOL RemoveElement(T mElement) {
@@ -95,24 +102,27 @@ namespace Rock {
             return false;
         }
 
-        FORCEINLINE RBOOL RemoveIndex(RUINT nIndex) {
+        FORCEINLINE RBOOL RemoveIndex(S nIndex) {
             // TODO
             return false;
         }
 
-        FORCEINLINE RBOOL Increase(RUINT nIncrease) {
+        FORCEINLINE RBOOL Increase(S nIncrease = m_nBlockSize) {
+            if(nIncrease <= 0) nIncrease = m_nLength / 2 + 1;
             return Resize(m_nCapacity + nIncrease);
         }
 
-        FORCEINLINE RBOOL Decrease(RUINT nDecrease) {
+        FORCEINLINE RBOOL Decrease(S nDecrease = m_nBlockSize) {
+            nDecrease = max(1, nDecrease);
             return Resize(m_nCapacity - nDecrease);
         }
 
-        FORCEINLINE void Resize(RUINT nCapacity) {
-            if(nCapacity < 0 || nCapacity > 100000) 
+        FORCEINLINE RBOOL Resize(S nCapacity) {
+            if(nCapacity < 0 || nCapacity > S_MAX) 
                 return false;
 
             m_nCapacity = nCapacity;
+            m_nLength = min(m_nCapacity, m_nLength);
             T* aTmp = new T[m_nLength];
             COPY(m_aData, aTmp, m_nLength * sizeof(T));
             SAFE_DELETE_ARRAY(m_aData);
@@ -120,35 +130,45 @@ namespace Rock {
             return true;
         }
 
-        FORCEINLINE RUINT Length() const {
+        FORCEINLINE S Length() const {
             return m_nLength;
         }
 
-        FORCEINLINE RUINT Capacity() const {
+        FORCEINLINE S Capacity() const {
             return m_nCapacity;
         }
 
-        FORCEINLINE RUINT BlockSize() const {
+        FORCEINLINE S BlockSize() const {
             return m_nBlockSize;
         }
 
-        FORCEINLINE Array<T>& operator=(Array<T> const& oArray) {
-            if(this != &oArray) {
-                SAFE_DELETE_ARRAY(m_aData);
-                m_nLength = oArray.m_nLength;
-                m_nCapacity = oArray.m_nCapacity;
-                m_nBlockSize = oArray.m_nBlockSize;
-                m_aData = new T[m_nCapacity];
-                COPY(oArray.m_aData, m_aData, m_nCapacity * sizeof(T));
-            }
+        FORCEINLINE void Swap(Type lArray) {
+            std::swap(m_aData, lArray.m_aData);
+            std::swap(m_nLength, lArray.m_nLength);
+            std::swap(m_nCapacity, lArray.m_nCapacity);
+            std::swap(m_nBlockSize, lArray.m_nBlockSize);
+        }
+
+        FORCEINLINE Array<T>& operator=(Type lOther) {
+            // Copy and swap idiom
+            // argument by value, is thus a copy form the original
+            // swap resources with this (and old values are in temp)
+            // gets cleaned up on function exit, 
+            lOther.Swap(*this);
             return *this;
+        }
+
+        FORCEINLINE T const& operator[](S nIndex) const {
+            if(nIndex >= 0 && nIndex < m_nLength)
+                return m_aData[nIndex];
+            return DefaultValue;
         }
 
     private:
         T* m_aData;
-        RUINT m_nLength;
-        RUINT m_nCapacity;
-        RUINT m_nBlockSize;
+        S m_nLength;
+        S m_nCapacity;
+        S m_nBlockSize;
     };
 
     //#include "../inl/Array.inl"
