@@ -23,7 +23,14 @@ namespace Rock {
             COPY(lOther.m_aData, m_aData, m_nLength * sizeof(T));
         }
 
-        Array(T* aOther, S nLength, S nBlockSize = 0) : m_nLength(nLength), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
+		Array(std::initializer_list<T> const& oInitialer, S nBlockSize = 0) : m_nLength(0), m_nCapacity(oInitialer.size()), m_nBlockSize(nBlockSize) {
+			m_aData = new T[m_nCapacity];
+			for(auto i = oInitialer.begin(); i != oInitialer.end(); ++i) {
+				m_aData[m_nLength++] = *i;
+			}
+		}
+
+        Array(T* aOther, S nLength, S nBlockSize = 0) : m_nLength(nLength), m_nCapacity(nLength), m_nBlockSize(nBlockSize) {
             m_aData = new T[m_nCapacity];
             COPY(aOther, m_aData, m_nLength * sizeof(T));
         }
@@ -41,7 +48,7 @@ namespace Rock {
         }
 
         FORCEINLINE RBOOL Push(Array<T> const& lElements) {
-            RUINT nLengthTotal = m_nLength + lElements.Length;
+            S nLengthTotal = m_nLength + lElements.Length;
             if(nLengthTotal <= m_nCapacity || Resize(nLengthTotal)) {
                 COPY(lElements.m_aData, &m_aData[m_nLength], lElements.m_nLength * sizeof(T));
                 m_nLength = nLengthTotal;
