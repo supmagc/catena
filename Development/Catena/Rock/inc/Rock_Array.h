@@ -7,11 +7,14 @@
 
 namespace Rock {
 
+    class ArrayOutOfBoundsException : public exception {
+
+    };
+
     template<typename T, typename S = RUINT, S S_MAX = RUINT_MAX>
     class ROCK_API Array {
     public:
 
-        static const T DefaultValue = (T)0;
         typedef Array<T, S, S_MAX> Type;
 
         Array(S nCapacity = 2, S nBlockSize = 0) : m_nLength(0), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
@@ -48,7 +51,7 @@ namespace Rock {
         }
 
         FORCEINLINE RBOOL Push(Array<T> const& lElements) {
-            S nLengthTotal = m_nLength + lElements.Length;
+            S nLengthTotal = m_nLength + lElements.m_nLength;
             if(nLengthTotal <= m_nCapacity || Resize(nLengthTotal)) {
                 COPY(lElements.m_aData, &m_aData[m_nLength], lElements.m_nLength * sizeof(T));
                 m_nLength = nLengthTotal;
@@ -110,7 +113,6 @@ namespace Rock {
         }
 
         FORCEINLINE RBOOL RemoveIndex(S nIndex) {
-            // TODO
             return false;
         }
 
@@ -166,9 +168,15 @@ namespace Rock {
         }
 
         FORCEINLINE T const& operator[](S nIndex) const {
-            if(nIndex >= 0 && nIndex < m_nLength)
-                return m_aData[nIndex];
-            return DefaultValue;
+            if (nIndex < 0 && nIndex >= m_nLength)
+                throw ArrayOutOfBoundsException;
+            return m_aData[nIndex];
+        }
+
+        FORCEINLINE T& operator[](S nIndex) {
+            if (nIndex < 0 && nIndex >= m_nLength)
+                throw ArrayOutOfBoundsException;
+            return m_aData[nIndex];
         }
 
     private:

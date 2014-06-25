@@ -9,9 +9,4 @@
 
 namespace Rock {
 
-    ROCK_API void catAssert(String const& sExpression, String const& sFile, int nLine) {
-        catLog(LogType::LT_ASSERT, String(RTXT("Assert")), sExpression, sFile, nLine);
-        if(catMessageBoxConfirm(RTXT("Assertion failed:"), sExpression))
-            BREAK_ALWAYS;
-    }
 };
