@@ -9,6 +9,7 @@ namespace Rock {
 
     ROCK_API void catDebugBreak();
     ROCK_API void catOutputLog(String const& sLog);
+    ROCK_API void catAssert(String const& sExpression, String const& sFile, int nLine);
 
     ROCK_API RBOOL catIsDebug();
     ROCK_API RBOOL catIsRelease();

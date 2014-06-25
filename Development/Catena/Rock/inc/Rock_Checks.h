@@ -4,12 +4,11 @@
 #include "Rock_String.h"
 #include "Rock_Defines.h"
 
-namespace Rock {
+#ifdef _CHECK_DEBUG
+#else
+#endif
 
-    ROCK_API void catAssert(String const& sExpression, String const& sFile, int nLine);
-};
-
-#ifdef _ASSERT
+#ifdef _CHECK_DEVELOPMENT
     #define ASSERT(e) if(!(e)) catAssert(#e, __FILE__, __LINE__)
     #define ASSERT_TRUE(e) ASSERT((e) == true)
     #define ASSERT_FALSE(e) ASSERT((e) == false)

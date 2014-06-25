@@ -6,7 +6,7 @@ set(ROCK_FILES_HEADER
     inc/Rock_Types.h
     inc/Rock_String.h
     inc/Rock_Log.h
-    inc/Rock_Assert.h
+    inc/Rock_Checks.h
     inc/Rock_Functions.h
     inc/Rock_Matrix4x4.h
     inc/Rock_Vector4.h
@@ -31,7 +31,6 @@ set(ROCK_FILES_SOURCE
     src/Vector2.cpp
     src/String.cpp
     src/Log.cpp
-    src/Assert.cpp
     src/Functions.cpp
     src/Array.cpp
 )
