@@ -87,7 +87,7 @@
 #define SETTINGS_INIT(ns, func) ns::func##Settings o##func##Settings = ns::func##Settings(); ZERO(&o##func##Settings, sizeof(ns::func##Settings))
 #define SETTINGS_BOX(func) (RCBOX) &o##func##Settings
 #define SETTINGS_PARAM(func) RCBOX p##func##SettingsBoxed
-#define SETTINGS_UNBOX(func) func##Settings const* p##func##Settings = reinterpret_cast<func##Settings const*>(p##func##SettingsBoxed); ASSERT_NOTNULL(p##func##Settings)
+#define SETTINGS_UNBOX(func) func##Settings const* p##func##Settings = reinterpret_cast<func##Settings const*>(p##func##SettingsBoxed); CHECK_NOTNULL(p##func##Settings)
 
 // Rock specific defines
 #if defined(ROCK_EXPORTS)

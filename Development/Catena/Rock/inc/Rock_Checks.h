@@ -3,23 +3,36 @@
 
 #include "Rock_String.h"
 #include "Rock_Defines.h"
+#include "Rock_Functions.h"
 
-#ifdef _CHECK_DEBUG
+#define catCheckAlways(e) if(!(e)) Rock::catAssert(#e, __FILE__, __LINE__)
+
+#ifdef _CHECKS_SLOW
+#define CHECK_SLOW(e) catCheckAlways((e) == true)
+#define CHECK_SLOW_TRUE(e) catCheckAlways((e) == true)
+#define CHECK_SLOW_FALSE(e) catCheckAlways((e) == false)
+#define CHECK_SLOW_NULL(e) catCheckAlways((e) == RNULL)
+#define CHECK_SLOW_NOTNULL(e) catCheckAlways((e) != RNULL)
 #else
+#define CHECK_SLOW(e) 
+#define CHECK_SLOW_TRUE(e) 
+#define CHECK_SLOW_FALSE(e) 
+#define CHECK_SLOW_NULL(e) 
+#define CHECK_SLOW_NOTNULL(e) 
 #endif
 
-#ifdef _CHECK_DEVELOPMENT
-    #define ASSERT(e) if(!(e)) catAssert(#e, __FILE__, __LINE__)
-    #define ASSERT_TRUE(e) ASSERT((e) == true)
-    #define ASSERT_FALSE(e) ASSERT((e) == false)
-    #define ASSERT_NULL(e) ASSERT((e) == RNULL)
-    #define ASSERT_NOTNULL(e) ASSERT((e) != RNULL)
+#ifdef _CHECKS_DEFAULT
+#define CHECK(e) catCheckAlways((e) == true)
+#define CHECK_TRUE(e) catCheckAlways((e) == true)
+#define CHECK_FALSE(e) catCheckAlways((e) == false)
+#define CHECK_NULL(e) catCheckAlways((e) == RNULL)
+#define CHECK_NOTNULL(e) catCheckAlways((e) != RNULL)
 #else
-    #define ASSERT(e) 
-    #define ASSERT_TRUE(e) 
-    #define ASSERT_FALSE(e) 
-    #define ASSERT_NULL(e) 
-    #define ASSERT_NOTNULL(e) 
+#define CHECK(e) 
+#define CHECK_TRUE(e) 
+#define CHECK_FALSE(e) 
+#define CHECK_NULL(e) 
+#define CHECK_NOTNULL(e) 
 #endif
 
 #endif  // _H_ROCK_ASSERT

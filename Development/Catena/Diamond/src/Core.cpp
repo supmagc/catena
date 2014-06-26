@@ -38,7 +38,7 @@ SceneView* Core::Create(RINT hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscree
 
     PIMPL.pDevice = new Chalk::D3d9::Device();
     ISwapChain* pSwapChain = PIMPL.pDevice->CreateSwapChain(&oSettings, &oRenderSettings);
-    ASSERT_NOTNULL(pSwapChain);
+    CHECK_NOTNULL(pSwapChain);
 
     SceneView* pSceneView = new SceneView(pSwapChain);
 
@@ -62,8 +62,8 @@ RFLOAT g_nTemp = 0;
 RBOOL Core::Update() {
     RBOOL bError = false;
 
-    ASSERT(m_pImpl->pDevice != RNULL);
-    ASSERT(m_pImpl->pShader != RNULL);
+    CHECK(m_pImpl->pDevice != RNULL);
+    CHECK(m_pImpl->pShader != RNULL);
 
     for(auto i=PIMPL.lSceneViews.begin() ; i!=PIMPL.lSceneViews.end() ; ++i) {
         (*i)->GetSwapChain()->Activate();

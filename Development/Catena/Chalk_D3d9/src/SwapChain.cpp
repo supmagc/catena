@@ -16,8 +16,8 @@ PIMPL_MAKE(Chalk::D3d9, SwapChain) {
 };
 
 SwapChain::SwapChain(Device* pDevice) {
-    ASSERT_NOTNULL(pDevice);
-    ASSERT_NOTNULL(pDevice->GetDirect3DDevice9());
+    CHECK_NOTNULL(pDevice);
+    CHECK_NOTNULL(pDevice->GetDirect3DDevice9());
 
     PIMPL_INIT(SwapChain);
     PIMPL.pDevice = pDevice;
@@ -29,10 +29,10 @@ SwapChain::~SwapChain() {
 }
 
 void SwapChain::Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings) {
-    ASSERT_NOTNULL(pInitSettings);
-    ASSERT_NOTNULL(pRenderSettings);
-    ASSERT_TRUE(pInitSettings->hWindow || pInitSettings->pSwapChain);
-    ASSERT_NULL(PIMPL.pSwapChain);
+    CHECK_NOTNULL(pInitSettings);
+    CHECK_NOTNULL(pRenderSettings);
+    CHECK_TRUE(pInitSettings->hWindow || pInitSettings->pSwapChain);
+    CHECK_NULL(PIMPL.pSwapChain);
 
     SetRenderSettings(pRenderSettings);
     if(pInitSettings->pSwapChain) {
@@ -63,7 +63,7 @@ RenderSettings const* SwapChain::GetRenderSettings() const {
 }
 
 void SwapChain::SetRenderSettings(RenderSettings const* pRenderSettings) {
-    ASSERT_NOTNULL(pRenderSettings);
+    CHECK_NOTNULL(pRenderSettings);
     COPY(pRenderSettings, &PIMPL.oRenderSettings, sizeof(RenderSettings));
 }
 
@@ -72,7 +72,7 @@ IDirect3DSwapChain9* SwapChain::GetDirect3DSwapChain() {
 }
 
 IDirect3DSurface9* SwapChain::GetDirect3DSurface() {
-    ASSERT_NOTNULL(PIMPL.pSwapChain);
+    CHECK_NOTNULL(PIMPL.pSwapChain);
     IDirect3DSurface9* pSurface;
     CHECK_HRESULT(PIMPL.pSwapChain->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &pSurface));
     return pSurface;
@@ -83,8 +83,8 @@ D3DPRESENT_PARAMETERS const* SwapChain::GetDirect3DPresentParameters() {
 }
 
 void SwapChain::Convert(RenderSettings const* pRenderSettings, D3DPRESENT_PARAMETERS* pPresentParameters) {
-    ASSERT_NOTNULL(pRenderSettings);
-    ASSERT_NOTNULL(pPresentParameters);
+    CHECK_NOTNULL(pRenderSettings);
+    CHECK_NOTNULL(pPresentParameters);
 
     ZERO(pPresentParameters, sizeof(D3DPRESENT_PARAMETERS));
     pPresentParameters->BackBufferCount = 1;

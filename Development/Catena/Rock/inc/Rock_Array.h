@@ -3,7 +3,7 @@
 
 #include "Rock_Defines.h"
 #include "Rock_Types.h"
-#include "Rock_Assert.h"
+#include "Rock_Checks.h"
 
 namespace Rock {
 
@@ -90,7 +90,9 @@ namespace Rock {
         }
 
         FORCEINLINE void Insert(T mElement, S nIndex) {
-            // TODO
+            CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
+
+
         }
 
         FORCEINLINE RBOOL FirstIndexOf(T mElement, S& o_nIndex) const {
@@ -116,19 +118,17 @@ namespace Rock {
             return false;
         }
 
-        FORCEINLINE RBOOL Increase(S nIncrease = m_nBlockSize) {
+        FORCEINLINE void Increase(S nIncrease = m_nBlockSize) {
             if(nIncrease <= 0) nIncrease = m_nLength / 2 + 1;
-            return Resize(m_nCapacity + nIncrease);
+            Resize(m_nCapacity + nIncrease);
         }
 
-        FORCEINLINE RBOOL Decrease(S nDecrease = m_nBlockSize) {
-            nDecrease = max(1, nDecrease);
-            return Resize(m_nCapacity - nDecrease);
+        FORCEINLINE void Decrease(S nDecrease = m_nBlockSize) {
+            Resize(m_nCapacity - max(1, nDecrease));
         }
 
-        FORCEINLINE RBOOL Resize(S nCapacity) {
-            if(nCapacity < 0 || nCapacity > S_MAX) 
-                return false;
+        FORCEINLINE void Resize(S nCapacity) {
+            CHECK_SLOW(nCapacity > 0 && nCapacity <= S_MAX);
 
             m_nCapacity = nCapacity;
             m_nLength = min(m_nCapacity, m_nLength);
@@ -168,14 +168,12 @@ namespace Rock {
         }
 
         FORCEINLINE T const& operator[](S nIndex) const {
-            if (nIndex < 0 && nIndex >= m_nLength)
-                throw ArrayOutOfBoundsException;
+            CHECK(nIndex >= 0 && nIndex < m_nLength);
             return m_aData[nIndex];
         }
 
         FORCEINLINE T& operator[](S nIndex) {
-            if (nIndex < 0 && nIndex >= m_nLength)
-                throw ArrayOutOfBoundsException;
+            CHECK(nIndex >= 0 && nIndex < m_nLength);
             return m_aData[nIndex];
         }
 
