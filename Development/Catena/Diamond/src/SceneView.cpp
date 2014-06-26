@@ -8,7 +8,7 @@ PIMPL_MAKE(Diamond, SceneView) {
 };
 
 SceneView::SceneView(ISwapChain* pSwapChain) {
-    ASSERT_NOTNULL(pSwapChain);
+    CHECK_NOTNULL(pSwapChain);
 
     PIMPL_INIT(SceneView);
     PIMPL.pSwapChain = pSwapChain;

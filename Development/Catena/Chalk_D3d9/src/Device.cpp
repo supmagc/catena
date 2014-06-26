@@ -11,7 +11,7 @@ PIMPL_MAKE(Chalk::D3d9, Device) {
     IDirect3DDevice9* pDevice;
     SwapChain* pActiveSwapChain;
 
-    vector<Resource*> lResources;
+    Array<Resource*> lResources;
 };
 
 Device::Device() {
@@ -27,11 +27,10 @@ Device::~Device() {
 
 ISwapChain* Device::CreateSwapChain(SETTINGS_PARAM(CreateSwapChain), RenderSettings const* pRenderSettings) {
     SETTINGS_UNBOX(CreateSwapChain);
-    ASSERT_NOTNULL(PIMPL.pContext);
-    ASSERT_NOTNULL(pCreateSwapChainSettings->hWindow);
+    CHECK_NOTNULL(PIMPL.pContext);
+    CHECK_NOTNULL(pCreateSwapChainSettings->hWindow);
 
     SwapChain* pSwapChain = new SwapChain(this);
-    PIMPL.lResources.pu
     SETTINGS_INIT(Chalk::D3d9::SwapChain, Init);
     SETTINGS(Init).hWindow = pCreateSwapChainSettings->hWindow;
 
@@ -60,11 +59,11 @@ ISwapChain* Device::GetActiveSwapChain() {
 }
 
 void Device::ReleaseResource(IResource* pResource) {
-    ASSERT_NOTNULL(pResource);
+    CHECK_NOTNULL(pResource);
 }
 
 RBOOL Device::Verify() {
-    ASSERT_NOTNULL(PIMPL.pDevice);
+    CHECK_NOTNULL(PIMPL.pDevice);
 
     HRESULT nCooperativeLevel = PIMPL.pDevice->TestCooperativeLevel();
 
@@ -80,8 +79,8 @@ RBOOL Device::Verify() {
         }
         if(nCooperativeLevel == D3DERR_DEVICENOTRESET) {
             // OnLostDevice
-            PIMPL.pDevice->Reset(PIMPL.pActiveSwapChain->GetDirect3DSurface
-            CHECK_HRESULT
+            //PIMPL.pDevice->Reset(PIMPL.pActiveSwapChain->GetDirect3DSurface
+            //CHECK_HRESULT
             // OnDeviceReset
         }
         if(nCooperativeLevel == D3DERR_DEVICEREMOVED) {

@@ -25,7 +25,7 @@ RINT WindowBase::Init(HWND hWnd) {
 }
 
 RINT WindowBase::Update() {
-    ASSERT_NOTNULL(PIMPL.hWindow);
+    CHECK_NOTNULL(PIMPL.hWindow);
 
     if(UpdateWindow(PIMPL.hWindow)) {
         UpdateComponents();
@@ -35,13 +35,13 @@ RINT WindowBase::Update() {
 }
 
 void WindowBase::Show(RINT nShowCmd) {
-    ASSERT_NOTNULL(PIMPL.hWindow);
+    CHECK_NOTNULL(PIMPL.hWindow);
 
     ShowWindow(PIMPL.hWindow, nShowCmd);
 }
 
 void WindowBase::Hide() {
-    ASSERT_NOTNULL(PIMPL.hWindow);
+    CHECK_NOTNULL(PIMPL.hWindow);
 
     ShowWindow(PIMPL.hWindow, SW_HIDE);
 }

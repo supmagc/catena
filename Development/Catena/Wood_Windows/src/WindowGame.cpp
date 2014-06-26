@@ -10,7 +10,7 @@ WindowGame::~WindowGame() {
 }
 
 RINT WindowGame::Init(HCURSOR hCursor, HICON hIconSmall, HICON hIconLarge, WCHAR const* sTitle, RUINT nPosX, RUINT nPosY, RUINT nWidth, RUINT nHeight) {
-    ASSERT_NULL(GetWindowHandle());
+    CHECK_NULL(GetWindowHandle());
 
     WNDCLASSEXW oClass;
     ATOM nRegisterReturn;

@@ -38,15 +38,15 @@ set(SWIG_BIN "${SWIG_DIR}/swig.exe")
 
 if(WIN32 AND CATENA_LAUNCHER_SUPPORT_D3D9)
 	set(WITH_D3D9 1)
-	add_definitions(-DWITH_D3D9)
+	add_definitions(-D_WITH_D3D9)
 endif()
 
 if(WIN32 AND CATENA_LAUNCHER_SUPPORT_D3D11)
 	set(WITH_D3D11 1)
-	add_definitions(-DWITH_D3D11)
+	add_definitions(-D_WITH_D3D11)
 endif()
 
 if(CATENA_LAUNCHER_SUPPORT_OPENGL)
 	set(WITH_OPENGL 1)
-	add_definitions(-DWITH_OPENGL)
+	add_definitions(-D_WITH_OPENGL)
 endif()
