@@ -80,4 +80,16 @@ namespace Rock {
     ROCK_API void catSleep(RDOUBLE nDuration) {
         Sleep((RINT64)(nDuration * 1000.0));
     }
+
+    ROCK_API void* catAlloc(RUINT nSize, RUINT nAlignment) {
+        return malloc(nSize);
+    }
+
+    ROCK_API void* catRealloc(void* pAdress, RUINT nSize, RUINT nAlignment) {
+        return realloc(pAdress, nSize);
+    }
+
+    ROCK_API void catFree(void* pAdress) {
+        free(pAdress);
+    }
 };

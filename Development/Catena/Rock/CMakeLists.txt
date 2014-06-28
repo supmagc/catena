@@ -13,6 +13,7 @@ set(ROCK_FILES_HEADER
     inc/Rock_Vector3.h
     inc/Rock_Vector2.h
     inc/Rock_Array.h
+    inc/Rock_Memory.h
 )
 
 set(ROCK_FILES_INLINE
@@ -33,6 +34,7 @@ set(ROCK_FILES_SOURCE
     src/Log.cpp
     src/Functions.cpp
     src/Array.cpp
+    src/Memory.cpp
 )
 
 component_init()
