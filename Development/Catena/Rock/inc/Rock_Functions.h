@@ -24,6 +24,10 @@ namespace Rock {
     ROCK_API RBOOL catMessageBoxConfirm(String const& sTitle, String const& sMessage);
     ROCK_API void catPostQuitMessage(RINT nCode);
     ROCK_API void catSleep(RDOUBLE nDuration);
+
+    ROCK_API void* catAlloc(RUINT nSize, RUINT nAlignment);
+    ROCK_API void* catRealloc(void* pAdress, RUINT nSize, RUINT nAlignment);
+    ROCK_API void catFree(void* pAdress);
 };
 
 #endif // _H_ROCK_FUNCTIONS
