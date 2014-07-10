@@ -24,8 +24,27 @@ Shader::Shader(Device* pDevice) {
 Shader::~Shader() {
     SAFE_RELEASE(m_pImpl->pDataPS);
     SAFE_RELEASE(m_pImpl->pDataVS);
-
     PIMPL_DELETE();
+}
+
+void Shader::Release() {
+    CHECK_NOTNULL(PIMPL.pDevice);
+    PIMPL.pDevice->ReleaseResource(this);
+    delete this;
+}
+
+IDevice* Shader::GetDevice() {
+    return PIMPL.pDevice;
+}
+
+IDevice const* Shader::GetDevice() const {
+    return PIMPL.pDevice;
+}
+
+void Shader::OnDeviceLost() {
+}
+
+void Shader::OnDeviceReset() {
 }
 
 RBOOL Shader::Load() {
@@ -76,10 +95,6 @@ RBOOL Shader::Set() {
 
     PIMPL.pDevice->GetDirect3DDevice9()->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
     return !FAILED(hResultPS) && !FAILED(hResultVS);
-}
-
-Chalk::IDevice* Shader::GetDevice() {
-    return PIMPL.pDevice;
 }
 
 void Shader::SetData(RINT const* aData, RUINT nLength) {

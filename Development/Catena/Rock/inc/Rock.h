@@ -1,5 +1,5 @@
 #ifndef _H_ROCK
-#define _H_ROCK
+#define _H_ROCK 1
 
 #include "Rock_Std.h"
 #include "Rock_Defines.h"

@@ -5,7 +5,6 @@
 using namespace Rock;
 
 Vector2::Vector2() {
-    ZERO(this, sizeof(Vector2));
 }
 
 Vector2::Vector2(RFLOAT v) : x(v), y(v) {

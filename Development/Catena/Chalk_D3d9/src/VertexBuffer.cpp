@@ -28,6 +28,24 @@ VertexBuffer::~VertexBuffer() {
     PIMPL_DELETE();
 }
 
+void VertexBuffer::Release() {
+    CHECK_NOTNULL(PIMPL.pDevice);
+    PIMPL.pDevice->ReleaseResource(this);
+    delete this;
+}
+
+IDevice* VertexBuffer::GetDevice() {
+    return PIMPL.pDevice;
+}
+
+IDevice const* VertexBuffer::GetDevice() const {
+    return PIMPL.pDevice;
+}
+
+void VertexBuffer::OnDeviceLost() {}
+
+void VertexBuffer::OnDeviceReset() {}
+
 RBOOL VertexBuffer::Load() {
     void* pData = RNULL;
     CUSTOMVERTEX aVertices[] = {

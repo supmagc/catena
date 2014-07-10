@@ -1,5 +1,5 @@
 #ifndef _H_CHALK
-#define _H_CHALK
+#define _H_CHALK 1
 
 #include "Chalk_Std.h"
 #include "Chalk_Types.h"

@@ -34,9 +34,9 @@
 
 // Inline defines
 #ifdef _WINDOWS
-	#define INLINE __forceinline
+    #define INLINE __forceinline
 #else
-	#define INLINE always_inline
+    #define INLINE always_inline
 #endif
 
 // Math defines
@@ -44,10 +44,6 @@
 #define PI       3.14159265358979323846
 #define DEG2RAD  (PI / 180.0)
 #define RAD2DEG  (180.0 / PI)
-
-// Helper defines
-#define ZERO(dest, length) memset((dest), 0, (length))
-#define COPY(src, dst, length) memcpy_s(dst, length, src, length)
 
 // Delete/release defines
 #define SAFE_RELEASE(p) if(p != NULL) {p->Release(); p=NULL;}
@@ -70,7 +66,7 @@
 
 // Pimpl defines
 #define PIMPL_DECL(cls) struct cls##Impl; cls##Impl* m_pImpl
-#define PIMPL_INIT(cls) m_pImpl = new cls##Impl; ZERO(m_pImpl, sizeof(cls##Impl))
+#define PIMPL_INIT(cls) m_pImpl = new cls##Impl; catMemZero(m_pImpl, sizeof(cls##Impl))
 #define PIMPL_MAKE(ns, cls) struct ns##::##cls##::##cls##Impl
 #define PIMPL_DELETE() SAFE_DELETE(m_pImpl)
 #define PIMPL (*m_pImpl)
@@ -84,10 +80,16 @@
 // Settings paradigm
 #define SETTINGS(func) o##func##Settings
 #define SETTINGS_DECL(func, call) struct call func##Settings
-#define SETTINGS_INIT(ns, func) ns::func##Settings o##func##Settings = ns::func##Settings(); ZERO(&o##func##Settings, sizeof(ns::func##Settings))
+#define SETTINGS_INIT(ns, func) ns::func##Settings o##func##Settings = ns::func##Settings(); catMemZero(&o##func##Settings, sizeof(ns::func##Settings))
 #define SETTINGS_BOX(func) (RCBOX) &o##func##Settings
 #define SETTINGS_PARAM(func) RCBOX p##func##SettingsBoxed
 #define SETTINGS_UNBOX(func) func##Settings const* p##func##Settings = reinterpret_cast<func##Settings const*>(p##func##SettingsBoxed); CHECK_NOTNULL(p##func##Settings)
+
+// Default settings stuff
+#define DEFAULT_ALIGNMENT 8
+#define DEFAULT_ALLOCATOR Rock::HeapAllocator::Boxed
+#define DEFAULT_ARRAY_CAPACITY 32
+#define DEFAULT_ARRAY_BLOCKSIZE 0
 
 // Rock specific defines
 #if defined(ROCK_EXPORTS)
