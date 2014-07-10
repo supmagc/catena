@@ -14,6 +14,7 @@ set(ROCK_FILES_HEADER
     inc/Rock_Vector2.h
     inc/Rock_Array.h
     inc/Rock_Memory.h
+    inc/Rock_Allocators.h
 )
 
 set(ROCK_FILES_INLINE
@@ -21,7 +22,7 @@ set(ROCK_FILES_INLINE
     inl/Vector4.inl
     inl/Vector3.inl
     inl/Vector2.inl
-    inl/Array.inl
+    inl/Functions.inl
 )
 
 set(ROCK_FILES_SOURCE
@@ -35,7 +36,13 @@ set(ROCK_FILES_SOURCE
     src/Functions.cpp
     src/Array.cpp
     src/Memory.cpp
+    src/Allocators.cpp
+)
+
+set(ROCK_FILES_TEST
+    test/main.cpp
 )
 
 component_init()
 add_component("Rock" "" ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE})
+add_component_test("Rock" ${ROCK_FILES_TEST})

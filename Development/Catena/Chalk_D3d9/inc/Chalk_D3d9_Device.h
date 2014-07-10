@@ -27,6 +27,7 @@ namespace Chalk {
             virtual RBOOL Verify();
             virtual RBOOL Clear();
             virtual RBOOL Switch();
+            virtual RBOOL Reset();
 
             IDirect3D9* GetDirect3D9();
             IDirect3DDevice9* GetDirect3DDevice9();

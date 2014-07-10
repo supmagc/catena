@@ -16,10 +16,18 @@ namespace Chalk {
         class CHALK_D3D9_API IndexBuffer : public Chalk::IIndexBuffer {
         public:
             IndexBuffer(Device* pDevice);
-            virtual ~IndexBuffer();
+
+            virtual void Release();
+            virtual IDevice* GetDevice();
+            virtual IDevice const* GetDevice() const;
+            virtual void OnDeviceLost();
+            virtual void OnDeviceReset();
 
             virtual RBOOL Load();
             virtual RBOOL Set();
+
+        protected:
+            virtual ~IndexBuffer();
 
         private:
             PIMPL_DECL(IndexBuffer);

@@ -11,7 +11,7 @@ PIMPL_MAKE(Chalk::D3d9, Device) {
     IDirect3DDevice9* pDevice;
     SwapChain* pActiveSwapChain;
 
-    Array<Resource*> lResources;
+    Array<IResource*> lResources;
 };
 
 Device::Device() {
@@ -72,28 +72,28 @@ RBOOL Device::Verify() {
     }
     else {
         if(nCooperativeLevel == D3DERR_DEVICEHUNG) {
-
+            catSleep(1);
         }
         if(nCooperativeLevel == D3DERR_DEVICELOST) {
             catSleep(1);
         }
         if(nCooperativeLevel == D3DERR_DEVICENOTRESET) {
             // OnLostDevice
-            //PIMPL.pDevice->Reset(PIMPL.pActiveSwapChain->GetDirect3DSurface
+            Reset();
             //CHECK_HRESULT
             // OnDeviceReset
         }
         if(nCooperativeLevel == D3DERR_DEVICEREMOVED) {
-
+            catMessageBoxAlert(RTXT("Error"), RTXT("Device removed, unable to recover!"));
+            catPostQuitMessage(0);
         }
         if(nCooperativeLevel == D3DERR_DRIVERINTERNALERROR) {
-
+            catMessageBoxAlert(RTXT("Error"), RTXT("Unrecoverable internal driver error!"));
+            catPostQuitMessage(0);
         }
         if(nCooperativeLevel == D3DERR_DRIVERINVALIDCALL) {
-
-        }
-        switch(nCooperativeLevel) {
-
+            catMessageBoxAlert(RTXT("Error"), RTXT("Unrecoverable invalid driver call!"));
+            catPostQuitMessage(0);
         }
         return false;
     }
@@ -115,6 +115,20 @@ RBOOL Device::Switch() {
 
     CHECK_HRESULT(PIMPL.pDevice->EndScene());
     CHECK_HRESULT(PIMPL.pActiveSwapChain->GetDirect3DSwapChain()->Present(RNULL, RNULL, RNULL, RNULL, 0));
+    return true;
+}
+
+RBOOL Device::Reset() {
+    for(RUINT i = 0 ; i < PIMPL.lResources.Length() ; ++i) {
+        PIMPL.lResources[i]->OnDeviceLost();
+    }
+
+    CHECK_HRESULT(PIMPL.pDevice->Reset(PIMPL.pActiveSwapChain->GetDirect3DPresentParameters()));
+
+    for(RUINT i = 0 ; i < PIMPL.lResources.Length() ; ++i) {
+        PIMPL.lResources[i]->OnDeviceReset();
+    }
+
     return true;
 }
 

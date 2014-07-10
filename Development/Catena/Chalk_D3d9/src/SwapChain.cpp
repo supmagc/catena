@@ -24,8 +24,30 @@ SwapChain::SwapChain(Device* pDevice) {
 }
 
 SwapChain::~SwapChain() {
-    PIMPL_DELETE();
     SAFE_RELEASE(PIMPL.pSwapChain);
+    PIMPL_DELETE();
+}
+
+void SwapChain::Release() {
+    CHECK_NOTNULL(PIMPL.pDevice);
+    PIMPL.pDevice->ReleaseResource(this);
+    delete this;
+}
+
+IDevice* SwapChain::GetDevice() {
+    return PIMPL.pDevice;
+}
+
+IDevice const* SwapChain::GetDevice() const {
+    return PIMPL.pDevice;
+}
+
+void SwapChain::OnDeviceLost() {
+    SAFE_RELEASE(PIMPL.pSwapChain);
+}
+
+void SwapChain::OnDeviceReset() {
+
 }
 
 void SwapChain::Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings) {
@@ -64,7 +86,7 @@ RenderSettings const* SwapChain::GetRenderSettings() const {
 
 void SwapChain::SetRenderSettings(RenderSettings const* pRenderSettings) {
     CHECK_NOTNULL(pRenderSettings);
-    COPY(pRenderSettings, &PIMPL.oRenderSettings, sizeof(RenderSettings));
+    catMemCopy(pRenderSettings, &PIMPL.oRenderSettings, sizeof(RenderSettings));
 }
 
 IDirect3DSwapChain9* SwapChain::GetDirect3DSwapChain() {
@@ -78,7 +100,7 @@ IDirect3DSurface9* SwapChain::GetDirect3DSurface() {
     return pSurface;
 }
 
-D3DPRESENT_PARAMETERS const* SwapChain::GetDirect3DPresentParameters() {
+D3DPRESENT_PARAMETERS* SwapChain::GetDirect3DPresentParameters() {
     return &PIMPL.oPresentParameters;
 }
 
@@ -86,7 +108,7 @@ void SwapChain::Convert(RenderSettings const* pRenderSettings, D3DPRESENT_PARAME
     CHECK_NOTNULL(pRenderSettings);
     CHECK_NOTNULL(pPresentParameters);
 
-    ZERO(pPresentParameters, sizeof(D3DPRESENT_PARAMETERS));
+    catMemZero(pPresentParameters, sizeof(D3DPRESENT_PARAMETERS));
     pPresentParameters->BackBufferCount = 1;
     pPresentParameters->BackBufferFormat = D3DFMT_A8R8G8B8;
     pPresentParameters->BackBufferWidth = pRenderSettings->nWidth;

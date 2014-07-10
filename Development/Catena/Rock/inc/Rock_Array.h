@@ -4,83 +4,73 @@
 #include "Rock_Defines.h"
 #include "Rock_Types.h"
 #include "Rock_Checks.h"
+#include "Rock_Allocators.h"
 
 namespace Rock {
 
-    class ArrayOutOfBoundsException : public exception {
-
-    };
-
-    template<typename T, typename S = RUINT, S S_MAX = RUINT_MAX>
+    template<typename ElementType, typename AllocatorType = HeapAllocator::ByType<ElementType>, typename SizeType = RUINT, SizeType SizeMax = RUINT_MAX, SizeType ElementSize = sizeof(ElementType) >
     class ROCK_API Array {
     public:
 
-        typedef Array<T, S, S_MAX> Type;
+        typedef Array<ElementType, AllocatorType, SizeType, SizeMax, ElementSize> Type;
 
-        Array(S nCapacity = 2, S nBlockSize = 0) : m_nLength(0), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize) {
-            m_aData = new T[m_nCapacity];
+        Array(SizeType nCapacity = DEFAULT_ARRAY_CAPACITY, SizeType nBlockSize = DEFAULT_ARRAY_BLOCKSIZE) : m_nLength(0), m_nCapacity(nCapacity), m_nBlockSize(nBlockSize), m_oData() {
+            m_oData.Resize(0, m_nCapacity, ElementSize);
         }
 
-        Array(Type const& lOther) : m_nLength(lOther.m_nLength), m_nCapacity(lOther.m_nCapacity), m_nBlockSize(lOther.m_nBlockSize) {
-            m_aData = new T[m_nCapacity];
-            COPY(lOther.m_aData, m_aData, m_nLength * sizeof(T));
+        Array(Type const& lOther) : m_nLength(lOther.m_nLength), m_nCapacity(lOther.m_nLength), m_nBlockSize(lOther.m_nBlockSize) {
+            m_oData.Resize(0, lOther.m_nLength, sizeof(ElementType));
+            catMemCopy(lOther.m_oData.GetData(), m_oData.GetData(), m_nLength * ElementSize);
         }
 
-		Array(std::initializer_list<T> const& oInitialer, S nBlockSize = 0) : m_nLength(0), m_nCapacity(oInitialer.size()), m_nBlockSize(nBlockSize) {
-			m_aData = new T[m_nCapacity];
-			for(auto i = oInitialer.begin(); i != oInitialer.end(); ++i) {
-				m_aData[m_nLength++] = *i;
-			}
-		}
+        Array(std::initializer_list<ElementType> const& oInitialer, SizeType nBlockSize = DEFAULT_ARRAY_BLOCKSIZE) : m_nLength(oInitialer.size()), m_nCapacity(oInitialer.size()), m_nBlockSize(nBlockSize) {
+            m_oData.Resize(0, m_nCapacity, ElementSize);
+            for(auto i = oInitialer.begin(); i != oInitialer.end(); ++i) {
+                m_oData.GetData()[m_nLength++] = *i;
+            }
+        }
 
-        Array(T* aOther, S nLength, S nBlockSize = 0) : m_nLength(nLength), m_nCapacity(nLength), m_nBlockSize(nBlockSize) {
-            m_aData = new T[m_nCapacity];
-            COPY(aOther, m_aData, m_nLength * sizeof(T));
+        Array(ElementType* aOther, SizeType nLength, SizeType nBlockSize = DEFAULT_ARRAY_BLOCKSIZE) : m_nLength(nLength), m_nCapacity(nLength), m_nBlockSize(nBlockSize) {
+            m_oData.Resize(0, m_nCapacity, ElementSize);
+            catMemCopy(aOther, m_oData.GetData(), m_nLength * ElementSize);
         }
 
         ~Array() {
-            SAFE_DELETE_ARRAY(m_aData);
         }
 
-        FORCEINLINE RBOOL Push(T mElement) {
-            if(m_nLength < m_nCapacity || Increase(m_nBlockSize)) {
-                m_aData[m_nLength++] = mElement;
-                return true;
-            }
-            return false;
+        FORCEINLINE void Push(ElementType mElement) {
+            if(m_nLength >= m_nCapacity) Increase(m_nBlockSize);
+            m_oData.GetData()[m_nLength++] = mElement;
         }
 
-        FORCEINLINE RBOOL Push(Array<T> const& lElements) {
-            S nLengthTotal = m_nLength + lElements.m_nLength;
-            if(nLengthTotal <= m_nCapacity || Resize(nLengthTotal)) {
-                COPY(lElements.m_aData, &m_aData[m_nLength], lElements.m_nLength * sizeof(T));
-                m_nLength = nLengthTotal;
-                return true;
-            }
-            return false;
+        FORCEINLINE void Push(Type const& lOther) {
+            SizeType nLengthTotal = m_nLength + lOther.m_nLength;
+            if(nLengthTotal >= m_nCapacity) Resize(nLengthTotal + m_nBlockSize);
+            catMemCopy(lOther.m_oData.GetData(), &m_oData.GetData()[m_nLength], lOther.m_nLength * ElementSize);
+            m_nLength = nLengthTotal;
         }
 
-        FORCEINLINE T Peek() {
-            return m_nLength > 0 ? m_aData[m_nLength-1] : (T)0;
+        FORCEINLINE ElementType Peek() const {
+            CHECK(m_nLength > 0);
+            return m_oData.GetData()[m_nLength - 1];
         }
 
-        FORCEINLINE Array<T> Peek(S nLength) {
-            nLength = min(m_nLength, nLength);
-            Array<T> lReturn = Array<T>(nLength, m_nBlockSize);
-            COPY(&m_aData[m_nLength - nLength], lReturn.m_aData, nLength * sizeof(T));
-            lReturn.m_nLength = nLength;
+        FORCEINLINE Type Peek(SizeType nLength) {
+            CHECK(m_nLength <= m_nLength);
+            Type lReturn(nLength, m_nBlockSize);
+            catMemCopy(&m_oData.GetData()[m_nLength - nLength], lReturn.m_oData.GetData(), nLength * ElementSize);
             return lReturn;
         }
 
-        FORCEINLINE T Pop() {
-            return m_nLength > 0 ? m_aData[--m_nLength] : (T)0;
+        FORCEINLINE ElementType Pop() {
+            CHECK(m_nLength > 0);
+            return m_oData.GetData()[--m_nLength];
         }
 
-        FORCEINLINE Array<T> Pop(S nLength) {
-            nLength = min(m_nLength, nLength);
-            Array<T> lReturn = Array<T>(nLength, m_nBlockSize);
-            COPY(&m_aData[m_nLength - nLength], lReturn.m_aData, nLength * sizeof(T));
-            lReturn.m_nLength = nLength;
+        FORCEINLINE Type Pop(SizeType nLength) {
+            CHECK(m_nLength <= m_nLength);
+            Type lReturn(nLength, m_nBlockSize);
+            catMemCopy(&m_oData.GetData()[m_nLength - nLength], lReturn.m_oData.GetData(), nLength * ElementSize);
             m_nLength -= nLength;
             return lReturn;
         }
@@ -89,102 +79,85 @@ namespace Rock {
             m_nLength = 0;
         }
 
-        FORCEINLINE void Insert(T mElement, S nIndex) {
-            CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
-
-
-        }
-
-        FORCEINLINE RBOOL FirstIndexOf(T mElement, S& o_nIndex) const {
+        FORCEINLINE RBOOL FirstIndexOf(ElementType const& mElement, SizeType& o_nIndex) const {
             for(o_nIndex=0 ; o_nIndex<m_nLength ; ++o_nIndex) {
-                if(m_aData[o_nIndex] == mElement) return true;
+                if(m_oData.GetData()[o_nIndex] == mElement) return true;
             }
             return false;
         }
 
-        FORCEINLINE RINT LastIndexOf(T mElement, S& o_nIndex) const {
+        FORCEINLINE RINT LastIndexOf(ElementType const& mElement, SizeType& o_nIndex) const {
             for(o_nIndex=m_nLength-1 ; o_nIndex>-1 ; --o_nIndex) {
-                if(m_aData[o_nIndex] == mElement) return true;
+                if(m_oData.GetData()[o_nIndex] == mElement) return true;
             }
             return false;
         }
 
-        FORCEINLINE RBOOL RemoveElement(T mElement) {
-            // TODO
-            return false;
+        //FORCEINLINE void Insert(T mElement, S nIndex) {
+        //    CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
+
+
+        //}
+
+        //FORCEINLINE RBOOL RemoveElement(T mElement) {
+        //    // TODO
+        //    return false;
+        //}
+
+        //FORCEINLINE RBOOL RemoveIndex(S nIndex) {
+        //    return false;
+        //}
+
+        FORCEINLINE void Increase(SizeType nIncrease = 0) {
+            if(nIncrease <= 0) Resize(m_nLength / 2 + 1);
+            else Resize(m_nCapacity + nIncrease);
         }
 
-        FORCEINLINE RBOOL RemoveIndex(S nIndex) {
-            return false;
+        FORCEINLINE void Decrease(SizeType nDecrease = 0) {
+            if (nDecrease > m_nLength) Resize(0);
+            else if (nDecrease <= 0) Resize(m_nLength);
+            else Resize(m_nCapacity - nDecrease);
         }
 
-        FORCEINLINE void Increase(S nIncrease = m_nBlockSize) {
-            if(nIncrease <= 0) nIncrease = m_nLength / 2 + 1;
-            Resize(m_nCapacity + nIncrease);
-        }
-
-        FORCEINLINE void Decrease(S nDecrease = m_nBlockSize) {
-            Resize(m_nCapacity - max(1, nDecrease));
-        }
-
-        FORCEINLINE void Resize(S nCapacity) {
-            CHECK_SLOW(nCapacity > 0 && nCapacity <= S_MAX);
-
+        FORCEINLINE void Resize(SizeType nCapacity) {
+            CHECK_SLOW(nCapacity > 0 && nCapacity <= SizeMax);
+            m_oData.Resize(m_nCapacity, nCapacity, ElementSize);
             m_nCapacity = nCapacity;
-            m_nLength = min(m_nCapacity, m_nLength);
-            T* aTmp = new T[m_nLength];
-            COPY(m_aData, aTmp, m_nLength * sizeof(T));
-            SAFE_DELETE_ARRAY(m_aData);
-            m_aData = aTmp;
-            return true;
         }
 
-        FORCEINLINE S Length() const {
+        FORCEINLINE SizeType Length() const {
             return m_nLength;
         }
 
-        FORCEINLINE S Capacity() const {
+        FORCEINLINE SizeType Capacity() const {
             return m_nCapacity;
         }
 
-        FORCEINLINE S BlockSize() const {
+        FORCEINLINE SizeType BlockSize() const {
             return m_nBlockSize;
         }
 
-        FORCEINLINE void Swap(Type lArray) {
-            std::swap(m_aData, lArray.m_aData);
-            std::swap(m_nLength, lArray.m_nLength);
-            std::swap(m_nCapacity, lArray.m_nCapacity);
-            std::swap(m_nBlockSize, lArray.m_nBlockSize);
-        }
-
-        FORCEINLINE Array<T>& operator=(Type lOther) {
-            // Copy and swap idiom
-            // argument by value, is thus a copy form the original
-            // swap resources with this (and old values are in temp)
-            // gets cleaned up on function exit, 
-            lOther.Swap(*this);
+        FORCEINLINE Type& operator=(Type lOther) {
+            catSwap(*this, lOther);
             return *this;
         }
 
-        FORCEINLINE T const& operator[](S nIndex) const {
+        FORCEINLINE ElementType const& operator[](SizeType nIndex) const {
             CHECK(nIndex >= 0 && nIndex < m_nLength);
-            return m_aData[nIndex];
+            return m_oData.GetData()[nIndex];
         }
 
-        FORCEINLINE T& operator[](S nIndex) {
+        FORCEINLINE ElementType& operator[](SizeType nIndex) {
             CHECK(nIndex >= 0 && nIndex < m_nLength);
-            return m_aData[nIndex];
+            return m_oData.GetData()[nIndex];
         }
 
     private:
-        T* m_aData;
-        S m_nLength;
-        S m_nCapacity;
-        S m_nBlockSize;
+        AllocatorType m_oData;
+        SizeType m_nLength;
+        SizeType m_nCapacity;
+        SizeType m_nBlockSize;
     };
-
-    //#include "../inl/Array.inl"
 };
 
 #endif // _H_ROCK_ARRAY

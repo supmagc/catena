@@ -13,7 +13,8 @@ namespace Chalk {
 
         virtual void Release() =0;
         virtual IDevice* GetDevice() =0;
-        virtual void OnDeviceLost() =0;
+        virtual IDevice const* GetDevice() const = 0;
+        virtual void OnDeviceLost() = 0;
         virtual void OnDeviceReset() =0;
         
     protected:

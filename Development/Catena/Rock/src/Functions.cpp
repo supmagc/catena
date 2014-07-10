@@ -15,34 +15,10 @@ namespace Rock {
         OutputDebugStringW(*sLog);
     }
 
-    ROCK_API RBOOL catIsDebug() {
-#if defined(_DEBUG)
-        return true;
-#else
-        return false;
-#endif
-    }
-
     ROCK_API void catAssert(String const& sExpression, String const& sFile, int nLine) {
         catLog(LogType::LT_ASSERT, String(RTXT("Assert")), sExpression, sFile, nLine);
         if (catMessageBoxConfirm(RTXT("Assertion failed:"), sExpression))
             BREAK_ALWAYS;
-    }
-
-    ROCK_API RBOOL catIsRelease() {
-#if !defined(_DEBUG) && !defined(_PUBLISH)
-        return true;
-#else
-        return false;
-#endif
-    }
-
-    ROCK_API RBOOL catIsPublish() {
-#if defined(_PUBLISH)
-        return true;
-#else
-        return false;
-#endif
     }
 
     ROCK_API String catWorkingDirectory() {
@@ -75,21 +51,5 @@ namespace Rock {
 
     ROCK_API void catPostQuitMessage(RINT nCode) {
         PostQuitMessage(nCode);
-    }
-
-    ROCK_API void catSleep(RDOUBLE nDuration) {
-        Sleep((RINT64)(nDuration * 1000.0));
-    }
-
-    ROCK_API void* catAlloc(RUINT nSize, RUINT nAlignment) {
-        return malloc(nSize);
-    }
-
-    ROCK_API void* catRealloc(void* pAdress, RUINT nSize, RUINT nAlignment) {
-        return realloc(pAdress, nSize);
-    }
-
-    ROCK_API void catFree(void* pAdress) {
-        free(pAdress);
     }
 };

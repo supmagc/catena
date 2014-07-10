@@ -20,6 +20,26 @@ IndexBuffer::~IndexBuffer() {
     PIMPL_DELETE();
 }
 
+void IndexBuffer::Release() {
+    CHECK_NOTNULL(PIMPL.pDevice);
+    PIMPL.pDevice->ReleaseResource(this);
+    delete this;
+}
+
+IDevice* IndexBuffer::GetDevice() {
+    return PIMPL.pDevice;
+}
+
+IDevice const* IndexBuffer::GetDevice() const {
+    return PIMPL.pDevice;
+}
+
+void IndexBuffer::OnDeviceLost() {
+}
+
+void IndexBuffer::OnDeviceReset() {
+}
+
 RBOOL IndexBuffer::Load() {
     return true;
 }

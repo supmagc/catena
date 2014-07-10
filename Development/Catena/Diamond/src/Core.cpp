@@ -17,8 +17,8 @@ Core::Core() {
 }
 
 Core::~Core() {
-    SAFE_DELETE(PIMPL.pVertexBuffer);
-    SAFE_DELETE(PIMPL.pShader);
+    SAFE_RELEASE(PIMPL.pVertexBuffer);
+    SAFE_RELEASE(PIMPL.pShader);
     SAFE_DELETE(PIMPL.pDevice);
     PIMPL_DELETE();
 }

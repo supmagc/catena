@@ -1,5 +1,5 @@
 #ifndef _H_CHALK_IDEVICE
-#define _H_CHALK_IDEVICE
+#define _H_CHALK_IDEVICE 1
 
 #include "Rock.h"
 #include "Chalk_Defines.h"
@@ -24,6 +24,7 @@ namespace Chalk {
         virtual RBOOL Verify() =0;
         virtual RBOOL Clear() =0;
         virtual RBOOL Switch() =0;
+        virtual RBOOL Reset() =0;
 
     private:
         IDevice(IDevice const&);

@@ -16,13 +16,20 @@ namespace Chalk {
         class CHALK_D3D9_API Shader : public Chalk::IShader {
         public:
             Shader(Device* pDevice);
-            virtual ~Shader();
+
+            virtual void Release();
+            virtual IDevice* GetDevice();
+            virtual IDevice const* GetDevice() const;
+            virtual void OnDeviceLost();
+            virtual void OnDeviceReset();
 
             virtual RBOOL Load();
             virtual RBOOL Set();
-            virtual IDevice* GetDevice();
             virtual void SetData(RINT const*, RUINT nLength = 1);
             virtual void SetData(RFLOAT const*, RUINT nLength = 1);
+
+        protected:
+            virtual ~Shader();
 
         private:
             struct ShaderImpl;

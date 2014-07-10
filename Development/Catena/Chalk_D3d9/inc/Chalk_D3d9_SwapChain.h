@@ -20,7 +20,12 @@ namespace Chalk {
             };
 
             SwapChain(Device* pDevice);
-            virtual ~SwapChain();
+
+            virtual void Release();
+            virtual IDevice* GetDevice();
+            virtual IDevice const* GetDevice() const;
+            virtual void OnDeviceLost();
+            virtual void OnDeviceReset();
 
             virtual void Activate();
             virtual RBOOL IsActive() const;
@@ -31,9 +36,12 @@ namespace Chalk {
             void Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings);
             IDirect3DSwapChain9* GetDirect3DSwapChain();
             IDirect3DSurface9* GetDirect3DSurface();
-            D3DPRESENT_PARAMETERS const* GetDirect3DPresentParameters();
+            D3DPRESENT_PARAMETERS* GetDirect3DPresentParameters();
 
             static void Convert(RenderSettings const* pRenderSettings, D3DPRESENT_PARAMETERS* pPresentParameters);
+
+        protected:
+            virtual ~SwapChain();
 
         private:
             PIMPL_DECL(SwapChain);

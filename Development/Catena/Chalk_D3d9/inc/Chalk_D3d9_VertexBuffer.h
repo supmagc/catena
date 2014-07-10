@@ -16,10 +16,18 @@ namespace Chalk {
         class CHALK_D3D9_API VertexBuffer : public Chalk::IVertexBuffer {
         public:
             VertexBuffer(Device* pDevice);
-            virtual ~VertexBuffer();
+
+            virtual void Release();
+            virtual IDevice* GetDevice();
+            virtual IDevice const* GetDevice() const;
+            virtual void OnDeviceLost();
+            virtual void OnDeviceReset();
 
             virtual RBOOL Load();
             virtual RBOOL Set();
+
+        protected:
+            virtual ~VertexBuffer();
 
         private:
             PIMPL_DECL(VertexBuffer);

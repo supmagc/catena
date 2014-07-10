@@ -20,7 +20,7 @@ SceneView::~SceneView() {
 
 void SceneView::SetSize(RUINT nWidth, RUINT nHeight) {
     RenderSettings oRenderSettings;
-    COPY(PIMPL.pSwapChain->GetRenderSettings(), &oRenderSettings, sizeof(RenderSettings));
+    catMemCopy(PIMPL.pSwapChain->GetRenderSettings(), &oRenderSettings, sizeof(RenderSettings));
     oRenderSettings.nWidth = nWidth;
     oRenderSettings.nHeight = nHeight;
     PIMPL.pSwapChain->SetRenderSettings(&oRenderSettings);
@@ -28,7 +28,7 @@ void SceneView::SetSize(RUINT nWidth, RUINT nHeight) {
 
 void SceneView::SetFullscreen(RBOOL bFullscreen) {
     RenderSettings oRenderSettings;
-    COPY(PIMPL.pSwapChain->GetRenderSettings(), &oRenderSettings, sizeof(RenderSettings));
+    catMemCopy(PIMPL.pSwapChain->GetRenderSettings(), &oRenderSettings, sizeof(RenderSettings));
     oRenderSettings.bFullscreen = bFullscreen;
     PIMPL.pSwapChain->SetRenderSettings(&oRenderSettings);
 }

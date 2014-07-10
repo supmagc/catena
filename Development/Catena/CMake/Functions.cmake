@@ -1,8 +1,4 @@
 
-function(add_component COMP_NAME COMP_INC_STATIC, COMP_INC_SHARED)
-	include_directories(${CATENA_SOURCE_DIR}/${COMP_NAME}/inc/)
-endfunction()
-
 function(target_precompiled_header COMP_NAME HEADER_FILE SOURCE_FILE IGNORE_FILES)
 	list(APPEND IGNORE_FILES ${ARGN})
 	get_filename_component(HEADER ${HEADER_FILE} NAME)
@@ -92,6 +88,26 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 
 	if(COMP_DEPS)
 		add_component_dependencies("${COMP_NAME}" "${COMP_DEPS}")
+	endif()
+endfunction()
+
+function(add_component_test COMP_NAME COMP_FILES)
+	component_verify(COMP_NAME COMP_NAME_UPPER COMP_NAME_LOWER)
+	
+	if(${COMP_NAME_UPPER}_BUILD_STATIC)
+		set(${COMP_NAME_UPPER}_TEST_BUILD_EXE 1)
+		set(${COMP_NAME_UPPER}_TEST_BUILD_ALLINONE 1)
+		add_executable(${COMP_NAME}_Test WIN32 ${COMP_FILES})
+		add_component_dependencies(${COMP_NAME}_Test ${COMP_NAME})
+		message(STATUS "Building ${COMP_NAME}_Test as test executable for ${COMP_NAME}.")
+		
+		foreach(COMP_FILE ${COMP_FILES})
+			set_source_files_properties(${COMP_FILE}
+				PROPERTIES COMPILE_FLAGS /Y-
+			)
+		endforeach()
+	else()
+		message(WARNING "Static library ${COMP_NAME} shouldn't depend on dynamic library ${COMP_DEP_NAME}")
 	endif()
 endfunction()
 

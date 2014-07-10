@@ -5,7 +5,6 @@
 using namespace Rock;
 
 Vector3::Vector3() {
-    ZERO(this, sizeof(Vector3));
 }
 
 Vector3::Vector3(RFLOAT v) : x(v), y(v), z(v) {

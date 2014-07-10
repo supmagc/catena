@@ -6,7 +6,6 @@
 using namespace Rock;
 
 Vector4::Vector4() {
-    ZERO(this, sizeof(Vector4));
 }
 
 Vector4::Vector4(RFLOAT v) : x(v), y(v), z(v), w(v) {

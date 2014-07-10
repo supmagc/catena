@@ -149,7 +149,7 @@ inline void Matrix4x4::GetCell(RINT nRow, RINT nColumn, RFLOAT& o_nValue) const 
 }
 
 inline void Matrix4x4::Identity() {
-    ZERO(v, sizeof(v));
+    catMemZero(v, sizeof(v));
     _11 = 1;
     _22 = 1;
     _33 = 1;
