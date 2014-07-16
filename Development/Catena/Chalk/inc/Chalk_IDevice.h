@@ -12,9 +12,6 @@ namespace Chalk {
 
     class CHALK_API IDevice {
     public:
-        IDevice() {}
-        virtual ~IDevice() {}
-
         virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings) =0;
         virtual void ActivateSwapChain(ISwapChain* oSwapChain) =0;
         virtual ISwapChain* GetActiveSwapChain() =0;
@@ -25,10 +22,6 @@ namespace Chalk {
         virtual RBOOL Clear() =0;
         virtual RBOOL Switch() =0;
         virtual RBOOL Reset() =0;
-
-    private:
-        IDevice(IDevice const&);
-        IDevice& operator=(IDevice const&);
     };
 };
 

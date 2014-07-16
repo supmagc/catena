@@ -9,17 +9,8 @@ namespace Chalk {
 
     class CHALK_API IVertexBuffer : public IResource{
     public:
-        IVertexBuffer() {}
-
         virtual RBOOL Load() =0;
         virtual RBOOL Set() =0;
-
-    protected:
-        virtual ~IVertexBuffer() {}
-
-    private:
-        IVertexBuffer(IVertexBuffer const&);
-        IVertexBuffer& operator=(IVertexBuffer const&);
     };
 };
 

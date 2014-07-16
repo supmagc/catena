@@ -9,17 +9,8 @@ namespace Chalk {
 
     class CHALK_API IIndexBuffer : public IResource {
     public:
-        IIndexBuffer() {}
-
         virtual RBOOL Load() =0;
         virtual RBOOL Set() =0;
-
-    protected:
-        virtual ~IIndexBuffer() {}
-
-    private:
-        IIndexBuffer(IIndexBuffer const&);
-        IIndexBuffer& operator=(IIndexBuffer const&);
     };
 }
 

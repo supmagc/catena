@@ -9,19 +9,11 @@ namespace Chalk {
 
     class CHALK_API IResource {
     public:
-        IResource() {}
-
         virtual void Release() =0;
         virtual IDevice* GetDevice() =0;
         virtual IDevice const* GetDevice() const = 0;
         virtual void OnDeviceLost() = 0;
         virtual void OnDeviceReset() =0;
-        
-    protected:
-        virtual ~IResource() {}
-
-    private:
-        CLASS_NOCOPY(IResource);
     };
 };
 
