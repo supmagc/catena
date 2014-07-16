@@ -15,9 +15,9 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug;Release;Publish
 		CACHE STRING "Available configurations" FORCE)
 		
-	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Od /Ob0 /RTC1 /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
+	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Od /Ob0 /RTC1 /ZI /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
-	set(CMAKE_C_FLAGS_DEBUG "/MD /O2 /Ob2 /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
+	set(CMAKE_C_FLAGS_DEBUG "/MD /O2 /Ob2 /ZI /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
 	set(CMAKE_EXE_LINKER_FLAGS_DEBUG "/debug /INCREMENTAL"
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)

@@ -9,7 +9,7 @@
 namespace Rock {
 
     template<typename ElementType, typename AllocatorType = HeapAllocator::ByType<ElementType>, typename SizeType = RUINT, SizeType SizeMax = RUINT_MAX, SizeType ElementSize = sizeof(ElementType) >
-    class ROCK_API Array {
+    class Array {
     public:
 
         typedef Array<ElementType, AllocatorType, SizeType, SizeMax, ElementSize> Type;

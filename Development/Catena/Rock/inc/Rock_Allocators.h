@@ -8,10 +8,10 @@
 
 namespace Rock {
 
-    class ROCK_API HeapAllocator {
+    class HeapAllocator {
     public:
 
-        class ROCK_API Boxed {
+        class Boxed {
         public:
             Boxed() : m_pData(RNULL) {}
             ~Boxed() {
@@ -32,7 +32,7 @@ namespace Rock {
         };
 
         template<typename ElementType>
-        class ROCK_API ByType : public Boxed {
+        class ByType : public Boxed {
         public:
             ByType() : Boxed() {}
 
