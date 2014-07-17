@@ -25,27 +25,27 @@ Device::~Device() {
     PIMPL_DELETE();
 }
 
-ISwapChain* Device::CreateSwapChain(SETTINGS_PARAM(CreateSwapChain), RenderSettings const* pRenderSettings) {
-    SETTINGS_UNBOX(CreateSwapChain);
+ISwapChain* Device::CreateSwapChain(HWND hWnd, RenderSettings const* pRenderSettings) {
     CHECK_NOTNULL(PIMPL.pContext);
-    CHECK_NOTNULL(pCreateSwapChainSettings->hWindow);
+    CHECK_NOTNULL(hWnd);
 
     SwapChain* pSwapChain = new SwapChain(this);
-    SETTINGS_INIT(Chalk::D3d9::SwapChain, Init);
-    SETTINGS(Init).hWindow = pCreateSwapChainSettings->hWindow;
+    IDirect3DSwapChain9* pSwapChainNative = RNULL;
 
     if(!PIMPL.pDevice) {
         D3DPRESENT_PARAMETERS oPresentParameters;
         SwapChain::Convert(pRenderSettings, &oPresentParameters);
 
-        CHECK_HRESULT(PIMPL.pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, pCreateSwapChainSettings->hWindow, D3DCREATE_MIXED_VERTEXPROCESSING, &oPresentParameters, &PIMPL.pDevice));
-        CHECK_HRESULT(PIMPL.pDevice->GetSwapChain(0, &SETTINGS(Init).pSwapChain));
-        pSwapChain->Init(&SETTINGS(Init), pRenderSettings);
+        CHECK_HRESULT(PIMPL.pContext->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd, D3DCREATE_MIXED_VERTEXPROCESSING, &oPresentParameters, &PIMPL.pDevice));
+        CHECK_HRESULT(PIMPL.pDevice->GetSwapChain(0, &pSwapChainNative));
+        pSwapChain->Init(pSwapChainNative, pRenderSettings);
         PIMPL.pActiveSwapChain = pSwapChain;
     }
     else {
-        pSwapChain->Init(&SETTINGS(Init), pRenderSettings);
+        pSwapChain->Init(hWnd, pRenderSettings);
     }
+
+    PIMPL.lResources.Push(pSwapChain);
 
     return pSwapChain;
 }

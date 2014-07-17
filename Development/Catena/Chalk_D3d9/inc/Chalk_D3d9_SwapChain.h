@@ -14,11 +14,6 @@ namespace Chalk {
 
         class CHALK_D3D9_API SwapChain : public ISwapChain {
         public:
-            SETTINGS_DECL(Init, CHALK_D3D9_API) {
-                HWND hWindow;
-                IDirect3DSwapChain9* pSwapChain;
-            };
-
             SwapChain(Device* pDevice);
 
             virtual void Release();
@@ -33,7 +28,9 @@ namespace Chalk {
             virtual RenderSettings const* GetRenderSettings() const;
             virtual void SetRenderSettings(RenderSettings const* pRenderSettings);
 
-            void Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings);
+            void Init(HWND hWnd, RenderSettings const* pRenderSettings);
+            void Init(IDirect3DSwapChain9* pSwapChain, RenderSettings const* pRenderSettings);
+
             IDirect3DSwapChain9* GetDirect3DSwapChain();
             IDirect3DSurface9* GetDirect3DSurface();
             D3DPRESENT_PARAMETERS* GetDirect3DPresentParameters();
