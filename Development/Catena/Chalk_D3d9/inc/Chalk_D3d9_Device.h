@@ -11,14 +11,10 @@ namespace Chalk {
 
         class CHALK_D3D9_API Device : public Chalk::IDevice {
         public:
-            SETTINGS_DECL(CreateSwapChain, CHALK_D3D9_API) {
-                HWND hWindow;
-            };
-
             Device();
             virtual ~Device();
 
-            virtual ISwapChain* CreateSwapChain(SETTINGS_PARAM(CreateSwapChain), Chalk::RenderSettings const* oRenderSettings);
+            virtual ISwapChain* CreateSwapChain(HWND hWnd, Chalk::RenderSettings const* oRenderSettings);
             virtual void ActivateSwapChain(ISwapChain* oSwapChain);
             virtual ISwapChain* GetActiveSwapChain();
 

@@ -17,7 +17,6 @@ PIMPL_MAKE(Chalk::D3d9, SwapChain) {
 
 SwapChain::SwapChain(Device* pDevice) {
     CHECK_NOTNULL(pDevice);
-    CHECK_NOTNULL(pDevice->GetDirect3DDevice9());
 
     PIMPL_INIT(SwapChain);
     PIMPL.pDevice = pDevice;
@@ -50,22 +49,26 @@ void SwapChain::OnDeviceReset() {
 
 }
 
-void SwapChain::Init(InitSettings const* pInitSettings, RenderSettings const* pRenderSettings) {
-    CHECK_NOTNULL(pInitSettings);
-    CHECK_NOTNULL(pRenderSettings);
-    CHECK_TRUE(pInitSettings->hWindow || pInitSettings->pSwapChain);
+void SwapChain::Init(HWND hWnd, RenderSettings const* pRenderSettings) {
     CHECK_NULL(PIMPL.pSwapChain);
+    CHECK_NOTNULL(pRenderSettings);
+    CHECK_NOTNULL(hWnd);
 
     SetRenderSettings(pRenderSettings);
-    if(pInitSettings->pSwapChain) {
-        PIMPL.pSwapChain = pInitSettings->pSwapChain;
-        CHECK_HRESULT(pInitSettings->pSwapChain->GetPresentParameters(&PIMPL.oPresentParameters));
-    }
-    else {
-        Convert(pRenderSettings, &PIMPL.oPresentParameters);
-        PIMPL.oPresentParameters.hDeviceWindow = pInitSettings->hWindow;
-        CHECK_HRESULT(PIMPL.pDevice->GetDirect3DDevice9()->CreateAdditionalSwapChain(&PIMPL.oPresentParameters, &PIMPL.pSwapChain));
-    }
+    Convert(pRenderSettings, &PIMPL.oPresentParameters);
+    PIMPL.oPresentParameters.hDeviceWindow = hWnd;
+    CHECK_HRESULT(PIMPL.pDevice->GetDirect3DDevice9()->CreateAdditionalSwapChain(&PIMPL.oPresentParameters, &PIMPL.pSwapChain));
+}
+
+void SwapChain::Init(IDirect3DSwapChain9* pSwapChainNative, RenderSettings const* pRenderSettings) {
+    CHECK_NULL(PIMPL.pSwapChain);
+    CHECK_NOTNULL(pRenderSettings);
+    CHECK_NOTNULL(pSwapChainNative);
+
+    SetRenderSettings(pRenderSettings);
+    Convert(pRenderSettings, &PIMPL.oPresentParameters);
+    PIMPL.pSwapChain = pSwapChainNative;
+    CHECK_HRESULT(pSwapChainNative->GetPresentParameters(&PIMPL.oPresentParameters));
 }
 
 void SwapChain::Activate() {

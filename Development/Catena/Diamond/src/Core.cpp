@@ -9,11 +9,13 @@ PIMPL_MAKE(Diamond, Core) {
     IDevice* pDevice;
     IShader* pShader;
     IVertexBuffer *pVertexBuffer;
-    vector<SceneView*> lSceneViews;
+    Array<SceneView*> lSceneViews;
 };
 
 Core::Core() {
     PIMPL_INIT(Core);
+
+    PIMPL.pDevice = new Chalk::D3d9::Device();
 }
 
 Core::~Core() {
@@ -28,16 +30,12 @@ Scene* Core::GetScene() {
 }
 
 SceneView* Core::Create(RINT hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscreen) {
-    Chalk::D3d9::Device::CreateSwapChainSettings oSettings;
-    oSettings.hWindow = (HWND)hWnd;
-
     Chalk::RenderSettings oRenderSettings;
     oRenderSettings.nWidth = nWidth;
     oRenderSettings.nHeight = nHeight;
     oRenderSettings.bFullscreen = bFullscreen;
 
-    PIMPL.pDevice = new Chalk::D3d9::Device();
-    ISwapChain* pSwapChain = PIMPL.pDevice->CreateSwapChain(&oSettings, &oRenderSettings);
+    ISwapChain* pSwapChain = PIMPL.pDevice->CreateSwapChain((HWND)hWnd, &oRenderSettings);
     CHECK_NOTNULL(pSwapChain);
 
     SceneView* pSceneView = new SceneView(pSwapChain);
@@ -51,7 +49,7 @@ SceneView* Core::Create(RINT hWnd, RUINT nWidth, RUINT nHeight, RBOOL bFullscree
     if(!m_pImpl->pVertexBuffer->Load())
         return false;
 
-    PIMPL.lSceneViews.push_back(pSceneView);
+    PIMPL.lSceneViews.Push(pSceneView);
 
     return pSceneView;
 }
@@ -65,8 +63,8 @@ RBOOL Core::Update() {
     CHECK(m_pImpl->pDevice != RNULL);
     CHECK(m_pImpl->pShader != RNULL);
 
-    for(auto i=PIMPL.lSceneViews.begin() ; i!=PIMPL.lSceneViews.end() ; ++i) {
-        (*i)->GetSwapChain()->Activate();
+    for(int i = 0 ; i < PIMPL.lSceneViews.Length() ; ++i) { 
+        PIMPL.lSceneViews[i]->GetSwapChain()->Activate();
         bError = bError || !m_pImpl->pDevice->Clear();
         bError = bError || !m_pImpl->pShader->Set();
 

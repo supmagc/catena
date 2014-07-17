@@ -12,7 +12,7 @@ namespace Chalk {
 
     class CHALK_API IDevice {
     public:
-        virtual ISwapChain* CreateSwapChain(RCBOX pSettings, Chalk::RenderSettings const* oRenderSettings) =0;
+        virtual ISwapChain* CreateSwapChain(HWND hWnd, Chalk::RenderSettings const* oRenderSettings) =0;
         virtual void ActivateSwapChain(ISwapChain* oSwapChain) =0;
         virtual ISwapChain* GetActiveSwapChain() =0;
 
