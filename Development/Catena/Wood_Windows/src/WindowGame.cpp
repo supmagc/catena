@@ -1,9 +1,23 @@
+
 #include "Wood_Windows_Std.h"
 #include "Wood_Windows_WindowGame.h"
 
 using namespace Wood::Windows;
 
-WindowGame::WindowGame(HINSTANCE hInstance) : WindowBase(hInstance) {
+PIMPL_MAKE(Wood::Windows, WindowGame) {
+    HINSTANCE hInstance;
+    Core* pCore;
+    Scene* pScene;
+    WindowCanvas* pCanvas;
+    InteractiveViewer* pViewer;
+    Renderer* pRenderer;
+};
+
+WindowGame::WindowGame(HINSTANCE hInstance, Core* pCore) : WindowBase(hInstance) {
+    PIMPL_INIT(WindowGame);
+    CHECK_NOTNULL(pCore);
+    PIMPL.hInstance = hInstance;
+    PIMPL.pCore = pCore;
 }
 
 WindowGame::~WindowGame() {
@@ -31,6 +45,14 @@ RINT WindowGame::Init(HCURSOR hCursor, HICON hIconSmall, HICON hIconLarge, WCHAR
 
     nRegisterReturn = RegisterClassExW(&oClass);
     hWnd = CreateWindowW(RTXT("WoodWindowsWindowMain"), sTitle, WS_OVERLAPPEDWINDOW, nPosX, nPosY, nWidth, nHeight, RNULL, RNULL, GetInstanceHandle(), this); 
+    PIMPL.pScene = PIMPL.pCore->CreateScene();
+    PIMPL.pCanvas = PIMPL.pCore->CreateWindowCanvas();
+    PIMPL.pCanvas->Init((RINT)hWnd, nWidth, nHeight, false);
+    PIMPL.pViewer = PIMPL.pCore->CreateInteractiveViewer();
+    PIMPL.pRenderer = PIMPL.pScene->CreateRenderer();
+    PIMPL.pRenderer->SetCanvas(PIMPL.pCanvas);
+    PIMPL.pRenderer->SetViewer(PIMPL.pViewer);
+
     return Init(hWnd);
 }
 

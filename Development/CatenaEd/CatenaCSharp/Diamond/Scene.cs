@@ -38,7 +38,36 @@ public class Scene : global::System.IDisposable {
     }
   }
 
-  public Scene() : this(Diamond_SharedPINVOKE.new_Scene(), true) {
+  public Scene(Core pCore, SWIGTYPE_p_IDevice pDevice) : this(Diamond_SharedPINVOKE.new_Scene(Core.getCPtr(pCore), SWIGTYPE_p_IDevice.getCPtr(pDevice)), true) {
+  }
+
+  public Core GetCore() {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Scene_GetCore__SWIG_0(swigCPtr);
+    Core ret = (cPtr == global::System.IntPtr.Zero) ? null : new Core(cPtr, false);
+    return ret;
+  }
+
+  public SWIGTYPE_p_Diamond__Renderer CreateRenderer() {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Scene_CreateRenderer(swigCPtr);
+    SWIGTYPE_p_Diamond__Renderer ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_Diamond__Renderer(cPtr, false);
+    return ret;
+  }
+
+  public SWIGTYPE_p_ArrayT_Diamond__Renderer_p_t GetRenderers() {
+    SWIGTYPE_p_ArrayT_Diamond__Renderer_p_t ret = new SWIGTYPE_p_ArrayT_Diamond__Renderer_p_t(Diamond_SharedPINVOKE.Scene_GetRenderers(swigCPtr), false);
+    return ret;
+  }
+
+  public void Update(float nDeltaTime, bool bDrawAll) {
+    Diamond_SharedPINVOKE.Scene_Update__SWIG_0(swigCPtr, nDeltaTime, bDrawAll);
+  }
+
+  public void Update(float nDeltaTime) {
+    Diamond_SharedPINVOKE.Scene_Update__SWIG_1(swigCPtr, nDeltaTime);
+  }
+
+  public void Release(SWIGTYPE_p_Diamond__Renderer pRenderer) {
+    Diamond_SharedPINVOKE.Scene_Release(swigCPtr, SWIGTYPE_p_Diamond__Renderer.getCPtr(pRenderer));
   }
 
 }

@@ -41,31 +41,39 @@ public class Core : global::System.IDisposable {
   public Core() : this(Diamond_SharedPINVOKE.new_Core(), true) {
   }
 
-  public Scene GetScene() {
-    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_GetScene(swigCPtr);
+  public Scene CreateScene() {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_CreateScene(swigCPtr);
     Scene ret = (cPtr == global::System.IntPtr.Zero) ? null : new Scene(cPtr, false);
     return ret;
   }
 
-  public SceneView CreateSceneView(uint nWidth, uint nHeight) {
-    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_CreateSceneView(swigCPtr, nWidth, nHeight);
-    SceneView ret = (cPtr == global::System.IntPtr.Zero) ? null : new SceneView(cPtr, false);
+  public SWIGTYPE_p_Diamond__WindowCanvas CreateWindowCanvas() {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_CreateWindowCanvas(swigCPtr);
+    SWIGTYPE_p_Diamond__WindowCanvas ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_Diamond__WindowCanvas(cPtr, false);
     return ret;
   }
 
-  public void ReleaseSceneView(SceneView pView) {
-    Diamond_SharedPINVOKE.Core_ReleaseSceneView(swigCPtr, SceneView.getCPtr(pView));
-  }
-
-  public SceneView Create(int nWnd, uint nWidth, uint nHeight, bool bFullscreen) {
-    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_Create(swigCPtr, nWnd, nWidth, nHeight, bFullscreen);
-    SceneView ret = (cPtr == global::System.IntPtr.Zero) ? null : new SceneView(cPtr, false);
+  public SWIGTYPE_p_Diamond__InteractiveViewer CreateInteractiveViewer() {
+    global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Core_CreateInteractiveViewer(swigCPtr);
+    SWIGTYPE_p_Diamond__InteractiveViewer ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_Diamond__InteractiveViewer(cPtr, false);
     return ret;
   }
 
   public bool Update() {
     bool ret = Diamond_SharedPINVOKE.Core_Update(swigCPtr);
     return ret;
+  }
+
+  public void Release(Scene pScene) {
+    Diamond_SharedPINVOKE.Core_Release__SWIG_0(swigCPtr, Scene.getCPtr(pScene));
+  }
+
+  public void Release(SWIGTYPE_p_Diamond__WindowCanvas pCanvas) {
+    Diamond_SharedPINVOKE.Core_Release__SWIG_1(swigCPtr, SWIGTYPE_p_Diamond__WindowCanvas.getCPtr(pCanvas));
+  }
+
+  public void Release(SWIGTYPE_p_Diamond__InteractiveViewer pViewer) {
+    Diamond_SharedPINVOKE.Core_Release__SWIG_2(swigCPtr, SWIGTYPE_p_Diamond__InteractiveViewer.getCPtr(pViewer));
   }
 
 }

@@ -70,18 +70,18 @@ void SwapChain::Init(IDirect3DSwapChain9* pSwapChainNative, RenderSettings const
     PIMPL.pSwapChain = pSwapChainNative;
     CHECK_HRESULT(pSwapChainNative->GetPresentParameters(&PIMPL.oPresentParameters));
 }
-
-void SwapChain::Activate() {
-    return PIMPL.pDevice->ActivateSwapChain(this);
-}
-
-RBOOL SwapChain::IsActive() const {
-    return PIMPL.pDevice->GetActiveSwapChain() == this;
-}
-
-RBOOL SwapChain::HasResource() const {
-    return RNULL != PIMPL.pSwapChain;
-}
+//
+//void SwapChain::Activate() {
+//    return PIMPL.pDevice->ActivateSwapChain(this);
+//}
+//
+//RBOOL SwapChain::IsActive() const {
+//    return PIMPL.pDevice->GetActiveSwapChain() == this;
+//}
+//
+//RBOOL SwapChain::HasResource() const {
+//    return RNULL != PIMPL.pSwapChain;
+//}
 
 RenderSettings const* SwapChain::GetRenderSettings() const {
     return &PIMPL.oRenderSettings;

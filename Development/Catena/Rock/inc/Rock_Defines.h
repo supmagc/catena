@@ -45,6 +45,9 @@
 #define DEG2RAD  (PI / 180.0)
 #define RAD2DEG  (180.0 / PI)
 
+// Index defines
+#define INDEX_NONE -1
+
 // Delete/release defines
 #define SAFE_RELEASE(p) if(p != NULL) {p->Release(); p=NULL;}
 #define SAFE_rELEASE(p) if(p != NULL) {p->release(); p=NULL;}
@@ -77,7 +80,7 @@
 // Text defines
 #define RTXT(txt) L##txt
 
-// Settings paradigm
+// Settings paradigm [Deprecated]
 #define SETTINGS(func) o##func##Settings
 #define SETTINGS_DECL(func, call) struct call func##Settings
 #define SETTINGS_INIT(ns, func) ns::func##Settings o##func##Settings = ns::func##Settings(); catMemZero(&o##func##Settings, sizeof(ns::func##Settings))

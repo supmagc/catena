@@ -11,9 +11,9 @@ namespace Chalk {
 
     class CHALK_API ISwapChain : public IResource{
     public:
-        virtual void Activate() =0;
-        virtual RBOOL IsActive() const =0;
-        virtual RBOOL HasResource() const =0;
+        //virtual void Activate() =0;
+        //virtual RBOOL IsActive() const =0;
+        //virtual RBOOL HasResource() const =0;
         virtual RenderSettings const* GetRenderSettings() const =0;
         virtual void SetRenderSettings(RenderSettings const* pRenderSettings) =0;
     };

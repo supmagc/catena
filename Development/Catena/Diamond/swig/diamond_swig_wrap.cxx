@@ -296,6 +296,16 @@ using namespace Diamond;
 extern "C" {
 #endif
 
+SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_CORE_get() {
+  int jresult ;
+  int result;
+  
+  result = (int)(1);
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_new_Core() {
   void * jresult ;
   Diamond::Core *result = 0 ;
@@ -314,59 +324,37 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Core(void * jarg1) {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Core_GetScene(void * jarg1) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Core_CreateScene(void * jarg1) {
   void * jresult ;
   Diamond::Core *arg1 = (Diamond::Core *) 0 ;
   Diamond::Scene *result = 0 ;
   
   arg1 = (Diamond::Core *)jarg1; 
-  result = (Diamond::Scene *)(arg1)->GetScene();
+  result = (Diamond::Scene *)(arg1)->CreateScene();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_Core_CreateSceneView(void * jarg1, unsigned int jarg2, unsigned int jarg3) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Core_CreateWindowCanvas(void * jarg1) {
   void * jresult ;
   Diamond::Core *arg1 = (Diamond::Core *) 0 ;
-  Rock::RUINT arg2 ;
-  Rock::RUINT arg3 ;
-  Diamond::SceneView *result = 0 ;
+  Diamond::WindowCanvas *result = 0 ;
   
   arg1 = (Diamond::Core *)jarg1; 
-  arg2 = (Rock::RUINT)jarg2; 
-  arg3 = (Rock::RUINT)jarg3; 
-  result = (Diamond::SceneView *)(arg1)->CreateSceneView(arg2,arg3);
+  result = (Diamond::WindowCanvas *)(arg1)->CreateWindowCanvas();
   jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_Core_ReleaseSceneView(void * jarg1, void * jarg2) {
-  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
-  Diamond::SceneView *arg2 = (Diamond::SceneView *) 0 ;
-  
-  arg1 = (Diamond::Core *)jarg1; 
-  arg2 = (Diamond::SceneView *)jarg2; 
-  (arg1)->ReleaseSceneView(arg2);
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_Core_Create(void * jarg1, int jarg2, unsigned int jarg3, unsigned int jarg4, unsigned int jarg5) {
+SWIGEXPORT void * SWIGSTDCALL CSharp_Core_CreateInteractiveViewer(void * jarg1) {
   void * jresult ;
   Diamond::Core *arg1 = (Diamond::Core *) 0 ;
-  Rock::RINT arg2 ;
-  Rock::RUINT arg3 ;
-  Rock::RUINT arg4 ;
-  Rock::RBOOL arg5 ;
-  Diamond::SceneView *result = 0 ;
+  Diamond::InteractiveViewer *result = 0 ;
   
   arg1 = (Diamond::Core *)jarg1; 
-  arg2 = (Rock::RINT)jarg2; 
-  arg3 = (Rock::RUINT)jarg3; 
-  arg4 = (Rock::RUINT)jarg4; 
-  arg5 = jarg5 ? true : false; 
-  result = (Diamond::SceneView *)(arg1)->Create(arg2,arg3,arg4,arg5);
+  result = (Diamond::InteractiveViewer *)(arg1)->CreateInteractiveViewer();
   jresult = (void *)result; 
   return jresult;
 }
@@ -384,6 +372,36 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Core_Update(void * jarg1) {
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_Core_Release__SWIG_0(void * jarg1, void * jarg2) {
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Diamond::Scene *arg2 = (Diamond::Scene *) 0 ;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  arg2 = (Diamond::Scene *)jarg2; 
+  (arg1)->Release(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Core_Release__SWIG_1(void * jarg1, void * jarg2) {
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Diamond::WindowCanvas *arg2 = (Diamond::WindowCanvas *) 0 ;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  arg2 = (Diamond::WindowCanvas *)jarg2; 
+  (arg1)->Release(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Core_Release__SWIG_2(void * jarg1, void * jarg2) {
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Diamond::InteractiveViewer *arg2 = (Diamond::InteractiveViewer *) 0 ;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  arg2 = (Diamond::InteractiveViewer *)jarg2; 
+  (arg1)->Release(arg2);
+}
+
+
 SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_SCENE_get() {
   int jresult ;
   int result;
@@ -394,11 +412,15 @@ SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_SCENE_get() {
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_new_Scene() {
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Scene(void * jarg1, void * jarg2) {
   void * jresult ;
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  IDevice *arg2 = (IDevice *) 0 ;
   Diamond::Scene *result = 0 ;
   
-  result = (Diamond::Scene *)new Diamond::Scene();
+  arg1 = (Diamond::Core *)jarg1; 
+  arg2 = (IDevice *)jarg2; 
+  result = (Diamond::Scene *)new Diamond::Scene(arg1,arg2);
   jresult = (void *)result; 
   return jresult;
 }
@@ -409,6 +431,74 @@ SWIGEXPORT void SWIGSTDCALL CSharp_delete_Scene(void * jarg1) {
   
   arg1 = (Diamond::Scene *)jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Scene_GetCore__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  Diamond::Core *result = 0 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  result = (Diamond::Core *)(arg1)->GetCore();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Scene_CreateRenderer(void * jarg1) {
+  void * jresult ;
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  Diamond::Renderer *result = 0 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  result = (Diamond::Renderer *)(arg1)->CreateRenderer();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Scene_GetRenderers(void * jarg1) {
+  void * jresult ;
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  Array< Diamond::Renderer * > *result = 0 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  result = (Array< Diamond::Renderer * > *) &((Diamond::Scene const *)arg1)->GetRenderers();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Scene_Update__SWIG_0(void * jarg1, float jarg2, unsigned int jarg3) {
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  float arg2 ;
+  Rock::RBOOL arg3 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  arg2 = (float)jarg2; 
+  arg3 = jarg3 ? true : false; 
+  (arg1)->Update(arg2,arg3);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Scene_Update__SWIG_1(void * jarg1, float jarg2) {
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  float arg2 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  arg2 = (float)jarg2; 
+  (arg1)->Update(arg2);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_Scene_Release(void * jarg1, void * jarg2) {
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  Diamond::Renderer *arg2 = (Diamond::Renderer *) 0 ;
+  
+  arg1 = (Diamond::Scene *)jarg1; 
+  arg2 = (Diamond::Renderer *)jarg2; 
+  (arg1)->Release(arg2);
 }
 
 

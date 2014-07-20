@@ -22,9 +22,9 @@ namespace Chalk {
             virtual void OnDeviceLost();
             virtual void OnDeviceReset();
 
-            virtual void Activate();
-            virtual RBOOL IsActive() const;
-            virtual RBOOL HasResource() const;
+            //virtual void Activate();
+            //virtual RBOOL IsActive() const;
+            //virtual RBOOL HasResource() const;
             virtual RenderSettings const* GetRenderSettings() const;
             virtual void SetRenderSettings(RenderSettings const* pRenderSettings);
 
