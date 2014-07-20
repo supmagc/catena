@@ -1,10 +1,12 @@
 #ifndef _H_WOOD_WINDOWS_WINDOWGAME
 #define _H_WOOD_WINDOWS_WINDOWGAME
 
-#include "Rock.h"
-#include "Wood.h"
 #include "Wood_Windows_Defines.h"
 #include "Wood_Windows_WindowBase.h"
+
+#include "Rock.h"
+#include "Wood.h"
+#include "Diamond.h"
 
 namespace Wood {
 
@@ -12,7 +14,7 @@ namespace Wood {
 
         class WOOD_WINDOWS_API WindowGame : public WindowBase {
         public:
-            WindowGame(HINSTANCE hInstance);
+            WindowGame(HINSTANCE hInstance, Core* pCore);
             virtual ~WindowGame();
 
             using WindowBase::Init;
@@ -22,6 +24,7 @@ namespace Wood {
             virtual RINT UpdateComponents();
 
         private:
+            PIMPL_DECL(WindowGame);
             CLASS_NOCOPY(WindowGame);
         };
     };

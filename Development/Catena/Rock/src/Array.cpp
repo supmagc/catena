@@ -28,8 +28,8 @@ void Test() {
     lData0.FirstIndexOf(16, nIndex);
     lData0.LastIndexOf(16, nIndex);
     //   lData0.Insert(16, 0);
-    //   lData0.RemoveElement(16);
- //   lData0.RemoveIndex(0);
+    lData0.RemoveElement(16);
+    lData0.RemoveIndex(0);
     lData0.Increase(4);
     lData0.Decrease(2);
     lData0.Resize(8);

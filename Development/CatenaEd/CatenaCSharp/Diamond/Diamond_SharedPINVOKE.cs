@@ -186,35 +186,62 @@ class Diamond_SharedPINVOKE {
   }
 
 
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp__H_DIAMOND_CORE_get")]
+  public static extern int _H_DIAMOND_CORE_get();
+
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_new_Core")]
   public static extern global::System.IntPtr new_Core();
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_delete_Core")]
   public static extern void delete_Core(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_GetScene")]
-  public static extern global::System.IntPtr Core_GetScene(global::System.Runtime.InteropServices.HandleRef jarg1);
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_CreateScene")]
+  public static extern global::System.IntPtr Core_CreateScene(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_CreateSceneView")]
-  public static extern global::System.IntPtr Core_CreateSceneView(global::System.Runtime.InteropServices.HandleRef jarg1, uint jarg2, uint jarg3);
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_CreateWindowCanvas")]
+  public static extern global::System.IntPtr Core_CreateWindowCanvas(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_ReleaseSceneView")]
-  public static extern void Core_ReleaseSceneView(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Create")]
-  public static extern global::System.IntPtr Core_Create(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, uint jarg3, uint jarg4, bool jarg5);
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_CreateInteractiveViewer")]
+  public static extern global::System.IntPtr Core_CreateInteractiveViewer(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Update")]
   public static extern bool Core_Update(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Release__SWIG_0")]
+  public static extern void Core_Release__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Release__SWIG_1")]
+  public static extern void Core_Release__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Core_Release__SWIG_2")]
+  public static extern void Core_Release__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp__H_DIAMOND_SCENE_get")]
   public static extern int _H_DIAMOND_SCENE_get();
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_new_Scene")]
-  public static extern global::System.IntPtr new_Scene();
+  public static extern global::System.IntPtr new_Scene(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_delete_Scene")]
   public static extern void delete_Scene(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_GetCore__SWIG_0")]
+  public static extern global::System.IntPtr Scene_GetCore__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_CreateRenderer")]
+  public static extern global::System.IntPtr Scene_CreateRenderer(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_GetRenderers")]
+  public static extern global::System.IntPtr Scene_GetRenderers(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_Update__SWIG_0")]
+  public static extern void Scene_Update__SWIG_0(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2, bool jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_Update__SWIG_1")]
+  public static extern void Scene_Update__SWIG_1(global::System.Runtime.InteropServices.HandleRef jarg1, float jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Scene_Release")]
+  public static extern void Scene_Release(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp__H_DIAMOND_SCENEVIEW_get")]
   public static extern int _H_DIAMOND_SCENEVIEW_get();

@@ -9,6 +9,7 @@
 namespace Diamond {
 
 public class Diamond_Shared {
+  public static readonly int _H_DIAMOND_CORE = Diamond_SharedPINVOKE._H_DIAMOND_CORE_get();
   public static readonly int _H_DIAMOND_SCENE = Diamond_SharedPINVOKE._H_DIAMOND_SCENE_get();
   public static readonly int _H_DIAMOND_SCENEVIEW = Diamond_SharedPINVOKE._H_DIAMOND_SCENEVIEW_get();
 }

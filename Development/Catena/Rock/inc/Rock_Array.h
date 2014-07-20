@@ -51,24 +51,24 @@ namespace Rock {
         }
 
         FORCEINLINE ElementType Peek() const {
-            CHECK(m_nLength > 0);
+            CHECK_SLOW(m_nLength > 0);
             return m_oData.GetData()[m_nLength - 1];
         }
 
-        FORCEINLINE Type Peek(SizeType nLength) {
-            CHECK(m_nLength <= m_nLength);
+        FORCEINLINE Type Peek(SizeType nLength) const {
+            CHECK_SLOW(m_nLength <= m_nLength);
             Type lReturn(nLength, m_nBlockSize);
             catMemCopy(&m_oData.GetData()[m_nLength - nLength], lReturn.m_oData.GetData(), nLength * ElementSize);
             return lReturn;
         }
 
         FORCEINLINE ElementType Pop() {
-            CHECK(m_nLength > 0);
+            CHECK_SLOW(m_nLength > 0);
             return m_oData.GetData()[--m_nLength];
         }
 
         FORCEINLINE Type Pop(SizeType nLength) {
-            CHECK(m_nLength <= m_nLength);
+            CHECK_SLOW(m_nLength <= m_nLength);
             Type lReturn(nLength, m_nBlockSize);
             catMemCopy(&m_oData.GetData()[m_nLength - nLength], lReturn.m_oData.GetData(), nLength * ElementSize);
             m_nLength -= nLength;
@@ -77,6 +77,11 @@ namespace Rock {
 
         FORCEINLINE void Clear() {
             m_nLength = 0;
+        }
+
+        FORCEINLINE RBOOL Contains(ElementType const& mElement) const {
+            SizeType nIndex;
+            return FirstIndexOf(mElement, nIndex);
         }
 
         FORCEINLINE RBOOL FirstIndexOf(ElementType const& mElement, SizeType& o_nIndex) const {
@@ -99,14 +104,22 @@ namespace Rock {
 
         //}
 
-        //FORCEINLINE RBOOL RemoveElement(T mElement) {
-        //    // TODO
-        //    return false;
-        //}
+        FORCEINLINE SizeType RemoveElement(ElementType mElement) {
+            SizeType nRemoved = 0;
+            SizeType nIndex = INDEX_NONE;
+            while(FirstIndexOf(mElement, nIndex)) {
+                RemoveIndex(nIndex);
+                ++nRemoved;
+            }
+            return nRemoved;
+        }
 
-        //FORCEINLINE RBOOL RemoveIndex(S nIndex) {
-        //    return false;
-        //}
+        FORCEINLINE void RemoveIndex(SizeType nIndex) {
+            CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
+            RUINT nBefore = nIndex * ElementSize;
+            RUINT nAfter = (m_nLength - nIndex - 1) * ElementSize;
+            catMemMove(m_oData.GetData() + nBefore + ElementSize, m_oData.GetData() + nBefore, nAfter);
+        }
 
         FORCEINLINE void Increase(SizeType nIncrease = 0) {
             if(nIncrease <= 0) Resize(m_nLength / 2 + 1);
@@ -143,12 +156,12 @@ namespace Rock {
         }
 
         FORCEINLINE ElementType const& operator[](SizeType nIndex) const {
-            CHECK(nIndex >= 0 && nIndex < m_nLength);
+            CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
             return m_oData.GetData()[nIndex];
         }
 
         FORCEINLINE ElementType& operator[](SizeType nIndex) {
-            CHECK(nIndex >= 0 && nIndex < m_nLength);
+            CHECK_SLOW(nIndex >= 0 && nIndex < m_nLength);
             return m_oData.GetData()[nIndex];
         }
 

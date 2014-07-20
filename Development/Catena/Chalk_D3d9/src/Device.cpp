@@ -60,6 +60,9 @@ ISwapChain* Device::GetActiveSwapChain() {
 
 void Device::ReleaseResource(IResource* pResource) {
     CHECK_NOTNULL(pResource);
+
+    PIMPL.lResources.RemoveElement(pResource);
+    pResource->Release();
 }
 
 RBOOL Device::Verify() {
