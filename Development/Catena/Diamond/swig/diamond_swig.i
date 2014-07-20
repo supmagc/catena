@@ -19,9 +19,6 @@
 #include "Chalk.h"
 #include "Chalk_D3d9.h"
 #include "Diamond.h"
-using namespace Rock;
-using namespace Chalk;
-using namespace Diamond;
 %}
 
 //
@@ -29,7 +26,7 @@ using namespace Diamond;
 //
 %include "../inc/Diamond_Core.h"
 %include "../inc/Diamond_Scene.h"
-%include "../inc/Diamond_SceneView.h"
+%include "../inc/Diamond_Renderer.h"
 
 //
 // Expose namespace for depending modules

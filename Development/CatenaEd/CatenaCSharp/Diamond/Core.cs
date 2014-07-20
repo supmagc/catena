@@ -59,6 +59,11 @@ public class Core : global::System.IDisposable {
     return ret;
   }
 
+  public SWIGTYPE_p_ArrayT_Diamond__Scene_p_t GetScenes() {
+    SWIGTYPE_p_ArrayT_Diamond__Scene_p_t ret = new SWIGTYPE_p_ArrayT_Diamond__Scene_p_t(Diamond_SharedPINVOKE.Core_GetScenes(swigCPtr), false);
+    return ret;
+  }
+
   public bool Update() {
     bool ret = Diamond_SharedPINVOKE.Core_Update(swigCPtr);
     return ret;
