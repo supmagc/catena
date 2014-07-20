@@ -287,9 +287,6 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_Diamond_Shared(SWIG_CShar
 #include "Chalk.h"
 #include "Chalk_D3d9.h"
 #include "Diamond.h"
-using namespace Rock;
-using namespace Chalk;
-using namespace Diamond;
 
 
 #ifdef __cplusplus
@@ -355,6 +352,18 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_Core_CreateInteractiveViewer(void * jarg1) 
   
   arg1 = (Diamond::Core *)jarg1; 
   result = (Diamond::InteractiveViewer *)(arg1)->CreateInteractiveViewer();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Core_GetScenes(void * jarg1) {
+  void * jresult ;
+  Diamond::Core *arg1 = (Diamond::Core *) 0 ;
+  Array< Diamond::Scene * > *result = 0 ;
+  
+  arg1 = (Diamond::Core *)jarg1; 
+  result = (Array< Diamond::Scene * > *) &((Diamond::Core const *)arg1)->GetScenes();
   jresult = (void *)result; 
   return jresult;
 }
@@ -502,7 +511,7 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Scene_Release(void * jarg1, void * jarg2) {
 }
 
 
-SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_SCENEVIEW_get() {
+SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_RENDERER_get() {
   int jresult ;
   int result;
   
@@ -512,68 +521,88 @@ SWIGEXPORT int SWIGSTDCALL CSharp__H_DIAMOND_SCENEVIEW_get() {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_delete_SceneView(void * jarg1) {
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
+SWIGEXPORT void * SWIGSTDCALL CSharp_new_Renderer(void * jarg1, void * jarg2) {
+  void * jresult ;
+  Diamond::Scene *arg1 = (Diamond::Scene *) 0 ;
+  IDevice *arg2 = (IDevice *) 0 ;
+  Diamond::Renderer *result = 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
+  arg1 = (Diamond::Scene *)jarg1; 
+  arg2 = (IDevice *)jarg2; 
+  result = (Diamond::Renderer *)new Diamond::Renderer(arg1,arg2);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_delete_Renderer(void * jarg1) {
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  
+  arg1 = (Diamond::Renderer *)jarg1; 
   delete arg1;
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_SceneView_SetSize(void * jarg1, unsigned int jarg2, unsigned int jarg3) {
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
-  Rock::RUINT arg2 ;
-  Rock::RUINT arg3 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Renderer_Draw(void * jarg1) {
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
-  arg2 = (Rock::RUINT)jarg2; 
-  arg3 = (Rock::RUINT)jarg3; 
-  (arg1)->SetSize(arg2,arg3);
+  arg1 = (Diamond::Renderer *)jarg1; 
+  (arg1)->Draw();
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_SceneView_SetFullscreen(void * jarg1, unsigned int jarg2) {
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
-  Rock::RBOOL arg2 ;
+SWIGEXPORT void SWIGSTDCALL CSharp_Renderer_SetCanvas(void * jarg1, void * jarg2) {
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Diamond::ICanvas *arg2 = (Diamond::ICanvas *) 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->SetFullscreen(arg2);
+  arg1 = (Diamond::Renderer *)jarg1; 
+  arg2 = (Diamond::ICanvas *)jarg2; 
+  (arg1)->SetCanvas(arg2);
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_SceneView_GetWidth(void * jarg1) {
-  unsigned int jresult ;
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
-  Rock::RUINT result;
+SWIGEXPORT void SWIGSTDCALL CSharp_Renderer_SetViewer(void * jarg1, void * jarg2) {
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Diamond::IViewer *arg2 = (Diamond::IViewer *) 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
-  result = (Rock::RUINT)((Diamond::SceneView const *)arg1)->GetWidth();
-  jresult = result; 
+  arg1 = (Diamond::Renderer *)jarg1; 
+  arg2 = (Diamond::IViewer *)jarg2; 
+  (arg1)->SetViewer(arg2);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_Renderer_GetCanvas__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Diamond::ICanvas *result = 0 ;
+  
+  arg1 = (Diamond::Renderer *)jarg1; 
+  result = (Diamond::ICanvas *)(arg1)->GetCanvas();
+  jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_SceneView_GetHeight(void * jarg1) {
-  unsigned int jresult ;
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
-  Rock::RUINT result;
+SWIGEXPORT void * SWIGSTDCALL CSharp_Renderer_GetViewer__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Diamond::IViewer *result = 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
-  result = (Rock::RUINT)((Diamond::SceneView const *)arg1)->GetHeight();
-  jresult = result; 
+  arg1 = (Diamond::Renderer *)jarg1; 
+  result = (Diamond::IViewer *)(arg1)->GetViewer();
+  jresult = (void *)result; 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_SceneView_GetFullscreen(void * jarg1) {
-  unsigned int jresult ;
-  Diamond::SceneView *arg1 = (Diamond::SceneView *) 0 ;
-  Rock::RBOOL result;
+SWIGEXPORT void * SWIGSTDCALL CSharp_Renderer_GetScene__SWIG_0(void * jarg1) {
+  void * jresult ;
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Diamond::Scene *result = 0 ;
   
-  arg1 = (Diamond::SceneView *)jarg1; 
-  result = (Rock::RBOOL)((Diamond::SceneView const *)arg1)->GetFullscreen();
-  jresult = result; 
+  arg1 = (Diamond::Renderer *)jarg1; 
+  result = (Diamond::Scene *)(arg1)->GetScene();
+  jresult = (void *)result; 
   return jresult;
 }
 

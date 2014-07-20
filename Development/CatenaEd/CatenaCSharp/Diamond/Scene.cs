@@ -47,9 +47,9 @@ public class Scene : global::System.IDisposable {
     return ret;
   }
 
-  public SWIGTYPE_p_Diamond__Renderer CreateRenderer() {
+  public Renderer CreateRenderer() {
     global::System.IntPtr cPtr = Diamond_SharedPINVOKE.Scene_CreateRenderer(swigCPtr);
-    SWIGTYPE_p_Diamond__Renderer ret = (cPtr == global::System.IntPtr.Zero) ? null : new SWIGTYPE_p_Diamond__Renderer(cPtr, false);
+    Renderer ret = (cPtr == global::System.IntPtr.Zero) ? null : new Renderer(cPtr, false);
     return ret;
   }
 
@@ -66,8 +66,8 @@ public class Scene : global::System.IDisposable {
     Diamond_SharedPINVOKE.Scene_Update__SWIG_1(swigCPtr, nDeltaTime);
   }
 
-  public void Release(SWIGTYPE_p_Diamond__Renderer pRenderer) {
-    Diamond_SharedPINVOKE.Scene_Release(swigCPtr, SWIGTYPE_p_Diamond__Renderer.getCPtr(pRenderer));
+  public void Release(Renderer pRenderer) {
+    Diamond_SharedPINVOKE.Scene_Release(swigCPtr, Renderer.getCPtr(pRenderer));
   }
 
 }
