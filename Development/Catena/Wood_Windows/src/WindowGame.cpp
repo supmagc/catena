@@ -21,6 +21,9 @@ WindowGame::WindowGame(HINSTANCE hInstance, Core* pCore) : WindowBase(hInstance)
 }
 
 WindowGame::~WindowGame() {
+    PIMPL.pCore->Release(PIMPL.pCanvas);
+    PIMPL.pCore->Release(PIMPL.pViewer);
+    PIMPL.pCore->Release(PIMPL.pScene);
 }
 
 RINT WindowGame::Init(HCURSOR hCursor, HICON hIconSmall, HICON hIconLarge, WCHAR const* sTitle, RUINT nPosX, RUINT nPosY, RUINT nWidth, RUINT nHeight) {

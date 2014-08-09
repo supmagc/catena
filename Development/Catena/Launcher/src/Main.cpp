@@ -10,9 +10,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
 
 #ifdef _WINDOWS
 #ifdef _DEBUG
-    //_CrtCheckMemory();
-    //_CrtDumpMemoryLeaks();
-    //_CrtSetBreakAlloc();
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    _CrtSetBreakAlloc(307);
 #endif
 
     Wood::Windows::MainLoop::InitSettings oSettings;

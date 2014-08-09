@@ -37,16 +37,19 @@ Renderer::~Renderer() {
 }
 
 void Renderer::Draw() {
-    // Draw stuff
+    CHECK_NOTNULL(PIMPL.pCanvas);
+    CHECK_NOTNULL(PIMPL.pViewer);
 
-    // Activate canvas
     PIMPL.pCanvas->Activate();
     PIMPL.pDevice->Clear();
 
-    // Test draw
     PIMPL.pMesh->Draw();
 
     PIMPL.pDevice->Switch();
+}
+
+RBOOL Renderer::CanDraw() const {
+    return RNULL != PIMPL.pCanvas && RNULL != PIMPL.pViewer;
 }
 
 void Renderer::SetCanvas(ICanvas* pCanvas) {

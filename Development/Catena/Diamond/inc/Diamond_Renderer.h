@@ -3,6 +3,7 @@
 
 #include "Diamond_Defines.h"
 #include "Chalk.h"
+#include "Rock.h"
 
 namespace Diamond {
 
@@ -16,6 +17,7 @@ namespace Diamond {
         virtual ~Renderer();
 
         void Draw();
+        RBOOL CanDraw() const;
         void SetCanvas(ICanvas* pCanvas);
         void SetViewer(IViewer* pViewer);
         ICanvas* GetCanvas();
