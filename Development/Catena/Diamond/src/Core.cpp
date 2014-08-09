@@ -13,12 +13,13 @@ PIMPL_MAKE(Diamond, Core) {
 
 Core::Core() {
     PIMPL_INIT(Core);
-
     PIMPL.pDevice = new Chalk::D3d9::Device();
 }
 
 Core::~Core() {
+    CHECK_SLOW_TRUE(PIMPL.lScenes.Length() == 0);
     SAFE_DELETE(PIMPL.pDevice);
+    catOutputLog("-- SCENE CLEANUP");
     PIMPL_DELETE();
 }
 
@@ -44,30 +45,6 @@ RBOOL Core::Update() {
     for(RUINT i = 0 ; i < PIMPL.lScenes.Length() ; ++i) {
         PIMPL.lScenes[i]->Update(0.05f);
     }
-    //RBOOL bError = false;
-
-    //CHECK(m_pImpl->pDevice != RNULL);
-    //CHECK(m_pImpl->pShader != RNULL);
-
-    //for(int i = 0 ; i < PIMPL.lSceneViews.Length() ; ++i) { 
-    //    PIMPL.lSceneViews[i]->GetSwapChain()->Activate();
-    //    bError = bError || !m_pImpl->pDevice->Clear();
-    //    bError = bError || !m_pImpl->pShader->Set();
-
-    //    Matrix mWorld = Matrix();
-    //    g_nTemp += g_nDir * 0.01f;
-    //    if(g_nTemp > 5) {g_nTemp = 5; g_nDir =-1;}
-    //    if(g_nTemp <-5) {g_nTemp =-5; g_nDir = 1;}
-    //    Matrix mView = Matrix::CreateViewLH(Vector(g_nTemp, 0, -2), Vector(0, 0, 0), Vector3(0, 1, 0));
-    //    Matrix mProj = Matrix::CreatePerspectiveLH(45, 1024.0f/768.0f, 0.1f, 100);
-    //    Matrix mWVP = mView * mProj;
-    //    PIMPL.pShader->SetData(mWVP.v, 4);
-
-    //    bError = bError || !m_pImpl->pVertexBuffer->Set();
-    //    bError = bError || !m_pImpl->pDevice->Switch();
-    //}
-
-    //return !bError;
     return true;
 }
 

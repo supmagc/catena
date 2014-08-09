@@ -15,6 +15,7 @@ namespace Rock {
         public:
             Boxed() : m_pData(RNULL) {}
             ~Boxed() {
+                catOutputLog(RTXT("Allocator fress some meory !!"));
                 catMemFree(m_pData);
                 m_pData = RNULL;
             }
@@ -35,6 +36,10 @@ namespace Rock {
         class ByType : public Boxed {
         public:
             ByType() : Boxed() {}
+
+            ~ByType() {
+                catOutputLog(RTXT("Allocator frees some meory !!"));
+            }
 
             INLINE ElementType* GetData() const {
                 return (ElementType*)Boxed::GetData();

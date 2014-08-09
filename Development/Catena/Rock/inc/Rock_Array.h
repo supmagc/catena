@@ -36,6 +36,7 @@ namespace Rock {
         }
 
         ~Array() {
+            catOutputLog(RTXT("-- ARAY IS DONE"));
         }
 
         FORCEINLINE void Push(ElementType mElement) {

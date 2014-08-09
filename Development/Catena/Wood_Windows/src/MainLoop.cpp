@@ -18,6 +18,8 @@ MainLoop::MainLoop() {
 }
 
 MainLoop::~MainLoop() {
+    SAFE_DELETE(PIMPL.pWindowGame);
+    SAFE_DELETE(PIMPL.pWindowGameTest);
     PIMPL_DELETE();
 }
 

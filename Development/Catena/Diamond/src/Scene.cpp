@@ -22,6 +22,8 @@ Scene::Scene(Core* pCore, IDevice* pDevice) {
 }
 
 Scene::~Scene() {
+    catOutputLog("-- SCENE CLEANUP");
+
     CHECK_SLOW_FALSE(PIMPL.pCore->GetScenes().Contains(this));
     PIMPL_DELETE();
 }
@@ -47,7 +49,8 @@ Array<Renderer*> const& Scene::GetRenderers() const {
 void Scene::Update(float nDeltaTime, RBOOL bDrawAll) {
     if(bDrawAll) {
         for(RUINT i = 0 ; i < PIMPL.lRenderers.Length() ; ++i) {
-            PIMPL.lRenderers[i]->Draw();
+            if(PIMPL.lRenderers[i]->CanDraw())
+                PIMPL.lRenderers[i]->Draw();
         }
     }
 }
