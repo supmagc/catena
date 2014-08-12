@@ -44,5 +44,4 @@ set(ROCK_FILES_TEST
 )
 
 component_init()
-add_component("Rock" "" ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE})
-add_component_test("Rock" ${ROCK_FILES_TEST})
+add_component("Rock" "" ${ROCK_FILES_HEADER} ${ROCK_FILES_INLINE} ${ROCK_FILES_SOURCE} ${ROCK_FILES_TEST})
