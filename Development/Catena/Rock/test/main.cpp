@@ -2,6 +2,7 @@
 #include "Rock.h"
 using namespace std;
 
+/*
 class IParent {
 public:
     virtual void Release() =0;
@@ -26,13 +27,14 @@ public:
         cout << "bla bla says the human" << endl;
     }
 };
+*/
 
 int wmain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
     cout << "Hello World!" << endl << "Welcome to C++ Programming" << endl;
 
-    Child oChild = new Child();
-    oChild.Do();
-    oChild.Release();
+    //Child oChild = new Child();
+    //oChild.Do();
+    //oChild.Release();
 
     char c;
     cin >> c;
