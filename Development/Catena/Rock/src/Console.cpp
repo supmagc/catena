@@ -9,7 +9,7 @@ using namespace Rock;
 Console::Console() : m_hConsole(INVALID_HANDLE_VALUE) {
 	AllocConsole();
 	m_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	CHECK_FALSE(m_hConsole == INVALID_HANDLE_VALUE);
+	CHECK_NOTEQUAL(m_hConsole, INVALID_HANDLE_VALUE);
 }
 
 Console::~Console() {
