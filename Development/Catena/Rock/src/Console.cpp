@@ -13,9 +13,7 @@ Console::Console() : m_hConsole(INVALID_HANDLE_VALUE) {
 }
 
 Console::~Console() {
-	if(GetStdHandle(STD_OUTPUT_HANDLE) == m_hConsole)
-		fclose(stdout);
-
+	fclose(stdout);
 	m_hConsole = INVALID_HANDLE_VALUE;
 	FreeConsole();
 }
@@ -23,6 +21,17 @@ Console::~Console() {
 void Console::AttachToStdOut() {
 	FILE* pStream;
 	freopen_s(&pStream, "CONOUT$", "w", stdout);
+}
+
+void Console::SetColor(Color eForegroundColor, RBOOL bForegroundIntens, Color eBackgroundColor, RBOOL bBackgroundIntens) {
+	WORD nColor = 0;
+	nColor |= (RBYTE)eForegroundColor;
+	nColor |= (RBYTE)eBackgroundColor << 4;
+	if(bForegroundIntens)
+		nColor |= 0x08;
+	if(bBackgroundIntens)
+		nColor |= 0x08;
+	SetConsoleTextAttribute(m_hConsole, nColor);
 }
 
 void Console::Write(String const& sData) {

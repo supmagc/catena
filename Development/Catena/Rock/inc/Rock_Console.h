@@ -9,10 +9,22 @@ namespace Rock {
 
 	class ROCK_API Console {
 	public:
+		enum class Color : RBYTE {
+			BLACK = 0x00,
+			RED = 0x04,
+			GREEN = 0x02,
+			BLUE = 0x01,
+			YELLOW = 0x06,
+			MAGENTA = 0x05,
+			CYAN = 0x03,
+			WHITE = 0x07,
+		};
+
 		Console();
 		~Console();
 
 		void AttachToStdOut();
+		void SetColor(Color eForegroundColor, RBOOL bForegroundIntens, Color eBackgroundColor, RBOOL bBackgroundIntens);
 		void Write(String const& sData);
 
 	private:
