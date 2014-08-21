@@ -29,14 +29,16 @@ public:
 };
 */
 
-int wmain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
-    cout << "Hello World!" << endl << "Welcome to C++ Programming" << endl;
+int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
+	Console oConsole;
+	oConsole.AttachToStdOut();
+
+	cout << "Hello World!" << endl << "Welcome to C++ Programming" << endl;
 
     //Child oChild = new Child();
     //oChild.Do();
     //oChild.Release();
 
-    char c;
-    cin >> c;
+	system("pause");
     return 0;
 }
