@@ -15,6 +15,7 @@
 #include "Rock_Checks.h"
 #include "Rock_Functions.h"
 #include "Rock_Array.h"
+#include "Rock_Console.h"
 
 using namespace Rock;
 

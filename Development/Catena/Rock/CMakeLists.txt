@@ -15,6 +15,7 @@ set(ROCK_FILES_HEADER
     inc/Rock_Array.h
     inc/Rock_Memory.h
     inc/Rock_Allocators.h
+	inc/Rock_Console.h
 )
 
 set(ROCK_FILES_INLINE
@@ -37,6 +38,7 @@ set(ROCK_FILES_SOURCE
     src/Array.cpp
     src/Memory.cpp
     src/Allocators.cpp
+	src/Console.cpp
 )
 
 set(ROCK_FILES_TEST
