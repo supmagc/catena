@@ -6,16 +6,25 @@
 
 using namespace Rock;
 
-Console::Console() : m_hConsole(INVALID_HANDLE_VALUE) {
-	AllocConsole();
-	m_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	CHECK_NOTEQUAL(m_hConsole, INVALID_HANDLE_VALUE);
+HANDLE Console::s_hConsole = INVALID_HANDLE_VALUE;
+RUINT32 Console::s_nInstanceCount = 0;
+
+Console::Console() {
+	if(s_nInstanceCount == 0) {
+		CHECK_RESULT_TRUE(AllocConsole());
+		s_hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+		CHECK_NOTEQUAL(s_hConsole, INVALID_HANDLE_VALUE);
+	}
+	++s_nInstanceCount;
 }
 
 Console::~Console() {
 	fclose(stdout);
-	m_hConsole = INVALID_HANDLE_VALUE;
-	FreeConsole();
+	--s_nInstanceCount;
+	if(s_nInstanceCount == 0) {
+		s_hConsole = INVALID_HANDLE_VALUE;
+		FreeConsole();
+	}
 }
 
 void Console::AttachToStdOut() {
@@ -31,10 +40,10 @@ void Console::SetColor(Color eForegroundColor, RBOOL bForegroundIntens, Color eB
 		nColor |= 0x08;
 	if(bBackgroundIntens)
 		nColor |= 0x08;
-	SetConsoleTextAttribute(m_hConsole, nColor);
+	SetConsoleTextAttribute(s_hConsole, nColor);
 }
 
 void Console::Write(String const& sData) {
 	DWORD nWritten;
-	WriteConsole(m_hConsole, *sData, sData.GetLength(), &nWritten, RNULL);
+	WriteConsole(s_hConsole, *sData, sData.GetLength(), &nWritten, RNULL);
 }

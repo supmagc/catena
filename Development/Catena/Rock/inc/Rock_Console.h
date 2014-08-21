@@ -28,7 +28,8 @@ namespace Rock {
 		void Write(String const& sData);
 
 	private:
-		HANDLE m_hConsole;
+		static HANDLE s_hConsole;
+		static RUINT32 s_nInstanceCount;
 
 		CLASS_NOCOPY(Console);
 	};
