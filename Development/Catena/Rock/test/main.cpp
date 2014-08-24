@@ -30,10 +30,8 @@ public:
 */
 
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
-	Console oConsole;
-	Console oConsoleTest;
-	oConsole.AttachToStdOut();
-	oConsole.SetColor(Console::Color::YELLOW, true, Console::Color::MAGENTA, false);
+    Console::Show();
+	Console::SetColor(Console::Color::YELLOW, true, Console::Color::MAGENTA, false);
 
 	cout << "Hello World!" << endl << "Welcome to C++ Programming" << endl;
 
