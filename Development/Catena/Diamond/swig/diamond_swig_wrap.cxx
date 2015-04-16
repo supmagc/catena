@@ -551,6 +551,18 @@ SWIGEXPORT void SWIGSTDCALL CSharp_Renderer_Draw(void * jarg1) {
 }
 
 
+SWIGEXPORT unsigned int SWIGSTDCALL CSharp_Renderer_CanDraw(void * jarg1) {
+  unsigned int jresult ;
+  Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
+  Rock::RBOOL result;
+  
+  arg1 = (Diamond::Renderer *)jarg1; 
+  result = (Rock::RBOOL)((Diamond::Renderer const *)arg1)->CanDraw();
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void SWIGSTDCALL CSharp_Renderer_SetCanvas(void * jarg1, void * jarg2) {
   Diamond::Renderer *arg1 = (Diamond::Renderer *) 0 ;
   Diamond::ICanvas *arg2 = (Diamond::ICanvas *) 0 ;

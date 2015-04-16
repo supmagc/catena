@@ -45,6 +45,11 @@ public class Renderer : global::System.IDisposable {
     Diamond_SharedPINVOKE.Renderer_Draw(swigCPtr);
   }
 
+  public bool CanDraw() {
+    bool ret = Diamond_SharedPINVOKE.Renderer_CanDraw(swigCPtr);
+    return ret;
+  }
+
   public void SetCanvas(SWIGTYPE_p_Diamond__ICanvas pCanvas) {
     Diamond_SharedPINVOKE.Renderer_SetCanvas(swigCPtr, SWIGTYPE_p_Diamond__ICanvas.getCPtr(pCanvas));
   }

@@ -258,6 +258,9 @@ class Diamond_SharedPINVOKE {
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Renderer_Draw")]
   public static extern void Renderer_Draw(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Renderer_CanDraw")]
+  public static extern bool Renderer_CanDraw(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("Diamond_Shared", EntryPoint="CSharp_Renderer_SetCanvas")]
   public static extern void Renderer_SetCanvas(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
 
