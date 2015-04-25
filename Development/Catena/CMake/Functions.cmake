@@ -50,7 +50,6 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		endif()
 	endforeach()
 	
-
 	if(${COMP_NAME_UPPER}_BUILD_EXE)
 		message(STATUS "Building ${COMP_NAME} as executable.")
 		add_executable(${COMP_NAME} WIN32 ${COMP_FILES_BUILD})
@@ -64,12 +63,14 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
 	endif()
+	
 	if(${COMP_NAME_UPPER}_BUILD_STATIC)
 		message(STATUS "Building ${COMP_NAME} as static library.")
 		add_library(${COMP_NAME}_Lib STATIC ${COMP_FILES_BUILD})
 		target_include_directories(${COMP_NAME}_Lib PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Lib inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
 	endif()
+	
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
 		message(STATUS "Building ${COMP_NAME} as shared library.")
 		set(SWIG_INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/swig/${COMP_NAME_LOWER}_swig.i")
@@ -105,9 +106,11 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	endif()
 
 	if(${COMP_NAME_UPPER}_BUILD_TEST)
-		message(STATUS "Building ${COMP_NAME}_Test as test executable for ${COMP_NAME}.")
-		add_executable(${COMP_NAME}_Test WIN32 ${COMP_FILES_TEST})
-		target_link_libraries(${COMP_NAME}_Test PRIVATE ${COMP_NAME}_Lib)
+		message(STATUS "Building ${COMP_NAME}_TestDriver as test executable for ${COMP_NAME}.")
+		add_executable(${COMP_NAME}_TestDriver WIN32 ${COMP_FILES_TEST})
+		target_link_libraries(${COMP_NAME}_TestDriver PRIVATE ${COMP_NAME}_Lib)
+		# Define the full path as ctest doesn't know about the changed output directory
+		add_test(${COMP_NAME}_TestRunner "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${COMP_NAME}_TestDriver")
 	endif()
 endfunction()
 

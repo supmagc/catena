@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0)
 
 project("Catena")
 
@@ -8,6 +8,7 @@ include("CMakeConfig")
 include("CatenaConfig")
 include("Functions")
 include("Macros")
+enable_testing()
 
 define_component_library(Rock 1 1)
 define_component_library(Chalk 0 0)
