@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.0)
 
 project("Catena")
-
+enable_testing()
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/CMake")
 
 include("CMakeConfig")
 include("CatenaConfig")
 include("Functions")
 include("Macros")
-enable_testing()
 
 define_component_library(Rock 1 1)
 define_component_library(Chalk 0 0)
@@ -37,3 +36,10 @@ add_subdirectory("Diamond")
 add_subdirectory("Wood")
 add_subdirectory("Wood_Windows")
 add_subdirectory("Launcher")
+
+install(DIRECTORY ${RESOURCES_DIR}/All/ CONFIGURATIONS Debug DESTINATION Debug/bin)
+install(DIRECTORY ${RESOURCES_DIR}/All/ CONFIGURATIONS Release DESTINATION Release/bin)
+install(DIRECTORY ${RESOURCES_DIR}/All/ CONFIGURATIONS Publish DESTINATION Publish/bin)
+install(DIRECTORY ${RESOURCES_DIR}/Debug/ CONFIGURATIONS Debug DESTINATION Debug/bin)
+install(DIRECTORY ${RESOURCES_DIR}/Release/ CONFIGURATIONS Release DESTINATION Release/bin)
+install(DIRECTORY ${RESOURCES_DIR}/Publish/ CONFIGURATIONS Publish DESTINATION Publish/bin)

@@ -36,6 +36,42 @@ function(define_component_library COMP_NAME COMP_SHARED COMP_TEST)
 	component_helper()
 endfunction()
 
+function(install_component COMP_NAME_FULL)
+	if(${COMP_NAME_FULL} MATCHES "TestDriver$")
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Debug
+			DESTINATION Debug/tests
+		)	
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Release
+			DESTINATION Release/tests
+		)	
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Publish
+			DESTINATION Publish/tests
+		)	
+	else()
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Debug
+			RUNTIME DESTINATION Debug/bin
+			LIBRARY DESTINATION Debug/bin
+			ARCHIVE DESTINATION Debug/lib
+		)	
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Release
+			RUNTIME DESTINATION Release/bin
+			LIBRARY DESTINATION Release/bin
+			ARCHIVE DESTINATION Release/lib
+		)	
+		install(TARGETS ${COMP_NAME_FULL}
+			CONFIGURATIONS Publish
+			RUNTIME DESTINATION Publish/bin
+			LIBRARY DESTINATION Publish/bin
+			ARCHIVE DESTINATION Publish/lib
+		)	
+	endif()
+endfunction()
+
 function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	component_verify(COMP_NAME COMP_NAME_UPPER COMP_NAME_LOWER)
 	list(APPEND COMP_FILES ${ARGN})
@@ -62,6 +98,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		endif()
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
+		install_component(${COMP_NAME})
 	endif()
 	
 	if(${COMP_NAME_UPPER}_BUILD_STATIC)
@@ -69,6 +106,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		add_library(${COMP_NAME}_Lib STATIC ${COMP_FILES_BUILD})
 		target_include_directories(${COMP_NAME}_Lib PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Lib inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
+		install_component(${COMP_NAME}_Lib)
 	endif()
 	
 	if(${COMP_NAME_UPPER}_BUILD_SHARED)
@@ -99,6 +137,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		)
 		unset(COMP_SWIG_INTERFACE CACHE)
 		unset(COMP_SWIG_WRAPPER CACHE)
+		install_component(${COMP_NAME}_Shared)
 	endif()
 
 	if(COMP_DEPS)
@@ -111,6 +150,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		target_link_libraries(${COMP_NAME}_TestDriver PRIVATE ${COMP_NAME}_Lib)
 		# Define the full path as ctest doesn't know about the changed output directory
 		add_test(${COMP_NAME}_TestRunner "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${COMP_NAME}_TestDriver")
+		install_component(${COMP_NAME}_TestDriver)
 	endif()
 endfunction()
 
@@ -137,7 +177,7 @@ function(add_component_dependencies COMP_NAME COMP_DEPS)
 		endif()
 		if(${COMP_NAME_UPPER}_BUILD_STATIC)
 			if(${COMP_DEP_NAME_UPPER}_BUILD_STATIC)
-				target_link_libraries(${COMP_NAME}_Lib PRIVATE ${COMP_DEP_NAME}_Lib)
+				target_link_libraries(${COMP_NAME}_Lib PUBLIC ${COMP_DEP_NAME}_Lib)
 			elseif(${COMP_DEP_NAME_UPPER}_BUILD_SHARED)
 				message(WARNING "Static library ${COMP_NAME} shouldn't depend on dynamic library ${COMP_DEP_NAME}")
 			endif()
