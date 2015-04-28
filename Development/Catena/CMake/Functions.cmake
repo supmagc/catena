@@ -98,7 +98,12 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 		endif()
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
-		install_component(${COMP_NAME})
+		add_custom_command(TARGET ${COMP_NAME}
+			POST_BUILD
+			COMMAND ${CMAKE_COMMAND} -E copy_directory ${RESOURCES_DIR}/All/ $<TARGET_FILE_DIR:${COMP_NAME}>
+			COMMAND ${CMAKE_COMMAND} -E copy_directory ${RESOURCES_DIR}/$<CONFIG>/ $<TARGET_FILE_DIR:${COMP_NAME}>
+		)
+	   install_component(${COMP_NAME})
 	endif()
 	
 	if(${COMP_NAME_UPPER}_BUILD_STATIC)
