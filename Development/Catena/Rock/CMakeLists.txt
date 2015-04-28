@@ -12,6 +12,7 @@ set(ROCK_FILES_HEADER
     inc/Rock_Vector4.h
     inc/Rock_Vector3.h
     inc/Rock_Vector2.h
+    inc/Rock_Vector.h
     inc/Rock_Array.h
     inc/Rock_Memory.h
     inc/Rock_Allocators.h
@@ -23,6 +24,7 @@ set(ROCK_FILES_INLINE
     inl/Vector4.inl
     inl/Vector3.inl
     inl/Vector2.inl
+	inl/Vector.inl
     inl/Functions.inl
 )
 
@@ -32,6 +34,7 @@ set(ROCK_FILES_SOURCE
     src/Vector4.cpp
     src/Vector3.cpp
     src/Vector2.cpp
+    src/Vector.cpp
     src/String.cpp
     src/Log.cpp
     src/Functions.cpp

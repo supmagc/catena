@@ -22,21 +22,20 @@ namespace Rock {
     ROCK_API void catPostQuitMessage(RINT nCode);
 
     // Memory stuff, small and used frequently
-    ROCK_API FORCEINLINE RBOX catMemAlloc(RUINT nSize, RUINT nAlignment);
-    ROCK_API FORCEINLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize, RUINT nAlignment);
-    ROCK_API FORCEINLINE void catMemFree(RBOX pAdress);
-    ROCK_API FORCEINLINE void catMemCopy(RCBOX pSrc, RBOX pDst, RUINT nLength);
-    ROCK_API FORCEINLINE void catMemMove(RCBOX pSrc, RBOX pDst, RUINT nLength);
-    ROCK_API FORCEINLINE void catMemZero(RBOX pDst, RUINT nLength);
-    ROCK_API FORCEINLINE void catMemSet(RBOX pDst, RINT nValue, RUINT nLength);
+    ROCK_API INLINE RBOX catMemAlloc(RUINT nSize, RUINT nAlignment);
+    ROCK_API INLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize, RUINT nAlignment);
+    ROCK_API INLINE void catMemFree(RBOX pAdress);
+    ROCK_API INLINE void catMemCopy(RCBOX pSrc, RBOX pDst, RUINT nLength);
+    ROCK_API INLINE void catMemMove(RCBOX pSrc, RBOX pDst, RUINT nLength);
+    ROCK_API INLINE void catMemZero(RBOX pDst, RUINT nLength);
+    ROCK_API INLINE void catMemSet(RBOX pDst, RINT nValue, RUINT nLength);
+    ROCK_API INLINE void catMemSwap(RBOX p0, RBOX p1, RUINT nLength);
 
     // Frequent helper functions
-    template<typename Element>
-    ROCK_API FORCEINLINE void catSwap(Element& m0, Element& m1);
-    ROCK_API FORCEINLINE void catSleep(RDOUBLE nDuration);
-    ROCK_API FORCEINLINE RBOOL catIsDebug();
-    ROCK_API FORCEINLINE RBOOL catIsRelease();
-    ROCK_API FORCEINLINE RBOOL catIsPublish();
+    ROCK_API INLINE void catSleep(RDOUBLE nDuration);
+    ROCK_API INLINE RBOOL catIsDebug();
+    ROCK_API INLINE RBOOL catIsRelease();
+    ROCK_API INLINE RBOOL catIsPublish();
 
     #include "../inl/Functions.inl"
 };
