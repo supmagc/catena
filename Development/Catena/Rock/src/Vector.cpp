@@ -22,34 +22,34 @@ void Main() {
 	float nLength = Length(v4C);
 	float nDot = Dot(v4B, v4C);
 	float nDistance = Distance(v4A, v4B);
-	RBOOL b0 = v4A < 5.0f;
+	RBOOL b0 = v4A < 5;
 	RBOOL b1 = v4A < v4B;
-	RBOOL b2 = v4A > 5.0f;
+	RBOOL b2 = v4A > 5;
 	RBOOL b3 = v4A > v4B;
-	RBOOL b4 = v4A <= 5.0f;
+	RBOOL b4 = v4A <= 5;
 	RBOOL b5 = v4A <= v4B;
-	RBOOL b6 = v4A >= 5.0f;
+	RBOOL b6 = v4A >= 5;
 	RBOOL b7 = v4A >= v4B;
 
 	v4A[3] = v4C[2];
 
-	v4A = v4B + 4.0f;
+	v4A = v4B + 4;
 	v4A = v4B + v4C;
 	v4B += v4A;
-	v4B += 4.0f;
+	v4B += 4;
 
-	v4A = v4B - 4.0f;
+	v4A = v4B - 4;
 	v4A = v4B - v4C;
 	v4B -= v4A;
-	v4B -= 4.0f;
+	v4B -= 4;
 
-	v4A = v4B * 4.0f;
+	v4A = v4B * 4;
 	v4A = v4B * v4C;
 	v4B *= v4A;
-	v4B *= 4.0f;
+	v4B *= 4;
 
-	v4A = v4B / 4.0f;
+	v4A = v4B / 4;
 	v4A = v4B / v4C;
 	v4B /= v4A;
-	v4B /= 4.0f;
+	v4B /= 4;
 }

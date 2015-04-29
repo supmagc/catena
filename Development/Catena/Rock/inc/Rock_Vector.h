@@ -87,13 +87,15 @@ namespace Rock {
     typedef Vector<RFLOAT, 3> Vec3;
     typedef Vector<RFLOAT, 4> Vec4;
 	typedef Vector<RFLOAT, 2> Uv;
-	typedef Vector<RFLOAT, 3> ColRgb;
+    typedef Vector<RFLOAT, 1> ColK;
+    typedef Vector<RFLOAT, 2> ColKa;
+    typedef Vector<RFLOAT, 3> ColRgb;
 	typedef Vector<RFLOAT, 4> ColRgba;
 
-	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API TNum Length(Vector<TVec, TVecDim> v);
-	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API TNum LengthSq(Vector<TVec, TVecDim> v);
-	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API TNum Distance(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1);
-	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API TNum Dot(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1);
+	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Length(Vector<TVec, TVecDim> v);
+	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec LengthSq(Vector<TVec, TVecDim> v);
+	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Distance(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1);
+	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Dot(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1);
 	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API RBOOL operator<(Vector<TVec, TVecDim> const& v, TNum n);
 	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API RBOOL operator>(Vector<TVec, TVecDim> const& v, TNum n);
 	template<typename TVec, RUINT TVecDim> INLINE ROCK_API RBOOL operator<(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);

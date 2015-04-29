@@ -1,29 +1,29 @@
 
 namespace VectorMeta {
 	// Calculates the sum of the squares of all data elements
-	template<typename TVec, RUINT TVecDim, RUINT TIndex, typename TNum>
+	template<typename TVec, RUINT TVecDim, RUINT TIndex>
 	struct SquareSum {
-		static INLINE TNum f(Vector<TVec, TVecDim> const& v) {
-			return v.data[TIndex - 1] * v.data[TIndex - 1] + SquareSum<TVec, TVecDim, TIndex - 1, TNum>::f(v);
+		static INLINE TVec f(Vector<TVec, TVecDim> const& v) {
+			return v.data[TIndex - 1] * v.data[TIndex - 1] + SquareSum<TVec, TVecDim, TIndex - 1>::f(v);
 		};
 	};
-	template<typename TVec, RUINT TVecDim, typename TNum>
-	struct SquareSum<TVec, TVecDim, 1, TNum> {
-		static INLINE TNum f(Vector<TVec, TVecDim> const& v) {
+	template<typename TVec, RUINT TVecDim>
+	struct SquareSum<TVec, TVecDim, 1> {
+		static INLINE TVec f(Vector<TVec, TVecDim> const& v) {
 			return v.data[0] * v.data[0];
 		};
 	};
 
 	// Calculates the sum of vector parametsr multiplications
-	template<typename TVec, RUINT TVecDim, RUINT TIndex, typename TNum = RFLOAT>
+	template<typename TVec, RUINT TVecDim, RUINT TIndex>
 	struct MultiplySum {
-		static INLINE float f(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
-			return v0.data[TIndex - 1] * v1.data[TIndex - 1] + MultiplySum<TVec, TVecDim, TIndex - 1, TNum>::f(v0, v1);
+		static INLINE TVec f(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
+			return v0.data[TIndex - 1] * v1.data[TIndex - 1] + MultiplySum<TVec, TVecDim, TIndex - 1>::f(v0, v1);
 		};
 	};
 	template<typename TVec, RUINT TVecDim>
 	struct MultiplySum<TVec, TVecDim, 1> {
-		static INLINE float f(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
+		static INLINE TVec f(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
 			return v0.data[0] * v1.data[0];
 		};
 	};
@@ -31,14 +31,14 @@ namespace VectorMeta {
 	// Calculates the sum/subsreaction/multiplication/division of a vector and a scalar
 	// Calculates the sum/subsreaction/multiplication/division of two vectors
 #define VECTOR_META_OPERATION(name, op) \
-	template<typename TVec, RUINT TVecDim, RUINT TIndex> struct Scalar##name { \
-		static INLINE void f(Vector<TVec, TVecDim>& v, TVec n) { \
+	template<typename TVec, RUINT TVecDim, RUINT TIndex, typename TNum> struct Scalar##name { \
+		static INLINE void f(Vector<TVec, TVecDim>& v, TNum n) { \
 			v.data[TIndex-1] op##= n; \
-			Scalar##name<TVec, TVecDim, TIndex - 1>::f(v, n); \
+			Scalar##name<TVec, TVecDim, TIndex - 1, TNum>::f(v, n); \
 		}; \
 	}; \
-	template<typename TVec, RUINT TVecDim> struct Scalar##name<TVec, TVecDim, 1> { \
-		static INLINE void f(Vector<TVec, TVecDim>& v, TVec n) { \
+	template<typename TVec, RUINT TVecDim, typename TNum> struct Scalar##name<TVec, TVecDim, 1, TNum> { \
+		static INLINE void f(Vector<TVec, TVecDim>& v, TNum n) { \
 			v.data[0] op##= n; \
 		}; \
 	}; \
@@ -62,28 +62,28 @@ VECTOR_META_OPERATION(Divide, /)
 #undef VECTOR_META_OPERATION
 }
 
-template<typename TVec, RUINT TVecDim, typename TNum>
-INLINE TNum Length(Vector<TVec, TVecDim> v) {
+template<typename TVec, RUINT TVecDim>
+INLINE TVec Length(Vector<TVec, TVecDim> v) {
 	return sqrt(LengthSq(v));
 };
 
-template<typename TVec, RUINT TVecDim, typename TNum>
-INLINE TNum LengthSq(Vector<TVec, TVecDim> v) {
-	return VectorMeta::SquareSum<TVec, TVecDim, TVecDim, TNum>::f(v);
+template<typename TVec, RUINT TVecDim>
+INLINE TVec LengthSq(Vector<TVec, TVecDim> v) {
+	return VectorMeta::SquareSum<TVec, TVecDim, TVecDim>::f(v);
 };
 
-template<typename TVec, RUINT TVecDim, typename TNum>
-INLINE TNum Distance(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
+template<typename TVec, RUINT TVecDim>
+INLINE TVec Distance(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
 	return Length(v0 - v1);
 }
 
-template<typename TVec, RUINT TVecDim, typename TNum>
-INLINE TNum Dot(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
-	return VectorMeta::MultiplySum<TVec, TVecDim, TVecDim, TNum>::f(v0, v1);
+template<typename TVec, RUINT TVecDim>
+INLINE TVec Dot(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
+	return VectorMeta::MultiplySum<TVec, TVecDim, TVecDim>::f(v0, v1);
 }
 
 #define VECTOR_COMPARE(comp) \
-template<typename TVec, RUINT TVecDim> INLINE RBOOL operator##comp##(Vector<TVec, TVecDim> const& v, TVec n) { \
+template<typename TVec, RUINT TVecDim, typename TNum> INLINE RBOOL operator##comp##(Vector<TVec, TVecDim> const& v, TNum n) { \
 	return LengthSq(v) comp n*n; \
 } \
 template<typename TVec, RUINT TVecDim> INLINE RBOOL operator##comp##(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) { \
@@ -98,7 +98,7 @@ VECTOR_COMPARE(>=)
 #undef VECTOR_COMPARE
 
 #define VECTOR_OPERATION(name, op) \
-template<typename TVec, RUINT TVecDim> INLINE Vector<TVec, TVecDim> operator##op##(Vector<TVec, TVecDim> const& v, TVec n) { \
+template<typename TVec, RUINT TVecDim, typename TNum> INLINE Vector<TVec, TVecDim> operator##op##(Vector<TVec, TVecDim> const& v, TNum n) { \
 	Vector<TVec, TVecDim> vReturn(v); \
 	vReturn op##= n; \
 	return vReturn; \
@@ -108,8 +108,8 @@ template<typename TVec, RUINT TVecDim> INLINE Vector<TVec, TVecDim> operator##op
 	vReturn op##= v1; \
 	return vReturn; \
 } \
-template<typename TVec, RUINT TVecDim> INLINE Vector<TVec, TVecDim>& operator##op##=(Vector<TVec, TVecDim>& v, TVec n) { \
-	VectorMeta::Scalar##name##<TVec, TVecDim, TVecDim>::f(v, n); \
+template<typename TVec, RUINT TVecDim, typename TNum> INLINE Vector<TVec, TVecDim>& operator##op##=(Vector<TVec, TVecDim>& v, TNum n) { \
+	VectorMeta::Scalar##name##<TVec, TVecDim, TVecDim, TNum>::f(v, n); \
 	return v; \
 } \
 template<typename TVec, RUINT TVecDim> INLINE Vector<TVec, TVecDim>& operator##op##=(Vector<TVec, TVecDim>& v0, Vector<TVec, TVecDim> const& v1) { \
