@@ -63,23 +63,41 @@ VECTOR_META_OPERATION(Divide, /)
 }
 
 template<typename TVec, RUINT TVecDim>
-INLINE TVec Length(Vector<TVec, TVecDim> v) {
+INLINE TVec Length(Vector<TVec, TVecDim> const& v) {
 	return sqrt(LengthSq(v));
 };
 
 template<typename TVec, RUINT TVecDim>
-INLINE TVec LengthSq(Vector<TVec, TVecDim> v) {
+INLINE TVec LengthSq(Vector<TVec, TVecDim> const& v) {
 	return VectorMeta::SquareSum<TVec, TVecDim, TVecDim>::f(v);
 };
 
 template<typename TVec, RUINT TVecDim>
-INLINE TVec Distance(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
+INLINE TVec Distance(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
 	return Length(v0 - v1);
 }
 
 template<typename TVec, RUINT TVecDim>
-INLINE TVec Dot(Vector<TVec, TVecDim> v0, Vector<TVec, TVecDim> v1) {
+INLINE TVec Dot(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1) {
 	return VectorMeta::MultiplySum<TVec, TVecDim, TVecDim>::f(v0, v1);
+}
+
+template<typename TVec>
+INLINE Vector<TVec, 3> CrossLh(Vector<TVec, 3> const& v0, Vector<TVec, 3> const& v1) {
+    return Vector<TVec, 3>(
+        v0.data[2] * v1.data[1] - v0.data[1] * v1.data[2],
+        v0.data[0] * v1.data[2] - v0.data[2] * v1.data[0],
+        v0.data[1] * v1.data[0] - v0.data[0] * v1.data[1]
+    );
+}
+
+template<typename TVec>
+INLINE Vector<TVec, 3> CrossRh(Vector<TVec, 3> const& v0, Vector<TVec, 3> const& v1) {
+    return Vector<TVec, 3>(
+        v0.data[1] * v1.data[2] - v0.data[2] * v1.data[1],
+        v0.data[2] * v1.data[0] - v0.data[0] * v1.data[2],
+        v0.data[0] * v1.data[1] - v0.data[1] * v1.data[0]
+    );
 }
 
 #define VECTOR_COMPARE(comp) \

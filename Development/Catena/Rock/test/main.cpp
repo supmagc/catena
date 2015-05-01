@@ -29,6 +29,20 @@ public:
 };
 */
 
+void SwapTest(short* a, short *b) {
+    a = b;
+    b = a - sizeof(b);
+
+    cout << (*a) << " " << (*b) << endl;
+}
+
+void SwapTest() {
+    short a = 1;
+    short b = 2;
+
+    SwapTest(&a, &b);
+}
+
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdLine, int nCmdShow) {
     Console::Show();
 	Console::SetColor(Console::Color::YELLOW, true, Console::Color::MAGENTA, false);
@@ -38,6 +52,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR pCmdL
     //Child* oChild = new Child();
     //oChild->Do();
     //oChild->Release();
+
+    SwapTest();
 
 	system("pause");
     return 0;

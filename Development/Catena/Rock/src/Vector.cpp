@@ -6,7 +6,7 @@ using namespace Rock;
 Vec2 v2A();
 Vec2 v2B(1);
 Vec2 v2C(1, 2);
-Vec3 v3A();
+Vec3 v3A;
 Vec3 v3B(1);
 Vec3 v3C(1, 2, 3);
 Vec4 v4A = Vec4();
@@ -52,4 +52,7 @@ void Main() {
 	v4A = v4B / v4C;
 	v4B /= v4A;
 	v4B /= 4;
+
+    v3A = CrossLh(v3B, v3C);
+    v3A = CrossRh(v3B, v3C);
 }
