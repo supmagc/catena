@@ -2,8 +2,7 @@
 #define _H_ROCK_MATRIX4X4
 
 #include "Rock_Types.h"
-#include "Rock_Vector3.h"
-#include "Rock_Vector4.h"
+#include "Rock_Vector.h"
 #include "Rock_Functions.h"
 
 namespace Rock {

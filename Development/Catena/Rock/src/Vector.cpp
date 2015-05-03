@@ -3,22 +3,19 @@
 
 using namespace Rock;
 
-Vec2 v2A();
-Vec2 v2B(1);
-Vec2 v2C(1, 2);
-Vec3 v3A;
-Vec3 v3B(1);
-Vec3 v3C(1, 2, 3);
-Vec4 v4A = Vec4();
-Vec4 v4B(1);
-Vec4 v4C(1, 2, 3, 4);
-
-template<typename t>
-void test(Vector<t, 2> v, t n) { v[0] *= n; }
+Vector1 v1A;
+Vector1 v1B(1);
+Vector2 v2A;
+Vector2 v2B(1);
+Vector2 v2C(1, 2);
+Vector3 v3A;
+Vector3 v3B(1);
+Vector3 v3C(1, 2, 3);
+Vector4 v4A;
+Vector4 v4B(1);
+Vector4 v4C(1, 2, 3, 4);
 
 void Main() {
-	test(v2B, 2.0f);
-
 	float nLength = Length(v4C);
 	float nDot = Dot(v4B, v4C);
 	float nDistance = Distance(v4A, v4B);
@@ -55,4 +52,6 @@ void Main() {
 
     v3A = CrossLh(v3B, v3C);
     v3A = CrossRh(v3B, v3C);
+
+    auto v = Vector<double, 16>();
 }
