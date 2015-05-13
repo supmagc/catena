@@ -54,4 +54,5 @@ void Main() {
     v3A = CrossRh(v3B, v3C);
 
     auto v = Vector<double, 16>();
+    auto t = v[15];
 }

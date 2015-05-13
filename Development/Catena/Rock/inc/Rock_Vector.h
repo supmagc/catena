@@ -8,21 +8,34 @@
 
 namespace Rock {
 
-    template<typename TVec, RUINT TVecDim>
-    struct ROCK_API Vector {
-        TVec data[TVecDim];
-		
-		Vector() { catMemZero(this, sizeof(TVec) * TVecDim); }
+    template<typename TVec, RUINT TVecDim, typename CRTP>
+    struct VectorBase {
+        INLINE CRTP& Crtp() { return static_cast<CRTP&>(*this); }
+        INLINE CRTP const& Crtp() const { return static_cast<CRTP const&>(*this); }
 
-		TVec& operator[](RUINT i) {
-			CHECK_SLOW_TRUE(i < n);
-			CHECK_SLOW_TRUE(i >= 0);
-			return data[i];
-		}
+        typedef TVec Type;
+        VectorBase() { catMemZero(this, sizeof(TVec) * TVecDim); }
+
+        TVec& operator[](RUINT i) {
+            CHECK_SLOW_TRUE(i < TVecDim);
+            CHECK_SLOW_TRUE(i >= 0);
+            return Crtp().data[i];
+        }
+
+        TVec const& operator[](RUINT i) const {
+            CHECK_SLOW_TRUE(i < TVecDim);
+            CHECK_SLOW_TRUE(i >= 0);
+            return Crtp().data[i];
+        }
+    };
+
+    template<typename TVec, RUINT TVecDim>
+    struct ROCK_API Vector : VectorBase<TVec, TVecDim, Vector<TVec, TVecDim>> {
+        TVec data[TVecDim];
 	};
 
     template<typename TVec>
-    struct ROCK_API Vector < TVec, 1 > {
+    struct ROCK_API Vector < TVec, 1 > : VectorBase<TVec, 1, Vector<TVec, 1>>{
         union {
             TVec data[1];
             struct { TVec x; };
@@ -31,16 +44,10 @@ namespace Rock {
 
         Vector() : Vector(0) {}
         explicit Vector(TVec n0) : x(n0) {}
-
-        TVec& operator[](RUINT i) {
-            CHECK_SLOW_TRUE(i < 1);
-            CHECK_SLOW_TRUE(i >= 0);
-            return data[i];
-        }
     };
 
     template<typename TVec>
-    struct ROCK_API Vector < TVec, 2 > {
+    struct ROCK_API Vector < TVec, 2 > : VectorBase<TVec, 2, Vector<TVec, 2>>{
         union {
             TVec data[2];
             struct { TVec x, y; };
@@ -51,16 +58,10 @@ namespace Rock {
 		Vector() : Vector(0) {}
 		explicit Vector(TVec n0) : Vector(n0, n0) {}
 		Vector(TVec n0, TVec n1) : x(n0), y(n1) {}
-
-		TVec& operator[](RUINT i) {
-			CHECK_SLOW_TRUE(i < 2);
-			CHECK_SLOW_TRUE(i >= 0);
-			return data[i];
-		}
 	};
 
     template<typename TVec>
-    struct ROCK_API Vector < TVec, 3 > {
+    struct ROCK_API Vector < TVec, 3 > : VectorBase<TVec, 3, Vector<TVec, 3>>{
         union {
             TVec data[3];
             struct { TVec x, y, z; };
@@ -72,16 +73,10 @@ namespace Rock {
 		Vector() : Vector(0) {}
 		explicit Vector(TVec n0) : Vector(n0, n0, n0) {}
 		Vector(TVec n0, TVec n1, TVec n2) : x(n0), y(n1), z(n2) {}
-
-		TVec& operator[](RUINT i) {
-			CHECK_SLOW_TRUE(i < 3);
-			CHECK_SLOW_TRUE(i >= 0);
-			return data[i];
-		}
 	};
 
     template<typename TVec>
-    struct ROCK_API Vector < TVec, 4 > {
+    struct ROCK_API Vector < TVec, 4 > : VectorBase<TVec, 4, Vector<TVec, 4>>{
         union {
             TVec data[4];
             struct { TVec x, y, z, w; };
@@ -95,12 +90,6 @@ namespace Rock {
 		Vector() : Vector(0) {}
 		explicit Vector(TVec n0) : Vector(n0, n0, n0, n0) {}
 		Vector(TVec n0, TVec n1, TVec n2, TVec n3) : x(n0), y(n1), z(n2), w(n3) {}
-
-		TVec& operator[](RUINT i) {
-			CHECK_SLOW_TRUE(i < 4);
-			CHECK_SLOW_TRUE(i >= 0);
-			return data[i];
-		}
 	};
 
     typedef Vector<RFLOAT, 1> Vector1;
