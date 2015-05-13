@@ -1,0 +1,13 @@
+#include "Rock_Std.h"
+#include "Rock_Matrix.h"
+
+using namespace Rock;
+
+Matrix44 m44A;
+Matrix44 m44B;
+Matrix33 m33A;
+Matrix33 m33B;
+
+void Main() {
+    m44A[2][1] = m44B[0][2];
+}
