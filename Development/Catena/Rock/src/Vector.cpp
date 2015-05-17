@@ -53,6 +53,7 @@ void Main() {
     v3A = CrossLh(v3B, v3C);
     v3A = CrossRh(v3B, v3C);
 
+    Vector<double, 16> tmp;
     auto v = Vector<double, 16>();
     auto t = v[15];
 }

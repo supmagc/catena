@@ -16,13 +16,13 @@ namespace Rock {
         typedef TVec Type;
         VectorBase() { catMemZero(this, sizeof(TVec) * TVecDim); }
 
-        TVec& operator[](RUINT i) {
+        INLINE TVec& operator[](RUINT i) {
             CHECK_SLOW_TRUE(i < TVecDim);
             CHECK_SLOW_TRUE(i >= 0);
             return Crtp().data[i];
         }
 
-        TVec const& operator[](RUINT i) const {
+        INLINE TVec const& operator[](RUINT i) const {
             CHECK_SLOW_TRUE(i < TVecDim);
             CHECK_SLOW_TRUE(i >= 0);
             return Crtp().data[i];
@@ -43,7 +43,7 @@ namespace Rock {
         };
 
         Vector() : Vector(0) {}
-        explicit Vector(TVec n0) : x(n0) {}
+        explicit Vector(TVec const& n0) : x(n0) {}
     };
 
     template<typename TVec>
@@ -56,8 +56,8 @@ namespace Rock {
         };
 
 		Vector() : Vector(0) {}
-		explicit Vector(TVec n0) : Vector(n0, n0) {}
-		Vector(TVec n0, TVec n1) : x(n0), y(n1) {}
+        explicit Vector(TVec const& n0) : Vector(n0, n0) {}
+        Vector(TVec const& n0, TVec const& n1) : x(n0), y(n1) {}
 	};
 
     template<typename TVec>
@@ -71,8 +71,8 @@ namespace Rock {
         };
 
 		Vector() : Vector(0) {}
-		explicit Vector(TVec n0) : Vector(n0, n0, n0) {}
-		Vector(TVec n0, TVec n1, TVec n2) : x(n0), y(n1), z(n2) {}
+        explicit Vector(TVec const& n0) : Vector(n0, n0, n0) {}
+        Vector(TVec const& n0, TVec const& n1, TVec const& n2) : x(n0), y(n1), z(n2) {}
 	};
 
     template<typename TVec>
@@ -88,8 +88,8 @@ namespace Rock {
         };
 
 		Vector() : Vector(0) {}
-		explicit Vector(TVec n0) : Vector(n0, n0, n0, n0) {}
-		Vector(TVec n0, TVec n1, TVec n2, TVec n3) : x(n0), y(n1), z(n2), w(n3) {}
+		explicit Vector(TVec const& n0) : Vector(n0, n0, n0, n0) {}
+        Vector(TVec const& n0, TVec const& n1, TVec const& n2, TVec const& n3) : x(n0), y(n1), z(n2), w(n3) {}
 	};
 
     typedef Vector<RFLOAT, 1> Vector1;
