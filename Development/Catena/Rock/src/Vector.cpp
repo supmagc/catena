@@ -53,7 +53,10 @@ void Main() {
     v3A = CrossLh(v3B, v3C);
     v3A = CrossRh(v3B, v3C);
 
-    Vector<double, 16> tmp;
-    auto v = Vector<double, 16>();
-    auto t = v[15];
+    Vector<double, 5> tmp;
+
+    double a[5] = {1, 2, 3, 4, 5};
+    auto v = Vector<double, 5>(a);
+    auto t = v[6];
+
 }

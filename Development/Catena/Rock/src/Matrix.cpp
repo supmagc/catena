@@ -10,4 +10,7 @@ Matrix44 m44B = Matrix44();
 
 void Main() {
     m44A[2][1] = m44B[0][2];
+    m44B = Matrix44(Vector3(), Vector3(), Vector3(), Vector3(), 2);
+
+    //auto tmp = MakeIdentity<RFLOAT>(5, 5);
 }

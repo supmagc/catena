@@ -15,6 +15,7 @@ namespace Rock {
 
         typedef TVec Type;
         VectorBase() { catMemZero(this, sizeof(TVec) * TVecDim); }
+        explicit VectorBase(TVec const (&a)[TVecDim]) { catMemCopy(a, this, sizeof(TVec) * TVecDim); }
 
         INLINE TVec& operator[](RUINT i) {
             CHECK_SLOW_TRUE(i < TVecDim);
@@ -32,6 +33,8 @@ namespace Rock {
     template<typename TVec, RUINT TVecDim>
     struct ROCK_API Vector : VectorBase<TVec, TVecDim, Vector<TVec, TVecDim>> {
         TVec data[TVecDim];
+
+        using VectorBase::VectorBase;
 	};
 
     template<typename TVec>
@@ -44,6 +47,7 @@ namespace Rock {
 
         Vector() : Vector(0) {}
         explicit Vector(TVec const& n0) : x(n0) {}
+        using VectorBase::VectorBase;
     };
 
     template<typename TVec>
@@ -58,7 +62,8 @@ namespace Rock {
 		Vector() : Vector(0) {}
         explicit Vector(TVec const& n0) : Vector(n0, n0) {}
         Vector(TVec const& n0, TVec const& n1) : x(n0), y(n1) {}
-	};
+        using VectorBase::VectorBase;
+    };
 
     template<typename TVec>
     struct ROCK_API Vector < TVec, 3 > : VectorBase<TVec, 3, Vector<TVec, 3>>{
@@ -73,7 +78,8 @@ namespace Rock {
 		Vector() : Vector(0) {}
         explicit Vector(TVec const& n0) : Vector(n0, n0, n0) {}
         Vector(TVec const& n0, TVec const& n1, TVec const& n2) : x(n0), y(n1), z(n2) {}
-	};
+        using VectorBase::VectorBase;
+    };
 
     template<typename TVec>
     struct ROCK_API Vector < TVec, 4 > : VectorBase<TVec, 4, Vector<TVec, 4>>{
@@ -90,7 +96,8 @@ namespace Rock {
 		Vector() : Vector(0) {}
 		explicit Vector(TVec const& n0) : Vector(n0, n0, n0, n0) {}
         Vector(TVec const& n0, TVec const& n1, TVec const& n2, TVec const& n3) : x(n0), y(n1), z(n2), w(n3) {}
-	};
+        using VectorBase::VectorBase;
+    };
 
     typedef Vector<RFLOAT, 1> Vector1;
     typedef Vector<RFLOAT, 2> Vector2;

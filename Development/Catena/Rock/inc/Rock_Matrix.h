@@ -5,6 +5,10 @@
 #include "Rock_Types.h"
 #include "Rock_Checks.h"
 
+#pragma warning(push)
+#pragma warning(disable: 4587)
+// This disables the warning for union members not implicitly being constructed
+
 namespace Rock {
 
     template<typename TMat, RUINT TMatRows, RUINT TMatColumns, typename CRTP>
@@ -14,6 +18,8 @@ namespace Rock {
 
         typedef TMat Type;
         MatrixBase() { catMemZero(this, sizeof(TMat) * TMatRows * TMatColumns); }
+        explicit MatrixBase(TMat const (&a)[TMatRows*TMatColumns]) { catMemCopy(a, this, sizeof(TMat) * TMatRows * TMatColumns); }
+        explicit MatrixBase(Vector<TMat, TMatColumns> const(&a)[TMatRows]) { catMemCopy(a, this, sizeof(TMat) * TMatRows * TMatColumns); }
 
         INLINE Vector<TMat, TMatColumns>& operator[](RUINT const i) {
             CHECK_SLOW_TRUE(i < TMatRows);
@@ -34,6 +40,8 @@ namespace Rock {
             TMat data[TMatRows][TMatColumns];
             Vector<TMat, TMatColumns> rows[TMatRows];
         };
+
+        using MatrixBase::MatrixBase;
     };
 
     template<typename TMat>
@@ -48,12 +56,22 @@ namespace Rock {
 
         Matrix() : Matrix(0) {}
         explicit Matrix(TMat const& n) : Matrix(n, 0, 0, 0, n, 0, 0, 0, n) {}
+        Matrix(Vector<TMat, 3> const& x, Vector<TMat, 3> const& y, Vector<TMat, 3> const& z) : x(x), y(y), z(z) {}
         Matrix(TMat const& n00, TMat const& n01, TMat const& n02, 
                TMat const& n10, TMat const& n11, TMat const& n12, 
                TMat const& n20, TMat const& n21, TMat const& n22) : 
                c00(n00), c01(n01), c02(n02), 
                c10(n10), c11(n11), c12(n12), 
                c20(n20), c21(n21), c22(n22) {}
+        using MatrixBase::MatrixBase;
+
+        static Matrix<TMat, 3, 3> Identity() {
+            return Matrix<TMat, 3, 3><TMat, 3, 3>(1);
+        }
+
+        static Matrix<TMat, 3, 3> Zero() {
+            return Matrix<TMat, 3, 3>();
+        }
     };
 
     template<typename TMat>
@@ -68,6 +86,8 @@ namespace Rock {
 
         Matrix() : Matrix(0) {}
         explicit Matrix(TMat const& n) : Matrix(n, 0, 0, 0, 0, n, 0, 0, 0, 0, n, 0, 0, 0, 0, n) {}
+        Matrix(Vector<TMat, 3> const& x, Vector<TMat, 3> const& y, Vector<TMat, 3> const& z, Vector<TMat, 3> const& pos, TMat const& scale) : 
+            x(x), y(y), z(z), pos(pos), scale(scale), c03(0), c13(0), c23(0) {}
         Matrix(TMat const& n00, TMat const& n01, TMat const& n02, TMat const& n03,
                TMat const& n10, TMat const& n11, TMat const& n12, TMat const& n13,
                TMat const& n20, TMat const& n21, TMat const& n22, TMat const& n23,
@@ -76,6 +96,15 @@ namespace Rock {
                c10(n10), c11(n11), c12(n12), c13(n13),
                c20(n20), c21(n21), c22(n22), c23(n23),
                c30(n20), c31(n21), c32(n22), c33(n33) {}
+        using MatrixBase::MatrixBase;
+
+        static Matrix<TMat, 4, 4> Identity() {
+            return Matrix<TMat, 4, 4>(1);
+        }
+
+        static Matrix<TMat, 4, 4> Zero() {
+            return Matrix<TMat, 4, 4>();
+        }
     };
 
     typedef Matrix<RFLOAT, 4, 4> Matrix44;
@@ -84,4 +113,5 @@ namespace Rock {
     typedef Matrix33 RMatrix33;
 };
 
+#pragma warning(pop)
 #endif // _H_ROCK_MATRIX
