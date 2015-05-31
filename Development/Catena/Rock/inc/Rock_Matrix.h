@@ -4,6 +4,7 @@
 #include "Rock_Vector.h"
 #include "Rock_Types.h"
 #include "Rock_Checks.h"
+#include "Rock_Defines.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4587)
@@ -41,7 +42,10 @@ namespace Rock {
             Vector<TMat, TMatColumns> rows[TMatRows];
         };
 
+        Matrix() : MatrixBase() {}
         using MatrixBase::MatrixBase;
+
+        static INLINE Matrix<TMat, TMatRows, TMatColumns> Identity();
     };
 
     template<typename TMat>
@@ -67,10 +71,6 @@ namespace Rock {
 
         static Matrix<TMat, 3, 3> Identity() {
             return Matrix<TMat, 3, 3><TMat, 3, 3>(1);
-        }
-
-        static Matrix<TMat, 3, 3> Zero() {
-            return Matrix<TMat, 3, 3>();
         }
     };
 
@@ -101,16 +101,14 @@ namespace Rock {
         static Matrix<TMat, 4, 4> Identity() {
             return Matrix<TMat, 4, 4>(1);
         }
-
-        static Matrix<TMat, 4, 4> Zero() {
-            return Matrix<TMat, 4, 4>();
-        }
     };
 
     typedef Matrix<RFLOAT, 4, 4> Matrix44;
     typedef Matrix<RFLOAT, 3, 3> Matrix33;
     typedef Matrix44 RMatrix44;
     typedef Matrix33 RMatrix33;
+
+    #include "../inl/Matrix.inl"
 };
 
 #pragma warning(pop)

@@ -15,6 +15,17 @@ Vector4 v4A;
 Vector4 v4B(1);
 Vector4 v4C(1, 2, 3, 4);
 
+template<typename T>
+class Tester {
+public:
+	INLINE T Test(T const& n) const;
+};
+
+template<typename T>
+INLINE T Tester<T>::Test(T const& n) const {
+	return n;
+}
+
 void Main() {
 	float nLength = Length(v4C);
 	float nDot = Dot(v4B, v4C);
@@ -27,6 +38,10 @@ void Main() {
 	RBOOL b5 = v4A <= v4B;
 	RBOOL b6 = v4A >= 5;
 	RBOOL b7 = v4A >= v4B;
+
+	//auto n0 = v4A.Length();
+	//auto n1 = v4A.LengthSq();
+	//v4B = v4A.Normalized();
 
 	v4A[3] = v4C[2];
 
@@ -54,9 +69,9 @@ void Main() {
     v3A = CrossRh(v3B, v3C);
 
     Vector<double, 5> tmp;
+    std::cout << tmp.ToString();
 
     double a[5] = {1, 2, 3, 4, 5};
     auto v = Vector<double, 5>(a);
     auto t = v[6];
-
 }

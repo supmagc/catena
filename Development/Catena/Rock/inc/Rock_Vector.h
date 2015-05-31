@@ -5,9 +5,13 @@
 #include "Rock_Defines.h"
 #include "Rock_Checks.h"
 #include "Rock_Functions.h"
+#include "Rock_String.h"
 
 namespace Rock {
 
+    // Base class for vectors (provides functionazlity for genric and partially specilised child classes)
+    // Not meant to be virtual (reduce vfpt overhead)
+    // Uses crtp in order to handle data (needs to be defined in childs due to union usage)
     template<typename TVec, RUINT TVecDim, typename CRTP>
     struct VectorBase {
         INLINE CRTP& Crtp() { return static_cast<CRTP&>(*this); }
@@ -28,8 +32,17 @@ namespace Rock {
             CHECK_SLOW_TRUE(i >= 0);
             return Crtp().data[i];
         }
+
+        INLINE TVec Length() const;
+		INLINE TVec LengthSq() const;
+		INLINE CRTP Normalized() const;
+        
+        String ToString() const {
+            return RTXT("");
+        }
     };
 
+    // Most generic vector class (can be any dimension)
     template<typename TVec, RUINT TVecDim>
     struct ROCK_API Vector : VectorBase<TVec, TVecDim, Vector<TVec, TVecDim>> {
         TVec data[TVecDim];
@@ -37,6 +50,7 @@ namespace Rock {
         using VectorBase::VectorBase;
 	};
 
+    // Spcialised Vector1
     template<typename TVec>
     struct ROCK_API Vector < TVec, 1 > : VectorBase<TVec, 1, Vector<TVec, 1>>{
         union {
@@ -50,6 +64,7 @@ namespace Rock {
         using VectorBase::VectorBase;
     };
 
+    // Spcialised Vector2
     template<typename TVec>
     struct ROCK_API Vector < TVec, 2 > : VectorBase<TVec, 2, Vector<TVec, 2>>{
         union {
@@ -65,6 +80,7 @@ namespace Rock {
         using VectorBase::VectorBase;
     };
 
+    // Spcialised Vector3
     template<typename TVec>
     struct ROCK_API Vector < TVec, 3 > : VectorBase<TVec, 3, Vector<TVec, 3>>{
         union {
@@ -81,6 +97,7 @@ namespace Rock {
         using VectorBase::VectorBase;
     };
 
+    // Spcialised Vector4
     template<typename TVec>
     struct ROCK_API Vector < TVec, 4 > : VectorBase<TVec, 4, Vector<TVec, 4>>{
         union {
@@ -99,6 +116,7 @@ namespace Rock {
         using VectorBase::VectorBase;
     };
 
+    // Typedefs to make our lifes easier
     typedef Vector<RFLOAT, 1> Vector1;
     typedef Vector<RFLOAT, 2> Vector2;
     typedef Vector<RFLOAT, 3> Vector3;
@@ -119,11 +137,13 @@ namespace Rock {
     typedef ColorRgb RColorRgb;
     typedef ColorRgba RColorRgba;
 
+    // Worker functions and operator ooverloading
     template<typename TVec> INLINE ROCK_API Vector<TVec, 3> CrossLh(Vector<TVec, 3> const& v0, Vector<TVec, 3> const& v1);
     template<typename TVec> INLINE ROCK_API Vector<TVec, 3> CrossRh(Vector<TVec, 3> const& v0, Vector<TVec, 3> const& v1);
     template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Length(Vector<TVec, TVecDim> const& v);
 	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec LengthSq(Vector<TVec, TVecDim> const& v);
-	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Distance(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);
+    template<typename TVec, RUINT TVecDim> INLINE ROCK_API Vector<TVec, TVecDim> Normalize(Vector<TVec, TVecDim> const& v);
+    template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Distance(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);
 	template<typename TVec, RUINT TVecDim> INLINE ROCK_API TVec Dot(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);
     template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API RBOOL operator<(Vector<TVec, TVecDim> const& v, TNum n);
 	template<typename TVec, RUINT TVecDim, typename TNum = RFLOAT> INLINE ROCK_API RBOOL operator>(Vector<TVec, TVecDim> const& v, TNum n);
@@ -150,6 +170,7 @@ namespace Rock {
 	template<typename TVec, RUINT TVecDim> INLINE ROCK_API Vector<TVec, TVecDim>& operator*=(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);
 	template<typename TVec, RUINT TVecDim> INLINE ROCK_API Vector<TVec, TVecDim>& operator/=(Vector<TVec, TVecDim> const& v0, Vector<TVec, TVecDim> const& v1);
 
+    // Include bodies (required in header due to generics)
 	#include "../inl/Vector.inl"
 }
 

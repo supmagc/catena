@@ -1,4 +1,4 @@
-
+// Seperate namespace to keep template expansion code away
 namespace VectorMeta {
 	// Calculates the sum of the squares of all data elements
 	template<typename TVec, RUINT TVecDim, RUINT TIndex>
@@ -62,6 +62,23 @@ VECTOR_META_OPERATION(Divide, /)
 #undef VECTOR_META_OPERATION
 }
 
+/*
+template<typename TVec, RUINT TVecDim, typename CRTP>
+INLINE TVec VecorBase<TVec, TVecDim, CRTP>::Length() const {
+    return Length(*Crtp());
+}
+
+template<typename TVec, RUINT TVecDim, typename CRTP>
+INLINE TVec VecorBase<TVec, TVecDim, CRTP>::LengthSq() const {
+	return LengthSq(*Crtp());
+}
+
+template<typename TVec, RUINT TVecDim, typename CRTP>
+INLINE CRTP VecorBase<TVec, TVecDim, CRTP>::Normalized() const {
+	return Normalize(*Crtp());
+}
+*/
+
 template<typename TVec, RUINT TVecDim>
 INLINE TVec Length(Vector<TVec, TVecDim> const& v) {
 	return sqrt(LengthSq(v));
@@ -70,6 +87,12 @@ INLINE TVec Length(Vector<TVec, TVecDim> const& v) {
 template<typename TVec, RUINT TVecDim>
 INLINE TVec LengthSq(Vector<TVec, TVecDim> const& v) {
 	return VectorMeta::SquareSum<TVec, TVecDim, TVecDim>::f(v);
+};
+
+template<typename TVec, RUINT TVecDim>
+INLINE Vector<TVec, TVecDim> Normalize(Vector<TVec, TVecDim> const& v) {
+	TVec nLength = Length(v);
+	return nLength != 0 ? v / nLength : v;
 };
 
 template<typename TVec, RUINT TVecDim>
