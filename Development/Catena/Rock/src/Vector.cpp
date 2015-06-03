@@ -39,9 +39,9 @@ void Main() {
 	RBOOL b6 = v4A >= 5;
 	RBOOL b7 = v4A >= v4B;
 
-	//auto n0 = v4A.Length();
-	//auto n1 = v4A.LengthSq();
-	//v4B = v4A.Normalized();
+	auto n0 = v4A.Length();
+	auto n1 = v4A.LengthSq();
+	v4B = v4A.Normalize();
 
 	v4A[3] = v4C[2];
 

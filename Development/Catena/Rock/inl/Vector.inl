@@ -1,5 +1,6 @@
 // Seperate namespace to keep template expansion code away
 namespace VectorMeta {
+
 	// Calculates the sum of the squares of all data elements
 	template<typename TVec, RUINT TVecDim, RUINT TIndex>
 	struct SquareSum {
@@ -62,22 +63,25 @@ VECTOR_META_OPERATION(Divide, /)
 #undef VECTOR_META_OPERATION
 }
 
-/*
 template<typename TVec, RUINT TVecDim, typename CRTP>
-INLINE TVec VecorBase<TVec, TVecDim, CRTP>::Length() const {
-    return Length(*Crtp());
+INLINE TVec VectorBase<TVec, TVecDim, CRTP>::Length() const {
+	return ::Length(Crtp());
 }
 
 template<typename TVec, RUINT TVecDim, typename CRTP>
-INLINE TVec VecorBase<TVec, TVecDim, CRTP>::LengthSq() const {
-	return LengthSq(*Crtp());
+INLINE TVec VectorBase<TVec, TVecDim, CRTP>::LengthSq() const {
+	return ::LengthSq(Crtp());
 }
 
 template<typename TVec, RUINT TVecDim, typename CRTP>
-INLINE CRTP VecorBase<TVec, TVecDim, CRTP>::Normalized() const {
-	return Normalize(*Crtp());
+INLINE CRTP VectorBase<TVec, TVecDim, CRTP>::Normalize() const {
+	return ::Normalize(Crtp());
 }
-*/
+
+template<typename TVec, RUINT TVecDim, typename CRTP>
+String VectorBase<TVec, TVecDim, CRTP>::ToString() const {
+
+}
 
 template<typename TVec, RUINT TVecDim>
 INLINE TVec Length(Vector<TVec, TVecDim> const& v) {

@@ -35,11 +35,8 @@ namespace Rock {
 
         INLINE TVec Length() const;
 		INLINE TVec LengthSq() const;
-		INLINE CRTP Normalized() const;
-        
-        String ToString() const {
-            return RTXT("");
-        }
+		INLINE CRTP Normalize() const;
+		String ToString() const;
     };
 
     // Most generic vector class (can be any dimension)
