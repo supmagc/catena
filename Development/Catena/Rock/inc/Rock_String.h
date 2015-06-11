@@ -106,7 +106,8 @@ namespace Rock {
         static String Format(char const* str, ...);
 
     private:
-        RINT32 m_nLength;
+		RINT32 m_nCapacity;
+		RINT32 m_nLength;
         RCHAR* m_aData;
     };
 

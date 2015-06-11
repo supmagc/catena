@@ -80,7 +80,12 @@ INLINE CRTP VectorBase<TVec, TVecDim, CRTP>::Normalize() const {
 
 template<typename TVec, RUINT TVecDim, typename CRTP>
 String VectorBase<TVec, TVecDim, CRTP>::ToString() const {
-
+	String aData[TVecDim];
+	wstringstream strm;
+	for (int i = 0; i < TVecDim; ++i) {
+		aData[i] = String::Format(RTXT("%.2f"), Crtp().data[i]);
+	}
+	return String::Format(RTXT("Vector%i(%s)"), TVecDim, RTXT(""));
 }
 
 template<typename TVec, RUINT TVecDim>
