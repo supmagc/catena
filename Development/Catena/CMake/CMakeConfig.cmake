@@ -15,9 +15,9 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_CONFIGURATION_TYPES Debug;Release;Publish
 		CACHE STRING "Available configurations" FORCE)
 		
-	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Od /Ob0 /RTC1 /ZI /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
+	set(CMAKE_CXX_FLAGS_DEBUG "/MDd /Od /Ob0 /RTC1 /ZI /EHsc /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
-	set(CMAKE_C_FLAGS_DEBUG "/MD /O2 /Ob2 /ZI /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
+	set(CMAKE_C_FLAGS_DEBUG "/MDd /O2 /Ob2 /ZI /EHsc /D _DEBUG /D _CHECKS_SLOW /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
 	set(CMAKE_EXE_LINKER_FLAGS_DEBUG "/debug /INCREMENTAL"
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)
@@ -28,9 +28,9 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_STATIC_LINKER_FLAGS_DEBUG ""
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)
 		
-	set(CMAKE_CXX_FLAGS_RELEASE "/MD /O2 /Ob2 /D _CHECKS_DEFAULT"
+	set(CMAKE_CXX_FLAGS_RELEASE "/MD /O2 /Ob2 /EHsc /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
-	set(CMAKE_C_FLAGS_RELEASE "/MD /O2 /Ob2 /D _CHECKS_DEFAULT"
+	set(CMAKE_C_FLAGS_RELEASE "/MD /O2 /Ob2 /EHsc /D _CHECKS_DEFAULT"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
 	set(CMAKE_EXE_LINKER_FLAGS_RELEASE "/INCREMENTAL:NO"
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)
@@ -41,9 +41,9 @@ if(CMAKE_CONFIGURATION_TYPES)
 	set(CMAKE_STATIC_LINKER_FLAGS_RELEASE ""
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)
 		
-	set(CMAKE_CXX_FLAGS_PUBLISH "/MD /O2 /Ob2 /D _PUBLISH"
+	set(CMAKE_CXX_FLAGS_PUBLISH "/MD /O2 /Ob2 /EHsc /D _PUBLISH"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
-	set(CMAKE_C_FLAGS_PUBLISH "/MD /O2 /Ob2 /D _PUBLISH"
+	set(CMAKE_C_FLAGS_PUBLISH "/MD /O2 /Ob2 /EHsc /D _PUBLISH"
 		CACHE STRING "Flags used by the compiler during publish builds." FORCE)
 	set(CMAKE_EXE_LINKER_FLAGS_PUBLISH "/INCREMENTAL:NO"
 		CACHE STRING "Flags used by the linker during publish builds." FORCE)

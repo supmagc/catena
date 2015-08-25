@@ -18,6 +18,9 @@ define_component_library(Diamond 1 0)
 define_component_library(Wood 0 0)
 define_component_library(Wood_Windows 0 0)
 define_component_executable(Launcher ${CATENA_LAUNCHER_ALLINONE})
+define_boost_library(unit_test_framework)
+
+boost_init()
 
 add_subdirectory("Rock")
 add_subdirectory("Chalk")
@@ -43,3 +46,4 @@ install(DIRECTORY ${RESOURCES_DIR}/All/ CONFIGURATIONS Publish DESTINATION Publi
 install(DIRECTORY ${RESOURCES_DIR}/Debug/ CONFIGURATIONS Debug DESTINATION Debug/bin)
 install(DIRECTORY ${RESOURCES_DIR}/Release/ CONFIGURATIONS Release DESTINATION Release/bin)
 install(DIRECTORY ${RESOURCES_DIR}/Publish/ CONFIGURATIONS Publish DESTINATION Publish/bin)
+

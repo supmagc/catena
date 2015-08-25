@@ -363,7 +363,7 @@ String String::Format(char const* str, va_list args) {
     return sReturn;
 }
 
-String String::Format(String const& str, ...) {
+String String::Format(String const str, ...) {
     va_list args;
     va_start(args, str);
     String sReturn = String::Format(str.m_aData, args);

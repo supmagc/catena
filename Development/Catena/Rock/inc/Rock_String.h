@@ -17,6 +17,9 @@
 
 namespace Rock {
 
+	// Basic string class with some frequently used conversions
+	// Most of these methods are defines locally as they need access to 
+	// the none exposed private members of the class.
     class ROCK_API String {
     public:
         String();
@@ -101,16 +104,18 @@ namespace Rock {
         static String Format(String const& str, va_list args);
         static String Format(RCHAR const* str, va_list args);
         static String Format(char const* str, va_list args);
-        static String Format(String const& str, ...);
+        static String Format(String const str, ...); // no reference type as this breaks the variadic arguments
         static String Format(RCHAR const* str, ...);
         static String Format(char const* str, ...);
 
+		friend class StringBuilder;
+
     private:
-		RINT32 m_nCapacity;
 		RINT32 m_nLength;
         RCHAR* m_aData;
     };
 
+	// Inverse conversions
 #define _APPEND_STRING(t) \
     ROCK_API String operator+(t const& obj, String const& str); \
 
@@ -131,6 +136,7 @@ namespace Rock {
     _APPEND_STRING(RBOOL);
 #undef _APPEND_STRING
 
+	// Appending to streams
     ROCK_API std::ostream& operator<<(std::ostream & stream, String const& str);
     ROCK_API std::wostream& operator<<(std::wostream & stream, String const& str);
     ROCK_API std::istream& operator>>(std::istream & stream, String & str);

@@ -6,6 +6,7 @@
 #include "Rock_Checks.h"
 #include "Rock_Functions.h"
 #include "Rock_String.h"
+#include "Rock_StringBuilder.h"
 
 namespace Rock {
 

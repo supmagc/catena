@@ -21,5 +21,5 @@ set(CHALK_D3D9_FILES_SOURCE
 
 component_init()
 add_component("Chalk_D3d9" "Rock;Chalk" ${CHALK_D3D9_FILES_HEADER} ${CHALK_D3D9_FILES_SOURCE})
-add_component_dependency_extern("Chalk_D3d9" "" "d3d9")
-add_component_dependency_extern("Chalk_D3d9" "" "d3dcompiler")
+add_component_dependency_extern("Chalk_D3d9" "" "d3d9" "d3d9")
+add_component_dependency_extern("Chalk_D3d9" "" "d3dcompiler" "d3dcompiler")

@@ -5,6 +5,7 @@
 #include "Rock_Functions.h"
 #include "Rock_Types.h"
 #include "Rock_Checks.h"
+#include "Rock_Log.h"
 
 namespace Rock {
 
@@ -15,8 +16,8 @@ namespace Rock {
         public:
             Boxed() : m_pData(RNULL) {}
             ~Boxed() {
-                catOutputLog(RTXT("Allocator fress some meory !!"));
-                catMemFree(m_pData);
+				LOGCAT_DEBUG(RTXT("Allocator"), RTXT("Memory freed up !!"));
+				catMemFree(m_pData);
                 m_pData = RNULL;
             }
 
@@ -38,7 +39,7 @@ namespace Rock {
             ByType() : Boxed() {}
 
             ~ByType() {
-                catOutputLog(RTXT("Allocator frees some meory !!"));
+				LOGCAT_DEBUG(RTXT("Allocator"), RTXT("Memory freed up !!"));
             }
 
             INLINE ElementType* GetData() const {

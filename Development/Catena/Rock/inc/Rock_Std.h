@@ -8,6 +8,7 @@
 #include <cstdio>
 #include <cmath>
 #include <cwchar>
+#include <sstream>
 
 // Memory utilities
 #include <malloc.h>
