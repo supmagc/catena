@@ -4,21 +4,43 @@
 namespace Rock {
 
 #ifdef _WINDOWS
-    typedef signed char RINT8;
-    typedef unsigned char RUINT8;
-    typedef signed short RINT16;
-    typedef unsigned short RUINT16;
-    typedef signed int RINT32;
-    typedef unsigned int RUINT32;
-    typedef signed long RINT64;
-    typedef unsigned long RUINT64;
+    typedef int_least8_t RINT8;
+    typedef uint_least8_t RUINT8;
+    typedef int_least16_t RINT16;
+    typedef uint_least16_t RUINT16;
+    typedef int_least32_t RINT32;
+    typedef uint_least32_t RUINT32;
+    typedef int_least64_t RINT64;
+    typedef uint_least64_t RUINT64;
     typedef RINT32 RINT;
     typedef RUINT32 RUINT;
-    typedef unsigned char RBYTE;
+    typedef RUINT8 RBYTE;
     typedef wchar_t RCHAR;
     typedef float RFLOAT;
     typedef double RDOUBLE;
     typedef bool RBOOL;
+
+	const RINT8 RINT8_MIN = INT8_MIN; // Considered -(2^7-1)
+	const RINT8 RINT8_MAX = INT8_MAX; // Considered 2^7-1
+	const RUINT8 RUINT8_MAX = UINT8_MAX; // Considered 2^2-1
+	const RINT16 RINT16_MIN = SHRT_MIN; // Considered -(2^15-1)
+	const RINT16 RINT16_MAX = SHRT_MAX; // Considered 2^15-1
+	const RUINT16 RUINT16_MAX = USHRT_MAX; // Considered 2^16-1
+	const RINT32 RINT32_MIN = LONG_MIN; // Considered -(2^31-1)
+	const RINT32 RINT32_MAX = LONG_MAX; // Considered 2^31-1
+	const RUINT32 RUINT32_MAX = ULONG_MAX; // Considered 2^32-1
+	const RINT64 RINT64_MIN = LLONG_MIN; // Considered -(2^63-1)
+	const RINT64 RINT64_MAX = LLONG_MAX; // Considered 2^63-1
+	const RUINT64 RUINT64_MAX = ULLONG_MAX; // Considered 2^64-1
+
+	const RFLOAT RFLOAT_MIN = FLT_MIN; // Considered 1E-37 or greater
+	const RFLOAT RFLOAT_MAX = FLT_MAX; // Considered 1E+37 or greater
+	const RDOUBLE RDOUBLE_MIN = DBL_MIN; // Considered 1E+37 or smaller
+	const RDOUBLE RDOUBLE_MAX = DBL_MAX; // Considered 1E-37 or smaller
+	const RFLOAT RFLOAT_EPSILON = FLT_EPSILON; // considered 1E-5 or smaller
+	const RFLOAT RDOUBLE_EPSILON = DBL_EPSILON; // considered 1E-9 or smaller
+	const RUINT8 RFLOAT_DIGITS = FLT_DIG; // considered 6 or greater
+	const RUINT8 RDOUBLE_DIGITS = DBL_DIG; // considered 10 or greater
 
 #ifndef _SWIG
     #ifdef _WIN32

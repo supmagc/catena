@@ -40,7 +40,7 @@
 #endif
 
 // Math defines
-#define E        2.71828182845904523536
+// #define E        2.71828182845904523536
 #define PI       3.14159265358979323846
 #define DEG2RAD  (PI / 180.0)
 #define RAD2DEG  (180.0 / PI)

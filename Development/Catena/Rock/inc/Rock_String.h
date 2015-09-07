@@ -108,6 +108,8 @@ namespace Rock {
         static String Format(RCHAR const* str, ...);
         static String Format(char const* str, ...);
 
+		// This allows the StringBuilder to directly change the internals
+		// and thus to reserve the entire expected length
 		friend class StringBuilder;
 
     private:

@@ -46,6 +46,7 @@ endfunction()
 
 function(install_component COMP_NAME_FULL)
 	if(${COMP_NAME_FULL} MATCHES "TestDriver$")
+	message(STATUS "-- Creating install for ${COMP_NAME_FULL}")
 		install(TARGETS ${COMP_NAME_FULL}
 			CONFIGURATIONS Debug
 			DESTINATION Debug/tests
@@ -104,6 +105,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 				${CMAKE_CURRENT_BINARY_DIR}/${COMP_NAME}.vcxproj.user
 			)
 		endif()
+		set_target_properties(${COMP_NAME} PROPERTIES FOLDER ${COMP_NAME})
 		target_include_directories(${COMP_NAME} PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME} inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
 		install_component(${COMP_NAME})
@@ -112,6 +114,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 	if(${COMP_NAME_UPPER}_BUILD_STATIC)
 		message(STATUS "Building ${COMP_NAME} as static library.")
 		add_library(${COMP_NAME}_Lib STATIC ${COMP_FILES_BUILD})
+		set_target_properties(${COMP_NAME}_Lib PROPERTIES FOLDER ${COMP_NAME})
 		target_include_directories(${COMP_NAME}_Lib PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Lib inc/${COMP_NAME}_Std.h src/Std.cpp "" ${COMP_FILES_TEST})
 		install_component(${COMP_NAME}_Lib)
@@ -130,6 +133,7 @@ function(add_component COMP_NAME COMP_DEPS COMP_FILES)
 			list(APPEND COMP_FILES_BUILD "swig/${COMP_NAME_LOWER}_swig_wrap.cxx")
 		endif()
 		add_library(${COMP_NAME}_Shared SHARED ${COMP_FILES_BUILD})
+		set_target_properties(${COMP_NAME}_Shared PROPERTIES FOLDER ${COMP_NAME})
 		target_include_directories(${COMP_NAME}_Shared PUBLIC ${${COMP_NAME_UPPER}_INCLUDE_DIR})
 		target_precompiled_header(${COMP_NAME}_Shared inc/${COMP_NAME}_Std.h src/Std.cpp "swig/${COMP_NAME_LOWER}_swig_wrap.cxx" ${COMP_FILES_TEST})
 		if(EXISTS "${SWIG_INTERFACE}")
@@ -202,16 +206,21 @@ function(add_component_dependencies COMP_NAME COMP_DEPS)
 endfunction()
 
 function(add_component_test COMP_NAME COMP_FILES)
-	message(STATUS "Building ${COMP_NAME}_TestDriver as test executable for ${COMP_NAME}.")
+	message(STATUS "Building ${COMP_NAME}_Test as test executable for ${COMP_NAME}.")
 	
-	add_executable(${COMP_NAME}_TestDriver ${COMP_FILES})
-	target_include_directories(${COMP_NAME}_TestDriver PRIVATE "${BOOST_INCLUDEDIR}")
-	target_link_libraries(${COMP_NAME}_TestDriver PRIVATE optimized ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE})
-	target_link_libraries(${COMP_NAME}_TestDriver PRIVATE debug ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG})
-	target_link_libraries(${COMP_NAME}_TestDriver PRIVATE ${COMP_NAME}_Lib)
-	
-	add_test(${COMP_NAME}_TestRunner ${COMP_NAME}_TestDriver)
-	install_component(${COMP_NAME}_TestDriver)
+	add_executable(${COMP_NAME}_Test ${COMP_FILES})
+	set_target_properties(${COMP_NAME}_Test PROPERTIES FOLDER ${COMP_NAME})
+	target_include_directories(${COMP_NAME}_Test PRIVATE "${BOOST_INCLUDEDIR}")
+	target_link_libraries(${COMP_NAME}_Test PRIVATE optimized ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE})
+	target_link_libraries(${COMP_NAME}_Test PRIVATE debug ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG})
+	target_link_libraries(${COMP_NAME}_Test PRIVATE ${COMP_NAME}_Lib)
+
+	enable_testing()
+	add_test(${COMP_NAME}_Test ${COMP_NAME}_Test "--log_level=message")
+	add_custom_command(TARGET ${COMP_NAME}_Test
+		POST_BUILD
+		COMMAND ${COMP_NAME}_Test
+		COMMENT "Running ${COMP_NAME}_Test" VERBATIM)
 endfunction()
 
 function(add_component_dependency_extern COMP_NAME DEP_INCLUDE DEP_LIBRARY_DEBUG DEP_LIBRARY_RELEASE)

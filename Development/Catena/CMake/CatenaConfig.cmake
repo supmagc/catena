@@ -85,3 +85,4 @@ endif()
 set(SWIG_BIN "${SWIG_DIR}/swig.exe")
 set(CMAKE_INSTALL_PREFIX ${CATENA_OUTPUT_DIR})
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)

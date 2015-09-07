@@ -18,7 +18,7 @@ String::String() : m_nLength(1), m_aData(NULL) {
 String::String(char const* str) : m_nLength(0), m_aData(NULL) {
     m_nLength = strlen(str) + 1;
     m_aData = new RCHAR[m_nLength];
-    MultiByteToWideChar(CP_UTF8, 0, str, m_nLength, m_aData, m_nLength);
+    MultiByteToWideChar(CP_ACP, 0, str, m_nLength, m_aData, m_nLength);
 }
 
 String::String(RCHAR const* str) : m_nLength(0), m_aData(NULL) {
@@ -94,18 +94,18 @@ String::String(RUINT64 const obj) : m_nLength(0), m_aData(NULL) {
 
 String::String(RFLOAT const obj) : m_nLength(0), m_aData(NULL) {
     char tmp[_CVTBUFSIZE];
-    _gcvt_s(tmp, _CVTBUFSIZE, obj, 40);
+    _gcvt_s(tmp, _CVTBUFSIZE, obj, RFLOAT_DIGITS);
     m_nLength = strlen(tmp) + 1;
     m_aData = new RCHAR[m_nLength];
-    MultiByteToWideChar(CP_UTF8, 0, tmp, m_nLength, m_aData, m_nLength);
+    MultiByteToWideChar(CP_ACP, 0, tmp, m_nLength, m_aData, m_nLength);
 }
 
 String::String(RDOUBLE const obj) : m_nLength(0), m_aData(NULL) {
     char tmp[_CVTBUFSIZE];
-    _gcvt_s(tmp, _CVTBUFSIZE, obj, 40);
+    _gcvt_s(tmp, _CVTBUFSIZE, obj, RDOUBLE_DIGITS);
     m_nLength = strlen(tmp) + 1;
     m_aData = new RCHAR[m_nLength];
-    MultiByteToWideChar(CP_UTF8, 0, tmp, m_nLength, m_aData, m_nLength);
+    MultiByteToWideChar(CP_ACP, 0, tmp, m_nLength, m_aData, m_nLength);
 }
 
 String::String(RBOOL const obj) : m_nLength(obj ? 2 : 1), m_aData(NULL) {
