@@ -219,7 +219,7 @@ function(add_component_test COMP_NAME COMP_FILES)
 	add_test(${COMP_NAME}_Test ${COMP_NAME}_Test "--log_level=message")
 	add_custom_command(TARGET ${COMP_NAME}_Test
 		POST_BUILD
-		COMMAND ${COMP_NAME}_Test
+		COMMAND ${COMP_NAME}_Test ARGS "--log_level=message"
 		COMMENT "Running ${COMP_NAME}_Test" VERBATIM)
 endfunction()
 

@@ -22,8 +22,8 @@ namespace Rock {
     ROCK_API void catPostQuitMessage(RINT nCode);
 
     // Memory stuff, small and used frequently
-    ROCK_API INLINE RBOX catMemAlloc(RUINT nSize, RUINT nAlignment);
-    ROCK_API INLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize, RUINT nAlignment);
+    ROCK_API INLINE RBOX catMemAlloc(RUINT nSize);
+    ROCK_API INLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize);
     ROCK_API INLINE void catMemFree(RBOX pAdress);
     ROCK_API INLINE void catMemCopy(RCBOX pSrc, RBOX pDst, RUINT nLength);
     ROCK_API INLINE void catMemMove(RCBOX pSrc, RBOX pDst, RUINT nLength);

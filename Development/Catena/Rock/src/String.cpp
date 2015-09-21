@@ -1,6 +1,7 @@
 
 #include "Rock_Std.h"
 #include "Rock_String.h"
+#include "Rock_Functions.h"
 
 #include <cstring>
 #include <cstdlib>
@@ -167,7 +168,14 @@ RBOOL String::ToBool() const {
     return m_aData[0] != 0;
 }
 
-RINT32 const String::GetLength() const {
+RUINT32 String::ToBytes(RBYTE* sBytes, RUINT nLength) const {
+	if (nLength > m_nLength) {
+		catMemZero(sBytes + m_nLength, nLength - m_nLength);
+	}
+	return WideCharToMultiByte(CP_ACP, 0, m_aData, m_nLength, sBytes, nLength, RNULL, RNULL);
+}
+
+RUINT32 const String::GetLength() const {
     return m_nLength - 1;
 }
 
@@ -175,18 +183,25 @@ RCHAR const* String::GetData() const {
     return m_aData;
 }
 
-String String::SubString(RINT32 nStart) const {
-    if(nStart < 0) nStart = 0;
+String String::SubString(RUINT32 nStart) const {
     if(nStart > GetLength()) return String();
     return String(m_aData + nStart);
 }
 
-String String::SubString(RINT32 nStart, RINT32 nLength) const {
-    if(nStart < 0) nStart = 0;
-    if(nStart + nLength > GetLength()) return SubString(nStart);
-    String tmp = *this;
-    tmp.m_aData[nStart + nLength] = 0;
-    return String(tmp.m_aData + nStart);
+String String::SubString(RUINT32 nStart, RUINT32 nLength) const {
+	if (nStart + nLength >= GetLength()) {
+		return SubString(nStart);
+	}
+    String tmp;
+	if (nLength <= 0) {
+		return tmp;
+	}
+	SAFE_DELETE_ARRAY(tmp.m_aData);
+	tmp.m_nLength = nLength + 1;
+	tmp.m_aData = new RCHAR[tmp.m_nLength];
+	tmp.m_aData[tmp.m_nLength - 1] = 0;
+	catMemCopy(m_aData + nStart, tmp.m_aData, nLength * RCHAR_SIZE);
+    return tmp;
 }
 
 String String::ToUpper() const {
@@ -202,11 +217,11 @@ String String::ToLower() const {
 }
 
 String String::Trim() const {
-    RINT32 begin = 0;
-    RINT32 end = GetLength() - 1;
-    while((m_aData[begin] == L' ' || m_aData[begin] == L'\r' || m_aData[begin] == L'\n') && m_aData[begin] != 0) ++begin;
-    while((m_aData[end] == L' ' || m_aData[end] == L'\r' || m_aData[end] == L'\n') && end > begin) --end;
-    return SubString(begin, end - begin + 1);
+    RUINT32 begin = 0;
+    RUINT32 end = m_nLength - 1;
+    while(iswspace(m_aData[begin]) && begin < end) ++begin;
+    while(iswspace(m_aData[end-1]) && end > begin) --end;
+	return SubString(begin, end - begin);
 }
 
 String& String::operator=(String const& str) {
@@ -263,7 +278,7 @@ RINT32 String::IndexOf(String const& str) const {
             nSearchIndex = 0;
         }
         else if(nSearchIndex == str.GetLength()) {
-            return nSourceIndex;
+            return nSourceIndex - str.GetLength();
         }
     }
     return -1;
@@ -279,7 +294,7 @@ String String::Replace(String const& search, String const& replace) const {
             nSearchLength = 0;
         }
         else if(nSearchLength == search.GetLength()) {
-            ret += SubString(nSourceOffset, nSourceLength - 1) + replace;
+            ret += SubString(nSourceOffset, nSourceLength - search.GetLength()) + replace;
             nSourceOffset += nSourceLength;
             nSourceLength = 0;
             nSearchLength = 0;
@@ -295,9 +310,6 @@ RCHAR const* String::operator*() const {
 #define _STRING_APPEND(t) \
     String& String::operator=(t const& obj) {return operator=(String(obj));} \
     String& String::operator+=(t const& obj) {return operator+=(String(obj));} \
-    String String::operator+(t const& obj) const {return operator+(String(obj));} \
-    RBOOL String::operator==(t const& obj) const {return operator==(String(obj));} \
-    RBOOL String::operator!=(t const& obj) const {return operator!=(String(obj));} \
     RBOOL String::BeginsWith(t const& obj) const {return BeginsWith(String(obj));} \
     RBOOL String::EndsWith(t const& obj) const {return EndsWith(String(obj));} \
     RINT32 String::IndexOf(t const& obj) const {return IndexOf(String(obj));} \
@@ -306,9 +318,9 @@ RCHAR const* String::operator*() const {
     String String::Replace(t const& search, t const& replace) const {return Replace(String(search), String(replace));} \
         
     _STRING_APPEND(RCHAR);
-    _STRING_APPEND(char);
+    _STRING_APPEND(RBYTE);
     _STRING_APPEND(RCHAR const*);
-    _STRING_APPEND(char const*);
+    _STRING_APPEND(RBYTE const*);
     _STRING_APPEND(RINT8);
     _STRING_APPEND(RUINT8);
     _STRING_APPEND(RINT16);
@@ -324,11 +336,16 @@ RCHAR const* String::operator*() const {
 
 #define _APPEND_STRING(t) \
     ROCK_API String Rock::operator+(t const& obj, String const& str) {return String(obj) + str;} \
+    ROCK_API RBOOL Rock::operator==(t const& obj, String const& str) {return String(obj) == str;} \
+    ROCK_API RBOOL Rock::operator!=(t const& obj, String const& str) {return String(obj) != str;} \
+    ROCK_API String Rock::operator+(String const& str, t const& obj) {return str + String(obj);} \
+    ROCK_API RBOOL Rock::operator==(String const& str, t const& obj) {return str == String(obj);} \
+    ROCK_API RBOOL Rock::operator!=(String const& str, t const& obj) {return str != String(obj);} \
 
     _APPEND_STRING(RCHAR);
-    _APPEND_STRING(char);
+    _APPEND_STRING(RBYTE);
     _APPEND_STRING(RCHAR const*);
-    _APPEND_STRING(char const*);
+    _APPEND_STRING(RBYTE const*);
     _APPEND_STRING(RINT8);
     _APPEND_STRING(RUINT8);
     _APPEND_STRING(RINT16);
@@ -347,16 +364,17 @@ String String::Format(String const& str, va_list args) {
 }
 
 String String::Format(RCHAR const* str, va_list args) {
-    String sReturn;
-    sReturn.m_nLength = _vscwprintf(str, args) + 1;
-    sReturn.m_aData = (RCHAR*)malloc(sizeof(RCHAR) * sReturn.m_nLength);
-    vswprintf_s(sReturn.m_aData, sReturn.m_nLength, str, args);
+    RUINT nLength = _vscwprintf(str, args) + 1;
+	RCHAR* aBuffer = (RCHAR*)malloc(nLength * RCHAR_SIZE);
+    vswprintf_s(aBuffer, nLength, str, args);
+	String sReturn(aBuffer);
+	SAFE_DELETE_ARRAY(aBuffer);
     return sReturn;
 }
 
-String String::Format(char const* str, va_list args) {
-    RINT nLength = _vscprintf(str, args) + 1;
-    char* aBuffer = (char*)malloc(nLength);
+String String::Format(RBYTE const* str, va_list args) {
+    RUINT nLength = _vscprintf(str, args) + 1;
+    RBYTE* aBuffer = (char*)malloc(nLength);
     vsprintf_s(aBuffer, nLength, str, args);
     String sReturn = String(aBuffer);
     SAFE_DELETE_ARRAY(aBuffer);
@@ -379,7 +397,7 @@ String String::Format(RCHAR const* str, ...) {
     return sReturn;
 }
 
-String String::Format(char const* str, ...) {
+String String::Format(RBYTE const* str, ...) {
     va_list args;
     va_start(args, str);
     String sReturn = String::Format(str, args);
@@ -388,7 +406,11 @@ String String::Format(char const* str, ...) {
 }
 
 ROCK_API std::ostream& Rock::operator<<(std::ostream & stream, String const& str) {
-    stream << str.GetData();
+	RUINT nLength = str.GetLength() + 1;
+	RBYTE* aBuffer = (RBYTE*)catMemAlloc(nLength);
+	str.ToBytes(aBuffer, nLength);
+    stream << aBuffer;
+	SAFE_DELETE_ARRAY(aBuffer);
     return stream;
 }
 

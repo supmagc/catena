@@ -14,9 +14,9 @@ namespace Rock {
     typedef uint_least64_t RUINT64;
     typedef RINT32 RINT;
     typedef RUINT32 RUINT;
-    typedef RUINT8 RBYTE;
-    typedef wchar_t RCHAR;
-    typedef float RFLOAT;
+    typedef char RBYTE;
+	typedef wchar_t RCHAR;
+	typedef float RFLOAT;
     typedef double RDOUBLE;
     typedef bool RBOOL;
 

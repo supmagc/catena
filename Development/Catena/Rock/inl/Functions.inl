@@ -1,9 +1,9 @@
 
-ROCK_API INLINE RBOX catMemAlloc(RUINT nSize, RUINT nAlignment) {
+ROCK_API INLINE RBOX catMemAlloc(RUINT nSize) {
     return malloc(nSize);
 }
 
-ROCK_API INLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize, RUINT nAlignment) {
+ROCK_API INLINE RBOX catMemRealloc(RBOX pAdress, RUINT nSize) {
     return realloc(pAdress, nSize);
 }
 

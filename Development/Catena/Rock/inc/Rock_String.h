@@ -23,9 +23,9 @@ namespace Rock {
     class ROCK_API String {
     public:
         String();
-        String(char const* str);
+        String(RBYTE const* str);
         String(RCHAR const* str);
-        String(char const str);
+        String(RBYTE const str);
         String(RCHAR const str);
         String(String const& obj);
         String(RINT8 const obj);
@@ -52,31 +52,29 @@ namespace Rock {
         RFLOAT ToFloat() const;
         RDOUBLE ToDouble() const;
         RBOOL ToBool() const;
+		RUINT32 ToBytes(RBYTE* sBytes, RUINT nLength) const;
 
-        RINT32 const GetLength() const;
+        RUINT32 const GetLength() const;
         RCHAR const* GetData() const;
-        String SubString(RINT32 nStart) const;
-        String SubString(RINT32 nStart, RINT32 nLength) const;
+        String SubString(RUINT32 nStart) const;
+        String SubString(RUINT32 nStart, RUINT32 nLength) const;
         String ToUpper() const;
         String ToLower() const;
         String Trim() const;
-        String& operator=(String const& str);
-        String& operator+=(String const& str);
-        String operator+(String const& str) const;
-        RBOOL operator==(String const& str) const;
-        RBOOL operator!=(String const& str) const;
         RBOOL BeginsWith(String const& str) const;
         RBOOL EndsWith(String const& str) const;
         RINT32 IndexOf(String const& str) const;
         String Replace(String const& search, String const& replace) const;
+		String& operator=(String const& str);
+        String& operator+=(String const& str);
+        String operator+(String const& str) const;
+        RBOOL operator==(String const& str) const;
+        RBOOL operator!=(String const& str) const;
         RCHAR const* operator*() const;
 
 #define _STRING_APPEND(t) \
         String& operator=(t const& obj); \
         String& operator+=(t const& obj); \
-        String operator+(t const& obj) const; \
-        RBOOL operator==(t const& obj) const; \
-        RBOOL operator!=(t const& obj) const; \
         RBOOL BeginsWith(t const& obj) const; \
         RBOOL EndsWith(t const& obj) const; \
         RINT32 IndexOf(t const& obj) const; \
@@ -85,9 +83,9 @@ namespace Rock {
         String Replace(t const& search, t const& replace) const; \
         
         _STRING_APPEND(RCHAR);
-        _STRING_APPEND(char);
+        _STRING_APPEND(RBYTE);
         _STRING_APPEND(RCHAR const*);
-        _STRING_APPEND(char const*);
+        _STRING_APPEND(RBYTE const*);
         _STRING_APPEND(RINT8);
         _STRING_APPEND(RUINT8);
         _STRING_APPEND(RINT16);
@@ -103,28 +101,33 @@ namespace Rock {
 
         static String Format(String const& str, va_list args);
         static String Format(RCHAR const* str, va_list args);
-        static String Format(char const* str, va_list args);
+        static String Format(RBYTE const* str, va_list args);
         static String Format(String const str, ...); // no reference type as this breaks the variadic arguments
         static String Format(RCHAR const* str, ...);
-        static String Format(char const* str, ...);
+        static String Format(RBYTE const* str, ...);
 
 		// This allows the StringBuilder to directly change the internals
 		// and thus to reserve the entire expected length
 		friend class StringBuilder;
 
     private:
-		RINT32 m_nLength;
+		RUINT32 m_nLength;
         RCHAR* m_aData;
     };
 
 	// Inverse conversions
 #define _APPEND_STRING(t) \
     ROCK_API String operator+(t const& obj, String const& str); \
+    ROCK_API RBOOL operator==(t const& obj, String const& str); \
+    ROCK_API RBOOL operator!=(t const& obj, String const& str); \
+    ROCK_API String operator+(String const& str, t const& obj); \
+    ROCK_API RBOOL operator==(String const& str, t const& obj); \
+    ROCK_API RBOOL operator!=(String const& str, t const& obj); \
 
     _APPEND_STRING(RCHAR);
-    _APPEND_STRING(char);
+    _APPEND_STRING(RBYTE);
     _APPEND_STRING(RCHAR const*);
-    _APPEND_STRING(char const*);
+    _APPEND_STRING(RBYTE const*);
     _APPEND_STRING(RINT8);
     _APPEND_STRING(RUINT8);
     _APPEND_STRING(RINT16);

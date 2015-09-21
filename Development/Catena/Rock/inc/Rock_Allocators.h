@@ -22,7 +22,7 @@ namespace Rock {
             }
 
             INLINE void Resize(RUINT nOldCount, RUINT nNewCount, RUINT nElementSize) {
-                m_pData = catMemRealloc(m_pData, nNewCount*nElementSize, DEFAULT_ALIGNMENT);
+				m_pData = catMemRealloc(m_pData, nNewCount*nElementSize); //, DEFAULT_ALIGNMENT);
             }
 
             INLINE RBOX GetData() const {
